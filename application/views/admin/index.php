@@ -24,7 +24,7 @@
                         <div class="text-muted">Teachers</div>
                     </div>
                 </div>
-                <a href="{{URL::to('user/addproduct')}}">
+                <a href="<?= site_url()?>admin/teacher_view">
                     <div class="panel-footer">
                         <span class="pull-left">Click Here To View</span>
                         <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -46,7 +46,7 @@
                         <div class="text-muted">Students</div>
                     </div>
                 </div>
-                <a href="{{URL::to('user/addproduct')}}">
+                <a href="<?= site_url()?>admin/student_view">
                     <div class="panel-footer">
                         <span class="pull-left">Click Here To View</span>
                         <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -67,7 +67,7 @@
                         <div class="text-muted">Visitor</div>
                     </div>
                 </div>
-                <a href="{{URL::to('user/addproduct')}}">
+                <a href="<?= site_url()?>admin">
                     <div class="panel-footer">
                         <span class="pull-left">Click Here To View</span>
                         <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>

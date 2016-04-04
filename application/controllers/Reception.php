@@ -29,31 +29,43 @@ class Reception extends CI_Controller {
         $description = $this->input->post('description');
         $created_date = mdate("%y-%m-%d");
 
-        $insert_user_table = $this->db->insert('users',
-            [
-                'name' => $visitor_name,
-                'f_name' => $father_name,
-                'age' => $age,
-                'qualification' => $qualification,
-                'nationality' => $nationality,
-                'email' => $email,
-                'contact' => $contact,
-                'address' => $address,
-                'description' => $description,
-                'created_at' => $created_date
-            ]
+        $this->db->where('email', $email);
+        $this->db->or_where('contact', $contact);
+        $query = $this->db->get('users');
+        $obj = $query->result();
+
+        if(empty($obj)) {
+            $insert_user_table = $this->db->insert('users',
+                [
+                    'name' => $visitor_name,
+                    'f_name' => $father_name,
+                    'age' => $age,
+                    'nationality' => $nationality,
+                    'email' => $email,
+                    'contact' => $contact,
+                    'address' => $address,
+                    'description' => $description,
+                    'created_at' => $created_date
+                ]
             );
-        $fkuser_id = $this->db->insert_id();
+            $fkuser_id = $this->db->insert_id();
+        }
+        else
+        {
+            $fkuser_id = $obj[0]->id;
+        }
         $insert_visitor_table = $this->db->insert('visitor',
             [
                 'fkuser_id' => $fkuser_id,
                 'profession' => $profession,
-                'g_number' => $guardian_number,
+                'qualification' => $qualification,
+                'guardian_number' => $guardian_number,
                 'courses' => $desire_courses,
                 'description' => $description,
                 'created_at' => $created_date
             ]
             );
+        redirect(site_url().'reception');
     }
 
     //................... visitor form end ..............
