@@ -23,17 +23,18 @@
                     <table data-toggle="table" data-show-refresh="true" data-search="true" data-select-item-name="toolbar1" data-pagination="true" data-sort-name="name" data-sort-order="desc">
                         <thead>
                         <tr>
-                            <th  data-sortable="true">S/NO</th>
-                            <th  data-sortable="true">Name</th>
-                            <th  data-sortable="true">Father Name</th>
-                            <th  data-sortable="true">Reg No</th>
-                            <th  data-sortable="true">Contact</th>
-                            <th  data-sortable="true">Email</th>
-                            <th  data-sortable="true">Pre-Degree</th>
-                            <th  data-sortable="true">Courses</th>
-                            <th  data-sortable="true">Age</th>
-                            <th  data-sortable="true">Address</th>
-                            <th  data-sortable="true">Nationality</th>
+                            <th  data-sortable="true"><b>S/NO</b></th>
+                            <th  data-sortable="true"><b>Name</b></th>
+                            <th  data-sortable="true"><b>Father Name</b></th>
+                            <th  data-sortable="true"><b>Reg No</b></th>
+                            <th  data-sortable="true"><b>Contact</b></th>
+                            <th  data-sortable="true"><b>Email</b></th>
+                            <th  data-sortable="true"><b>Pre-Degree</b></th>
+                            <th  data-sortable="true"><b>Courses</b></th>
+                            <th  data-sortable="true"><b>Age</b></th>
+                            <th  data-sortable="true"><b>Address</b></th>
+                            <th  data-sortable="true"><b>Nationality</b></th>
+                            <th  colspan="2"><b>Actions</b></th>
                         </tr>
                         </thead>
                         <tbody>
@@ -50,6 +51,13 @@
                             <td><?=$array->age?></td>
                             <td><?=$array->address?></td>
                             <td><?=$array->nationality?></td>
+                            <td>
+                                <a href="<?= site_url()?>admin/student_edit/<?= $array->s_id ?>" type="button" class="btn btn-primary btn-outline margin">Edit</a>
+                            </td>
+                            <td>
+                                <a href="<?= site_url()?>admin/student_delete/<?= $array->s_id ?>/<?= $array->u_id ?>" type="button" class="btn btn-primary btn-outline margin">Delete</a>
+
+                            </td>
                         </tr>
                         <?php } ?>
                         </tbody>

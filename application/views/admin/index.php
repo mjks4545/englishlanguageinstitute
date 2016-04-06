@@ -67,7 +67,7 @@
                         <div class="text-muted">Visitor</div>
                     </div>
                 </div>
-                <a href="<?= site_url()?>admin">
+                <a href="<?= site_url()?>admin/visitor_view">
                     <div class="panel-footer">
                         <span class="pull-left">Click Here To View</span>
                         <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
