@@ -102,7 +102,7 @@ class Admin extends CI_Controller {
         } else {
             $fkuser_id = $obj[0]->id;
         }
-        $insert_user_table = $this->db->insert('student',
+        $insert_student_table = $this->db->insert('student',
             [
                 'fkuser_id' => $fkuser_id,
                 'reg_number' => $reg_number,

@@ -50,10 +50,10 @@
                                 <td><?=$array->nationality?></td>
                                 <td><?=$array->status?></td>
                                 <td>
-                                    <a href="<?= site_url()?>admin/visitor_edit/<?= $array->v_id ?>" type="button" class="btn btn-primary btn-outline margin">Edit</a>
+                                    <a href="<?= site_url()?>admin/visitor_edit/<?= $array->v_id ?>" type="button" class="btn btn-primary glyphicon glyphicon-edit btn-outline margin"> Edit</a>
                                 </td>
                                 <td>
-                                    <a href="<?= site_url()?>admin/visitor_delete/<?= $array->v_id ?>/<?= $array->u_id ?>" type="button" class="btn btn-primary btn-outline margin">Delete</a>
+                                    <a href="<?= site_url()?>admin/visitor_delete/<?= $array->v_id ?>/<?= $array->u_id ?>" type="button" class="btn btn-primary glyphicon glyphicon-trash btn-outline margin"> Delete</a>
 
                                 </td>
 

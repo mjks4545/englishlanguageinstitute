@@ -17,34 +17,59 @@
                     </a>
                 </li>
                 <li>
-                    <a class="" href="<?= site_url()?>reception">
+                    <a  href="<?= site_url()?>reception">
                         <span class="glyphicon glyphicon-user"></span> Receptionist
                     </a>
                 </li>
                 <li>
-                    <a class="" href="<?= site_url()?>admin">
+                    <a  href="<?= site_url()?>admin">
                         <span class="glyphicon glyphicon-user"></span> Admin
                     </a>
                 </li>
                 <li>
-                    <a class="" href="#">
+                    <a  href="#">
                         <span class="glyphicon glyphicon-user"></span> Visitor
                     </a>
                 </li>
                 <li>
-                    <a class="" href="#">
+                    <a  href="#">
                         <span class="glyphicon glyphicon-user"></span> Student
                     </a>
                 </li>
                 <li>
-                    <a class="" href="#">
+                    <a  href="#">
                         <span class="glyphicon glyphicon-user"></span> Teacher
                     </a>
                 </li>
 
             </ul>
+            <a href="#">
+                <span class="glyphicon glyphicon-user"></span>Applications<span data-toggle="collapse" href="#sub-item-1" class="icon pull-right"><em class="glyphicon glyphicon-s glyphicon-plus"></em></span>
+            </a>
+            <ul class="children" id="sub-item-2">
+                <li>
+                    <a  href="<?= site_url()?>applications/class_time_change">
+                        <span class="glyphicon glyphicon-share-alt"></span> Class Time Change
+                    </a>
+                </li>
+                <li>
+                    <a  href="<?= site_url()?>applications/freeze_up">
+                        <span class="glyphicon glyphicon-share-alt"></span> Freeze Up
+                    </a>
+                </li>
+                <li>
+                    <a  href="<?= site_url()?>applications/class_promotion">
+                        <span class="glyphicon glyphicon-share-alt"></span> Class Promotion
+                    </a>
+                </li>
+            </ul>
+
         </li>
-        <li><a href="widgets.html"><span class="glyphicon glyphicon-th"></span> Widgets</a></li>
+        <li>
+            <a href="<?= site_url()?>accountsection/student_registration">
+                <span class="glyphicon glyphicon-th"></span> Account Section
+            </a>
+        </li>
         <li><a href="charts.html"><span class="glyphicon glyphicon-stats"></span> Charts</a></li>
         <li><a href="tables.html"><span class="glyphicon glyphicon-list-alt"></span> Tables</a></li>
         <li><a href="forms.html"><span class="glyphicon glyphicon-pencil"></span> Forms</a></li>

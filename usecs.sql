@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 06, 2016 at 08:37 AM
+-- Generation Time: Apr 07, 2016 at 09:06 AM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -90,6 +90,24 @@ CREATE TABLE IF NOT EXISTS `attendance` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `courses`
+--
+
+CREATE TABLE IF NOT EXISTS `courses` (
+  `c_id` int(11) NOT NULL,
+  `course_name` varchar(255) NOT NULL,
+  `course_duration` varchar(255) NOT NULL,
+  `starting_date` varchar(255) NOT NULL,
+  `ending_date` varchar(255) NOT NULL,
+  `created_at` varchar(255) NOT NULL,
+  `updated_at` varchar(255) NOT NULL,
+  `created_by` varchar(255) NOT NULL,
+  `description` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `director`
 --
 
@@ -128,18 +146,18 @@ CREATE TABLE IF NOT EXISTS `notification` (
 --
 
 CREATE TABLE IF NOT EXISTS `payment` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `fkuser_id` int(11) NOT NULL,
-  `admin_id` int(11) NOT NULL,
-  `total_amount` varchar(255) NOT NULL,
-  `payable_amount` varchar(255) NOT NULL,
-  `remianing_amount` varchar(255) NOT NULL,
-  `description` varchar(255) NOT NULL,
+  `p_id` int(11) NOT NULL,
+  `admission_fee` varchar(255) NOT NULL,
+  `monthly_fee` varchar(255) NOT NULL,
+  `recieved_fee` varchar(255) NOT NULL,
+  `remaining_fee` varchar(255) NOT NULL,
+  `recieved_date` varchar(255) NOT NULL,
+  `next_fee_date` varchar(255) NOT NULL,
   `created_at` varchar(255) NOT NULL,
   `updated_at` varchar(255) NOT NULL,
   `created_by` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `description` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -184,8 +202,10 @@ CREATE TABLE IF NOT EXISTS `student` (
   `fkuser_id` int(11) NOT NULL,
   `reg_number` int(11) NOT NULL,
   `guardian_number` varchar(255) NOT NULL,
-  `pre_degree` varchar(255) NOT NULL,
+  `qualification` varchar(255) NOT NULL,
+  `profession` varchar(255) NOT NULL,
   `courses` varchar(255) NOT NULL,
+  `class_timing` varchar(255) NOT NULL,
   `description` varchar(255) NOT NULL,
   `created_at` varchar(255) NOT NULL,
   `updated_at` varchar(255) NOT NULL,
@@ -197,9 +217,9 @@ CREATE TABLE IF NOT EXISTS `student` (
 -- Dumping data for table `student`
 --
 
-INSERT INTO `student` (`s_id`, `fkuser_id`, `reg_number`, `guardian_number`, `pre_degree`, `courses`, `description`, `created_at`, `updated_at`, `created_by`) VALUES
-(8, 16, 33, '456789', 'bsc', 'English Language', 'something', '16-04-05', '16-04-05', ''),
-(9, 17, 44, '445566', 'bs', 'cs', 'aaksgkagsfa', '16-04-05', '', '');
+INSERT INTO `student` (`s_id`, `fkuser_id`, `reg_number`, `guardian_number`, `qualification`, `profession`, `courses`, `class_timing`, `description`, `created_at`, `updated_at`, `created_by`) VALUES
+(8, 16, 33, '456789', 'bsc', '', 'English Language', '', 'something', '16-04-05', '16-04-05', ''),
+(9, 17, 44, '445566', 'bs', '', 'cs', '', 'aaksgkagsfa', '16-04-05', '', '');
 
 -- --------------------------------------------------------
 
@@ -219,7 +239,7 @@ CREATE TABLE IF NOT EXISTS `teacher` (
   `updated_at` varchar(255) NOT NULL,
   `created_by` varchar(255) NOT NULL,
   PRIMARY KEY (`t_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `teacher`
@@ -304,7 +324,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `updated_at` varchar(255) NOT NULL,
   `created_by` varchar(255) NOT NULL,
   PRIMARY KEY (`u_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=22 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=20 ;
 
 --
 -- Dumping data for table `users`
@@ -337,7 +357,7 @@ CREATE TABLE IF NOT EXISTS `visitor` (
   `updated_at` varchar(255) NOT NULL,
   `created_by` varchar(255) NOT NULL,
   PRIMARY KEY (`v_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `visitor`

@@ -54,10 +54,10 @@
                                 <td><?=$array->address?></td>
                                 <td><?=$array->nationality?></td>
                                 <td>
-                                    <a href="<?= site_url()?>admin/teacher_edit/<?= $array->t_id ?>" type="button" class="btn btn-primary btn-outline margin">Edit</a>
+                                    <a href="<?= site_url()?>admin/teacher_edit/<?= $array->t_id ?>" type="button" class="btn btn-primary glyphicon glyphicon-edit btn-outline margin"> Edit</a>
                                 </td>
                                 <td>
-                                    <a href="<?= site_url()?>admin/teacher_delete/<?= $array->t_id ?>/<?= $array->u_id ?>" type="button" class="btn btn-primary btn-outline margin">Delete</a>
+                                    <a href="<?= site_url()?>admin/teacher_delete/<?= $array->t_id ?>/<?= $array->u_id ?>" type="button" class="btn btn-primary glyphicon glyphicon-trash btn-outline margin"> Delete</a>
                                 </td>
                             </tr>
                         <?php } ?>
