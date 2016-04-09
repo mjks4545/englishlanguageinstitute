@@ -62,6 +62,11 @@
                         <span class="glyphicon glyphicon-share-alt"></span> Class Promotion
                     </a>
                 </li>
+                 <li>
+                    <a  href="<?= site_url()?>applications/applications_views">
+                        <span class="glyphicon glyphicon-share-alt"></span> View Applications
+                    </a>
+                </li>
             </ul>
 
         </li>

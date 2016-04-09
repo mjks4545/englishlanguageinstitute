@@ -26,15 +26,23 @@ class Applications extends CI_Controller {
         $accountant = $this->input->post('accountant');
         $app_date = $this->input->post('app_date');
         $created_date = mdate("%y-%m-%d");
+        
+        $insert_users_table = $this->db->insert('users',
+            [
+                'name' => $applicant_name,
+                'f_name' => $father_name,
+                'created_at' => $created_date 
+            ]
+            );            
+            $fkuser_id = $this->db->insert_id();
 
         $insert_application_table = $this->db->insert('application',
                 [
+                    'fkuser_id' => $fkuser_id,
                     'app_to' => $application_to,
                     'app_director' => $application_director,
                     'subject_line' => $subject_line,
                     'yours_obediently' => $yours_obediently,
-                    'applicant_name' => $applicant_name,
-                    'father_name' => $father_name,
                     'series' => $series,
                     'app_timing' => $app_timing,
                     'teacher' => $teacher,
@@ -84,15 +92,23 @@ class Applications extends CI_Controller {
     $accountant = $this->input->post('accountant');
     $app_date = $this->input->post('app_date');
     $created_date = mdate("%y-%m-%d");
+    
+    $insert_users_table = $this->db->insert('users',
+            [
+                'name' => $applicant_name,
+                'f_name' => $father_name,
+                'created_at' => $created_date 
+            ]
+            );            
+            $fkuser_id = $this->db->insert_id();
 
     $insert_application_table = $this->db->insert('application',
             [
+                'fkuser_id' => $fkuser_id,
                 'app_to' => $application_to,
                 'app_director' => $application_director,
                 'subject_line' => $subject_line,
                 'yours_obediently' => $yours_obediently,
-                'applicant_name' => $applicant_name,
-                'father_name' => $father_name,
                 'series' => $series,
                 'app_timing' => $app_timing,
                 'teacher' => $teacher,
@@ -140,14 +156,22 @@ class Applications extends CI_Controller {
     $app_date = $this->input->post('app_date');
     $created_date = mdate("%y-%m-%d");
 
+    $insert_users_table = $this->db->insert('users',
+            [
+                'name' => $applicant_name,
+                'f_name' => $father_name,
+                'created_at' => $created_date 
+            ]
+            );            
+            $fkuser_id = $this->db->insert_id();
+             
     $insert_application_table = $this->db->insert('application',
             [
+                'fkuser_id' => $fkuser_id,
                 'app_to' => $application_to,
                 'app_director' => $application_director,
                 'subject_line' => $subject_line,
                 'yours_obediently' => $yours_obediently,
-                'applicant_name' => $applicant_name,
-                'father_name' => $father_name,
                 'series' => $series,
                 'app_timing' => $app_timing,
                 'teacher' => $teacher,
@@ -169,6 +193,28 @@ class Applications extends CI_Controller {
     );
     redirect(site_url() . 'applications/class_promotion');
     }
+    
+    //----------------------------------------------------
 
-
+     public function applications_views(){
+         
+        $this->db->select('*');
+        $this->db->from('application');
+        $this->db->join('users','users.u_id = application.fkuser_id');
+        //$this->db->join('class_promotion_app','application.app_id = class_promotion_app.fkapp_id');
+        $this->db->join('freeze_semester_app','application.app_id = freeze_semester_app.fkapp_id');
+        //$this->db->join('time_changing_app','application.app_id = time_changing_app.fkapp_id');
+        $query = $this->db->get();
+        $result['result'] = $query->result();
+        
+        echo '<pre>';
+        print_r($result);
+        echo '</pre>';
+        die();
+        
+        $this->load->view('include/header');
+        $this->load->view('include/sidebar');
+        $this->load->view('applications/applications_view');
+        $this->load->view('include/footer');
+    }
 }

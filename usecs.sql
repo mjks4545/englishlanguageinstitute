@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 09, 2016 at 10:09 AM
+-- Generation Time: Apr 09, 2016 at 12:03 PM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -49,8 +49,6 @@ CREATE TABLE IF NOT EXISTS `application` (
   `app_director` varchar(255) NOT NULL,
   `subject_line` varchar(255) NOT NULL,
   `yours_obediently` varchar(255) NOT NULL,
-  `applicant_name` varchar(255) NOT NULL,
-  `father_name` varchar(255) NOT NULL,
   `series` varchar(255) NOT NULL,
   `app_timing` varchar(255) NOT NULL,
   `teacher` varchar(255) NOT NULL,
@@ -61,18 +59,23 @@ CREATE TABLE IF NOT EXISTS `application` (
   `updated_at` varchar(255) NOT NULL,
   `created_by` varchar(255) NOT NULL,
   PRIMARY KEY (`app_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=16 ;
 
 --
 -- Dumping data for table `application`
 --
 
-INSERT INTO `application` (`app_id`, `fkuser_id`, `app_to`, `app_director`, `subject_line`, `yours_obediently`, `applicant_name`, `father_name`, `series`, `app_timing`, `teacher`, `chief_counselor`, `accountant`, `app_date`, `created_at`, `updated_at`, `created_by`) VALUES
-(6, 0, 'To', 'The Director, The University of Spoken English And Computer Sciences Faqirabad,Peshawar', 'Dear Sir,', 'Yours obediently', 'asda', 'asda', 'asda', 'asda', 'asda', 'asda', 'adsd', 'asdasd', '16-04-08', '', ''),
-(7, 0, 'To', 'The Director, The University of Spoken English & Computer Science Faqirabad, Peshawa', 'Dear Sir,', 'Yours Obediently', '123', '123', '123', '1231', '123', '123', '132', '123', '16-04-09', '', ''),
-(8, 0, 'To', 'The Director, The University of Spoken English & Computer Science Faqirabad, Peshawa', 'Dear Sir,', 'Yours Obediently', '312', '312', '312', '312', '312', '312', '312', '312', '16-04-09', '', ''),
-(9, 0, 'To', 'The Director, The University of Spoken English & Computer Science Faqirabad, Peshawa', 'Dear Sir,', 'Yours Obediently', '22', '22', '22', '22', '22', '22', '22', '22', '16-04-09', '', ''),
-(10, 0, 'To', 'The Director, The University of Spoken English & Computer Science Faqirabad, Peshawa', 'Dear Sir,', 'Yours Obediently', '11', '11', '11', '11', '11', '11', '11', '11', '16-04-09', '', '');
+INSERT INTO `application` (`app_id`, `fkuser_id`, `app_to`, `app_director`, `subject_line`, `yours_obediently`, `series`, `app_timing`, `teacher`, `chief_counselor`, `accountant`, `app_date`, `created_at`, `updated_at`, `created_by`) VALUES
+(6, 0, 'To', 'The Director, The University of Spoken English And Computer Sciences Faqirabad,Peshawar', 'Dear Sir,', 'Yours obediently', 'asda', 'asda', 'asda', 'asda', 'adsd', 'asdasd', '16-04-08', '', ''),
+(7, 0, 'To', 'The Director, The University of Spoken English & Computer Science Faqirabad, Peshawa', 'Dear Sir,', 'Yours Obediently', '123', '1231', '123', '123', '132', '123', '16-04-09', '', ''),
+(8, 0, 'To', 'The Director, The University of Spoken English & Computer Science Faqirabad, Peshawa', 'Dear Sir,', 'Yours Obediently', '312', '312', '312', '312', '312', '312', '16-04-09', '', ''),
+(9, 0, 'To', 'The Director, The University of Spoken English & Computer Science Faqirabad, Peshawa', 'Dear Sir,', 'Yours Obediently', '22', '22', '22', '22', '22', '22', '16-04-09', '', ''),
+(10, 0, 'To', 'The Director, The University of Spoken English & Computer Science Faqirabad, Peshawa', 'Dear Sir,', 'Yours Obediently', '11', '11', '11', '11', '11', '11', '16-04-09', '', ''),
+(11, 29, 'To', 'The Director, The University of Spoken English & Computer Science Faqirabad, Peshawa', 'Dear Sir,', 'Yours Obediently', '33', '33', '33', '33', '33', '33', '16-04-09', '', ''),
+(12, 30, 'To', 'The Director, The University of Spoken English & Computer Science Faqirabad, Peshawa', 'Dear Sir,', 'Yours Obediently', '44', '44', '44', '44', '44', '44', '16-04-09', '', ''),
+(13, 32, 'To', 'The Director, The University of Spoken English And Computer Sciences Faqirabad,Peshawar', 'Dear Sir,', 'Yours obediently', 'qq', 'qq', 'qq', 'qqq', 'qq', 'qq', '16-04-09', '', ''),
+(14, 33, 'To', 'The Director, The University of Spoken English & Computer Science Faqirabad, Peshawa', 'Dear Sir,', 'Yours Obediently', 'qqqqq', 'qqqqqq', 'qqqqqqqqq', 'qqqqqq', 'qqqqqqq', 'qqqqqqqqq', '16-04-09', '', ''),
+(15, 34, 'To', 'The Director, The University of Spoken English & Computer Science Faqirabad, Peshawa', 'Dear Sir,', 'Yours Obediently', 'ffffffffff', 'ffffffffffff', 'fffffffffffff', 'fffffffffffff', 'fffffffffffff', 'fffffffffffff', '16-04-09', '', '');
 
 -- --------------------------------------------------------
 
@@ -47723,14 +47726,16 @@ CREATE TABLE IF NOT EXISTS `class_promotion_app` (
   `updated_at` varchar(255) NOT NULL,
   `created_by` int(11) NOT NULL,
   PRIMARY KEY (`promotion_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `class_promotion_app`
 --
 
 INSERT INTO `class_promotion_app` (`promotion_id`, `fkapp_id`, `class_promotion_text`, `created_at`, `updated_at`, `created_by`) VALUES
-(1, 9, 'class promotion', '16-04-09', '', 0);
+(1, 9, 'class promotion', '16-04-09', '', 0),
+(2, 11, 'welcome to new class', '16-04-09', '', 0),
+(3, 15, 'fffffffffffffffffffff', '16-04-09', '', 0);
 
 -- --------------------------------------------------------
 
@@ -48057,14 +48062,16 @@ CREATE TABLE IF NOT EXISTS `freeze_semester_app` (
   `updated_at` varchar(255) NOT NULL,
   `created_by` int(11) NOT NULL,
   PRIMARY KEY (`freeze_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `freeze_semester_app`
 --
 
 INSERT INTO `freeze_semester_app` (`freeze_id`, `fkapp_id`, `freeze_semester_text`, `created_at`, `updated_at`, `created_by`) VALUES
-(1, 10, 'something something', '16-04-09', '', 0);
+(1, 10, 'something something', '16-04-09', '', 0),
+(2, 12, 'goood', '16-04-09', '', 0),
+(3, 14, 'ajfhs;jhfasdof', '16-04-09', '', 0);
 
 -- --------------------------------------------------------
 
@@ -52416,14 +52423,15 @@ CREATE TABLE IF NOT EXISTS `time_changing_app` (
   `updated_at` varchar(255) NOT NULL,
   `created_by` varchar(255) NOT NULL,
   PRIMARY KEY (`change_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `time_changing_app`
 --
 
 INSERT INTO `time_changing_app` (`change_id`, `fkapp_id`, `time_change_text`, `created_at`, `updated_at`, `created_by`) VALUES
-(1, 6, 'xczxcadfasdfas', '16-04-08', '', '');
+(1, 6, 'xczxcadfasdfas', '16-04-08', '', ''),
+(2, 13, 'welcasgfjhasdglfasd', '16-04-09', '', '');
 
 -- --------------------------------------------------------
 
@@ -52450,7 +52458,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `updated_at` varchar(255) NOT NULL,
   `created_by` varchar(255) NOT NULL,
   PRIMARY KEY (`u_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=29 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=35 ;
 
 --
 -- Dumping data for table `users`
@@ -52471,7 +52479,13 @@ INSERT INTO `users` (`u_id`, `name`, `f_name`, `age`, `contact`, `country_id`, `
 (25, '77', '77', '77', '77', '44', '741', '11305', 'adasda', '77', '77@77.com', '', 0, 'asdasd', '16-04-08', '', ''),
 (26, 'yes', 'no', '12', '12', '', '', '', '', 'pakistani', 'yes@yes.com', '', 0, '', '16-04-09', '', ''),
 (27, 'look', 'lookkk', '22', '22', '', '', '', '', '22', '22@22.com', '', 0, '', '16-04-09', '', ''),
-(28, 'shiraz', 'muhammad', '23', '3366', '', '', '', '', 'pak', 'std@std.com', '', 0, '', '16-04-09', '', '');
+(28, 'shiraz', 'muhammad', '23', '3366', '', '', '', '', 'pak', 'std@std.com', '', 0, '', '16-04-09', '', ''),
+(29, 'rehman', 'ali', '', '', '', '', '', '', '', '', '', 0, '', '16-04-09', '', ''),
+(30, 'freeze', 'up', '', '', '', '', '', '', '', '', '', 0, '', '16-04-09', '', ''),
+(31, 'changing', 'up', '', '', '', '', '', '', '', '', '', 0, '', '16-04-09', '', ''),
+(32, 'changing', 'uppp', '', '', '', '', '', '', '', '', '', 0, '', '16-04-09', '', ''),
+(33, 'freezzzzzz', 'upppppppp', '', '', '', '', '', '', '', '', '', 0, '', '16-04-09', '', ''),
+(34, 'ffffffff', 'fffffffff', '', '', '', '', '', '', '', '', '', 0, '', '16-04-09', '', '');
 
 -- --------------------------------------------------------
 
