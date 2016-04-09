@@ -7,6 +7,18 @@
 </div>	<!--/.main-->
 
 <script src="<?=base_url()?>public/js/jquery-1.11.1.min.js"></script>
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<script src="<?=base_url();?>public/custom/home/template.js"></script>
+<script src="<?=base_url();?>public/custom/home/events.js"></script>
+<script src="<?=base_url();?>public/custom/home.js"></script>
+<script>
+
+    $(function (){
+	//Init home application
+	var home = new Home();
+    });
+
+</script>
 <script src="<?=base_url()?>public/js/bootstrap-table.js"></script>
 <script src="<?=base_url()?>public/js/bootstrap.min.js"></script>
 <script src="<?=base_url()?>public/js/chart.min.js"></script>

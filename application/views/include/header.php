@@ -8,6 +8,10 @@
     <link href="<?=base_url()?>public/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?=base_url()?>public/css/datepicker3.css" rel="stylesheet">
     <link href="<?=base_url()?>public/css/styles.css" rel="stylesheet">
+    
+    <script src="<?=base_url()?>public/js/jquery-1.10.2.js"></script>
+    <script src="<?=base_url()?>public/js/jquery-ui.js"></script>
+    
     <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
 
     <!--[if lt IE 9]>
@@ -15,6 +19,73 @@
     <script src="<?=base_url()?>public/js/html5shiv.js"></script>
     <script src="<?=base_url()?>public/js/respond.min.js"></script>
     <![endif]-->
+    
+        <style>
+        .para{
+
+
+                    margin-left: -80px;
+
+
+        }
+        .para1{
+
+                    margin-left: -60px;
+                margin-top:14px;
+        }
+        .to{
+         margin-left: -105px;
+                margin-top:10px;
+
+
+        }
+        .to1{
+         margin-left: -85px;
+                        margin-bottom:10px;	
+                width:80px;
+        }
+        .i{
+
+                margin-top:21px;
+
+        }
+        .lab{
+                margin-left:-80px;
+                margin-top:8px;
+        }
+        .labinput {
+                margin-left:-80px;
+
+        }
+        .lab2{
+                margin-top:8px;
+        }
+        .labtime{
+                        margin-left:-100px;
+                margin-top:8px;
+        }
+        .labtimeinput{
+                        margin-left:-90px;
+
+        }
+        .line1{
+
+                margin-left:-10px;
+                margin-top:8px;
+        }
+        .label{
+	color:#FFF;
+	font-size:16px;
+        }
+        .input{
+                background-color:#444D53;
+                color:#FFF;
+        }
+        .textarea{
+                background-color:#444D53;
+        }
+        </style>
+
 
 </head>
 

@@ -69,8 +69,33 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="form-group col-md-12">
-                                <label>Address</label>
+                            <div class="form-group col-md-6">
+                                <label>Country</label>
+                              
+				<select  name="country"  id="country" class="form-control" style="background:#444D53; color:white;">
+				    <option value="#">Select Country</option>
+				    <?php foreach ($result as $country){ ?>
+					<option value="<?= $country->id;?>"><?= $country->country_name;?></option>
+				    <?php } ?>
+				</select>
+				
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Province</label>
+                                <select  name="province"  id="province" class="form-control" style="background:#444D53; color:white;">
+				    <option value="#">Select Province</option>
+				</select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label>City</label>
+                                <select  name="city"  id="city" class="form-control" style="background:#444D53; color:white;">
+				    <option value="#">Select City</option>
+				</select>
+                            </div>
+			    <div class="form-group col-md-6">
+                                <label>Village Address</label>
                                 <input type="text" name="address" style="color: white" class="form-control" placeholder="Address" required>
                             </div>
                         </div>
@@ -89,3 +114,4 @@
             </div>
         </div><!-- /.col-->
     </div>
+    </div> 

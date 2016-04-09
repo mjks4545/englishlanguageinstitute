@@ -11,13 +11,15 @@ class Admin extends CI_Controller {
         $this->load->view('include/footer');
     }
 
-    //...............Student Add & View...................
+    //...............Start Student ..................
 
     public function student_add()
     {
+        $query  = $this->db->get('countries');
+	$result['result'] = $query->result();
         $this->load->view('include/header');
         $this->load->view('include/sidebar');
-        $this->load->view('admin/student_add');
+        $this->load->view('admin/student_add',$result);
         $this->load->view('include/footer');
     }
 
@@ -28,12 +30,6 @@ class Admin extends CI_Controller {
         $this->db->join('users','users.u_id = student.fkuser_id');
         $query = $this->db->get();
         $result['result'] = $query->result();
-
-       /* echo "<pre>";
-        print_r($result);
-        echo "</pre>";
-        die();*/
-
 
         $this->load->view('include/header');
         $this->load->view('include/sidebar');
@@ -51,10 +47,16 @@ class Admin extends CI_Controller {
         $this->db->where('s_id',$s_id);
         $this->db->from('student');
         $this->db->join('users','users.u_id = student.fkuser_id');
+        $this->db->join('countries','countries.id = users.country_id');
+        $this->db->join('states','states.id = users.province_id');
+        $this->db->join('cities','cities.id = users.city_id');
+
+        
         $query = $this->db->get();
         $result = $query->result();
         $result['result'] = $result[0];
-
+        $query  = $this->db->get('countries');
+	$result['country'] = $query->result();        
         $this->load->view('include/header');
         $this->load->view('include/sidebar');
         $this->load->view('admin/student_edit',$result);
@@ -75,6 +77,9 @@ class Admin extends CI_Controller {
         $guardian_number = $this->input->post('g_number');
         $contact = $this->input->post('number');
         $course_detail = $this->input->post('course_detail');
+        $country = $this->input->post('country');
+        $province = $this->input->post('province');
+        $city = $this->input->post('city');
         $address = $this->input->post('address');
         $description = $this->input->post('description');
         $created_date = mdate("%y-%m-%d");
@@ -92,6 +97,9 @@ class Admin extends CI_Controller {
                     'age' => $age,
                     'nationality' => $nationality,
                     'email' => $email,
+                    'country_id' => $country,
+                    'province_id' => $province,
+                    'city_id' => $city,
                     'contact' => $contact,
                     'address' => $address,
                     'description' => $description,
@@ -100,7 +108,7 @@ class Admin extends CI_Controller {
             );
             $fkuser_id = $this->db->insert_id();
         } else {
-            $fkuser_id = $obj[0]->id;
+            $fkuser_id = $obj[0]->u_id;
         }
         $insert_student_table = $this->db->insert('student',
             [
@@ -132,6 +140,9 @@ class Admin extends CI_Controller {
             $guardian_number = $this->input->post('g_number');
             $contact = $this->input->post('number');
             $course_detail = $this->input->post('course_detail');
+            $country = $this->input->post('country');
+            $province = $this->input->post('province');
+            $city = $this->input->post('city');
             $address = $this->input->post('address');
             $description = $this->input->post('description');
             $updated_date = mdate("%y-%m-%d");
@@ -145,6 +156,9 @@ class Admin extends CI_Controller {
                     'nationality' => $nationality,
                     'email' => $email,
                     'contact' => $contact,
+                    'country_id' => $country,
+                    'province_id' => $province,
+                    'city_id' => $city,
                     'address' => $address,
                     'description' => $description,
                     'updated_at' => $updated_date
@@ -176,15 +190,17 @@ class Admin extends CI_Controller {
 
 
 
-    //..............End Student Add , View , Edit & Delete................
+    //..............End Student ................
 
-    //..............Start Teacher Add & View................
+    //..............Start Teacher ................
 
     public function teacher_add()
     {
+       $query  = $this->db->get('countries');
+	$result['result'] = $query->result();
         $this->load->view('include/header');
         $this->load->view('include/sidebar');
-        $this->load->view('admin/teacher_add');
+        $this->load->view('admin/teacher_add',$result);
         $this->load->view('include/footer');
     }
 
@@ -195,7 +211,7 @@ class Admin extends CI_Controller {
         $this->db->join('users','users.u_id = teacher.fkuser_id');
         $query = $this->db->get();
         $result['result'] = $query->result();
-
+           
         $this->load->view('include/header');
         $this->load->view('include/sidebar');
         $this->load->view('admin/teacher_view',$result);
@@ -212,14 +228,16 @@ class Admin extends CI_Controller {
         $this->db->where('t_id',$t_id);
         $this->db->from('teacher');
         $this->db->join('users','users.u_id = teacher.fkuser_id');
+        $this->db->join('countries','countries.id = users.country_id');
+        $this->db->join('states','states.id = users.province_id');
+        $this->db->join('cities','cities.id = users.city_id');
+
+        
         $query = $this->db->get();
         $result = $query->result();
         $result['result'] = $result[0];
-
-       /* echo "<pre>";
-        print_r($result);
-        die();*/
-
+        $query  = $this->db->get('countries');
+	$result['country'] = $query->result();
         $this->load->view('include/header');
         $this->load->view('include/sidebar');
         $this->load->view('admin/teacher_edit',$result);
@@ -239,6 +257,9 @@ class Admin extends CI_Controller {
         $class_assign = $this->input->post('class_assign');
         $contact = $this->input->post('number');
         $salary = $this->input->post('salary');
+        $country = $this->input->post('country');
+        $province = $this->input->post('province');
+        $city = $this->input->post('city');
         $address = $this->input->post('address');
         $description = $this->input->post('description');
         $created_date = mdate("%y-%m-%d");
@@ -257,6 +278,9 @@ class Admin extends CI_Controller {
                     'nationality' => $nationality,
                     'email' => $email,
                     'contact' => $contact,
+                    'country_id' => $country,
+                    'province_id' => $province,
+                    'city_id' => $city,
                     'address' => $address,
                     'description' => $description,
                     'created_at' => $created_date
@@ -266,7 +290,7 @@ class Admin extends CI_Controller {
         }
         else
         {
-            $fkuser_id = $obj[0]->id;
+            $fkuser_id = $obj[0]->u_id;
         }
         $insert_teacher_table = $this->db->insert('teacher',
             [
@@ -298,6 +322,9 @@ class Admin extends CI_Controller {
             $class_assign = $this->input->post('class_assign');
             $contact = $this->input->post('number');
             $salary = $this->input->post('salary');
+            $country = $this->input->post('country');
+            $province = $this->input->post('province');
+            $city = $this->input->post('city');
             $address = $this->input->post('address');
             $description = $this->input->post('description');
             $updated_date = mdate("%y-%m-%d");
@@ -311,6 +338,9 @@ class Admin extends CI_Controller {
                     'nationality' => $nationality,
                     'email' => $email,
                     'contact' => $contact,
+                    'country' => $country,
+                    'province' => $province,
+                    'city' => $city,
                     'address' => $address,
                     'description' => $description,
                     'updated_at' => $updated_date
@@ -368,14 +398,16 @@ class Admin extends CI_Controller {
         $this->db->where('v_id',$v_id);
         $this->db->from('visitor');
         $this->db->join('users','users.u_id = visitor.fkuser_id');
+        $this->db->join('countries','countries.id = users.country_id');
+        $this->db->join('states','states.id = users.province_id');
+        $this->db->join('cities','cities.id = users.city_id');
+
+        
         $query = $this->db->get();
         $result = $query->result();
         $result['result'] = $result[0];
-
-       /* echo "<pre>";
-         print_r($result);
-         die();*/
-
+        $query  = $this->db->get('countries');
+	$result['country'] = $query->result();
         $this->load->view('include/header');
         $this->load->view('include/sidebar');
         $this->load->view('admin/visitor_edit',$result);
@@ -387,49 +419,55 @@ class Admin extends CI_Controller {
 
         if ($v_id == null || $u_id == null) {
             redirect(site_url() . 'admin/visitor_view');
-        } else {
-            $visitor_name = $this->input->post('name');
-            $father_name = $this->input->post('f_name');
-            $age = $this->input->post('age');
-            $qualification = $this->input->post('qualification');
-            $nationality = $this->input->post('nationality');
-            $profession = $this->input->post('profession');
-            $email = $this->input->post('email');
-            $guardian_number = $this->input->post('g_number');
-            $contact = $this->input->post('number');
-            $desire_courses = $this->input->post('desire_course');
-            $address = $this->input->post('address');
-            $description = $this->input->post('description');
-            $updated_date = mdate("%y-%m-%d");
+        } 
+            
+        $visitor_name = $this->input->post('name');
+        $father_name = $this->input->post('f_name');
+        $age = $this->input->post('age');
+        $qualification = $this->input->post('qualification');
+        $nationality = $this->input->post('nationality');
+        $profession = $this->input->post('profession');
+        $email = $this->input->post('email');
+        $guardian_number = $this->input->post('g_number');
+        $contact = $this->input->post('number');
+        $desire_courses = $this->input->post('desire_course');
+        $country = $this->input->post('country');
+        $province = $this->input->post('province');
+        $city = $this->input->post('city');
+        $address = $this->input->post('address');
+        $description = $this->input->post('description');
+        $updated_date = mdate("%y-%m-%d");
 
 
-            echo $update_user_table = $this->db->update('users',
-                [
-                    'name' => $visitor_name,
-                    'f_name' => $father_name,
-                    'age' => $age,
-                    'nationality' => $nationality,
-                    'email' => $email,
-                    'contact' => $contact,
-                    'address' => $address,
-                    'description' => $description,
-                    'updated_at' => $updated_date
-                ], ['u_id' => $u_id]
-            );
+        echo $update_user_table = $this->db->update('users',
+            [
+                'name' => $visitor_name,
+                'f_name' => $father_name,
+                'age' => $age,
+                'nationality' => $nationality,
+                'email' => $email,
+                'contact' => $contact,
+                'country' => $country,
+                'province' => $province,
+                'city' => $city,
+                'address' => $address,
+                'description' => $description,
+                'updated_at' => $updated_date
+            ], ['u_id' => $u_id]
+        );
 
-            $update_visitor_table = $this->db->update('visitor',
-                [
-                    'profession' => $profession,
-                    'qualification' => $qualification,
-                    'guardian_number' => $guardian_number,
-                    'courses' => $desire_courses,
-                    'description' => $description,
-                    'updated_at' => $updated_date
-                ], ['v_id' => $v_id]
-            );
+        $update_visitor_table = $this->db->update('visitor',
+            [
+                'profession' => $profession,
+                'qualification' => $qualification,
+                'guardian_number' => $guardian_number,
+                'courses' => $desire_courses,
+                'description' => $description,
+                'updated_at' => $updated_date
+            ], ['v_id' => $v_id]
+        );
 
-            redirect(site_url() . 'admin/visitor_view');
-        }
+        redirect(site_url() . 'admin/visitor_view');
     }
 
     public function visitor_delete($v_id = null , $u_id = null)

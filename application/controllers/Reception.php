@@ -5,9 +5,11 @@ class Reception extends CI_Controller {
 
     public function index()
     {
+        $query  = $this->db->get('countries');
+	$result['result'] = $query->result();
         $this->load->view('include/header');
         $this->load->view('include/sidebar');
-        $this->load->view('reception/reception');
+        $this->load->view('reception/reception',$result);
         $this->load->view('include/footer');
     }
 
@@ -25,6 +27,9 @@ class Reception extends CI_Controller {
         $guardian_number = $this->input->post('g_number');
         $contact = $this->input->post('number');
         $desire_courses = $this->input->post('desire_course');
+        $country = $this->input->post('country');
+        $province = $this->input->post('province');
+        $city = $this->input->post('city');
         $address = $this->input->post('address');
         $description = $this->input->post('description');
         $created_date = mdate("%y-%m-%d");
@@ -43,6 +48,9 @@ class Reception extends CI_Controller {
                     'nationality' => $nationality,
                     'email' => $email,
                     'contact' => $contact,
+                    'country_id' => $country,
+                    'province_id' => $province,
+                    'city_id' => $city,
                     'address' => $address,
                     'description' => $description,
                     'created_at' => $created_date
@@ -52,7 +60,7 @@ class Reception extends CI_Controller {
         }
         else
         {
-            $fkuser_id = $obj[0]->id;
+            $fkuser_id = $obj[0]->u_id;
         }
         $insert_visitor_table = $this->db->insert('visitor',
             [

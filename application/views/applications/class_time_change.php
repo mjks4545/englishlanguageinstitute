@@ -9,7 +9,7 @@
 
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Class Time Change Form</h1>
+            <h1 class="page-header">Application Form</h1>
         </div>
     </div><!--/.row-->
 
@@ -17,146 +17,124 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="panel panel-default">
-                <div class="panel-heading">Class Time Change Form</div>
+                <div class="panel-heading">Application For Change of Class Timing</div>
                 <div class="panel-body">
 
-                        <form role="form" method="post" action="<?= site_url()?>reception/create_reception_post">
-                           <div class="row">
-                                <div class="form-group col-md-3">
-                                   
-                                    <input type="text" name="name" style="color: white; background:#444D53;" class="form-control"  value="To" readonly placeholder="TO" required>
-                                </div>
-                                <div class="form-group col-md-9">
-                                    
-                                    
-                                </div>
-                           </div>
-						   
+                        <form role="form" method="post" action="<?= site_url()?>applications/create_time_change_after_post">
+                          
                             <div class="row">
-                               <div class="form-group col-md-5">
-                                    
-                                   
-                                </div>
-                                <div class="form-group col-md-7">
-                                    
-                                    <select  name="qualification"  class="form-control" style="background:#444D53; color:white;">
-									<option>The Principal</option>
-									<option>The Madam</option>
-									<option>The Director</option>
-									
-									</select>
-                                </div>
-                            </div>
-							 <div class="row">
-                              
                                 <div class="form-group col-md-3">
-                                    
-                                    <select  name="subject_line"  class="form-control" style="background:#444D53; color:white;">
-									<option>Sir</option>
-									<option> Madam</option>
-									<option>Director</option>
-									
-									</select>
+                                  <input type="text" name="app_to" style="color: white; background:#444D53;" class="form-control"  value="To" readonly placeholder="TO" required>
                                 </div>
-								 <div class="form-group col-md-9">
-                                    
-                                   
-                                </div>
-                            </div>
-                         <!---   <div class="row">
-                                <div class="form-group col-md-6">
-                                    <label>Nationality</label>
-                                    <input type="text" name="nationality" style="color: white" class="form-control" placeholder="Nationality" required>
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label>Profession</label>
-                                    <input type="text" name="profession" style="color: white" class="form-control" placeholder="Profession" required>
-                                </div>
-                            </div>--->
-                          <!---  <div class="row">
-                                <div class="form-group col-md-6">
-                                    <label>Email</label>
-                                    <input type="email" name="email" style="color: white" class="form-control" placeholder="Email" required>
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label>Guardian Number</label>
-                                    <input type="text" name="g_number" style="color: white" class="form-control" placeholder="Guardian Number" required>
-                                </div>
-                            </div>---->
-                        <!----   <div class="row">
-                                <div class="form-group col-md-6">
-                                    <label>Contact</label>
-                                    <input type="text" name="number" style="color: white" class="form-control" placeholder="Contact" required>
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label>Desire Course</label>
-                                    <input type="text" name="desire_course" style="color: white" class="form-control" placeholder="Courses" required>
-                                </div>
-                           </div>--->
-                          <!---  <div class="row">
-                                <div class="form-group col-md-12">
-                                    <label>Address</label>
-                                    <input type="text" name="address" style="color: white" class="form-control" placeholder="Address" required>
-                                </div>
-                            </div>--->
+                               <div class="form-group col-md-9"></div><!----FOR SPACING ------------>   
+                           </div>
+                            
                            <div class="row">
-                           <div class="row" style="margin-top:50px;">
+                              <div class="form-group col-md-3"></div><!------FOR SPACING---------->  
+                                <div class="form-group col-md-9">
+                                  <input type="text"  name="app_director"  class="form-control" style="background:#444D53; color:white;" value="The Director, The University of Spoken English And Computer Sciences Faqirabad,Peshawar" readonly>
+                                </div>
+                           </div>
+                            
+                           <div class="row">
+                              <div class="form-group col-md-3">
+                                 <input type="text"  name="subject_line"  class="form-control" style="background:#444D53; color:white;" value="Dear Sir," readonly>
+                              </div>
+                              <div class="form-group col-md-9"></div> <!----FOR SPACING----->  
+                           </div>
+                            
+                           <div class="row">
+                               <div class="row" style="margin-top:20px;"> <!--------------------Application area start---------->		  
+                                
+                                   <div class="row">
+                                 <div class="form-group col-md-12">
+                                    <textarea name="time_change_app"   class="form-control" style="background:#444D53; color:white;" placeholder="Write Application" rows="15" cols="20" required></textarea>
+                                 </div>
+			       </div>
+                               <!--------------------Application area end------------>
+				
+                               <div class="row" style="margin-top:20px;">
+                                    <div class="form-group col-md-9"></div> <!--------FOR SPACING---->
+                                    <div class="form-group col-md-3">
+                                          <input type="text" name="yours_obediently" value="Yours obediently"  class="form-control" style="background:#444D53; color:white;" readonly required>
+                                    </div>
+                               </div> 
 						   
-                               <div class="form-group col-md-12">
-                                   
-                                   <textarea type="text" name="description" style="color: white " class="form-control" placeholder="Write something here..!!" cols="15" rows="15" required></textarea>
-                               </div>
-                           </div>
-						   <div class="row" style="margin-top:20px;">
+                            
+						   <div class="row">
+						   
                                 <div class="form-group col-md-9">
                                     
-                                    
+                                     <!--------FOR SPACING---->
                                 </div>
                                 <div class="form-group col-md-3">
-                                  
-                                    <input type="text" name="your_obedient" value="yours obediently"  class="form-control" style="background:#444D53; color:white;" readonly required>
+                                    <label>Name</label>
+                                    <input type="text" name="applicant_name"   class="form-control" style="background:#444D53; color:white;" placeholder="Enter Your Name" required>
                                 </div>
+								
                            </div>
-						   <div class="row" style="margin-top:20px;">
+						    <div class="row">
+							
                                 <div class="form-group col-md-9">
                                     
-                                    
+                                     <!--------FOR SPACING---->
                                 </div>
                                 <div class="form-group col-md-3">
-                                  
-                                    <input type="text" name="applicant_name" placeholder="Enter Name"  class="form-control" style="background:#444D53; color:white;"  required>
+                                  <label>Father Name</label>
+                                    <input type="text" name="father_name"   class="form-control" style="background:#444D53; color:white;" placeholder="Enter Your Father Name" required>
                                 </div>
+								
+                            </div>
+                            <div class="row">
+                                
+                                  <div class="form-group col-md-3">
+                                  <label>Series</label>
+                                  <input type="text" name="series"   class="form-control" style="background:#444D53; color:white;" placeholder="Series" required>
+									
+                                  </div>
+								  
+								  <div class="form-group col-md-3">
+                                  <label>Timing</label>
+                                  <input type="text" name="app_timing"   class="form-control" style="background:#444D53; color:white;" placeholder="Timing" required>
+									
+                                  </div>
+								  
+								  <div class="form-group col-md-3">
+                                  <label>Teacher</label>
+                                    <input type="text" name="teacher" class="form-control" style=" color:white;"  required>
+                                </div>
+								 
                            </div>
-						   <div class="row" style="margin-top:20px;">
-                                <div class="form-group col-md-9">
-                                    
-                                    
-                                </div>
-                                <div class="form-group col-md-3">
-                                  
-                                    <input type="text" name="roll_no"   class="form-control" style="background:#444D53; color:white;" placeholder="Enter Roll Number" required>
-                                </div>
-                           </div>
-						   <div class="row" style="margin-top:20px;">
+						   <div class="row">
+						 
                                 
                                 <div class="form-group col-md-3">
-                                  
-                                    <input type="date" name="date"  class="form-control" style="background:#444D53; color:white;" required>
+                                  <label>Chief counselor</label>
+                                    <input type="text" name="chief_counselor" class="form-control" style=" color:white;"  required>
                                 </div>
-								<div class="form-group col-md-9">
-                                    
-                                    
+								
+								 <div class="form-group col-md-3">
+                                  <label>Accountant</label>
+                                    <input type="text" name="accountant" class="form-control" style="color:white;"  required>
                                 </div>
+								
+								 <div class="form-group col-md-3">
+                                  <label>Date</label>
+                                    <input type="date" name="app_date"   class="form-control" style="color:white;"  required>
+                                </div>
+								
+                              </div>
+						    </div>
                            </div>
-						   
-                             <div class="row" style="margin-left:25px;"> 
-							 <div class="col-md-1">
-							 </div>
-                            <div class="col-md-12">
-                            <button style="position: relative;top: 10px;" type="submit" class="btn btn-primary col-sm-2">Submit</button>
-                            </div></div>
+					
+                           <div class="row"> 
+                           <div class="col-md-12">
+                              <button style="position: relative;top: 10px;" type="submit"  name="submit" class="btn btn-primary col-sm-2">Submit</button>
+                            </div>
+						  </div>
                          </form>
                      </div>
                  </div>
         </div><!-- /.col-->
     </div><!-- /.row -->
+</div>

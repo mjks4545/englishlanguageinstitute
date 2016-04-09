@@ -35,9 +35,7 @@ class Accountsection extends CI_Controller {
         $amount_received = $this->input->post('amount_received');
         $received_date = $this->input->post('received_date');
         $remaining_fee = $this->input->post('balance');
-        $received_fee = $this->input->post('received_fee');
         $next_fee_date = $this->input->post('next_fee_date');
-        $remarks = $this->input->post('remarks');
 
 
         $this->db->where('email', $email);
@@ -59,7 +57,7 @@ class Accountsection extends CI_Controller {
             );
             $fkuser_id = $this->db->insert_id();
         } else {
-            $fkuser_id = $obj[0]->id;
+            $fkuser_id = $obj[0]->u_id;
         }
         $insert_student_table = $this->db->insert('student',
             [
@@ -90,7 +88,7 @@ class Accountsection extends CI_Controller {
                 'fkuser_id' => $fkuser_id,
                 'admission_fee' => $admission_fee,
                 'monthly_fee' => $monthly_fee,
-                'received_fee' => $received_fee,
+                'received_fee' => $amount_received,
                 'remaining_fee' => $remaining_fee,
                 'received_date' => $received_date,
                 'next_fee_date' => $next_fee_date,

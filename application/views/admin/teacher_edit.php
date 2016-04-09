@@ -67,12 +67,27 @@
                                 <input type="text" name="class_assign" style="color: white" class="form-control" placeholder="Assign Classes" value="<?= $result->class_assign?>" required>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="form-group col-md-12">
-                                <label>Address</label>
-                                <input type="text" name="address" style="color: white" class="form-control" placeholder="Address" value="<?= $result->address?>" required>
+                         <div class="row">
+                            <div class="form-group col-md-6">
+                                <label>Country</label>
+                                <input type="text" name="country" class="form-control"  value="<?php echo $result->country_name ?>" readonly required style="background:#444D53; color:white;">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Province</label>
+                                <input type="text" name="province" class="form-control"  value="<?php echo $result->state_name ?>"  readonly required style="background:#444D53; color:white;">
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label>City</label>
+                                <input type="text" name="city" style="background:#444D53; color:white;" class="form-control"  value="<?php echo $result->city_name ?>" readonly required >
+                            </div>
+			    <div class="form-group col-md-6">
+                                <label>Village Address</label>
+                                <input type="text" name="address" style="color: white" class="form-control" placeholder="Address" value="<?php echo $result->address ?>" required>
+                            </div>
+                        </div>
+                       
                         <div class="row">
                             <div class="row">
                                 <div class="form-group col-md-12">
@@ -88,3 +103,5 @@
             </div>
         </div><!-- /.col-->
     </div>
+    </div>
+</div>

@@ -82,9 +82,10 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <label>Date</label>
-                                <input type="date" name="date" style="color: white" class="form-control" required>
+                                <input type="date" id="datepicker" name="date" style="color: white" class="form-control" required>
                             </div>
-                        </div>
+                        </div><br>
+                        
 
                         <fieldset>
                             <legend style="color:white; text-align:center; ">OFFICE USE ONLY</legend>
@@ -95,7 +96,7 @@
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label>Starting Date</label>
-                                    <input type="date" name="starting_date" style="color: white" class="form-control" placeholder="Starting Date" required>
+                                    <input type="date" id="datepicker_1" name="starting_date" style="color: white" class="form-control" placeholder="Starting Date" required>
                                 </div>
 
                             </div>
@@ -106,7 +107,7 @@
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label>Completion Date</label>
-                                    <input type="date" name="completion_date" style="color: white" class="form-control" placeholder="Completion Date" required>
+                                    <input type="date" id="datepicker_2" name="completion_date" style="color: white" class="form-control" placeholder="Completion Date" required>
                                 </div>
                             </div>
                             <div class="row">
@@ -126,7 +127,7 @@
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label>Received Date</label>
-                                    <input type="date" name="received_date" style="color: white" class="form-control" placeholder="Rec Date" required>
+                                    <input type="date" id="datepicker_3" name="received_date" style="color: white" class="form-control" placeholder="Rec Date" required>
                                 </div>
                             </div>
                             <div class="row">
@@ -135,37 +136,31 @@
                                     <label>Remaining Balance (if Any)</label>
                                     <input type="balance" name="balance" style="color: white" class="form-control" placeholder="Balance (if Any)" required>
                                 </div>
-                            </div>
-                        </fieldset>
-
-
-                        <fieldset>
-                            <legend style=" top: 5px;color:white;text-align:center;">Monthly Fee Status</legend>
-                            <div class="form-group col-md-3">
-                                <label>Fee Received</label>
-                                <input type="text" name="received_fee" class="form-control">
-                            </div>
-                            <div class="form-group col-md-3">
-                                <label>Date</label>
-                                <input type="text" name="received_date" class="form-control">
-                            </div>
-                            <div class="form-group col-md-3">
+                                <div class="form-group col-md-6">
                                 <label>Next Fee Date</label>
-                                <input type="date" name="next_fee_date" class="form-control">
-                            </div>
-                            <div class="form-group col-md-3">
-                                <label>Remarks</label>
-                                <input type="text" name="remarks" class="form-control">
+                                <input type="date" id="datepicker_5" name="next_fee_date" class="form-control">
+                                </div>
                             </div>
                         </fieldset>
 
                         <div class="row">
-                            <div class=" col-sm-10">
+                            <div class=" col-md-12">
                                 <button style="position: relative;top: 10px;" type="submit" class="btn btn-primary col-sm-1">Submit</button>
                             </div>
 
+                         </div>
+                  
                     </form>
+
                 </div>
-            </div>
         </div><!-- /.col-->
     </div><!-- /.row -->
+    
+  <script>
+  $(function() {
+    $( "#datepicker" ).datepicker();
+  });
+   $(function() {
+    $( "#datepicker_1" ).datepicker_1();
+  });
+  </script>

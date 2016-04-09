@@ -4,46 +4,51 @@ var Events = function(){
     
     this.__construct = function(){
         
+	Template = new Template;
         console.log('events created');
-        registration_form();
-	create_invoice_after_post();
-	purchase_delete();
-	add_more_fields();
+	country_select();
+	province_select();
+    
     };
     
     // -------------------------------------------------------------------------
+
+    var country_select = function(){
+	$('#country').on('change',function(){
+	    $( '#province' ).html('<option>Select Province</option>');
+	    var href = window.location.href;
+	        href = href.replace('admin/teacher_add','');
+	        href = href.replace('admin/student_add','');
+	        href = href.replace('reception','');
+	    var url = href + '/fetch_per_select/fetch_country/' + $(this).val();
+	    $.get( url , '', 
+		function( data ){
+		    var $output = Template.fetch_states( data['data'] , data['role'] );
+		    //console.log($output);
+		    $( '#province' ).append($output);
+		}
+	    ,'json');
+	});
+    };
     
-    var purchase_delete = function(){
-        
-        $('.purchase_delete').click(
-		    function(e){
-			e.preventDefault();
-			console.log(  );
-			$item_to_be_deleted = $(this).parent().parent();
-			var url  = $(this).attr('href');
-			$.get( url , '' , 
-			    function( o ){
-				console.log(o);
-				if( o['result'] == 1){
-				    $item_to_be_deleted.addClass('hide');
-				    $('body').scrollTop();
-				    $('#some_message').addClass('alert alert-success alert-dismissable');    
-				    var $output  = '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>';
-				    $output     += '<h4><i class="icon fa fa-info"></i> Success !</h4>';
-				    $output     += 'The record is being successfully deleted';
-				    $('#some_message').html($output);
-				    setTimeout(
-					function (){
-					    $('#some_message').removeClass('alert alert-success alert-dismissable');
-					    $('#some_message').html('');
-					}
-				    , 6000);
-				}
-			    }
-			, "json");
-		    }
-		);
-	
+    // -------------------------------------------------------------------------
+
+    var province_select = function(){
+	$('#province').on('change',function(){
+	    $( '#city' ).html('<option>Select City</option>');
+	    var href = window.location.href;
+	    var href = href.replace('admin/teacher_add','');
+	    var href = href.replace('admin/student_add','');	    
+	    var href = href.replace('reception','');
+	    var url = href + '/fetch_per_select/fetch_city/' + $(this).val();
+	    $.get( url , '', 
+		function( data ){
+		    var $output = Template.fetch_cities( data['data'] );
+		    console.log($output);
+		    $( '#city' ).append($output);
+		}
+	    ,'json');
+	});
     };
     
     // -------------------------------------------------------------------------
