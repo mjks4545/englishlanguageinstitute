@@ -2,7 +2,19 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Admin extends CI_Controller {
-
+    
+    // -------------------------------------------------------------------------
+    
+    public function __construct(){
+	parent::__construct();
+	$user_id = $this->session->userdata('u_id');
+	if( !$user_id ){
+	    redirect('/');
+	}
+    }
+    
+    // -------------------------------------------------------------------------
+    
     public function index()
     {
         $this->load->view('include/header');
@@ -11,8 +23,8 @@ class Admin extends CI_Controller {
         $this->load->view('include/footer');
     }
 
-    //...............Start Student ..................
-
+    // -------------------------------------------------------------------------
+    
     public function student_add()
     {
         $query  = $this->db->get('countries');
@@ -22,6 +34,8 @@ class Admin extends CI_Controller {
         $this->load->view('admin/student_add',$result);
         $this->load->view('include/footer');
     }
+    
+    // -------------------------------------------------------------------------
 
     public function student_view()
     {
@@ -36,6 +50,8 @@ class Admin extends CI_Controller {
         $this->load->view('admin/student_view',$result);
         $this->load->view('include/footer');
     }
+    
+    // -------------------------------------------------------------------------
 
     public function student_edit($s_id = null)
     {
@@ -63,6 +79,8 @@ class Admin extends CI_Controller {
         $this->load->view('include/footer');
 
     }
+    
+    // -------------------------------------------------------------------------
 
     public function create_student_after_post()
     {
@@ -124,6 +142,8 @@ class Admin extends CI_Controller {
         redirect(site_url() . 'admin/student_view');
     }
 
+    // -------------------------------------------------------------------------
+    
     public function update_student_after_post($s_id = null,$u_id = null)
     {
 
@@ -179,6 +199,8 @@ class Admin extends CI_Controller {
             redirect(site_url() . 'admin/student_view');
         }
     }
+ 
+    // -------------------------------------------------------------------------
 
     public function student_delete($s_id = null , $u_id = null)
     {
@@ -188,12 +210,8 @@ class Admin extends CI_Controller {
         redirect(site_url() . 'admin/student_view');
     }
 
-
-
-    //..............End Student ................
-
-    //..............Start Teacher ................
-
+    // -------------------------------------------------------------------------
+    
     public function teacher_add()
     {
        $query  = $this->db->get('countries');
@@ -203,6 +221,8 @@ class Admin extends CI_Controller {
         $this->load->view('admin/teacher_add',$result);
         $this->load->view('include/footer');
     }
+
+    // -------------------------------------------------------------------------
 
     public function teacher_view()
     {
@@ -217,6 +237,8 @@ class Admin extends CI_Controller {
         $this->load->view('admin/teacher_view',$result);
         $this->load->view('include/footer');
     }
+   
+    // -------------------------------------------------------------------------
 
     public function teacher_edit($t_id = null)
     {
@@ -244,6 +266,8 @@ class Admin extends CI_Controller {
         $this->load->view('include/footer');
 
     }
+    
+    // -------------------------------------------------------------------------
 
     public function create_teacher_after_post(){
 
@@ -306,6 +330,8 @@ class Admin extends CI_Controller {
 
         redirect(site_url().'admin/teacher_view');
     }
+    
+    // -------------------------------------------------------------------------
 
     public function update_teacher_after_post($t_id = null,$u_id = null){
 
@@ -361,6 +387,8 @@ class Admin extends CI_Controller {
             redirect(site_url() . 'admin/teacher_view');
         }
     }
+    
+    // -------------------------------------------------------------------------
 
     public function teacher_delete($t_id = null , $u_id = null)
     {
@@ -370,9 +398,7 @@ class Admin extends CI_Controller {
         redirect(site_url() . 'admin/teacher_view');
     }
 
-    //..............End Teacher Add & View................
-
-    //..............Start Visitor View................
+    // -------------------------------------------------------------------------
 
     public function visitor_view()
     {
@@ -387,7 +413,9 @@ class Admin extends CI_Controller {
         $this->load->view('admin/visitor_view',$result);
         $this->load->view('include/footer');
     }
-
+   
+    // -------------------------------------------------------------------------
+    
     public function visitor_edit($v_id = null)
     {
         if($v_id == null)
@@ -414,6 +442,8 @@ class Admin extends CI_Controller {
         $this->load->view('include/footer');
 
     }
+
+    // -------------------------------------------------------------------------
 
     public function update_visitor_after_post($v_id = null,$u_id = null){
 
@@ -470,6 +500,8 @@ class Admin extends CI_Controller {
         redirect(site_url() . 'admin/visitor_view');
     }
 
+    // -------------------------------------------------------------------------
+
     public function visitor_delete($v_id = null , $u_id = null)
     {
         $this->db->delete('visitor',['v_id' => $v_id]);
@@ -478,8 +510,6 @@ class Admin extends CI_Controller {
         redirect(site_url() . 'admin/visitor_view');
     }
 
-
-
-    //..............End Visitor View................
+    // -------------------------------------------------------------------------
 
 }

@@ -44,9 +44,9 @@
 
             </ul>
             <a href="#">
-                <span class="glyphicon glyphicon-user"></span>Applications<span data-toggle="collapse" href="#sub-item-1" class="icon pull-right"><em class="glyphicon glyphicon-s glyphicon-plus"></em></span>
+                <span class="glyphicon glyphicon-user"></span>Applications<span data-toggle="collapse" href="#sub-item-2" class="icon pull-right"><em class="glyphicon glyphicon-s glyphicon-plus"></em></span>
             </a>
-            <ul class="children" id="sub-item-2">
+            <ul class="children collapse" id="sub-item-2">
                 <li>
                     <a  href="<?= site_url()?>applications/class_time_change">
                         <span class="glyphicon glyphicon-share-alt"></span> Class Time Change

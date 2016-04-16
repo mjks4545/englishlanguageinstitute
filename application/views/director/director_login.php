@@ -19,13 +19,10 @@
                                 <div class="form-group">
                                     <input class="form-control" placeholder="Password" name="password" type="password" value="">
                                 </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input name="remember" type="checkbox" value="Remember Me">Remember Me
-                                    </label>
-                                </div>
-                                <a href="index.html" class="btn btn-primary">Login</a>
-                            </fieldset>
+				<div class="form-group align-right">
+				    <a class="form-control" href="index.html" class="btn btn-primary">Login</a>
+				</div>
+			    </fieldset>
                         </form>
                     </div>
                 </div>

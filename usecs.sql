@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.1.14
+-- version 4.5.1
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 09, 2016 at 12:03 PM
--- Server version: 5.6.17
--- PHP Version: 5.5.12
+-- Generation Time: Apr 16, 2016 at 04:32 PM
+-- Server version: 10.1.8-MariaDB
+-- PHP Version: 5.6.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `usecs`
@@ -26,15 +26,14 @@ SET time_zone = "+00:00";
 -- Table structure for table `admin`
 --
 
-CREATE TABLE IF NOT EXISTS `admin` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `admin` (
+  `id` int(11) NOT NULL,
   `fkuser_id` int(11) NOT NULL,
   `description` varchar(255) NOT NULL,
   `created_at` varchar(255) NOT NULL,
   `updated_at` varchar(255) NOT NULL,
-  `created_by` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `created_by` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -42,8 +41,8 @@ CREATE TABLE IF NOT EXISTS `admin` (
 -- Table structure for table `application`
 --
 
-CREATE TABLE IF NOT EXISTS `application` (
-  `app_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `application` (
+  `app_id` int(11) NOT NULL,
   `fkuser_id` int(11) NOT NULL,
   `app_to` varchar(255) NOT NULL,
   `app_director` varchar(255) NOT NULL,
@@ -57,9 +56,8 @@ CREATE TABLE IF NOT EXISTS `application` (
   `app_date` varchar(255) NOT NULL,
   `created_at` varchar(255) NOT NULL,
   `updated_at` varchar(255) NOT NULL,
-  `created_by` varchar(255) NOT NULL,
-  PRIMARY KEY (`app_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=16 ;
+  `created_by` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `application`
@@ -83,16 +81,15 @@ INSERT INTO `application` (`app_id`, `fkuser_id`, `app_to`, `app_director`, `sub
 -- Table structure for table `attendance`
 --
 
-CREATE TABLE IF NOT EXISTS `attendance` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `attendance` (
+  `id` int(11) NOT NULL,
   `fkuser_id` int(11) NOT NULL,
   `status` int(11) NOT NULL,
   `description` varchar(255) NOT NULL,
   `created_at` varchar(255) NOT NULL,
   `updated_at` varchar(255) NOT NULL,
-  `created_by` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `created_by` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -100,12 +97,11 @@ CREATE TABLE IF NOT EXISTS `attendance` (
 -- Table structure for table `cities`
 --
 
-CREATE TABLE IF NOT EXISTS `cities` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `cities` (
+  `id` int(11) NOT NULL,
   `city_name` varchar(30) NOT NULL,
-  `state_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=47577 ;
+  `state_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `cities`
@@ -17026,9 +17022,9 @@ INSERT INTO `cities` (`id`, `city_name`, `state_id`) VALUES
 (16905, 'Keuruu', 1161),
 (16906, 'Laukaa', 1161),
 (16907, 'Lieto', 1161),
-(16908, 'Anjalankoski', 1162);
+(16908, 'Anjalankoski', 1162),
+(16909, 'Hamina', 1162);
 INSERT INTO `cities` (`id`, `city_name`, `state_id`) VALUES
-(16909, 'Hamina', 1162),
 (16910, 'Kotka', 1162),
 (16911, 'Kouvola', 1162),
 (16912, 'Kuusankoski', 1162),
@@ -18868,10 +18864,10 @@ INSERT INTO `cities` (`id`, `city_name`, `state_id`) VALUES
 (18746, 'Alzenau', 1357),
 (18747, 'Amberg', 1357),
 (18748, 'Amerang', 1357),
-(18749, 'Ansbach', 1357);
-INSERT INTO `cities` (`id`, `city_name`, `state_id`) VALUES
+(18749, 'Ansbach', 1357),
 (18750, 'Aschaffenburg', 1357),
-(18751, 'Augsburg', 1357),
+(18751, 'Augsburg', 1357);
+INSERT INTO `cities` (`id`, `city_name`, `state_id`) VALUES
 (18752, 'Bad Aibling', 1357),
 (18753, 'Bad Kissingen', 1357),
 (18754, 'Bad Neustadt', 1357),
@@ -20797,10 +20793,10 @@ INSERT INTO `cities` (`id`, `city_name`, `state_id`) VALUES
 (20674, 'Nuusuaq', 1491),
 (20675, 'Tasiusaq', 1491),
 (20676, 'Upernavik', 1491),
-(20677, 'Upernavik Kujalleq', 1491);
-INSERT INTO `cities` (`id`, `city_name`, `state_id`) VALUES
+(20677, 'Upernavik Kujalleq', 1491),
 (20678, 'Ikerasak', 1492),
-(20679, 'Illorsuit', 1492),
+(20679, 'Illorsuit', 1492);
+INSERT INTO `cities` (`id`, `city_name`, `state_id`) VALUES
 (20680, 'Niaqornat', 1492),
 (20681, 'Nuugaatsiaq', 1492),
 (20682, 'Qaarsut', 1492),
@@ -22708,10 +22704,10 @@ INSERT INTO `cities` (`id`, `city_name`, `state_id`) VALUES
 (22584, 'Miglianico', 1826),
 (22585, 'Montazzoli', 1826),
 (22586, 'Montebello sul Sangro', 1826),
-(22587, 'Monteferrante', 1826);
-INSERT INTO `cities` (`id`, `city_name`, `state_id`) VALUES
+(22587, 'Monteferrante', 1826),
 (22588, 'Montelapiano', 1826),
-(22589, 'Montenerodomo', 1826),
+(22589, 'Montenerodomo', 1826);
+INSERT INTO `cities` (`id`, `city_name`, `state_id`) VALUES
 (22590, 'Monteodorisio', 1826),
 (22591, 'Mozzagrogna', 1826),
 (22592, 'Orsogna', 1826),
@@ -24584,10 +24580,10 @@ INSERT INTO `cities` (`id`, `city_name`, `state_id`) VALUES
 (24459, 'Nishiwaki', 1930),
 (24460, 'Ono', 1930),
 (24461, 'Sanda', 1930),
-(24462, 'Sasayama', 1930);
-INSERT INTO `cities` (`id`, `city_name`, `state_id`) VALUES
+(24462, 'Sasayama', 1930),
 (24463, 'Sumoto', 1930),
-(24464, 'Taishi', 1930),
+(24464, 'Taishi', 1930);
+INSERT INTO `cities` (`id`, `city_name`, `state_id`) VALUES
 (24465, 'Takarazuka', 1930),
 (24466, 'Takasago', 1930),
 (24467, 'Tatsuno', 1930),
@@ -26599,9 +26595,9 @@ INSERT INTO `cities` (`id`, `city_name`, `state_id`) VALUES
 (26473, 'Oberdonven', 2236),
 (26474, 'Olingen', 2236),
 (26475, 'Rodenbourg', 2236),
-(26476, 'Roodt-sur-Syr', 2236);
+(26476, 'Roodt-sur-Syr', 2236),
+(26477, 'Wasserbillig', 2236);
 INSERT INTO `cities` (`id`, `city_name`, `state_id`) VALUES
-(26477, 'Wasserbillig', 2236),
 (26478, 'Wecker', 2236),
 (26479, 'Wecker-Gare', 2236),
 (26480, 'Weydig', 2236),
@@ -28478,9 +28474,9 @@ INSERT INTO `cities` (`id`, `city_name`, `state_id`) VALUES
 (28351, 'Tejupilco', 2442),
 (28352, 'Temamatla', 2442),
 (28353, 'Temascalapa', 2442),
-(28354, 'Temascalcingo', 2442);
+(28354, 'Temascalcingo', 2442),
+(28355, 'Temoaya', 2442);
 INSERT INTO `cities` (`id`, `city_name`, `state_id`) VALUES
-(28355, 'Temoaya', 2442),
 (28356, 'Tenancingo', 2442),
 (28357, 'Tenango de Arista', 2442),
 (28358, 'Tenango del Aire', 2442),
@@ -30381,9 +30377,9 @@ INSERT INTO `cities` (`id`, `city_name`, `state_id`) VALUES
 (30253, 'Wormer', 2594),
 (30254, 'Wormerland', 2594),
 (30255, 'Wormerveer', 2594),
-(30256, 'Zaandam', 2594);
+(30256, 'Zaandam', 2594),
+(30257, 'Zaanstad', 2594);
 INSERT INTO `cities` (`id`, `city_name`, `state_id`) VALUES
-(30257, 'Zaanstad', 2594),
 (30258, 'Zandvoort', 2594),
 (30259, 'Zeevang', 2594),
 (30260, 'Zwaag', 2594),
@@ -32365,10 +32361,10 @@ INSERT INTO `cities` (`id`, `city_name`, `state_id`) VALUES
 (32236, 'Baguio', 2844),
 (32237, 'Bangued', 2844),
 (32238, 'Davao', 2845),
-(32239, 'Dagupan', 2848);
-INSERT INTO `cities` (`id`, `city_name`, `state_id`) VALUES
+(32239, 'Dagupan', 2848),
 (32240, 'Laoag', 2848),
-(32241, 'Manaoag', 2848),
+(32241, 'Manaoag', 2848);
+INSERT INTO `cities` (`id`, `city_name`, `state_id`) VALUES
 (32242, 'Mangaldan', 2848),
 (32243, 'San Fernando', 2848),
 (32244, 'Urdaneta', 2848),
@@ -34323,9 +34319,9 @@ INSERT INTO `cities` (`id`, `city_name`, `state_id`) VALUES
 (34193, 'Buciumeni', 2950),
 (34194, 'Bucsani', 2950),
 (34195, 'Butimanu', 2950),
-(34196, 'Candesti', 2950);
+(34196, 'Candesti', 2950),
+(34197, 'Ciocanesti', 2950);
 INSERT INTO `cities` (`id`, `city_name`, `state_id`) VALUES
-(34197, 'Ciocanesti', 2950),
 (34198, 'Cobia', 2950),
 (34199, 'Cojasca', 2950),
 (34200, 'Comisani', 2950),
@@ -36290,9 +36286,9 @@ INSERT INTO `cities` (`id`, `city_name`, `state_id`) VALUES
 (36159, 'Novozybkov', 2986),
 (36160, 'Pochjop', 2986),
 (36161, 'Pogar', 2986),
-(36162, 'Selco', 2986);
+(36162, 'Selco', 2986),
+(36163, 'Starodub', 2986);
 INSERT INTO `cities` (`id`, `city_name`, `state_id`) VALUES
-(36163, 'Starodub', 2986),
 (36164, 'Surazh', 2986),
 (36165, 'Suzjomka', 2986),
 (36166, 'Trubchjovsk', 2986),
@@ -47718,15 +47714,14 @@ INSERT INTO `cities` (`id`, `city_name`, `state_id`) VALUES
 -- Table structure for table `class_promotion_app`
 --
 
-CREATE TABLE IF NOT EXISTS `class_promotion_app` (
-  `promotion_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `class_promotion_app` (
+  `promotion_id` int(11) NOT NULL,
   `fkapp_id` int(11) NOT NULL,
   `class_promotion_text` varchar(255) NOT NULL,
   `created_at` varchar(255) NOT NULL,
   `updated_at` varchar(255) NOT NULL,
-  `created_by` int(11) NOT NULL,
-  PRIMARY KEY (`promotion_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+  `created_by` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `class_promotion_app`
@@ -47743,12 +47738,11 @@ INSERT INTO `class_promotion_app` (`promotion_id`, `fkapp_id`, `class_promotion_
 -- Table structure for table `countries`
 --
 
-CREATE TABLE IF NOT EXISTS `countries` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `countries` (
+  `id` int(11) NOT NULL,
   `sortname` varchar(3) NOT NULL,
-  `country_name` varchar(150) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=247 ;
+  `country_name` varchar(150) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `countries`
@@ -48008,8 +48002,8 @@ INSERT INTO `countries` (`id`, `sortname`, `country_name`) VALUES
 -- Table structure for table `courses`
 --
 
-CREATE TABLE IF NOT EXISTS `courses` (
-  `c_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `courses` (
+  `c_id` int(11) NOT NULL,
   `fkuser_id` int(11) NOT NULL,
   `course_name` varchar(255) NOT NULL,
   `course_duration` varchar(255) NOT NULL,
@@ -48018,9 +48012,8 @@ CREATE TABLE IF NOT EXISTS `courses` (
   `created_at` varchar(255) NOT NULL,
   `updated_at` varchar(255) NOT NULL,
   `created_by` varchar(255) NOT NULL,
-  `description` varchar(255) NOT NULL,
-  PRIMARY KEY (`c_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+  `description` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `courses`
@@ -48038,15 +48031,14 @@ INSERT INTO `courses` (`c_id`, `fkuser_id`, `course_name`, `course_duration`, `s
 -- Table structure for table `director`
 --
 
-CREATE TABLE IF NOT EXISTS `director` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `director` (
+  `id` int(11) NOT NULL,
   `fkuser_id` int(11) NOT NULL,
   `description` varchar(255) NOT NULL,
   `created_at` varchar(255) NOT NULL,
   `updated_at` varchar(255) NOT NULL,
-  `created_by` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `created_by` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -48054,15 +48046,14 @@ CREATE TABLE IF NOT EXISTS `director` (
 -- Table structure for table `freeze_semester_app`
 --
 
-CREATE TABLE IF NOT EXISTS `freeze_semester_app` (
-  `freeze_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `freeze_semester_app` (
+  `freeze_id` int(11) NOT NULL,
   `fkapp_id` int(11) NOT NULL,
   `freeze_semester_text` varchar(255) NOT NULL,
   `created_at` varchar(255) NOT NULL,
   `updated_at` varchar(255) NOT NULL,
-  `created_by` int(11) NOT NULL,
-  PRIMARY KEY (`freeze_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+  `created_by` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `freeze_semester_app`
@@ -48079,17 +48070,16 @@ INSERT INTO `freeze_semester_app` (`freeze_id`, `fkapp_id`, `freeze_semester_tex
 -- Table structure for table `notification`
 --
 
-CREATE TABLE IF NOT EXISTS `notification` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `notification` (
+  `id` int(11) NOT NULL,
   `fkuser_id` int(11) NOT NULL,
   `text` varchar(255) NOT NULL,
   `time` varchar(255) NOT NULL,
   `description` varchar(255) NOT NULL,
   `created_at` varchar(255) NOT NULL,
   `updated_at` varchar(255) NOT NULL,
-  `created_by` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `created_by` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -48097,8 +48087,8 @@ CREATE TABLE IF NOT EXISTS `notification` (
 -- Table structure for table `payment`
 --
 
-CREATE TABLE IF NOT EXISTS `payment` (
-  `p_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `payment` (
+  `p_id` int(11) NOT NULL,
   `fkuser_id` int(11) NOT NULL,
   `admission_fee` varchar(255) NOT NULL,
   `monthly_fee` varchar(255) NOT NULL,
@@ -48108,9 +48098,8 @@ CREATE TABLE IF NOT EXISTS `payment` (
   `next_fee_date` varchar(255) NOT NULL,
   `created_at` varchar(255) NOT NULL,
   `updated_at` varchar(255) NOT NULL,
-  `created_by` varchar(255) NOT NULL,
-  PRIMARY KEY (`p_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+  `created_by` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `payment`
@@ -48125,15 +48114,14 @@ INSERT INTO `payment` (`p_id`, `fkuser_id`, `admission_fee`, `monthly_fee`, `rec
 -- Table structure for table `receptionist`
 --
 
-CREATE TABLE IF NOT EXISTS `receptionist` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `receptionist` (
+  `id` int(11) NOT NULL,
   `fkuser_id` int(11) NOT NULL,
   `description` varchar(255) NOT NULL,
   `created_at` varchar(255) NOT NULL,
   `updated_at` varchar(255) NOT NULL,
-  `created_by` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `created_by` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -48141,15 +48129,14 @@ CREATE TABLE IF NOT EXISTS `receptionist` (
 -- Table structure for table `reports`
 --
 
-CREATE TABLE IF NOT EXISTS `reports` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `reports` (
+  `id` int(11) NOT NULL,
   `fkuser_id` int(11) NOT NULL,
   `description` varchar(255) NOT NULL,
   `created_at` varchar(255) NOT NULL,
   `updated_at` varchar(255) NOT NULL,
-  `created_by` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `created_by` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -48157,12 +48144,11 @@ CREATE TABLE IF NOT EXISTS `reports` (
 -- Table structure for table `states`
 --
 
-CREATE TABLE IF NOT EXISTS `states` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `states` (
+  `id` int(11) NOT NULL,
   `state_name` varchar(30) NOT NULL,
-  `country_id` int(11) NOT NULL DEFAULT '1',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4121 ;
+  `country_id` int(11) NOT NULL DEFAULT '1'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `states`
@@ -52296,8 +52282,8 @@ INSERT INTO `states` (`id`, `state_name`, `country_id`) VALUES
 -- Table structure for table `student`
 --
 
-CREATE TABLE IF NOT EXISTS `student` (
-  `s_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `student` (
+  `s_id` int(11) NOT NULL,
   `fkuser_id` int(11) NOT NULL,
   `reg_number` int(11) NOT NULL,
   `guardian_number` varchar(255) NOT NULL,
@@ -52309,9 +52295,8 @@ CREATE TABLE IF NOT EXISTS `student` (
   `description` varchar(255) NOT NULL,
   `created_at` varchar(255) NOT NULL,
   `updated_at` varchar(255) NOT NULL,
-  `created_by` varchar(255) NOT NULL,
-  PRIMARY KEY (`s_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=16 ;
+  `created_by` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `student`
@@ -52333,8 +52318,8 @@ INSERT INTO `student` (`s_id`, `fkuser_id`, `reg_number`, `guardian_number`, `qu
 -- Table structure for table `teacher`
 --
 
-CREATE TABLE IF NOT EXISTS `teacher` (
-  `t_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `teacher` (
+  `t_id` int(11) NOT NULL,
   `reg_number` varchar(255) NOT NULL,
   `fkuser_id` int(11) NOT NULL,
   `salary` varchar(255) NOT NULL,
@@ -52343,9 +52328,8 @@ CREATE TABLE IF NOT EXISTS `teacher` (
   `description` varchar(255) NOT NULL,
   `created_at` varchar(255) NOT NULL,
   `updated_at` varchar(255) NOT NULL,
-  `created_by` varchar(255) NOT NULL,
-  PRIMARY KEY (`t_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+  `created_by` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `teacher`
@@ -52364,15 +52348,14 @@ INSERT INTO `teacher` (`t_id`, `reg_number`, `fkuser_id`, `salary`, `qualificati
 -- Table structure for table `test`
 --
 
-CREATE TABLE IF NOT EXISTS `test` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `test` (
+  `id` int(11) NOT NULL,
   `fktesttype_id` int(11) NOT NULL,
   `description` varchar(255) NOT NULL,
   `created_at` varchar(255) NOT NULL,
   `updated_at` varchar(255) NOT NULL,
-  `created_by` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `created_by` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -52380,15 +52363,14 @@ CREATE TABLE IF NOT EXISTS `test` (
 -- Table structure for table `testreults`
 --
 
-CREATE TABLE IF NOT EXISTS `testreults` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `testreults` (
+  `id` int(11) NOT NULL,
   `fktest_id` int(11) NOT NULL,
   `description` varchar(255) NOT NULL,
   `created_at` varchar(255) NOT NULL,
   `updated_at` varchar(255) NOT NULL,
-  `created_by` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `created_by` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -52396,8 +52378,8 @@ CREATE TABLE IF NOT EXISTS `testreults` (
 -- Table structure for table `testtype`
 --
 
-CREATE TABLE IF NOT EXISTS `testtype` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `testtype` (
+  `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `course` varchar(255) NOT NULL,
   `total_marks` int(11) NOT NULL,
@@ -52405,9 +52387,8 @@ CREATE TABLE IF NOT EXISTS `testtype` (
   `description` varchar(255) NOT NULL,
   `created_at` varchar(255) NOT NULL,
   `updated_at` varchar(255) NOT NULL,
-  `created_by` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `created_by` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -52415,15 +52396,14 @@ CREATE TABLE IF NOT EXISTS `testtype` (
 -- Table structure for table `time_changing_app`
 --
 
-CREATE TABLE IF NOT EXISTS `time_changing_app` (
-  `change_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `time_changing_app` (
+  `change_id` int(11) NOT NULL,
   `fkapp_id` int(11) NOT NULL,
   `time_change_text` varchar(255) NOT NULL,
   `created_at` varchar(500) NOT NULL,
   `updated_at` varchar(255) NOT NULL,
-  `created_by` varchar(255) NOT NULL,
-  PRIMARY KEY (`change_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+  `created_by` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `time_changing_app`
@@ -52439,8 +52419,8 @@ INSERT INTO `time_changing_app` (`change_id`, `fkapp_id`, `time_change_text`, `c
 -- Table structure for table `users`
 --
 
-CREATE TABLE IF NOT EXISTS `users` (
-  `u_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `users` (
+  `u_id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `f_name` varchar(255) NOT NULL,
   `age` varchar(255) NOT NULL,
@@ -52451,41 +52431,41 @@ CREATE TABLE IF NOT EXISTS `users` (
   `address` varchar(255) NOT NULL,
   `nationality` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
+  `password` varchar(500) NOT NULL,
   `role` varchar(255) NOT NULL,
   `fktestresult_id` int(11) NOT NULL,
   `description` varchar(255) NOT NULL,
   `created_at` varchar(255) NOT NULL,
   `updated_at` varchar(255) NOT NULL,
-  `created_by` varchar(255) NOT NULL,
-  PRIMARY KEY (`u_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=35 ;
+  `created_by` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`u_id`, `name`, `f_name`, `age`, `contact`, `country_id`, `province_id`, `city_id`, `address`, `nationality`, `email`, `role`, `fktestresult_id`, `description`, `created_at`, `updated_at`, `created_by`) VALUES
-(14, 'imran', 'khan', '56', '123456789', '', '', '', 'islamabad', 'pakistani', 'imran@teacher.com', '0', 0, 'welcome to ss', '16-04-05', '', '0'),
-(15, 'saddam', 'khan', '22', '123456', '', '', '', 'peshawar', 'pakistani', 'saddam@teacher.com', '0', 0, 'coollll', '16-04-05', '', '0'),
-(16, 'bilal', 'khan', '24', '1235544', '', '', '', 'canal road pawaka peshawar', 'pakistani', 'bilal@student.com', '0', 0, 'something', '16-04-05', '16-04-05', '0'),
-(17, 'gulzar', 'ahmed', '25', '11223344', '', '', '', 'kabul', 'afghani', 'gulzar@student.com', '0', 0, 'aaksgkagsfa', '16-04-05', '', '0'),
-(18, 'mehboob ', 'khan', '23', '225588', '', '', '', 'mardan', 'pakistani', 'mehboob@visitor.com', '0', 0, 'agsdf;hkgasdfh;jasd', '16-04-05', '', '0'),
-(19, 'naveed', 'ilyas', '33', '778899', '', '', '', 'mardan', 'pak', 'naveed@student.com', '0', 0, 'fagsfkglagf', '16-04-05', '', '0'),
-(20, '123', '123', '123', '123', '', '', '', 'gora more', '132', '123@123.com', '', 0, '123', '16-04-08', '', ''),
-(21, '321', '321', '321', '321', '', '', '', 'isb', '321', '321@321.com', '', 0, 'afskfjaksjfa', '16-04-08', '', ''),
-(22, '213', '213', '213', '213', '', '', '', 'afghan', '213', '213@213.com', '', 0, 'asdbaklsfblkas', '16-04-08', '', ''),
-(23, '000', '000', '000', '000', '44', '735', '11182', 'china', '000', '000@000.com', '', 0, 'sadsfasf', '16-04-08', '', ''),
-(24, '44', '44', '44', '44', '166', '2728', '5754', 'das', '44', '44@44.com', '', 0, 'dasdasd', '16-04-08', '', ''),
-(25, '77', '77', '77', '77', '44', '741', '11305', 'adasda', '77', '77@77.com', '', 0, 'asdasd', '16-04-08', '', ''),
-(26, 'yes', 'no', '12', '12', '', '', '', '', 'pakistani', 'yes@yes.com', '', 0, '', '16-04-09', '', ''),
-(27, 'look', 'lookkk', '22', '22', '', '', '', '', '22', '22@22.com', '', 0, '', '16-04-09', '', ''),
-(28, 'shiraz', 'muhammad', '23', '3366', '', '', '', '', 'pak', 'std@std.com', '', 0, '', '16-04-09', '', ''),
-(29, 'rehman', 'ali', '', '', '', '', '', '', '', '', '', 0, '', '16-04-09', '', ''),
-(30, 'freeze', 'up', '', '', '', '', '', '', '', '', '', 0, '', '16-04-09', '', ''),
-(31, 'changing', 'up', '', '', '', '', '', '', '', '', '', 0, '', '16-04-09', '', ''),
-(32, 'changing', 'uppp', '', '', '', '', '', '', '', '', '', 0, '', '16-04-09', '', ''),
-(33, 'freezzzzzz', 'upppppppp', '', '', '', '', '', '', '', '', '', 0, '', '16-04-09', '', ''),
-(34, 'ffffffff', 'fffffffff', '', '', '', '', '', '', '', '', '', 0, '', '16-04-09', '', '');
+INSERT INTO `users` (`u_id`, `name`, `f_name`, `age`, `contact`, `country_id`, `province_id`, `city_id`, `address`, `nationality`, `email`, `password`, `role`, `fktestresult_id`, `description`, `created_at`, `updated_at`, `created_by`) VALUES
+(14, 'imran', 'khan', '56', '123456789', '', '', '', 'islamabad', 'pakistani', 'admin@admin.com', 'admin', '1', 0, 'welcome to ss', '16-04-05', '', '0'),
+(15, 'saddam', 'khan', '22', '123456', '', '', '', 'peshawar', 'pakistani', 'saddam@teacher.com', '', '0', 0, 'coollll', '16-04-05', '', '0'),
+(16, 'bilal', 'khan', '24', '1235544', '', '', '', 'canal road pawaka peshawar', 'pakistani', 'bilal@student.com', '', '0', 0, 'something', '16-04-05', '16-04-05', '0'),
+(17, 'gulzar', 'ahmed', '25', '11223344', '', '', '', 'kabul', 'afghani', 'gulzar@student.com', '', '0', 0, 'aaksgkagsfa', '16-04-05', '', '0'),
+(18, 'mehboob ', 'khan', '23', '225588', '', '', '', 'mardan', 'pakistani', 'mehboob@visitor.com', '', '0', 0, 'agsdf;hkgasdfh;jasd', '16-04-05', '', '0'),
+(19, 'naveed', 'ilyas', '33', '778899', '', '', '', 'mardan', 'pak', 'naveed@student.com', '', '0', 0, 'fagsfkglagf', '16-04-05', '', '0'),
+(20, '123', '123', '123', '123', '', '', '', 'gora more', '132', '123@123.com', '', '', 0, '123', '16-04-08', '', ''),
+(21, '321', '321', '321', '321', '', '', '', 'isb', '321', '321@321.com', '', '', 0, 'afskfjaksjfa', '16-04-08', '', ''),
+(22, '213', '213', '213', '213', '', '', '', 'afghan', '213', '213@213.com', '', '', 0, 'asdbaklsfblkas', '16-04-08', '', ''),
+(23, '000', '000', '000', '000', '44', '735', '11182', 'china', '000', '000@000.com', '', '', 0, 'sadsfasf', '16-04-08', '', ''),
+(24, '44', '44', '44', '44', '166', '2728', '5754', 'das', '44', '44@44.com', '', '', 0, 'dasdasd', '16-04-08', '', ''),
+(25, '77', '77', '77', '77', '44', '741', '11305', 'adasda', '77', '77@77.com', '', '', 0, 'asdasd', '16-04-08', '', ''),
+(26, 'yes', 'no', '12', '12', '', '', '', '', 'pakistani', 'yes@yes.com', '', '', 0, '', '16-04-09', '', ''),
+(27, 'look', 'lookkk', '22', '22', '', '', '', '', '22', '22@22.com', '', '', 0, '', '16-04-09', '', ''),
+(28, 'shiraz', 'muhammad', '23', '3366', '', '', '', '', 'pak', 'std@std.com', '', '', 0, '', '16-04-09', '', ''),
+(29, 'rehman', 'ali', '', '', '', '', '', '', '', '', '', '', 0, '', '16-04-09', '', ''),
+(30, 'freeze', 'up', '', '', '', '', '', '', '', '', '', '', 0, '', '16-04-09', '', ''),
+(31, 'changing', 'up', '', '', '', '', '', '', '', '', '', '', 0, '', '16-04-09', '', ''),
+(32, 'changing', 'uppp', '', '', '', '', '', '', '', '', '', '', 0, '', '16-04-09', '', ''),
+(33, 'freezzzzzz', 'upppppppp', '', '', '', '', '', '', '', '', '', '', 0, '', '16-04-09', '', ''),
+(34, 'ffffffff', 'fffffffff', '', '', '', '', '', '', '', '', '', '', 0, '', '16-04-09', '', '');
 
 -- --------------------------------------------------------
 
@@ -52493,8 +52473,8 @@ INSERT INTO `users` (`u_id`, `name`, `f_name`, `age`, `contact`, `country_id`, `
 -- Table structure for table `visitor`
 --
 
-CREATE TABLE IF NOT EXISTS `visitor` (
-  `v_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `visitor` (
+  `v_id` int(11) NOT NULL,
   `fkuser_id` int(11) NOT NULL,
   `profession` varchar(255) NOT NULL,
   `guardian_number` varchar(255) NOT NULL,
@@ -52504,9 +52484,8 @@ CREATE TABLE IF NOT EXISTS `visitor` (
   `description` varchar(255) NOT NULL,
   `created_at` varchar(255) NOT NULL,
   `updated_at` varchar(255) NOT NULL,
-  `created_by` varchar(255) NOT NULL,
-  PRIMARY KEY (`v_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
+  `created_by` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `visitor`
@@ -52520,6 +52499,256 @@ INSERT INTO `visitor` (`v_id`, `fkuser_id`, `profession`, `guardian_number`, `qu
 (9, 22, '213', '213', '213', '', '213', 'asdbaklsfblkas', '16-04-08', '', ''),
 (10, 23, '000', '000', '000', '', '000', 'sadsfasf', '16-04-08', '', '');
 
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `application`
+--
+ALTER TABLE `application`
+  ADD PRIMARY KEY (`app_id`);
+
+--
+-- Indexes for table `attendance`
+--
+ALTER TABLE `attendance`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `cities`
+--
+ALTER TABLE `cities`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `class_promotion_app`
+--
+ALTER TABLE `class_promotion_app`
+  ADD PRIMARY KEY (`promotion_id`);
+
+--
+-- Indexes for table `countries`
+--
+ALTER TABLE `countries`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `courses`
+--
+ALTER TABLE `courses`
+  ADD PRIMARY KEY (`c_id`);
+
+--
+-- Indexes for table `director`
+--
+ALTER TABLE `director`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `freeze_semester_app`
+--
+ALTER TABLE `freeze_semester_app`
+  ADD PRIMARY KEY (`freeze_id`);
+
+--
+-- Indexes for table `notification`
+--
+ALTER TABLE `notification`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `payment`
+--
+ALTER TABLE `payment`
+  ADD PRIMARY KEY (`p_id`);
+
+--
+-- Indexes for table `receptionist`
+--
+ALTER TABLE `receptionist`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `reports`
+--
+ALTER TABLE `reports`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `states`
+--
+ALTER TABLE `states`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `student`
+--
+ALTER TABLE `student`
+  ADD PRIMARY KEY (`s_id`);
+
+--
+-- Indexes for table `teacher`
+--
+ALTER TABLE `teacher`
+  ADD PRIMARY KEY (`t_id`);
+
+--
+-- Indexes for table `test`
+--
+ALTER TABLE `test`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `testreults`
+--
+ALTER TABLE `testreults`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `testtype`
+--
+ALTER TABLE `testtype`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `time_changing_app`
+--
+ALTER TABLE `time_changing_app`
+  ADD PRIMARY KEY (`change_id`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`u_id`);
+
+--
+-- Indexes for table `visitor`
+--
+ALTER TABLE `visitor`
+  ADD PRIMARY KEY (`v_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `application`
+--
+ALTER TABLE `application`
+  MODIFY `app_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+--
+-- AUTO_INCREMENT for table `attendance`
+--
+ALTER TABLE `attendance`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `cities`
+--
+ALTER TABLE `cities`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47577;
+--
+-- AUTO_INCREMENT for table `class_promotion_app`
+--
+ALTER TABLE `class_promotion_app`
+  MODIFY `promotion_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `countries`
+--
+ALTER TABLE `countries`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=247;
+--
+-- AUTO_INCREMENT for table `courses`
+--
+ALTER TABLE `courses`
+  MODIFY `c_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `director`
+--
+ALTER TABLE `director`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `freeze_semester_app`
+--
+ALTER TABLE `freeze_semester_app`
+  MODIFY `freeze_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `notification`
+--
+ALTER TABLE `notification`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `payment`
+--
+ALTER TABLE `payment`
+  MODIFY `p_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `receptionist`
+--
+ALTER TABLE `receptionist`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `reports`
+--
+ALTER TABLE `reports`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `states`
+--
+ALTER TABLE `states`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4121;
+--
+-- AUTO_INCREMENT for table `student`
+--
+ALTER TABLE `student`
+  MODIFY `s_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+--
+-- AUTO_INCREMENT for table `teacher`
+--
+ALTER TABLE `teacher`
+  MODIFY `t_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+--
+-- AUTO_INCREMENT for table `test`
+--
+ALTER TABLE `test`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `testreults`
+--
+ALTER TABLE `testreults`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `testtype`
+--
+ALTER TABLE `testtype`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `time_changing_app`
+--
+ALTER TABLE `time_changing_app`
+  MODIFY `change_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `u_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+--
+-- AUTO_INCREMENT for table `visitor`
+--
+ALTER TABLE `visitor`
+  MODIFY `v_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -102,9 +102,10 @@
             <a class="navbar-brand" href="#"><span>The University of Spoken English & Computer Courses</span></a>
             <ul class="nav navbar-top-links navbar-right">
                 <li class="dropdown">
+		   
                     <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
-                        <i class="glyphicon glyphicon-envelope"></i>  <span class="label label-danger">2</span>
-                    </a>
+                       Admin <!-- <i class="glyphicon glyphicon-envelope"></i>  <span class="label label-danger">2</span>-->
+                    </a><!--
                     <ul class="dropdown-menu dropdown-messages">
                         <li>
                             <div class="dropdown-messages-box">
@@ -142,9 +143,9 @@
                                 </a>
                             </div>
                         </li>
-                    </ul>
+                    </ul>-->
                 </li>
-                <li class="dropdown">
+<!--                <li class="dropdown">
                     <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
                         <i class="glyphicon glyphicon-bell"></i>  <span class="label label-primary">18</span>
                     </a>
@@ -176,7 +177,7 @@
                             </a>
                         </li>
                     </ul>
-                </li>
+                </li>-->
             </ul>
         </div>
     </div><!-- /.container-fluid -->
