@@ -141,7 +141,7 @@
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label>Starting Date</label>
-                                    <input type="date" id="datepicker_1" name="starting_date" style="color: white" class="form-control" placeholder="Starting Date" required>
+                                    <input type="date" id="datepicker" name="starting_date" style="color: white" class="form-control" placeholder="Starting Date" required>
                                 </div>
 
                             </div>
@@ -152,7 +152,7 @@
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label>Completion Date</label>
-                                    <input type="date" id="datepicker_2" name="completion_date" style="color: white" class="form-control" placeholder="Completion Date" required>
+                                    <input type="date" id="" name="completion_date" style="color: white" class="form-control" placeholder="Completion Date" required>
                                 </div>
                             </div>
                             <div class="row">
@@ -172,7 +172,7 @@
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label>Received Date</label>
-                                    <input type="date" id="datepicker_3" name="received_date" style="color: white" class="form-control" placeholder="Rec Date" required>
+                                    <input type="date" id="" name="received_date" style="color: white" class="form-control" placeholder="Rec Date" required>
                                 </div>
                             </div>
                             <div class="row">
@@ -183,7 +183,7 @@
                                 </div>
                                 <div class="form-group col-md-6">
                                 <label>Next Fee Date</label>
-                                <input type="date" id="datepicker_5" name="next_fee_date" class="form-control">
+                                <input type="date" id="" name="next_fee_date" class="form-control">
                                 </div>
                             </div>
                         </fieldset>
@@ -200,13 +200,13 @@
                 </div>
         </div><!-- /.col-->
     </div><!-- /.row -->
+    </div>
     
   <script>
   $(function() {
     $( "#datepicker" ).datepicker();
   });
-   $(function() {
-    $( "#datepicker_1" ).datepicker_1();
-  });
+   ;
   </script>
+  
                        

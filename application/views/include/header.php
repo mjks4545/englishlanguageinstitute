@@ -28,6 +28,12 @@
 
 
         }
+        .plus_position{
+            position: relative;
+            top: 34px;
+            right: 20px;
+            cursor: pointer;
+        }
         .para1{
 
                     margin-left: -60px;

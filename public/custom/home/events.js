@@ -8,7 +8,22 @@ var Events = function(){
         console.log('events created');
 	country_select();
 	province_select();
+        new_insert_course();
     
+    };
+    
+    // -------------------------------------------------------------------------
+
+    var new_insert_course = function(){
+	$('#show').on('click',
+            function(){
+                console.log('hi');
+                var hidden = $('.hidden_1');
+                var unhide = $('.unhide');
+                hidden.removeClass('hide');
+                unhide.addClass('hide');
+            }
+        );
     };
     
     // -------------------------------------------------------------------------

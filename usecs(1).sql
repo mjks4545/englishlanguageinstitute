@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 21, 2016 at 12:25 PM
+-- Generation Time: Apr 21, 2016 at 04:33 PM
 -- Server version: 5.6.16
 -- PHP Version: 5.5.9
 
@@ -48022,6 +48022,141 @@ INSERT INTO `courses` (`c_id`, `fkuser_id`, `course_name`, `course_duration`, `s
 (6, 42, 'Information Technology', '23', '23', '23', '16-04-20', '', '', ''),
 (7, 48, 'English Language Courses', '23132', '21321', '231321', '16-04-20', '', '', ''),
 (8, 49, 'English Language Courses', '2 months', '4/21/2016', '6/21/2016', '16-04-21', '', '', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `courses_added`
+--
+
+CREATE TABLE IF NOT EXISTS `courses_added` (
+  `course_id` int(255) NOT NULL,
+  `course_title` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `courses_added`
+--
+
+INSERT INTO `courses_added` (`course_id`, `course_title`) VALUES
+(1, 'English language courses'),
+(2, 'Information Technology');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `courses_category`
+--
+
+CREATE TABLE IF NOT EXISTS `courses_category` (
+  `course_c_id` int(255) NOT NULL,
+  `fk_course_id` int(255) NOT NULL,
+  `category_title` varchar(255) NOT NULL,
+  `duration` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `courses_category`
+--
+
+INSERT INTO `courses_category` (`course_c_id`, `fk_course_id`, `category_title`, `duration`) VALUES
+(1, 1, 'Spoken English', ''),
+(2, 1, 'American Accent Training', ''),
+(3, 1, 'Special Grammar', ''),
+(4, 1, 'IELTS & TOEFL', '45 Days'),
+(5, 2, 'DIT from BTE Peshawar', ''),
+(6, 2, 'CIT', '6 months'),
+(7, 2, 'Graphic Designing', '2 months'),
+(8, 2, 'Ms office 2013', '3 Months'),
+(9, 2, 'Accountancy', ''),
+(10, 2, 'Computer Networks', ''),
+(11, 2, 'Architectring', ''),
+(12, 2, 'Web site Courses', ''),
+(13, 2, 'CCTV (project)', '20 days'),
+(14, 2, 'special Courses', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `course_sub_category`
+--
+
+CREATE TABLE IF NOT EXISTS `course_sub_category` (
+  `course_c_s_id` int(11) NOT NULL,
+  `fk_course_c_id` int(255) NOT NULL,
+  `subject_title` varchar(255) NOT NULL,
+  `duration` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `course_sub_category`
+--
+
+INSERT INTO `course_sub_category` (`course_c_s_id`, `fk_course_c_id`, `subject_title`, `duration`) VALUES
+(1, 1, 'Pre Starter', '90 Dyas'),
+(2, 1, 'Starter', '90 Days'),
+(3, 3, 'Stage 1', '30 Days'),
+(4, 3, 'stage 2', '30 Days'),
+(5, 6, 'Ms office 2013', ''),
+(6, 6, 'Graphic Designing', ''),
+(7, 7, 'Adobe photoshop', ''),
+(8, 7, 'Corel Draw', ''),
+(9, 9, 'Financial Accountion', ''),
+(10, 10, 'Advance Networking', ''),
+(11, 12, 'Web Designing', ''),
+(12, 12, 'Web Development', ''),
+(13, 6, 'A+ Hardware', ''),
+(14, 7, 'Inpage', ''),
+(15, 7, '20 + projects', ''),
+(16, 9, 'Peactree (project base)', '01 Month'),
+(17, 9, 'Quick Book (project Base)', '01 Month'),
+(18, 10, 'Advance Networking', '45 Days'),
+(19, 10, 'MCIT / MCSE 2012', '03 Month'),
+(20, 10, 'CCNA 4.0', '02 Month'),
+(21, 10, 'Wireless Networking', '01 Month'),
+(22, 11, 'Auto CAD (2D & 3D )', '02 Month'),
+(23, 11, '3D Studio max 02 Month', '02 Month'),
+(24, 14, 'Ms.Excel Expert', '02 Month'),
+(25, 14, 'Ms.Access', '02 Month'),
+(26, 14, 'C/C++', '02 Month'),
+(27, 1, 'INTERMEDIATE', '90 Days'),
+(28, 1, 'HIGHER ADVANCE', '90 Days'),
+(29, 5, 'Information & Communication Technology(ICT)', ''),
+(30, 5, 'Introduction to database', ''),
+(31, 3, 'stage 3', '30 days'),
+(33, 9, 'Financial Accountion', ''),
+(1, 1, 'Pre Starter', '90 Dyas'),
+(2, 1, 'Starter', '90 Days'),
+(3, 3, 'Stage 1', '30 Days'),
+(4, 3, 'stage 2', '30 Days'),
+(5, 6, 'Ms office 2013', ''),
+(6, 6, 'Graphic Designing', ''),
+(7, 7, 'Adobe photoshop', ''),
+(8, 7, 'Corel Draw', ''),
+(9, 9, 'Financial Accountion', ''),
+(10, 10, 'Advance Networking', ''),
+(11, 12, 'Web Designing', ''),
+(12, 12, 'Web Development', ''),
+(13, 6, 'A+ Hardware', ''),
+(14, 7, 'Inpage', ''),
+(15, 7, '20 + projects', ''),
+(16, 9, 'Peactree (project base)', '01 Month'),
+(17, 9, 'Quick Book (project Base)', '01 Month'),
+(18, 10, 'Advance Networking', '45 Days'),
+(19, 10, 'MCIT / MCSE 2012', '03 Month'),
+(20, 10, 'CCNA 4.0', '02 Month'),
+(21, 10, 'Wireless Networking', '01 Month'),
+(22, 11, 'Auto CAD (2D & 3D )', '02 Month'),
+(23, 11, '3D Studio max 02 Month', '02 Month'),
+(24, 14, 'Ms.Excel Expert', '02 Month'),
+(25, 14, 'Ms.Access', '02 Month'),
+(26, 14, 'C/C++', '02 Month'),
+(27, 1, 'INTERMEDIATE', '90 Days'),
+(28, 1, 'HIGHER ADVANCE', '90 Days'),
+(29, 5, 'Information & Communication Technology(ICT)', ''),
+(30, 5, 'Introduction to database', ''),
+(31, 3, 'stage 3', '30 days'),
+(33, 9, 'Financial Accountion', '');
 
 -- --------------------------------------------------------
 
