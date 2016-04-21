@@ -21,6 +21,7 @@
                 <div class="panel-body">
 
                         <form role="form" method="post" action="<?= site_url()?>applications/freeze_semester_after_post">
+                            <input type="hidden" name="application_name" value="freeze up">
                            <div class="row">
                                 <div class="form-group col-md-3">
                                    

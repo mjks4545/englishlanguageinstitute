@@ -23,10 +23,11 @@
                 <div class="panel-body">
 
                         <form role="form" method="post" action="<?= site_url()?>applications/class_promotion_after_post">
+                            <input type="hidden" name="application_name" value="class promotion"> 
                            <div class="row">
                                 <div class="form-group col-md-3">
                                    
-                                    <input type="text" name="app_to"  class=" input form-control"                                        value="To" readonly placeholder="TO" style="background-color:#444D53;
+                                    <input type="text" name="app_to"  class=" input form-control" value="To" readonly placeholder="TO" style="background-color:#444D53;
 	                                   color:#FFF;" required>
                                 </div>
                                 <!-- for spacing using-->

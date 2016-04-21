@@ -21,7 +21,7 @@
                 <div class="panel-body">
 
                         <form role="form" method="post" action="<?= site_url()?>applications/create_time_change_after_post">
-                          
+                          <input type="hidden" name="application_name" value="class time change">
                             <div class="row">
                                 <div class="form-group col-md-3">
                                   <input type="text" name="app_to" style="color: white; background:#444D53;" class="form-control"  value="To" readonly placeholder="TO" required>

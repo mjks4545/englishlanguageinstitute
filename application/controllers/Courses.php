@@ -1,12 +1,13 @@
+
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Accountsection extends CI_Controller {
+class Courses extends CI_Controller {
 
-    public function student_registration(){
+    public function course_add(){
         $this->load->view('include/header');
         $this->load->view('include/sidebar');
-        $this->load->view('accountsection/student_registration');
+        $this->load->view('courses/course_add');
         $this->load->view('include/footer');
     }
 

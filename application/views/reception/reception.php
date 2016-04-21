@@ -43,8 +43,8 @@
                             </div>
                             <div class="row">
                                 <div class="form-group col-md-6">
-                                    <label>Nationality</label>
-                                    <input type="text" name="nationality" style="color: white" class="form-control" placeholder="Nationality" required>
+                                    <label>Nic</label>
+                                    <input type="text" name="nic" style="color: white" class="form-control" placeholder="Nic" required>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label>Profession</label>
@@ -105,7 +105,7 @@
                            <div class="row">
                            <div class="row">
                                <div class="form-group col-md-12">
-                                   <label>Description</label>
+                                   <label>About me</label>
                                    <textarea type="text" name="description" style="color: white" class="form-control" placeholder="Write something here..!!" cols="12" rows="8"></textarea>
                                </div>
                            </div>
@@ -116,16 +116,16 @@
                                     <div class="radio">
                                         <label class="col-md-12">
                                             <div class="col-md-2">
-                                            <input type="radio" name="1" checked>Briefed
+                                            <input type="radio" name="status" value="briefed" checked>Briefed
                                             </div>
                                             <div class="col-md-2">
-                                            <input type="radio" name="2" >Test Application
+                                            <input type="radio" name="status" value="test_application">Test Application
                                             </div>
                                             <div class="col-md-2">
-                                            <input type="radio" name="3" >Satisfied
+                                            <input type="radio" name="status" value="satisfied">Satisfied
                                             </div>
                                             <div class="col-md-2">
-                                            <input type="radio" name="4" >Dissatisfied
+                                            <input type="radio" name="status" value="dissatisfied">Dissatisfied
                                             </div>
                                         </label>
                                     </div>

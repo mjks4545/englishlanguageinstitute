@@ -19,7 +19,7 @@ var Events = function(){
 	    var href = window.location.href;
 	        href = href.replace('admin/teacher_add','');
 	        href = href.replace('admin/student_add','');
-	        href = href.replace('reception','');
+	        href = href.replace('reception/visitor_add','');
 	    var url = href + '/fetch_per_select/fetch_country/' + $(this).val();
 	    $.get( url , '', 
 		function( data ){
@@ -39,7 +39,7 @@ var Events = function(){
 	    var href = window.location.href;
 	    var href = href.replace('admin/teacher_add','');
 	    var href = href.replace('admin/student_add','');	    
-	    var href = href.replace('reception','');
+	    var href = href.replace('reception/visitor_add','');
 	    var url = href + '/fetch_per_select/fetch_city/' + $(this).val();
 	    $.get( url , '', 
 		function( data ){

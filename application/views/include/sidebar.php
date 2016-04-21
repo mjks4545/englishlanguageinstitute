@@ -26,21 +26,7 @@
                         <span class="glyphicon glyphicon-user"></span> Admin
                     </a>
                 </li>
-                <li>
-                    <a  href="#">
-                        <span class="glyphicon glyphicon-user"></span> Visitor
-                    </a>
-                </li>
-                <li>
-                    <a  href="#">
-                        <span class="glyphicon glyphicon-user"></span> Student
-                    </a>
-                </li>
-                <li>
-                    <a  href="#">
-                        <span class="glyphicon glyphicon-user"></span> Teacher
-                    </a>
-                </li>
+                
 
             </ul>
             <a href="#">
@@ -75,13 +61,15 @@
                 <span class="glyphicon glyphicon-th"></span> Account Section
             </a>
         </li>
-        <li><a href="charts.html"><span class="glyphicon glyphicon-stats"></span> Charts</a></li>
-        <li><a href="tables.html"><span class="glyphicon glyphicon-list-alt"></span> Tables</a></li>
-        <li><a href="forms.html"><span class="glyphicon glyphicon-pencil"></span> Forms</a></li>
-        <li><a href="buttons.html"><span class="glyphicon glyphicon-hand-up"></span> Buttons</a></li>
-        <li><a href="panels.html"><span class="glyphicon glyphicon-info-sign"></span> Alerts &amp; Panels</a></li>
-
-        <li role="presentation" class="divider"></li>
-        <li><a href="login.html"><span class="glyphicon glyphicon-user"></span> Logout</a></li>
+         <li>
+            <a href="<?= site_url()?>courses/course_add">
+                <span class="glyphicon glyphicon-th"></span> Courses
+            </a>
+        </li>
+        <li>
+            <a href="<?= site_url()?>home">
+                <span class="glyphicon glyphicon-user"></span> Logout
+            </a>
+        </li>
     </ul>
 </div><!--/.sidebar-->

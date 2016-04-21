@@ -18,6 +18,7 @@ class Applications extends CI_Controller {
         $time_change_text = $this->input->post('time_change_app');
         $yours_obediently = $this->input->post('yours_obediently');
         $father_name = $this->input->post('father_name');
+        $application_name = $this->input->post('application_name');
         $series = $this->input->post('series');
         $app_timing = $this->input->post('app_timing');
         $teacher = $this->input->post('teacher');
@@ -42,6 +43,7 @@ class Applications extends CI_Controller {
                     'app_to' => $application_to,
                     'app_director' => $application_director,
                     'subject_line' => $subject_line,
+                    'application_name' => $application_name,
                     'yours_obediently' => $yours_obediently,
                     'series' => $series,
                     'app_timing' => $app_timing,
@@ -62,7 +64,7 @@ class Applications extends CI_Controller {
                 'created_at' => $created_date
             ]
         );
-        redirect(site_url() . 'applications/class_time_change');
+        redirect(site_url() . 'applications/applications_views');
     }
 
     
@@ -84,6 +86,7 @@ class Applications extends CI_Controller {
     $freeze_semester_text = $this->input->post('freeze_semester_text');
     $yours_obediently = $this->input->post('yours_obediently');
     $father_name = $this->input->post('father_name');
+    $application_name = $this->input->post('application_name');
     $series = $this->input->post('series');
     $app_timing = $this->input->post('app_timing');
     $teacher = $this->input->post('teacher');
@@ -108,6 +111,7 @@ class Applications extends CI_Controller {
                 'app_to' => $application_to,
                 'app_director' => $application_director,
                 'subject_line' => $subject_line,
+                'application_name' => $application_name,
                 'yours_obediently' => $yours_obediently,
                 'series' => $series,
                 'app_timing' => $app_timing,
@@ -128,7 +132,7 @@ class Applications extends CI_Controller {
             'created_at' => $created_date
         ]
     );
-    redirect(site_url() . 'applications/freeze_up');
+    redirect(site_url() . 'applications/applications_views');
     }
     //-----------------------------------------------
 
@@ -147,6 +151,7 @@ class Applications extends CI_Controller {
     $class_promotion_text = $this->input->post('class_promotion_text');
     $yours_obediently = $this->input->post('yours_obediently');
     $father_name = $this->input->post('father_name');
+    $application_name = $this->input->post('application_name');
     $series = $this->input->post('series');
     $app_timing = $this->input->post('app_timing');
     $teacher = $this->input->post('teacher');
@@ -171,6 +176,7 @@ class Applications extends CI_Controller {
                 'app_to' => $application_to,
                 'app_director' => $application_director,
                 'subject_line' => $subject_line,
+                'application_name' => $application_name,
                 'yours_obediently' => $yours_obediently,
                 'series' => $series,
                 'app_timing' => $app_timing,
@@ -191,7 +197,7 @@ class Applications extends CI_Controller {
             'created_at' => $created_date
         ]
     );
-    redirect(site_url() . 'applications/class_promotion');
+    redirect(site_url() . 'applications/applications_views');
     }
     
     //----------------------------------------------------
@@ -201,20 +207,32 @@ class Applications extends CI_Controller {
         $this->db->select('*');
         $this->db->from('application');
         $this->db->join('users','users.u_id = application.fkuser_id');
-        //$this->db->join('class_promotion_app','application.app_id = class_promotion_app.fkapp_id');
-        $this->db->join('freeze_semester_app','application.app_id = freeze_semester_app.fkapp_id');
-        //$this->db->join('time_changing_app','application.app_id = time_changing_app.fkapp_id');
+        $this->db->join('class_promotion_app','application.app_id = class_promotion_app.fkapp_id');
         $query = $this->db->get();
         $result['result'] = $query->result();
         
-        echo '<pre>';
+        $this->db->select('*');
+        $this->db->from('application');
+        $this->db->join('users','users.u_id = application.fkuser_id');
+        $this->db->join('freeze_semester_app','application.app_id = freeze_semester_app.fkapp_id');
+        $query = $this->db->get();
+        $result['result_1'] = $query->result();
+
+        $this->db->select('*');
+        $this->db->from('application');
+        $this->db->join('users','users.u_id = application.fkuser_id');
+        $this->db->join('time_changing_app','application.app_id = time_changing_app.fkapp_id');
+        $query = $this->db->get();
+        $result['result_2'] = $query->result();
+
+        /*echo '<pre>';
         print_r($result);
         echo '</pre>';
-        die();
+        die();*/
         
         $this->load->view('include/header');
         $this->load->view('include/sidebar');
-        $this->load->view('applications/applications_view');
+        $this->load->view('applications/applications_view',$result);
         $this->load->view('include/footer');
     }
 }

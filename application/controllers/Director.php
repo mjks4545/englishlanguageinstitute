@@ -7,7 +7,7 @@ class Director extends CI_Controller {
     {
         $this->load->view('include/header');
         $this->load->view('include/sidebar');
-        $this->load->view('director/director_login');
+        $this->load->view('director/director_home');
         $this->load->view('include/footer');
     }
 }

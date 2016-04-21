@@ -5,6 +5,17 @@ class Reception extends CI_Controller {
 
     public function index()
     {
+        
+        $this->load->view('include/header');
+        $this->load->view('include/sidebar');
+        $this->load->view('reception/reception_home');
+        $this->load->view('include/footer');
+    }
+    
+    //.........................................................
+    
+    public function visitor_add()
+    {
         $query  = $this->db->get('countries');
 	$result['result'] = $query->result();
         $this->load->view('include/header');
@@ -12,6 +23,7 @@ class Reception extends CI_Controller {
         $this->load->view('reception/reception',$result);
         $this->load->view('include/footer');
     }
+
 
     //.................. visitor form started ...................
 
@@ -21,16 +33,17 @@ class Reception extends CI_Controller {
         $father_name = $this->input->post('f_name');
         $age = $this->input->post('age');
         $qualification = $this->input->post('qualification');
-        $nationality = $this->input->post('nationality');
         $profession = $this->input->post('profession');
         $email = $this->input->post('email');
         $guardian_number = $this->input->post('g_number');
         $contact = $this->input->post('number');
+        $nic = $this->input->post('nic');
         $desire_courses = $this->input->post('desire_course');
         $country = $this->input->post('country');
         $province = $this->input->post('province');
         $city = $this->input->post('city');
         $address = $this->input->post('address');
+        $status = $this->input->post('status');
         $description = $this->input->post('description');
         $created_date = mdate("%y-%m-%d");
 
@@ -45,7 +58,6 @@ class Reception extends CI_Controller {
                     'name' => $visitor_name,
                     'f_name' => $father_name,
                     'age' => $age,
-                    'nationality' => $nationality,
                     'email' => $email,
                     'contact' => $contact,
                     'country_id' => $country,
@@ -64,16 +76,18 @@ class Reception extends CI_Controller {
         }
         $insert_visitor_table = $this->db->insert('visitor',
             [
-                'fkuser_id' => $fkuser_id,
-                'profession' => $profession,
-                'qualification' => $qualification,
+                'fkuser_id'       => $fkuser_id,
+                'profession'      => $profession,
+                'qualification'   => $qualification,
                 'guardian_number' => $guardian_number,
-                'courses' => $desire_courses,
-                'description' => $description,
-                'created_at' => $created_date
+                'nic'             => $nic,
+                'status'          => $status,
+                'courses'         => $desire_courses,
+                'description'     => $description,
+                'created_at'      => $created_date
             ]
             );
-        redirect(site_url().'reception');
+         redirect(site_url() . 'admin/visitor_view');
     }
 
     //................... visitor form end ..............

@@ -11,7 +11,7 @@
             <h1 class="page-header">Received Applications</h1>
         </div>
     </div><!--/.row-->
-
+  
 
     <div class="row">
         <div class="col-lg-12">
@@ -31,25 +31,47 @@
                         </tr>
                         </thead>
                         <tbody>
-                       
-                        <tr>
-                            <td>1</td>
-                            <td>1</td>
-                            <td>1</td>
-                            <td>1</td>
-                            <td>1</td>
-                            <td>1</td>
-                            <td>
-                                <a href="" type="button" class="btn btn-primary glyphicon glyphicon-edit btn-outline margin"> Edit</a>
-                            </td>
-                            <td>
-                                <a href="" type="button" class="btn btn-primary glyphicon glyphicon-trash btn-outline margin"> Delete</a>
+                            <?php foreach ($result  as $array)?>
+                             <tr>
+                                 <td>1</td>
+                                 <td><?=$array->fkuser_id?></td>
+                                 <td><?=$array->name?></td>
+                                 <td><?=$array->f_name?></td>
+                                 <td><?=$array->application_name?></td>
+                                 <td>1</td>                         
+                                 <td>
+                                     <a href="" type="button" class="btn btn-primary glyphicon glyphicon-edit btn-outline margin"> View Details</a>
+                                 </td>
+                             </tr>
+                             <?php foreach ($result_1  as $array)?>
+                             <tr>
+                                 <td>1</td>
+                                 <td><?=$array->fkuser_id?></td>
+                                 <td><?=$array->name?></td>
+                                 <td><?=$array->f_name?></td>
+                                 <td><?=$array->application_name?></td>
+                                 <td>1</td>                         
+                                 <td>
+                                     <a href="" type="button" class="btn btn-primary glyphicon glyphicon-edit btn-outline margin"> View Details</a>
+                                 </td>
 
-                            </td>
-                        </tr>
-                     
+                             </tr>
+                             <?php foreach ($result_2  as $array)?>
+                             <tr>
+                                 <td>1</td>
+                                 <td><?=$array->fkuser_id?></td>
+                                 <td><?=$array->name?></td>
+                                 <td><?=$array->f_name?></td>
+                                 <td><?=$array->application_name?></td>
+                                 <td>1</td>                         
+                                 <td>
+                                     <a href="" type="button" class="btn btn-primary glyphicon glyphicon-edit btn-outline margin"> View Details</a>
+                                 </td>
+
+                             </tr>
                         </tbody>
-
+                        
+          
                     </table>
                 </div>
             </div>

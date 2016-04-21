@@ -84,6 +84,12 @@
         .textarea{
                 background-color:#444D53;
         }
+        .header_margin{
+            margin-left: 30px;
+        }
+        .margin_left{
+            margin-left: 40px;
+        }
         </style>
 
 
