@@ -29,6 +29,12 @@ class Admin extends CI_Controller {
     {
         $query  = $this->db->get('countries');
 	$result['result'] = $query->result();
+        
+        $this->db->select('*');
+        $this->db->from('courses_added');
+        $query = $this->db->get();
+        $result['result_1'] = $query->result();
+        
         $this->load->view('include/header');
         $this->load->view('include/sidebar');
         $this->load->view('admin/student/student_add',$result);
@@ -42,8 +48,17 @@ class Admin extends CI_Controller {
         $this->db->select('*');
         $this->db->from('student');
         $this->db->join('users','users.u_id = student.fkuser_id');
+        $this->db->join('courses','courses.fkuser_id = student.fkuser_id');
+        $this->db->join('courses_added','courses_added.course_id = courses.course_name');
+        $this->db->join('courses_category','courses_category.course_c_id = courses.course_category');
+        $this->db->join('course_sub_category','course_sub_category.course_c_s_id = courses.category_subject');
         $query = $this->db->get();
         $result['result'] = $query->result();
+        
+//        echo '<pre>';
+//        print_r($result);
+//        echo '</pre>';
+//        die();
 
         $this->load->view('include/header');
         $this->load->view('include/sidebar');
@@ -67,7 +82,10 @@ class Admin extends CI_Controller {
         $this->db->join('countries','countries.id = users.country_id');
         $this->db->join('states','states.id = users.province_id');
         $this->db->join('cities','cities.id = users.city_id');
-         $this->db->where( 'student.s_id', $s_id );
+        $this->db->join('courses_added','courses_added.course_id = courses.course_name');
+        $this->db->join('courses_category','courses_category.course_c_id = courses.course_category');
+        $this->db->join('course_sub_category','course_sub_category.course_c_s_id = courses.category_subject');
+        $this->db->where( 'student.s_id', $s_id );
         
         
         $query = $this->db->get();
@@ -101,6 +119,9 @@ class Admin extends CI_Controller {
         $this->db->join('countries','countries.id = users.country_id');
         $this->db->join('states','states.id = users.province_id');
         $this->db->join('cities','cities.id = users.city_id');
+        $this->db->join('courses_added','courses_added.course_id = courses.course_name');
+        $this->db->join('courses_category','courses_category.course_c_id = courses.course_category');
+        $this->db->join('course_sub_category','course_sub_category.course_c_s_id = courses.category_subject');
         $this->db->where( 'student.s_id', $s_id );
 
         
@@ -139,9 +160,10 @@ class Admin extends CI_Controller {
         $email = $this->input->post('email');
         $guardian_number = $this->input->post('g_number');
         $contact = $this->input->post('number');
-        $course_detail = $this->input->post('courses');
-        
+       
         $course_name = $this->input->post('courses');
+        $course_category = $this->input->post('course_category');
+        $category_subject = $this->input->post('category_subject');
         $class_timing = $this->input->post('class_timing');
         $course_duration = $this->input->post('course_duration');
         $course_starting = $this->input->post('starting_date');
@@ -190,7 +212,6 @@ class Admin extends CI_Controller {
                 'marks_obtain' => $marks_obtain,
                 'total_marks' => $total_marks,
                 'institute' => $institute,
-                'courses' => $course_detail,
                 'class_timing' => $class_timing,
                 'created_at' => $created_date
             ]
@@ -199,6 +220,8 @@ class Admin extends CI_Controller {
             [
                 'fkuser_id' => $fkuser_id,
                 'course_name' => $course_name,
+                'course_category' => $course_category,
+                'category_subject' => $category_subject,
                 'course_duration' => $course_duration,
                 'starting_date' => $course_starting,
                 'ending_date' => $course_ending,

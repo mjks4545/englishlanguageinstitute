@@ -54,6 +54,27 @@
                     </a>
                 </li>
             </ul>
+             <a href="#">
+                <span class="glyphicon glyphicon-user"></span>Courses<span data-toggle="collapse" href="#sub-item-3" class="icon pull-right"><em class="glyphicon glyphicon-s glyphicon-plus"></em></span>
+              </a>
+            <ul class="children collapse" id="sub-item-3">
+                <li>
+                    <a  href="<?= site_url()?>courses/course_add">
+                        <span class="glyphicon glyphicon-share-alt"></span> Add new course
+                    </a>
+                </li>
+                <li>
+                    <a  href="<?= site_url()?>courses/coursecategory_add">
+                        <span class="glyphicon glyphicon-share-alt"></span> Add new category
+                    </a>
+                </li>
+                <li>
+                    <a  href="<?= site_url()?>courses/subject_add">
+                        <span class="glyphicon glyphicon-share-alt"></span> Add new subject
+                    </a>
+                </li>
+               
+            </ul>
 
         </li>
         <li>
@@ -61,11 +82,8 @@
                 <span class="glyphicon glyphicon-th"></span> Account Section
             </a>
         </li>
-         <li>
-            <a href="<?= site_url()?>courses/course_add">
-                <span class="glyphicon glyphicon-th"></span> Courses
-            </a>
-        </li>
+       
+
         <li>
             <a href="<?= site_url()?>home">
                 <span class="glyphicon glyphicon-user"></span> Logout

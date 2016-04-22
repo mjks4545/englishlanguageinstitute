@@ -96,6 +96,9 @@
         .margin_left{
             margin-left: 40px;
         }
+        .margin_left_category{
+            margin-left: 0px;
+        }
         </style>
 
 

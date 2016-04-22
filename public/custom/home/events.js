@@ -8,22 +8,70 @@ var Events = function(){
         console.log('events created');
 	country_select();
 	province_select();
-        new_insert_course();
+       // new_insert_course();
+	fetch_course_category();
+        fetch_category_subject();
     
     };
     
     // -------------------------------------------------------------------------
 
-    var new_insert_course = function(){
-	$('#show').on('click',
-            function(){
-                console.log('hi');
-                var hidden = $('.hidden_1');
-                var unhide = $('.unhide');
-                hidden.removeClass('hide');
-                unhide.addClass('hide');
-            }
-        );
+//    var new_insert_course = function(){
+//	$('#show').on('click',
+//            function(){
+//                console.log('hi');
+//                var hidden = $('.hidden_1');
+//                var unhide = $('.unhide');
+//                hidden.removeClass('hide');
+//                unhide.addClass('hide');
+//            }
+//        );
+////    };
+    
+    // -------------------------------------------------------------------------
+
+    var fetch_course_category = function(){
+	$('#coursename_dropdown').on('change',
+		function(){
+		    $( '#subcategory_dropdown' ).html('<option>Select Course Category</option>');
+		    var data = $(this).val();
+		    var href = window.location.href;
+		    href = href.replace('courses/subject_add','');
+                    href = href.replace('admin/student_add','');
+		    var url = href + 'courses/fetch_courses/' + $(this).val();
+		    $.get(url, '',
+		    
+			function(data){
+			    var $output = Template.fetch_course_category( data['data'] );
+			    $( '#subcategory_dropdown' ).append($output);
+			}
+			    
+		    ,'json');
+		}
+	    );
+    };
+    
+    //--------------------------------------------------------------------------
+    
+    var fetch_category_subject = function(){
+	$('#subcategory_dropdown').on('change',
+		function(){
+		    $( '#subjectname_dropdown' ).html('<option>Select Category Subject</option>');
+		    var data = $(this).val();
+		    var href = window.location.href;
+		    href = href.replace('courses/subject_add','');
+                    href = href.replace('admin/student_add','');
+		    var url = href + 'courses/fetch_coursescategory/' + $(this).val();
+		    $.get(url, '',
+		    
+			function( data ){
+			    var $output = Template.fetch_category_subject( data['data'] );
+			    $( '#subjectname_dropdown' ).append($output);
+			}
+			    
+		    ,'json');
+		}
+	    );
     };
     
     // -------------------------------------------------------------------------

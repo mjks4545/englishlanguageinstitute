@@ -105,8 +105,18 @@
                          <div class="row">
                             
                             <div class="form-group col-md-6">
-                                <label>Course Details</label>
-                                <input type="text" name="course_detail" style="color: white" class="form-control" placeholder="Courses" value="<?php echo $result->courses ?>" required>
+                                <label>Course </label>
+                                <input type="text" name="course_detail"  class="form-control" placeholder="Courses" value="<?php echo $result->course_title ?>" style="background:#444D53; color:white;" readonly required>
+                            </div>
+                              <div class="form-group col-md-6">
+                                <label>Course Category</label>
+                                <input type="text" name="course_detail"  class="form-control" placeholder="Courses" value="<?php echo $result->category_title ?>" style="background:#444D53; color:white;" readonly required>
+                            </div>
+                         </div>
+                        <div class="row">
+                              <div class="form-group col-md-6">
+                                <label>Subject </label>
+                                <input type="text" name="course_detail"  class="form-control" placeholder="Courses" value="<?php echo $result->subject_title ?>" style="background:#444D53; color:white;" readonly required>
                             </div>
                              <div class="form-group col-md-6">
                                 <label> Class Timing</label>

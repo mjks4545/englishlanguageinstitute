@@ -108,7 +108,15 @@
                            </div> 
                            <div class="row">
                                  <div class="form-group col-md-4 margin_left">
-                                   <label>Course:&nbsp;&nbsp; </label><?= $result->courses ?>
+                                   <label>Course:&nbsp;&nbsp; </label><?= $result->course_title?>
+                                 </div>
+                                 <div class="form-group col-md-4 margin_left_category">
+                                   <label>Course Category:&nbsp;&nbsp;</label><?= $result->category_title?>
+                                 </div>
+                           </div>
+                           <div class="row">
+                                 <div class="form-group col-md-4 margin_left">
+                                   <label>Subject:&nbsp;&nbsp; </label><?= $result->subject_title?>
                                  </div>
                                  <div class="form-group col-md-4">
                                   <label>Class Timing:&nbsp;&nbsp; </label><?= $result->class_timing ?>

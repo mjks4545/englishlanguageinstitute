@@ -116,14 +116,30 @@
                                 <input type="text" name="g_number" style="color: white" class="form-control" placeholder="Guardian Number" required>
                             </div>
                         </div>
+                        
                         <div class="row">
-                           
                             <div class="form-group col-md-6">
-                                <label>Admission in Course</label>
-                                <select  name="courses"  class="form-control" style="background:#444D53; color:white;">
-                                    <option>Select Courses</option>
-                                    <option>English Language Courses</option>
-                                    <option>Information Technology</option>
+                                <label>Course Title</label>
+                                <select  name="courses"  id="coursename_dropdown" class="form-control" style="background:#444D53; color:white;">
+                                     <option>Select Courses</option>
+                                    <?php foreach ($result_1 as $course){ ?>
+					<option value="<?= $course->course_id;?>"><?= $course->course_title;?></option>
+				    <?php } ?>
+                               </select>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Course Category</label>
+                                <select  name="course_category" id="subcategory_dropdown" class="form-control" style="background:#444D53; color:white;">
+                                   <option value="#">Select Category</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label>Subject</label>
+                                <select  name="category_subject"  id="subjectname_dropdown" class="form-control" style="background:#444D53; color:white;">
+                                   <option value="#">Select Subject</option>
                                 </select>
                             </div>
                             <div class="form-group col-md-6">

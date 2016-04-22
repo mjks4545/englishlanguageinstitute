@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 21, 2016 at 04:33 PM
+-- Generation Time: Apr 22, 2016 at 04:54 PM
 -- Server version: 5.6.16
 -- PHP Version: 5.5.9
 
@@ -48004,6 +48004,8 @@ CREATE TABLE IF NOT EXISTS `courses` (
   `c_id` int(11) NOT NULL AUTO_INCREMENT,
   `fkuser_id` int(11) NOT NULL,
   `course_name` varchar(255) NOT NULL,
+  `course_category` varchar(255) NOT NULL,
+  `category_subject` varchar(255) NOT NULL,
   `course_duration` varchar(255) NOT NULL,
   `starting_date` varchar(255) NOT NULL,
   `ending_date` varchar(255) NOT NULL,
@@ -48012,16 +48014,15 @@ CREATE TABLE IF NOT EXISTS `courses` (
   `created_by` varchar(255) NOT NULL,
   `description` varchar(255) NOT NULL,
   PRIMARY KEY (`c_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
 
 --
 -- Dumping data for table `courses`
 --
 
-INSERT INTO `courses` (`c_id`, `fkuser_id`, `course_name`, `course_duration`, `starting_date`, `ending_date`, `created_at`, `updated_at`, `created_by`, `description`) VALUES
-(6, 42, 'Information Technology', '23', '23', '23', '16-04-20', '', '', ''),
-(7, 48, 'English Language Courses', '23132', '21321', '231321', '16-04-20', '', '', ''),
-(8, 49, 'English Language Courses', '2 months', '4/21/2016', '6/21/2016', '16-04-21', '', '', '');
+INSERT INTO `courses` (`c_id`, `fkuser_id`, `course_name`, `course_category`, `category_subject`, `course_duration`, `starting_date`, `ending_date`, `created_at`, `updated_at`, `created_by`, `description`) VALUES
+(9, 53, '1', '1', '1', '30 days', '04/05/2016', '05/05/2016', '16-04-22', '', '', ''),
+(10, 54, '1', '1', '2', '30 days', '04/22/2016', '05/22/2016', '16-04-22', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -48030,9 +48031,10 @@ INSERT INTO `courses` (`c_id`, `fkuser_id`, `course_name`, `course_duration`, `s
 --
 
 CREATE TABLE IF NOT EXISTS `courses_added` (
-  `course_id` int(255) NOT NULL,
-  `course_title` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `course_id` int(11) NOT NULL AUTO_INCREMENT,
+  `course_title` varchar(255) NOT NULL,
+  PRIMARY KEY (`course_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `courses_added`
@@ -48040,7 +48042,8 @@ CREATE TABLE IF NOT EXISTS `courses_added` (
 
 INSERT INTO `courses_added` (`course_id`, `course_title`) VALUES
 (1, 'English language courses'),
-(2, 'Information Technology');
+(2, 'Information Technology'),
+(8, 'Computing');
 
 -- --------------------------------------------------------
 
@@ -48049,11 +48052,12 @@ INSERT INTO `courses_added` (`course_id`, `course_title`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `courses_category` (
-  `course_c_id` int(255) NOT NULL,
+  `course_c_id` int(11) NOT NULL AUTO_INCREMENT,
   `fk_course_id` int(255) NOT NULL,
   `category_title` varchar(255) NOT NULL,
-  `duration` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `duration` varchar(255) NOT NULL,
+  PRIMARY KEY (`course_c_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=23 ;
 
 --
 -- Dumping data for table `courses_category`
@@ -48073,7 +48077,8 @@ INSERT INTO `courses_category` (`course_c_id`, `fk_course_id`, `category_title`,
 (11, 2, 'Architectring', ''),
 (12, 2, 'Web site Courses', ''),
 (13, 2, 'CCTV (project)', '20 days'),
-(14, 2, 'special Courses', '');
+(14, 2, 'special Courses', ''),
+(21, 8, 'Operating System', '');
 
 -- --------------------------------------------------------
 
@@ -48082,81 +48087,85 @@ INSERT INTO `courses_category` (`course_c_id`, `fk_course_id`, `category_title`,
 --
 
 CREATE TABLE IF NOT EXISTS `course_sub_category` (
-  `course_c_s_id` int(11) NOT NULL,
+  `course_c_s_id` int(11) NOT NULL AUTO_INCREMENT,
   `fk_course_c_id` int(255) NOT NULL,
   `subject_title` varchar(255) NOT NULL,
-  `duration` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `subject_duration` varchar(255) NOT NULL,
+  `subject_fee` varchar(255) NOT NULL,
+  PRIMARY KEY (`course_c_s_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=71 ;
 
 --
 -- Dumping data for table `course_sub_category`
 --
 
-INSERT INTO `course_sub_category` (`course_c_s_id`, `fk_course_c_id`, `subject_title`, `duration`) VALUES
-(1, 1, 'Pre Starter', '90 Dyas'),
-(2, 1, 'Starter', '90 Days'),
-(3, 3, 'Stage 1', '30 Days'),
-(4, 3, 'stage 2', '30 Days'),
-(5, 6, 'Ms office 2013', ''),
-(6, 6, 'Graphic Designing', ''),
-(7, 7, 'Adobe photoshop', ''),
-(8, 7, 'Corel Draw', ''),
-(9, 9, 'Financial Accountion', ''),
-(10, 10, 'Advance Networking', ''),
-(11, 12, 'Web Designing', ''),
-(12, 12, 'Web Development', ''),
-(13, 6, 'A+ Hardware', ''),
-(14, 7, 'Inpage', ''),
-(15, 7, '20 + projects', ''),
-(16, 9, 'Peactree (project base)', '01 Month'),
-(17, 9, 'Quick Book (project Base)', '01 Month'),
-(18, 10, 'Advance Networking', '45 Days'),
-(19, 10, 'MCIT / MCSE 2012', '03 Month'),
-(20, 10, 'CCNA 4.0', '02 Month'),
-(21, 10, 'Wireless Networking', '01 Month'),
-(22, 11, 'Auto CAD (2D & 3D )', '02 Month'),
-(23, 11, '3D Studio max 02 Month', '02 Month'),
-(24, 14, 'Ms.Excel Expert', '02 Month'),
-(25, 14, 'Ms.Access', '02 Month'),
-(26, 14, 'C/C++', '02 Month'),
-(27, 1, 'INTERMEDIATE', '90 Days'),
-(28, 1, 'HIGHER ADVANCE', '90 Days'),
-(29, 5, 'Information & Communication Technology(ICT)', ''),
-(30, 5, 'Introduction to database', ''),
-(31, 3, 'stage 3', '30 days'),
-(33, 9, 'Financial Accountion', ''),
-(1, 1, 'Pre Starter', '90 Dyas'),
-(2, 1, 'Starter', '90 Days'),
-(3, 3, 'Stage 1', '30 Days'),
-(4, 3, 'stage 2', '30 Days'),
-(5, 6, 'Ms office 2013', ''),
-(6, 6, 'Graphic Designing', ''),
-(7, 7, 'Adobe photoshop', ''),
-(8, 7, 'Corel Draw', ''),
-(9, 9, 'Financial Accountion', ''),
-(10, 10, 'Advance Networking', ''),
-(11, 12, 'Web Designing', ''),
-(12, 12, 'Web Development', ''),
-(13, 6, 'A+ Hardware', ''),
-(14, 7, 'Inpage', ''),
-(15, 7, '20 + projects', ''),
-(16, 9, 'Peactree (project base)', '01 Month'),
-(17, 9, 'Quick Book (project Base)', '01 Month'),
-(18, 10, 'Advance Networking', '45 Days'),
-(19, 10, 'MCIT / MCSE 2012', '03 Month'),
-(20, 10, 'CCNA 4.0', '02 Month'),
-(21, 10, 'Wireless Networking', '01 Month'),
-(22, 11, 'Auto CAD (2D & 3D )', '02 Month'),
-(23, 11, '3D Studio max 02 Month', '02 Month'),
-(24, 14, 'Ms.Excel Expert', '02 Month'),
-(25, 14, 'Ms.Access', '02 Month'),
-(26, 14, 'C/C++', '02 Month'),
-(27, 1, 'INTERMEDIATE', '90 Days'),
-(28, 1, 'HIGHER ADVANCE', '90 Days'),
-(29, 5, 'Information & Communication Technology(ICT)', ''),
-(30, 5, 'Introduction to database', ''),
-(31, 3, 'stage 3', '30 days'),
-(33, 9, 'Financial Accountion', '');
+INSERT INTO `course_sub_category` (`course_c_s_id`, `fk_course_c_id`, `subject_title`, `subject_duration`, `subject_fee`) VALUES
+(1, 1, 'Pre Starter', '90 Dyas', ''),
+(2, 1, 'Starter', '90 Days', ''),
+(3, 3, 'Stage 1', '30 Days', ''),
+(4, 3, 'stage 2', '30 Days', ''),
+(5, 6, 'Ms office 2013', '', ''),
+(6, 6, 'Graphic Designing', '', ''),
+(7, 7, 'Adobe photoshop', '', ''),
+(8, 7, 'Corel Draw', '', ''),
+(9, 9, 'Financial Accountion', '', ''),
+(10, 10, 'Advance Networking', '', ''),
+(11, 12, 'Web Designing', '', ''),
+(12, 12, 'Web Development', '', ''),
+(13, 6, 'A+ Hardware', '', ''),
+(14, 7, 'Inpage', '', ''),
+(15, 7, '20 + projects', '', ''),
+(16, 9, 'Peactree (project base)', '01 Month', ''),
+(17, 9, 'Quick Book (project Base)', '01 Month', ''),
+(18, 10, 'Advance Networking', '45 Days', ''),
+(19, 10, 'MCIT / MCSE 2012', '03 Month', ''),
+(20, 10, 'CCNA 4.0', '02 Month', ''),
+(21, 10, 'Wireless Networking', '01 Month', ''),
+(22, 11, 'Auto CAD (2D & 3D )', '02 Month', ''),
+(23, 11, '3D Studio max 02 Month', '02 Month', ''),
+(24, 14, 'Ms.Excel Expert', '02 Month', ''),
+(25, 14, 'Ms.Access', '02 Month', ''),
+(26, 14, 'C/C++', '02 Month', ''),
+(27, 1, 'INTERMEDIATE', '90 Days', ''),
+(28, 1, 'HIGHER ADVANCE', '90 Days', ''),
+(29, 5, 'Information & Communication Technology(ICT)', '', ''),
+(30, 5, 'Introduction to database', '', ''),
+(31, 3, 'stage 3', '30 days', ''),
+(32, 9, 'Financial Accountion', '', ''),
+(33, 1, 'Pre Starter', '90 Dyas', ''),
+(34, 1, 'Starter', '90 Days', ''),
+(35, 3, 'Stage 1', '30 Days', ''),
+(36, 3, 'stage 2', '30 Days', ''),
+(37, 6, 'Ms office 2013', '', ''),
+(38, 6, 'Graphic Designing', '', ''),
+(39, 7, 'Adobe photoshop', '', ''),
+(40, 7, 'Corel Draw', '', ''),
+(41, 9, 'Financial Accountion', '', ''),
+(42, 10, 'Advance Networking', '', ''),
+(43, 12, 'Web Designing', '', ''),
+(44, 12, 'Web Development', '', ''),
+(45, 6, 'A+ Hardware', '', ''),
+(46, 7, 'Inpage', '', ''),
+(47, 7, '20 + projects', '', ''),
+(48, 9, 'Peactree (project base)', '01 Month', ''),
+(49, 9, 'Quick Book (project Base)', '01 Month', ''),
+(50, 10, 'Advance Networking', '45 Days', ''),
+(51, 10, 'MCIT / MCSE 2012', '03 Month', ''),
+(52, 10, 'CCNA 4.0', '02 Month', ''),
+(53, 10, 'Wireless Networking', '01 Month', ''),
+(54, 11, 'Auto CAD (2D & 3D )', '02 Month', ''),
+(55, 11, '3D Studio max 02 Month', '02 Month', ''),
+(56, 14, 'Ms.Excel Expert', '02 Month', ''),
+(57, 14, 'Ms.Access', '02 Month', ''),
+(58, 14, 'C/C++', '02 Month', ''),
+(59, 1, 'INTERMEDIATE', '90 Days', ''),
+(60, 1, 'HIGHER ADVANCE', '90 Days', ''),
+(61, 5, 'Information & Communication Technology(ICT)', '', ''),
+(62, 5, 'Introduction to database', '', ''),
+(63, 3, 'stage 3', '30 days', ''),
+(64, 9, 'Financial Accountion', '', ''),
+(69, 0, 'English one', '30 days', '1500'),
+(70, 1, 'general', '30 days', '10000');
 
 -- --------------------------------------------------------
 
@@ -48234,7 +48243,7 @@ CREATE TABLE IF NOT EXISTS `payment` (
   `updated_at` varchar(255) NOT NULL,
   `created_by` varchar(255) NOT NULL,
   PRIMARY KEY (`p_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 --
 -- Dumping data for table `payment`
@@ -48243,7 +48252,9 @@ CREATE TABLE IF NOT EXISTS `payment` (
 INSERT INTO `payment` (`p_id`, `fkuser_id`, `admission_fee`, `monthly_fee`, `received_fee`, `remaining_fee`, `received_date`, `next_fee_date`, `created_at`, `updated_at`, `created_by`) VALUES
 (3, 42, '23', '323', '23', '23', '23', '23', '16-04-20', '', ''),
 (4, 48, '321', '321', '321', '321', '321', '321', '16-04-20', '', ''),
-(5, 49, '3000', '1500', '3000', '1500', '4/21/2016', '4/21/2016', '16-04-21', '', '');
+(5, 49, '3000', '1500', '3000', '1500', '4/21/2016', '4/21/2016', '16-04-21', '', ''),
+(6, 53, '2000', '1200', '1200', '2000', '4/21/2016', '5/20/2016', '16-04-22', '', ''),
+(7, 54, '3000', '1000', '2000', '1000', '4/21/2016', '5/20/2016', '16-04-22', '', '');
 
 -- --------------------------------------------------------
 
@@ -52432,22 +52443,21 @@ CREATE TABLE IF NOT EXISTS `student` (
   `marks_obtain` varchar(255) NOT NULL,
   `total_marks` varchar(255) NOT NULL,
   `institute` varchar(255) NOT NULL,
-  `courses` varchar(255) NOT NULL,
   `class_timing` varchar(255) NOT NULL,
   `description` varchar(255) NOT NULL,
   `created_at` varchar(255) NOT NULL,
   `updated_at` varchar(255) NOT NULL,
   `created_by` varchar(255) NOT NULL,
   PRIMARY KEY (`s_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=20 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=22 ;
 
 --
 -- Dumping data for table `student`
 --
 
-INSERT INTO `student` (`s_id`, `fkuser_id`, `guardian_number`, `qualification`, `profession`, `previous_degree`, `marks_obtain`, `total_marks`, `institute`, `courses`, `class_timing`, `description`, `created_at`, `updated_at`, `created_by`) VALUES
-(18, 48, '4654616554', '12', 'programmer', '', '', '', '', 'English Language Courses', 'some time', '', '16-04-20', '', ''),
-(19, 49, '03139898225', 'BSC', 'Employee', 'BSc', '3.4', '4.0', 'Riphah International University Islamabad', 'English Language Courses', '2 pm', '', '16-04-21', '', '');
+INSERT INTO `student` (`s_id`, `fkuser_id`, `guardian_number`, `qualification`, `profession`, `previous_degree`, `marks_obtain`, `total_marks`, `institute`, `class_timing`, `description`, `created_at`, `updated_at`, `created_by`) VALUES
+(20, 53, '021345689', 'FA', 'Student', 'FA', '335', '550', 'GHS badragga', '12:30 pm', '', '16-04-22', '', ''),
+(21, 54, '13587546545', 'Bs', 'student', 'FSc', '600', '1100', 'NCS', '1 pm', '', '16-04-22', '', '');
 
 -- --------------------------------------------------------
 
@@ -52577,7 +52587,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `updated_at` varchar(255) NOT NULL,
   `created_by` varchar(255) NOT NULL,
   PRIMARY KEY (`u_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=53 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=55 ;
 
 --
 -- Dumping data for table `users`
@@ -52593,7 +52603,9 @@ INSERT INTO `users` (`u_id`, `name`, `f_name`, `age`, `contact`, `country_id`, `
 (49, 'Muhammad Shiraz', 'Gull Muhammad Khan', '23', '03159594030', '166', '2728', '31496', 'faisal colony', 'muhd_shiraz@yahoo.com', '', '', 0, '', '16-04-21', '', ''),
 (50, 'hamza khan', 'khan g', '12', '03156478', '166', '2728', '31496', 'isb', 'hamza@teacher.com', '', '', 0, 'welcome to usecs', '16-04-21', '', ''),
 (51, 'aamir saeed', 'saeed khan', '25', '031546789', '166', '2728', '31386', 'isb123', 'aamir@teacher.com', '', '', 0, 'Good Look', '16-04-21', '', ''),
-(52, 'mehboob khan', 'father of mehboob', '21', '13164416464', '13', '245', '6556', 'something', 'mehboob@visitor.com', '', '', 0, 'nice one', '16-04-21', '', '');
+(52, 'mehboob khan', 'father of mehboob', '21', '13164416464', '13', '245', '6556', 'something', 'mehboob@visitor.com', '', '', 0, 'nice one', '16-04-21', '', ''),
+(53, 'nihar alam', 'ikram khan', '23', '031564879', '166', '2728', '31496', 'islamabad', 'nihar@student.com', '', '', 0, '', '16-04-22', '', ''),
+(54, 'hamza khan', 'khan g', '20', '0124589789', '166', '2729', '31541', 'mardan', 'hamza@student.com', '', '', 0, '', '16-04-22', '', '');
 
 -- --------------------------------------------------------
 
