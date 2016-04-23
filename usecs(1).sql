@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 22, 2016 at 04:54 PM
+-- Generation Time: Apr 23, 2016 at 01:04 PM
 -- Server version: 5.6.16
 -- PHP Version: 5.5.9
 
@@ -48057,7 +48057,7 @@ CREATE TABLE IF NOT EXISTS `courses_category` (
   `category_title` varchar(255) NOT NULL,
   `duration` varchar(255) NOT NULL,
   PRIMARY KEY (`course_c_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=23 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=22 ;
 
 --
 -- Dumping data for table `courses_category`
@@ -48205,6 +48205,35 @@ CREATE TABLE IF NOT EXISTS `freeze_semester_app` (
 
 INSERT INTO `freeze_semester_app` (`freeze_id`, `fkapp_id`, `freeze_semester_text`, `created_at`, `updated_at`, `created_by`) VALUES
 (4, 18, 'freeze up dude', '16-04-19', '', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `monthly_test`
+--
+
+CREATE TABLE IF NOT EXISTS `monthly_test` (
+  `test_id` int(11) NOT NULL AUTO_INCREMENT,
+  `fkstudent_id` int(11) NOT NULL,
+  `test_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `test_month` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `test_date` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `test_subject` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `obtn_marks` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `totl_marks` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `percentage` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `updated_at` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`test_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=6 ;
+
+--
+-- Dumping data for table `monthly_test`
+--
+
+INSERT INTO `monthly_test` (`test_id`, `fkstudent_id`, `test_name`, `test_month`, `test_date`, `test_subject`, `obtn_marks`, `totl_marks`, `percentage`, `created_at`, `updated_at`) VALUES
+(4, 21, 'testing', 'april', '25/04/2016', '1', '560', '900', '62.22', '16-04-23', ''),
+(5, 20, 'weekly test', 'april', '24/04/2016', '2', '560', '900', '62.2', '16-04-23', '');
 
 -- --------------------------------------------------------
 
@@ -52487,57 +52516,6 @@ CREATE TABLE IF NOT EXISTS `teacher` (
 INSERT INTO `teacher` (`t_id`, `reg_number`, `fkuser_id`, `salary`, `qualification`, `subject`, `class_assign`, `description`, `created_at`, `updated_at`, `created_by`) VALUES
 (9, '11', 50, '1300', 'msc', 'dental', '12', 'welcome to usecs', '16-04-21', '', ''),
 (10, '23', 51, '2000', 'bcs', 'software designing', '11', 'Good Look', '16-04-21', '', '');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `test`
---
-
-CREATE TABLE IF NOT EXISTS `test` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `fktesttype_id` int(11) NOT NULL,
-  `description` varchar(255) NOT NULL,
-  `created_at` varchar(255) NOT NULL,
-  `updated_at` varchar(255) NOT NULL,
-  `created_by` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `testreults`
---
-
-CREATE TABLE IF NOT EXISTS `testreults` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `fktest_id` int(11) NOT NULL,
-  `description` varchar(255) NOT NULL,
-  `created_at` varchar(255) NOT NULL,
-  `updated_at` varchar(255) NOT NULL,
-  `created_by` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `testtype`
---
-
-CREATE TABLE IF NOT EXISTS `testtype` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL,
-  `course` varchar(255) NOT NULL,
-  `total_marks` int(11) NOT NULL,
-  `obtaine_marks` int(11) NOT NULL,
-  `description` varchar(255) NOT NULL,
-  `created_at` varchar(255) NOT NULL,
-  `updated_at` varchar(255) NOT NULL,
-  `created_by` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 

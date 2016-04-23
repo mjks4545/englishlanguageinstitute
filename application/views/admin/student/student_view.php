@@ -51,6 +51,7 @@
                             <td><?=$array->address?></td>
                              <td>
                                 <a href="<?= site_url()?>admin/student_details/<?= $array->s_id ?>" type="button" class="btn btn-primary glyphicon glyphicon-edit btn-outline margin">View Details</a>
+                                <a href="<?= site_url()?>monthlytest/result_add/<?= $array->s_id ?>" type="button" class="btn btn-primary glyphicon glyphicon-edit btn-outline margin">Add Result</a>
                                 <a href="<?= site_url()?>admin/student_edit/<?= $array->s_id ?>" type="button" class="btn btn-primary glyphicon glyphicon-edit btn-outline margin"> Edit</a>
                                 <a href="<?= site_url()?>admin/student_delete/<?= $array->s_id ?>/<?= $array->u_id ?>" type="button" class="btn btn-primary glyphicon glyphicon-trash btn-outline margin"> Delete</a>
                             </td>

@@ -23,10 +23,14 @@
         <style>
         .para{
 
+            margin-left: -80px;
 
-                    margin-left: -80px;
-
-
+        }
+        .panel_style{
+            
+            position: relative;
+            height: 40px; 
+            line-height: 20px; 
         }
         .plus_position{
             position: relative;
