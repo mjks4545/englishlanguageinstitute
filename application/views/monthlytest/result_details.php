@@ -3,7 +3,7 @@
     <div class="row">
         <ol class="breadcrumb">
             <li><a href="#"><span class="glyphicon glyphicon-home"></span></a></li>
-            <li class="active">Student Details</li>
+            <li class="active">Result Details</li>
         </ol>
     </div><!--/.row-->
     
@@ -11,7 +11,7 @@
 
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Student Information</h1>
+            <h1 class="page-header ">Result Information</h1>
         </div>
     </div><!--/.row-->
     <div class="row">
@@ -19,7 +19,7 @@
             <div class="panel panel-default">
              
                 <div class="panel-body">
-                    <div class="panel-heading panel_style">Student Information</div>
+                    <div class="panel-heading panel_style ">Student Information</div>
                             <div class="col-md-12">
                             </div>
                     <div class="row" style="position: relative;margin-top: 25px;">
@@ -51,90 +51,138 @@
                                   <label>Address:&nbsp;&nbsp; </label><?= $result->address?>
                                  </div>
                                  <div class="form-group col-md-4">
-                                  <label>Subject:&nbsp;&nbsp; </label>
+                                  <label>Subject:&nbsp;&nbsp; </label></label><?= $result->subject_title?>
                                  </div>
                             </div>
                             
                             <div class="row" >
                             <div class="panel-heading panel_style">Fee History</div>
                             </div>    
-                            <div class="row"style="position: relative;margin-top: 25px;">
-                                 <div class="form-group col-md-4 margin_left">
-                                     <label>Email:&nbsp;&nbsp;</label>
-                                 </div>
-                                 <div class="form-group col-md-4 ">
-                                  <label>Father Name:&nbsp;&nbsp; </label>
-                                 </div>
-                            </div>
-                            <div class="row">
-                                 <div class="form-group col-md-4 margin_left">
-                                  <label>Registration Number:&nbsp;&nbsp; </label>
-                                 </div>
-                                 <div class="form-group col-md-4">
-                                  <label>Age:&nbsp;&nbsp; </label>
-                                 </div>
+                            <div class="panel-body">
+                                <table data-toggle="table" data-show-refresh="false" data-search="false" data-pagination="false" data-sort-name="false" data-sort-order="false">
+                                    <thead>
+                                    <tr>
+                                        <th class="text-center" data-sortable="true"><b>Month</b></th>
+                                        <th class="text-center" data-sortable="true"><b>Total Amount</b></th>
+                                        <th class="text-center" data-sortable="true"><b>Paid Amount</b></th>
+                                        <th class="text-center" data-sortable="true"><b>Remaining Balance</b></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <?php foreach ($test as $array)?>
+                                    <tr>
+                                        <td class="text-center"><?=$array->test_month?></td>
+                                        <td class="text-center"><?=$array->monthly_fee?></td>
+                                        <td class="text-center"><?=$array->received_fee?></td>
+                                        <td class="text-center"><?=$array->remaining_fee?></td>
+                                    </tr>
+
+                                    </tbody>
+
+                                </table>
                             </div>
                            
                            
                             <div class="panel-heading panel_style">Monthly Attendance Report</div>
                            
-                            <div class="row"style="position: relative;margin-top: 25px;">
-                                 <div class="form-group col-md-4 margin_left">
-                                     <label>Email:&nbsp;&nbsp;</label>
-                                 </div>
-                                 <div class="form-group col-md-4 ">
-                                  <label>Father Name:&nbsp;&nbsp; </label>
-                                 </div>
-                            </div>
-                            <div class="row">
-                                 <div class="form-group col-md-4 margin_left">
-                                  <label>Registration Number:&nbsp;&nbsp; </label>
-                                 </div>
-                                 <div class="form-group col-md-4">
-                                  <label>Age:&nbsp;&nbsp; </label>
-                                 </div>
-                            </div>
+                             <!--<div class="panel-body">
+                                <table>
+                                    <thead>
+                                    <tr>
+                                        <th  data-sortable="true"><b>Month</b></th>
+                                        <th  colspan="34" class="text-center" data-sortable="true"><b>Date</b></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+
+                                    <tr>
+                                        <td>january</td>
+                                        <td>1</td>
+                                        <td>2</td>
+                                        <td>3</td>
+                                        <td>4</td>
+                                        <td>5</td>
+                                        <td>6</td>
+                                        <td>7</td>
+                                        <td>8</td>
+                                        <td>9</td>
+                                        <td>10</td>
+                                        <td>11</td>
+                                        <td>12</td>
+                                        <td>13</td>
+                                        <td>14</td>
+                                        <td>15</td>
+                                        <td>16</td>
+                                        <td>17</td>
+                                        <td>18</td>
+                                        <td>19</td>
+                                        <td>20</td>
+                                        <td>21</td>
+                                        <td>22</td>
+                                        <td>23</td>
+                                        <td>24</td>
+                                        <td>25</td>
+                                        <td>26</td>
+                                        <td>27</td>
+                                        <td>28</td>
+                                        <td>29</td>
+                                        <td>30</td>
+                                        <td>31</td>
+                                      
+                                    </tr>
+                                    
+
+                                    </tbody>
+
+                                </table>
+                            </div>-->
+                             Under Process
                        
                             <div class="panel-heading panel_style">Class Performance</div>
                      
-                            <div class="row"style="position: relative;margin-top: 25px;">
-                                 <div class="form-group col-md-4 margin_left">
-                                     <label>Email:&nbsp;&nbsp;</label>
-                                 </div>
-                                 <div class="form-group col-md-4 ">
-                                  <label>Father Name:&nbsp;&nbsp; </label>
-                                 </div>
-                            </div>
-                            <div class="row">
-                                 <div class="form-group col-md-4 margin_left">
-                                  <label>Registration Number:&nbsp;&nbsp; </label>
-                                 </div>
-                                 <div class="form-group col-md-4">
-                                  <label>Age:&nbsp;&nbsp; </label>
-                                 </div>
-                            </div>
+                            <div class="panel-body">
+                                    <table data-toggle="table" data-show-refresh="false" data-search="false" data-pagination="false">
+                                        <thead>
+                                        <tr>
+                                            <th class="text-center" data-sortable="true"><b>Month</b></th>
+                                            <th class="text-center" data-sortable="true"><b>Percentage</b></th>
+                                            
+                                        </tr>
+                                        
+                                        </thead>
+                                        <tbody>
+                                        <?php foreach ($test as $array) {?>
+                                        <tr>
+                                            <td class="text-center"><?= $array->test_month?></td>
+                                            <td class="text-center"><?=$array->percentage?><?php if('percentage' >= 0){ echo ' %';} ?></td>
+                                        </tr>
+                                        <?php }?>
+                                        </tbody>
+
+                                    </table>
+                                </div>
                           
                             <div class="panel-heading panel_style">Result Record</div>
                            
                                 <div class="panel-body">
-                                    <table data-toggle="table" data-show-refresh="true" data-search="true" data-select-item-name="toolbar1" data-pagination="true" data-sort-name="name" data-sort-order="desc">
+                                    <table data-toggle="table" data-show-refresh="false" data-search="false" data-pagination="false" data-sort-name="false" data-sort-order="false">
                                         <thead>
                                         <tr>
-                                            <th  data-sortable="true"><b>Month</b></th>
-                                            <th  data-sortable="true"><b>Marks total</b></th>
-                                            <th  data-sortable="true"><b>Marks obtain</b></th>
-                                            <th  data-sortable="true"><b>Percentage</b></th>
+                                            <th class="text-center" data-sortable="true"><b>Month</b></th>
+                                            <th class="text-center" data-sortable="true"><b>Marks total</b></th>
+                                            <th class="text-center" data-sortable="true"><b>Marks obtain</b></th>
+                                            <th class="text-center" data-sortable="true"><b>Percentage</b></th>
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <?php foreach($test as $array){?>
+                                        <?php foreach ($test as $array) {?>
                                         <tr>
-                                            <td><?=$array->test_month?></td>
-                                            <td><?=$array->totl_marks?></td>
-                                            <td><?=$array->obtn_marks?></td>
-                                            <td><?=$array->percentage?></td>
+                                            <td class="text-center"><?=$array->test_month?></td>
+                                            <td class="text-center"><?=$array->totl_marks?></td>
+                                            <td class="text-center"><?=$array->obtn_marks?></td>
+                                            <td class="text-center"><?=$array->percentage?><?php if('percentage' >= 0){ echo ' %';} ?></td>
                                         </tr>
-                                        <?php } ?>
+                                        <?php }?>
                                         </tbody>
 
                                     </table>

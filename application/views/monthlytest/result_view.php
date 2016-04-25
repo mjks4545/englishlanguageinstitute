@@ -48,11 +48,11 @@
                             <td><?=$array->subject_title?></td>
                             <td><?=$array->obtn_marks?></td>
                             <td><?=$array->totl_marks?></td>
-                            <td><?=$array->percentage?><?php if('percentage' != 0){ echo '%';} ?></td>
+                            <td><?=$array->percentage?><?php if('percentage' >= 0){ echo ' %';} ?></td>
                          
                              <td>
                                 <a href="<?= site_url()?>monthlytest/result_details/<?= $array->test_id ?>" type="button" class="btn btn-primary glyphicon glyphicon-edit btn-outline margin">View Details</a>
-                                <a href="<?= site_url()?>monthlytest/result_delete/<?= $array->test_id ?>" type="button" class="btn btn-primary glyphicon glyphicon-trash btn-outline margin"> Delete</a>
+                                <a href="<?= site_url()?>monthlytest/result_delete/<?= $array->test_id ?>/<?= $array->fkstudent_id ?>" type="button" class="btn btn-primary glyphicon glyphicon-trash btn-outline margin"> Delete</a>
                             </td>
                            
                         </tr>

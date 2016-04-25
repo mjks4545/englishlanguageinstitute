@@ -77,8 +77,11 @@ class MonthlyTest extends CI_Controller {
         $this->db->select('*');
         $this->db->from('monthly_test');
         $this->db->join('student', 'student.s_id = monthly_test.fkstudent_id');
-       $this->db->join('users', 'users.u_id = student.fkuser_id');
-//        $this->db->join('course_sub_category', 'course_sub_category.course_c_s_id = monthly_test.test_subject');
+        $this->db->join('users', 'users.u_id = student.fkuser_id');
+        $this->db->join('payment', 'payment.fkuser_id = student.fkuser_id');
+         $this->db->join('course_sub_category', 'course_sub_category.course_c_s_id = monthly_test.test_subject');
+        $this->db->where('monthly_test.test_id',$id);
+       
         $query = $this->db->get();
         $result = $query->result();
         $result['result'] = $result[0];

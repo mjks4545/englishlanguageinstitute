@@ -32,7 +32,7 @@ body {
 
 /*Use this class on .col elements to remove all spacing*/
 .col-no-gutter{
-	padding: 1px 0 1px 1px;
+	padding: 10px 0 3px 12px;
 	margin: 0;
 }
 
