@@ -177,7 +177,9 @@ class Admin extends CI_Controller {
         $next_fee_date = $this->input->post('next_fee_date');
       
         $created_date = mdate("%y-%m-%d");
-
+        
+        $total_amount = $admission_fee + $monthly_fee;
+        
         $this->db->where('email', $email);
         $this->db->or_where('contact', $contact);
         $query = $this->db->get('users');
@@ -233,6 +235,7 @@ class Admin extends CI_Controller {
                 'fkuser_id' => $fkuser_id,
                 'admission_fee' => $admission_fee,
                 'monthly_fee' => $monthly_fee,
+                'total_fee' => $total_amount,
                 'received_fee' => $amount_received,
                 'remaining_fee' => $remaining_fee,
                 'received_date' => $received_date,
