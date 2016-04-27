@@ -90,25 +90,16 @@
                     </a>
                 </li>
             </ul>
-            
-            <a href="#">
-                <span class="glyphicon glyphicon-user"></span>Account Section<span data-toggle="collapse" href="#sub-item-5" class="icon pull-right"><em class="glyphicon glyphicon-s glyphicon-plus"></em></span>
-              </a>
-            <ul class="children collapse" id="sub-item-5">
-                <li>
-                    <a  href="<?= site_url()?>accountsection/payment">
-                        <span class="glyphicon glyphicon-share-alt"></span> Payments
-                    </a>
-                </li>
-                <li>
-                    <a  href="<?= site_url()?>accountsection/expanses">
-                        <span class="glyphicon glyphicon-share-alt"></span> Expenses
-                    </a>
-                </li>
-            </ul>
+
 
         </li>
-    
+        <li>
+            <a href="<?= site_url()?>accountsection/student_registration">
+                <span class="glyphicon glyphicon-th"></span> Account Section
+            </a>
+        </li>
+       
+
         <li>
             <a href="<?= site_url()?>home">
                 <span class="glyphicon glyphicon-user"></span> Logout

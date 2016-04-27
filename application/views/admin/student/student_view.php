@@ -29,6 +29,7 @@
                             <th  data-sortable="true"><b>Contact</b></th>
                             <th  data-sortable="true"><b>Email</b></th>
                             <th  data-sortable="true"><b>Course</b></th>
+                            <th  data-sortable="true"><b>Course Category</b></th>
                             <th  data-sortable="true"><b>Study In</b></th>
                             <th  data-sortable="true"><b>Age</b></th>
                             <th  data-sortable="true"><b>Address</b></th>
@@ -44,21 +45,16 @@
                             <td><?=$array->contact?></td>
                             <td><?=$array->email?></td>
                             <td><?=$array->course_title?></td>
+                            <td><?=$array->category_title?></td>
                             <td><?=$array->subject_title?></td>
                             <td><?=$array->age?></td>
                             <td><?=$array->address?></td>
                              <td>
-                                 <div class="btn-group">
-                                     <button style="position: relative;width: 100px;" data-toggle="dropdown" class="btn btn-primary dropdown-toggle btn-outline margin">Action <span class="caret"></span></button>
-                                    <div class="dropdown-menu " style="background:#444D53; color:white; text-decoration: none;">
-                                        <a class="dropdown-item btn-primary btn-outline margin" href="<?= site_url()?>admin/student_edit/<?= $array->s_id ?>">Edit</a><br><hr>
-                                        <a class="dropdown-item btn-primary btn-outline margin" href="<?= site_url()?>admin/student_delete/<?= $array->s_id ?>/<?= $array->u_id ?>">Delete</a><br><hr>
-                                        <a class="dropdown-item btn-primary btn-outline margin" href="<?= site_url()?>monthlytest/result_add/<?= $array->s_id ?>">Add Result</a><br><hr>
-                                        <a class="dropdown-item btn-primary btn-outline margin" href="#">Add Course</a><br><hr>
-                                        <a class="dropdown-item btn-primary btn-outline margin" href="<?= site_url()?>admin/student_details/<?= $array->s_id ?>">View Detail</a><br>
-                                    </div>
-                                  </div>
-                                </td>
+                                <a href="<?= site_url()?>admin/student_details/<?= $array->s_id ?>" type="button" class="btn btn-primary glyphicon glyphicon-edit btn-outline margin">View Details</a>
+                                <a href="<?= site_url()?>monthlytest/result_add/<?= $array->s_id ?>" type="button" class="btn btn-primary glyphicon glyphicon-edit btn-outline margin">Add Result</a>
+                                <a href="<?= site_url()?>admin/student_edit/<?= $array->s_id ?>" type="button" class="btn btn-primary glyphicon glyphicon-edit btn-outline margin"> Edit</a>
+                                <a href="<?= site_url()?>admin/student_delete/<?= $array->s_id ?>/<?= $array->u_id ?>" type="button" class="btn btn-primary glyphicon glyphicon-trash btn-outline margin"> Delete</a>
+                            </td>
                            
                         </tr>
                         <?php } ?>
