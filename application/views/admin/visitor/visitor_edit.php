@@ -20,7 +20,9 @@ die();*/
     <div class="row">
         <div class="col-lg-12">
             <div class="panel panel-default">
-                <div class="panel-heading">Edit Form</div>
+                <div class="panel-heading">Edit Form
+                <a href="<?= site_url()?>admin/visitor_view" type="button" style="position: relative;width: 120px; " class="btn btn-primary btn-outline margin  pull-right"><b>Back</b></a>
+                </div>
                 <div class="panel-body">
 
                     <form role="form" method="post" action="<?= site_url()?>admin/update_visitor_after_post/<?= $result->v_id; ?>/<?= $result->u_id; ?>">
@@ -40,30 +42,22 @@ die();*/
                                 <input type="text" name="age" style="color: white" class="form-control" placeholder="Age" value="<?= $result->age?>" required>
                             </div>
                             <div class="form-group col-md-6">
-                                <label>Qualification</label>
-                                <input type="text" name="qualification" style="color: white" class="form-control" placeholder="Qualification" value="<?= $result->qualification?>" required>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="form-group col-md-6">
                                 <label>Nic</label>
                                 <input type="text" name="nic" style="color: white" class="form-control" placeholder="Nic" value="<?= $result->nic?>" required>
                             </div>
+                           
+                        </div>
+                        <div class="row">
                             <div class="form-group col-md-6">
                                 <label>Profession</label>
                                 <input type="text" name="profession" style="color: white" class="form-control" placeholder="Profession" value="<?= $result->profession?>" required>
                             </div>
-                        </div>
-                        <div class="row">
                             <div class="form-group col-md-6">
                                 <label>Email</label>
                                 <input type="email" name="email" style="color: white" class="form-control" placeholder="Email" value="<?= $result->email?>" required>
                             </div>
-                            <div class="form-group col-md-6">
-                                <label>Guardian Number</label>
-                                <input type="text" name="g_number" style="color: white" class="form-control" placeholder="Guardian Number" value="<?= $result->guardian_number?>" required>
-                            </div>
                         </div>
+                        
                         <div class="row">
                             <div class="form-group col-md-6">
                                 <label>Contact</label>
@@ -71,23 +65,33 @@ die();*/
                             </div>
                             <div class="form-group col-md-6">
                                 <label>Desire Course</label>
-                                <input type="text" name="desire_course" style="color: white" class="form-control" placeholder="Courses" value="<?= $result->courses?>" required>
+                                 <select type="text" name="desire_course" class="form-control" readonly required style="background:#444D53; color:white;">
+                                    <option value="<?php echo $result->courses ?>" selected="selected"><?= $result->subject_title?><option>
+                                 </select>
                             </div>
                         </div>
                         <div class="row">
                             <div class="form-group col-md-6">
                                 <label>Country</label>
-                                <input type="text" name="country" class="form-control"  value="<?php echo $result->country_name ?>" readonly required style="background:#444D53; color:white;">
+                                <select type="text" name="country" class="form-control" readonly required style="background:#444D53; color:white;">
+                                    <option value="<?php echo $result->country_id ?>" selected="selected"><?= $result->country_name?><option>
+                                </select>
                             </div>
                             <div class="form-group col-md-6">
                                 <label>Province</label>
-                                <input type="text" name="province" class="form-control"  value="<?php echo $result->state_name ?>"  readonly required style="background:#444D53; color:white;">
+                                <select type="text" name="province" class="form-control" readonly required style="background:#444D53; color:white;">
+                                    <option value="<?php echo $result->province_id ?>" selected="selected"><?= $result->state_name?><option>
+                                </select>
+                             
                             </div>
                         </div>
                         <div class="row">
                             <div class="form-group col-md-6">
                                 <label>City</label>
-                                <input type="text" name="city" style="background:#444D53; color:white;" class="form-control"  value="<?php echo $result->city_name ?>" readonly required >
+                                <select type="text" name="city" class="form-control" readonly required style="background:#444D53; color:white;">
+                                    <option value="<?php echo $result->city_id ?>"  selected="selected"><?= $result->city_name?><option>
+                                </select>
+                               
                             </div>
 			    <div class="form-group col-md-6">
                                 <label>Village Address</label>

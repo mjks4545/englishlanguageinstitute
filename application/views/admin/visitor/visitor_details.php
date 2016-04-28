@@ -11,13 +11,15 @@
 
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header"></h1>
+            <h1 class="page-header">Visitor Details</h1>
         </div>
     </div><!--/.row-->
     <div class="row">
         <div class="col-lg-12">
             <div class="panel panel-default">
-                <div class="panel-heading"></div>
+                <div class="panel-heading">Visitor Details
+                 <a href="<?= site_url()?>admin/visitor_view" type="button" style="position: relative;width: 120px; " class="btn btn-primary btn-outline margin  pull-right"><b>Back</b></a>
+                </div>
                 <div class="panel-body">
    
                      
@@ -48,18 +50,18 @@
                             </div>
                             <div class="row">
                                  <div class="form-group col-md-4 margin_left">
-                                  <label>Qualification:&nbsp;&nbsp; </label><?= $result->qualification?>
-                                 </div>
-                                 <div class="form-group col-md-4 ">
                                   <label>Profession:&nbsp;&nbsp; </label><?= $result->profession?>
                                  </div>
+                                <div class="form-group col-md-4 ">
+                                  <label>Age:&nbsp;&nbsp; </label><?= $result->age?>
+                                </div>
                             </div>
                             <div class="row">
-                                <div class="form-group col-md-4 margin_left">
-                                  <label>Age:&nbsp;&nbsp; </label><?= $result->age?>
-                                 </div>
-                                <div class="form-group col-md-4 ">
+                                <div class="form-group col-md-4 margin_left ">
                                    <label>Contact Number:&nbsp;&nbsp; </label><?= $result->contact?>
+                                 </div>
+                                 <div class="form-group col-md-4 ">
+                                   <label>Nic:&nbsp;&nbsp; </label><?= $result->nic?>
                                  </div>
                             </div>
                             <div class="row">
@@ -78,14 +80,7 @@
                                   <label>Village/Street:&nbsp;&nbsp;  </label><?= $result->address?>
                                  </div>
                             </div>   
-                            <div class="row">
-                                 <div class="form-group col-md-4 margin_left">
-                                   <label>Nic:&nbsp;&nbsp; </label><?= $result->nic?>
-                                 </div>
-                                 <div class="form-group col-md-4">
-                                  <label>Guardian Number:&nbsp;&nbsp; </label><?= $result->guardian_number?>
-                                 </div>
-                            </div>
+                            
                            <div class="row">
                                  <div class="form-group col-md-4 margin_left">
                                    <label>Status:&nbsp;&nbsp; </label><?= $result->status?>

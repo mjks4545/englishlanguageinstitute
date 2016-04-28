@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 27, 2016 at 07:56 AM
+-- Generation Time: Apr 28, 2016 at 04:58 PM
 -- Server version: 5.6.16
 -- PHP Version: 5.5.9
 
@@ -39,37 +39,33 @@ CREATE TABLE IF NOT EXISTS `admin` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `application`
+-- Table structure for table `applications`
 --
 
-CREATE TABLE IF NOT EXISTS `application` (
+CREATE TABLE IF NOT EXISTS `applications` (
   `app_id` int(11) NOT NULL AUTO_INCREMENT,
   `fkuser_id` int(11) NOT NULL,
   `app_to` varchar(255) NOT NULL,
   `application_name` varchar(255) NOT NULL,
   `app_director` varchar(255) NOT NULL,
   `subject_line` varchar(255) NOT NULL,
+  `app_text` varchar(255) NOT NULL,
   `yours_obediently` varchar(255) NOT NULL,
   `series` varchar(255) NOT NULL,
-  `app_timing` varchar(255) NOT NULL,
-  `teacher` varchar(255) NOT NULL,
-  `chief_counselor` varchar(255) NOT NULL,
-  `accountant` varchar(255) NOT NULL,
-  `app_date` varchar(255) NOT NULL,
   `created_at` varchar(255) NOT NULL,
   `updated_at` varchar(255) NOT NULL,
   `created_by` varchar(255) NOT NULL,
   PRIMARY KEY (`app_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=20 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
--- Dumping data for table `application`
+-- Dumping data for table `applications`
 --
 
-INSERT INTO `application` (`app_id`, `fkuser_id`, `app_to`, `application_name`, `app_director`, `subject_line`, `yours_obediently`, `series`, `app_timing`, `teacher`, `chief_counselor`, `accountant`, `app_date`, `created_at`, `updated_at`, `created_by`) VALUES
-(17, 36, 'To', 'class time change', 'The Director, The University of Spoken English And Computer Sciences Faqirabad,Peshawar', 'Dear Sir,', 'Yours obediently', '12', '12', '12', '12', '12', '12', '16-04-19', '', ''),
-(18, 37, 'To', 'freeze up', 'The Director, The University of Spoken English & Computer Science Faqirabad, Peshawa', 'Dear Sir,', 'Yours Obediently', '45', '45', '45', '4', '54', '54', '16-04-19', '', ''),
-(19, 38, 'To', 'class promotion', 'The Director, The University of Spoken English & Computer Science Faqirabad, Peshawa', 'Dear Sir,', 'Yours Obediently', '56', '56', '56', '56', '56', '56', '16-04-19', '', '');
+INSERT INTO `applications` (`app_id`, `fkuser_id`, `app_to`, `application_name`, `app_director`, `subject_line`, `app_text`, `yours_obediently`, `series`, `created_at`, `updated_at`, `created_by`) VALUES
+(2, 4, 'To', 'class time change', 'The Director, The University of Spoken English And Computer Sciences Faqirabad,Peshawar', 'Dear Sir,', 'i want to change my class', 'Yours obediently', '6', '16-04-28', '', ''),
+(3, 5, 'To', 'class promotion', 'The Director, The University of Spoken English & Computer Science Faqirabad, Peshawa', 'Dear Sir,', 'class promoooooooo', 'Yours Obediently', '5', '16-04-28', '', ''),
+(4, 6, 'To', 'freeze up', 'The Director, The University of Spoken English & Computer Science Faqirabad, Peshawa', 'Dear Sir,', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. Lorem Ips', 'Yours Obediently', '8', '16-04-28', '', '');
 
 -- --------------------------------------------------------
 
@@ -47709,29 +47705,6 @@ INSERT INTO `cities` (`id`, `city_name`, `state_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `class_promotion_app`
---
-
-CREATE TABLE IF NOT EXISTS `class_promotion_app` (
-  `promotion_id` int(11) NOT NULL AUTO_INCREMENT,
-  `fkapp_id` int(11) NOT NULL,
-  `class_promotion_text` varchar(255) NOT NULL,
-  `created_at` varchar(255) NOT NULL,
-  `updated_at` varchar(255) NOT NULL,
-  `created_by` int(11) NOT NULL,
-  PRIMARY KEY (`promotion_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
-
---
--- Dumping data for table `class_promotion_app`
---
-
-INSERT INTO `class_promotion_app` (`promotion_id`, `fkapp_id`, `class_promotion_text`, `created_at`, `updated_at`, `created_by`) VALUES
-(4, 19, 'welcome to new class', '16-04-19', '', 0);
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `countries`
 --
 
@@ -48014,17 +47987,14 @@ CREATE TABLE IF NOT EXISTS `courses` (
   `created_by` varchar(255) NOT NULL,
   `description` varchar(255) NOT NULL,
   PRIMARY KEY (`c_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `courses`
 --
 
 INSERT INTO `courses` (`c_id`, `fkuser_id`, `course_name`, `course_category`, `category_subject`, `course_duration`, `starting_date`, `ending_date`, `created_at`, `updated_at`, `created_by`, `description`) VALUES
-(9, 53, '1', '1', '1', '30 days', '04/05/2016', '05/05/2016', '16-04-22', '', '', ''),
-(10, 54, '1', '1', '2', '30 days', '04/22/2016', '05/22/2016', '16-04-22', '', '', ''),
-(12, 49, '1', '3', '4', '60 days', '04/26/2016', '6/20/2016', '16-04-26', '', '', ''),
-(13, 57, '1', '3', '31', '50 days', '04/26/2016', '06/16/2016', '16-04-26', '', '', '');
+(3, 14, '2', '5', '29', '22', '04/28/2016', '22', '16-04-28', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -48188,25 +48158,35 @@ CREATE TABLE IF NOT EXISTS `director` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `freeze_semester_app`
+-- Table structure for table `expenses`
 --
 
-CREATE TABLE IF NOT EXISTS `freeze_semester_app` (
-  `freeze_id` int(11) NOT NULL AUTO_INCREMENT,
-  `fkapp_id` int(11) NOT NULL,
-  `freeze_semester_text` varchar(255) NOT NULL,
+CREATE TABLE IF NOT EXISTS `expenses` (
+  `expense_id` int(11) NOT NULL AUTO_INCREMENT,
+  `item_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `v_number` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `item_amount` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `updated_at` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`expense_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `fee_to_be_paid`
+--
+
+CREATE TABLE IF NOT EXISTS `fee_to_be_paid` (
+  `f_t_b_paid` int(11) NOT NULL,
+  `fkstudent_id` int(11) NOT NULL,
+  `amount` varchar(255) NOT NULL,
+  `reason` varchar(255) NOT NULL,
+  `description` varchar(255) NOT NULL,
   `created_at` varchar(255) NOT NULL,
   `updated_at` varchar(255) NOT NULL,
-  `created_by` int(11) NOT NULL,
-  PRIMARY KEY (`freeze_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
-
---
--- Dumping data for table `freeze_semester_app`
---
-
-INSERT INTO `freeze_semester_app` (`freeze_id`, `fkapp_id`, `freeze_semester_text`, `created_at`, `updated_at`, `created_by`) VALUES
-(4, 18, 'freeze up dude', '16-04-19', '', 0);
+  `updated_by` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -48227,15 +48207,7 @@ CREATE TABLE IF NOT EXISTS `monthly_test` (
   `created_at` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `updated_at` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`test_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=6 ;
-
---
--- Dumping data for table `monthly_test`
---
-
-INSERT INTO `monthly_test` (`test_id`, `fkstudent_id`, `test_name`, `test_month`, `test_date`, `test_subject`, `obtn_marks`, `totl_marks`, `percentage`, `created_at`, `updated_at`) VALUES
-(4, 21, 'testing', 'april', '25/04/2016', '1', '560', '900', '62.22', '16-04-23', ''),
-(5, 20, 'weekly test', 'april', '24/04/2016', '2', '560', '900', '62.2', '16-04-23', '');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -48258,6 +48230,23 @@ CREATE TABLE IF NOT EXISTS `notification` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `paid_fee`
+--
+
+CREATE TABLE IF NOT EXISTS `paid_fee` (
+  `p_f_id` int(11) NOT NULL,
+  `fkstudent_id` int(11) NOT NULL,
+  `amount` varchar(255) NOT NULL,
+  `reason` varchar(255) NOT NULL,
+  `description` varchar(255) NOT NULL,
+  `created_at` varchar(255) NOT NULL,
+  `updated_at` varchar(255) NOT NULL,
+  `updated_by` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `payment`
 --
 
@@ -48267,25 +48256,18 @@ CREATE TABLE IF NOT EXISTS `payment` (
   `admission_fee` varchar(255) NOT NULL,
   `monthly_fee` varchar(255) NOT NULL,
   `received_fee` varchar(255) NOT NULL,
-  `next_fee_date` varchar(255) NOT NULL,
   `created_at` varchar(255) NOT NULL,
   `updated_at` varchar(255) NOT NULL,
   `created_by` varchar(255) NOT NULL,
   PRIMARY KEY (`p_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `payment`
 --
 
-INSERT INTO `payment` (`p_id`, `fkuser_id`, `admission_fee`, `monthly_fee`, `received_fee`, `next_fee_date`, `created_at`, `updated_at`, `created_by`) VALUES
-(3, 42, '23', '323', '23', '23', '16-04-20', '', ''),
-(4, 48, '321', '321', '321', '321', '16-04-20', '', ''),
-(5, 49, '3000', '1500', '1500', '4/21/2016', '16-04-21', '', ''),
-(6, 53, '2000', '1200', '2000', '5/20/2016', '16-04-22', '', ''),
-(7, 54, '3000', '1000', '1000', '5/20/2016', '16-04-22', '', ''),
-(9, 49, '5000', '2000', '5000', '05/26/2016', '16-04-26', '', ''),
-(10, 57, '6000', '2000', '3000', '05/26/2016', '16-04-26', '', '');
+INSERT INTO `payment` (`p_id`, `fkuser_id`, `admission_fee`, `monthly_fee`, `received_fee`, `created_at`, `updated_at`, `created_by`) VALUES
+(2, 14, '22', '22', '22', '16-04-28', '', '');
 
 -- --------------------------------------------------------
 
@@ -52470,27 +52452,20 @@ CREATE TABLE IF NOT EXISTS `student` (
   `guardian_number` varchar(255) NOT NULL,
   `qualification` varchar(255) NOT NULL,
   `profession` varchar(255) NOT NULL,
-  `previous_degree` varchar(255) NOT NULL,
-  `marks_obtain` varchar(255) NOT NULL,
-  `total_marks` varchar(255) NOT NULL,
-  `institute` varchar(255) NOT NULL,
   `class_timing` varchar(255) NOT NULL,
   `description` varchar(255) NOT NULL,
   `created_at` varchar(255) NOT NULL,
   `updated_at` varchar(255) NOT NULL,
   `created_by` varchar(255) NOT NULL,
   PRIMARY KEY (`s_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=25 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `student`
 --
 
-INSERT INTO `student` (`s_id`, `fkuser_id`, `guardian_number`, `qualification`, `profession`, `previous_degree`, `marks_obtain`, `total_marks`, `institute`, `class_timing`, `description`, `created_at`, `updated_at`, `created_by`) VALUES
-(20, 53, '021345689', 'FA', 'Student', 'FA', '335', '550', 'GHS badragga', '12:30 pm', '', '16-04-22', '', ''),
-(21, 54, '13587546545', 'Bs', 'student', 'FSc', '600', '1100', 'NCS', '1 pm', '', '16-04-22', '', ''),
-(23, 49, '03139898255', 'bsc', 'student', 'bsc', '3.5', '4.0', 'Riphah International University Islamabad', '3:00 pm', '', '16-04-26', '', ''),
-(24, 57, '6547549874', 'BSC', 'student', 'BSC', '300', '600', 'islamic university', '3:00 pm', '', '16-04-26', '', '');
+INSERT INTO `student` (`s_id`, `fkuser_id`, `guardian_number`, `qualification`, `profession`, `class_timing`, `description`, `created_at`, `updated_at`, `created_by`) VALUES
+(3, 14, '22', '22', '22', '22', '', '16-04-28', '', '');
 
 -- --------------------------------------------------------
 
@@ -52500,7 +52475,6 @@ INSERT INTO `student` (`s_id`, `fkuser_id`, `guardian_number`, `qualification`, 
 
 CREATE TABLE IF NOT EXISTS `teacher` (
   `t_id` int(11) NOT NULL AUTO_INCREMENT,
-  `reg_number` varchar(255) NOT NULL,
   `fkuser_id` int(11) NOT NULL,
   `salary` varchar(255) NOT NULL,
   `qualification` varchar(255) NOT NULL,
@@ -52511,39 +52485,15 @@ CREATE TABLE IF NOT EXISTS `teacher` (
   `updated_at` varchar(255) NOT NULL,
   `created_by` varchar(255) NOT NULL,
   PRIMARY KEY (`t_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `teacher`
 --
 
-INSERT INTO `teacher` (`t_id`, `reg_number`, `fkuser_id`, `salary`, `qualification`, `subject`, `class_assign`, `description`, `created_at`, `updated_at`, `created_by`) VALUES
-(9, '11', 50, '1300', 'msc', 'dental', '12', 'welcome to usecs', '16-04-21', '', ''),
-(10, '23', 51, '2000', 'bcs', 'software designing', '11', 'Good Look', '16-04-21', '', ''),
-(11, '33', 55, '2000', 'ma', 'maths', '12', 'asdasfa', '16-04-26', '', '');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `time_changing_app`
---
-
-CREATE TABLE IF NOT EXISTS `time_changing_app` (
-  `change_id` int(11) NOT NULL AUTO_INCREMENT,
-  `fkapp_id` int(11) NOT NULL,
-  `time_change_text` varchar(255) NOT NULL,
-  `created_at` varchar(500) NOT NULL,
-  `updated_at` varchar(255) NOT NULL,
-  `created_by` varchar(255) NOT NULL,
-  PRIMARY KEY (`change_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
-
---
--- Dumping data for table `time_changing_app`
---
-
-INSERT INTO `time_changing_app` (`change_id`, `fkapp_id`, `time_change_text`, `created_at`, `updated_at`, `created_by`) VALUES
-(4, 17, 'class changing', '16-04-19', '', '');
+INSERT INTO `teacher` (`t_id`, `fkuser_id`, `salary`, `qualification`, `subject`, `class_assign`, `description`, `created_at`, `updated_at`, `created_by`) VALUES
+(4, 10, '25000', 'mscc', 'bba', '15', 'waawaaawa12zcxZxcZxcZcz', '16-04-28', '16-04-28', ''),
+(5, 11, '2000', 'good', 'adalsh', '12', 'asgfga;psfjkas;fhadf', '16-04-28', '', '');
 
 -- --------------------------------------------------------
 
@@ -52564,34 +52514,27 @@ CREATE TABLE IF NOT EXISTS `users` (
   `email` varchar(255) NOT NULL,
   `password` varchar(500) NOT NULL,
   `role` varchar(255) NOT NULL,
-  `fktestresult_id` int(11) NOT NULL,
   `description` varchar(255) NOT NULL,
   `created_at` varchar(255) NOT NULL,
   `updated_at` varchar(255) NOT NULL,
   `created_by` varchar(255) NOT NULL,
   PRIMARY KEY (`u_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=58 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`u_id`, `name`, `f_name`, `age`, `contact`, `country_id`, `province_id`, `city_id`, `address`, `email`, `password`, `role`, `fktestresult_id`, `description`, `created_at`, `updated_at`, `created_by`) VALUES
-(36, 'rehman', 'ali', '', '', '', '', '', '', '', '', '', 0, '', '16-04-19', '', ''),
-(37, 'alli', 'khan', '', '', '', '', '', '', '', '', '', 0, '', '16-04-19', '', ''),
-(38, 'shiraz', 'khan', '', '', '', '', '', '', '', '', '', 0, '', '16-04-19', '', ''),
-(40, 'admin', 'admin', '23', '03154556', '65', '2', '1', 'pak', 'admin@admin.com', 'admin', '', 0, '', '', '', ''),
-(47, 'asdfasd', 'asd', 'asd', 'asdasd', '2', '75', '6022', 'asdasd', 'mjks4545@gmail.com', '', '', 0, 'asdasdasd', '16-04-20', '', ''),
-(48, 'aleem', 'khan', '12', '031456678', '166', '2723', '31273', 'some address', 'admin@uktradezone.com', '', '', 0, '', '16-04-20', '', ''),
-(49, 'Muhammad Shiraz', 'Gull Muhammad Khan', '23', '0315959403000', 'Pakistan', 'Punjab', 'Rawalpindi', 'faisal colony', 'muhd_shiraz@yahoo.com', '', '', 0, '', '16-04-21', '16-04-26', ''),
-(50, 'hamza khan', 'khan g', '12', '03156478', '166', '2728', '31496', 'isb', 'hamza@teacher.com', '', '', 0, 'welcome to usecs', '16-04-21', '', ''),
-(51, 'aamir saeed', 'saeed khan', '25', '031546789', '166', '2728', '31386', 'isb123', 'aamir@teacher.com', '', '', 0, 'Good Look', '16-04-21', '', ''),
-(52, 'mehboob khan', 'father of mehboob', '21', '13164416464', '13', '245', '6556', 'something', 'mehboob@visitor.com', '', '', 0, 'nice one', '16-04-21', '', ''),
-(53, 'nihar alam', 'ikram khan', '23', '031564879', '166', '2728', '31496', 'islamabad', 'nihar@student.com', '', '', 0, '', '16-04-22', '', ''),
-(54, 'hamza khan', 'khan g', '20', '012458978901', 'Pakistan', 'Sind', 'Badah', 'mardan', 'hamza@student.com', '', '', 0, '', '16-04-22', '16-04-26', ''),
-(55, 'ali', 'khan', '45', '013216464', '166', '2729', '31540', 'sadsdas', 'ali@teacher.com', '', '', 0, 'asdasfa', '16-04-26', '', ''),
-(56, 'visitor', 'visitor', '12', '1321487454', '166', '2729', '31541', 'askjdghjasghjd', 'visitor@visitor.com', '', '', 0, 'dbfslagsdgfk', '16-04-26', '', ''),
-(57, 'bin yameen', 'father of bin yameen', '15', '5646897464', '166', '2728', '5745', 'ismb', 'binyameen@student.com', '', '', 0, '', '16-04-26', '', '');
+INSERT INTO `users` (`u_id`, `name`, `f_name`, `age`, `contact`, `country_id`, `province_id`, `city_id`, `address`, `email`, `password`, `role`, `description`, `created_at`, `updated_at`, `created_by`) VALUES
+(1, 'admin', 'admin', '23', '03156487', '65', '2', '1', 'pak', 'admin@admin.com', 'admin', '', '', '16-04-19', '', ''),
+(3, 'hazrat bilal', 'zahir shah', '', '', '', '', '', '', '', '', '', '', '16-04-28', '', ''),
+(4, 'hazrat bilal', 'zahir shah', '', '', '', '', '', '', '', '', '', '', '16-04-28', '', ''),
+(5, 'good', 'good', '', '', '', '', '', '', '', '', '', '', '16-04-28', '', ''),
+(6, 'amir', 'amir khan', '', '', '', '', '', '', '', '', '', '', '16-04-28', '', ''),
+(10, 'kaka12', 'kaka', '30', '465498746', '166', '2728', '5744', 'waawawaw', 'msc@teacher.com', '', '', 'waawaaawa12zcxZxcZxcZcz', '16-04-28', '16-04-28', ''),
+(11, 'vampire', 'vampire', '20', '54648797', '166', '2729', '31542', 'dgasjkdhkasghd', 'vampire@teavher.com', '', '', 'asgfga;psfjkas;fhadf', '16-04-28', '', ''),
+(12, 'qweqw23000', 'qweqw000', 'qweq0000', 'qweqw0000', '166', '2728', '5750', 'qrewsdasda0000', 'qweqw@qwew.com000', '', '', '000000000000000adadfafsdafasd23', '16-04-28', '16-04-28', ''),
+(14, '22', '22', '22', '22', '2', '74', '6019', '22', '22@22.com', '', '', '', '16-04-28', '', '');
 
 -- --------------------------------------------------------
 
@@ -52603,8 +52546,6 @@ CREATE TABLE IF NOT EXISTS `visitor` (
   `v_id` int(11) NOT NULL AUTO_INCREMENT,
   `fkuser_id` int(11) NOT NULL,
   `profession` varchar(255) NOT NULL,
-  `guardian_number` varchar(255) NOT NULL,
-  `qualification` varchar(255) NOT NULL,
   `nic` varchar(255) NOT NULL,
   `status` varchar(255) NOT NULL,
   `courses` varchar(255) NOT NULL,
@@ -52613,16 +52554,14 @@ CREATE TABLE IF NOT EXISTS `visitor` (
   `updated_at` varchar(255) NOT NULL,
   `created_by` varchar(255) NOT NULL,
   PRIMARY KEY (`v_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=16 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `visitor`
 --
 
-INSERT INTO `visitor` (`v_id`, `fkuser_id`, `profession`, `guardian_number`, `qualification`, `nic`, `status`, `courses`, `description`, `created_at`, `updated_at`, `created_by`) VALUES
-(13, 47, 'asd', 'asdfasd', 'asd', 'asd', 'test_application', 'asdasd', 'asdasdasd', '16-04-20', '', ''),
-(14, 52, 'designer', '123456944654', 'bcs', '0123456789454', 'satisfied', 'english', 'nice one', '16-04-21', '', ''),
-(15, 56, 'student', '134564789', 'bs', '16465424444', 'briefed', 'maths', 'dbfslagsdgfk', '16-04-26', '', '');
+INSERT INTO `visitor` (`v_id`, `fkuser_id`, `profession`, `nic`, `status`, `courses`, `description`, `created_at`, `updated_at`, `created_by`) VALUES
+(1, 12, 'qweqw00000', 'qweqw0000', 'briefed', '1', '000000000000000adadfafsdafasd23', '16-04-28', '16-04-28', '');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

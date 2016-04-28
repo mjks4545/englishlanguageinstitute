@@ -15,7 +15,9 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="panel panel-default">
-                <div class="panel-heading">Edit Form</div>
+                <div class="panel-heading">Edit Form
+                <a href="<?= site_url()?>admin/student_view" type="button" style="position: relative;width: 120px; " class="btn btn-primary btn-outline margin  pull-right"><b>Back</b></a>
+                </div>
                 <div class="panel-body">
 
                     <form role="form" method="post" action="<?= site_url()?>admin/update_student_after_post/<?= $result->s_id; ?>/<?= $result->u_id; ?>">
@@ -36,18 +38,24 @@
                             </div>
                              <div class="form-group col-md-6">
                                 <label>Country</label>
-                                <input type="text" name="country" class="form-control"  value="<?php echo $result->country_name ?>" readonly required style="background:#444D53; color:white;">
+                                <select type="text" name="country" class="form-control" readonly required style="background:#444D53; color:white;">
+                                    <option value="<?php echo $result->country_id ?>" selected="selected"><?= $result->country_name?><option>
+                                </select>
                             </div>
                         </div>
                         
                         <div class="row">
                             <div class="form-group col-md-6">
                                 <label>Province</label>
-                                <input type="text" name="province" class="form-control"  value="<?php echo $result->state_name ?>"  readonly required style="background:#444D53; color:white;">
+                                <select type="text" name="province" class="form-control" readonly required style="background:#444D53; color:white;">
+                                    <option value="<?php echo $result->province_id ?>" selected="selected"><?= $result->state_name?><option>
+                                </select>
                             </div>
-                             <div class="form-group col-md-6">
+                            <div class="form-group col-md-6">
                                 <label>City</label>
-                                <input type="text" name="city" style="background:#444D53; color:white;" class="form-control"  value="<?php echo $result->city_name ?>" readonly required >
+                                <select type="text" name="city" class="form-control" readonly required style="background:#444D53; color:white;">
+                                    <option value="<?php echo $result->city_id ?>"  selected="selected"><?= $result->city_name?><option>
+                                </select>
                             </div>
                         </div>
                         <div class="row">
@@ -71,26 +79,7 @@
                                 <input type="text" name="profession" style="color: white" class="form-control" placeholder="Profession" value="<?php echo $result->profession ?>" required>
                             </div>
                         </div>
-                         <div class="row">
-                             <div class="form-group col-md-6">
-                                <label>Previous Degree</label>
-                                <input type="text" name="pre_degree" style="color: white" class="form-control" placeholder="Previous Degree" value="<?php echo $result->previous_degree ?>" required>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label>Marks Obtain</label>
-                                <input type="text" name="marks_obtain" style="color: white" class="form-control" placeholder="Marks Obtain" value="<?php echo $result->marks_obtain ?>" required>
-                            </div>
-                        </div>
-                         <div class="row">
-                             <div class="form-group col-md-6">
-                                <label>Total Marks</label>
-                                <input type="text" name="marks_total" style="color: white" class="form-control" placeholder="Total Marks" value="<?php echo $result->total_marks ?>" required>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label>Institute</label>
-                                <input type="text" name="institute" style="color: white" class="form-control" placeholder="Institiute" value="<?php echo $result->institute ?>" required>
-                            </div>
-                        </div>
+                        
                         <div class="row">
                             <div class="form-group col-md-6">
                                 <label>Contact</label>
@@ -128,7 +117,7 @@
                             <legend style="color:white; text-align:center; ">OFFICE USE ONLY</legend>
                             <div class="row">
                                 <div class="form-group col-md-6">
-                                    <label>Admission No</label>
+                                    <label>Registration No</label>
                                     <input type="text" name="admission_number" style="color: white" class="form-control" placeholder="Addmission No" value="<?php echo $result->fkuser_id ?>" required>
                                 </div>
                                 <div class="form-group col-md-6">
@@ -162,22 +151,17 @@
                                     <label>Amount Received</label>
                                     <input type="text" name="amount_received" style="color: white" class="form-control" placeholder="Amount Recieved" value="<?php echo $result->received_fee ?>" required>
                                 </div>
+                                 <?php 
+                                    $total_fee     = $result->admission_fee + $result->monthly_fee;
+                                    $remaining_fee = $total_fee - $result->received_fee 
+                                 ?>
                                 <div class="form-group col-md-6">
-                                    <label>Received Date</label>
-                                    <input type="date" id="datepicker_3" name="received_date" style="color: white" class="form-control" placeholder="Rec Date" value="<?php echo $result->received_date ?>" required>
+                                    <label>Remaining Balance </label>
+                                    <input type="balance" name="balance" style="color: white" class="form-control" placeholder="Balance (if Any)" value="<?php echo $remaining_fee ?>" >
                                 </div>
+                                
                             </div>
-                            <div class="row">
-
-                                <div class="form-group col-md-6">
-                                    <label>Remaining Balance (if Any)</label>
-                                    <input type="balance" name="balance" style="color: white" class="form-control" placeholder="Balance (if Any)" value="<?php echo $result->remaining_fee ?>" >
-                                </div>
-                                <div class="form-group col-md-6">
-                                <label>Next Fee Date</label>
-                                <input type="date" id="datepicker_5" style="color: white" name="next_fee_date" class="form-control" value="<?php echo $result->next_fee_date ?>" >
-                                </div>
-                            </div>
+                          
                         </fieldset>
 
                        

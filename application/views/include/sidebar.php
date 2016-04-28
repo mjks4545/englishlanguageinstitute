@@ -93,7 +93,7 @@
             
             <a href="#">
                 <span class="glyphicon glyphicon-user"></span>Account Section<span data-toggle="collapse" href="#sub-item-5" class="icon pull-right"><em class="glyphicon glyphicon-s glyphicon-plus"></em></span>
-              </a>
+            </a>
             <ul class="children collapse" id="sub-item-5">
                 <li>
                     <a  href="<?= site_url()?>accountsection/payment">
@@ -101,10 +101,10 @@
                     </a>
                 </li>
                 <li>
-                    <a  href="<?= site_url()?>accountsection/expanses">
+                    <a  href="<?= site_url()?>accountsection/expanses_index">
                         <span class="glyphicon glyphicon-share-alt"></span> Expenses
                     </a>
-                </li>
+                </li>    
             </ul>
 
         </li>

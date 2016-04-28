@@ -17,36 +17,38 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="panel panel-default">
-                <div class="panel-heading">Registration Form</div>
+                <div class="panel-heading">Registration Form
+                 <a href="<?= site_url()?>admin/student_view" type="button" style="position: relative;width: 120px; " class="btn btn-primary btn-outline margin  pull-right"><b>Back</b></a>
+                </div>
                 <div class="panel-body">
 
-                    <form role="form" method="post" action="<?= site_url()?>admin/create_student_after_post">
-                        <div class="row">
-                            <div class="form-group col-md-6">
-                                <label>Name</label>
-                                <input type="text" name="name" style="color: white" class="form-control" placeholder="Name" required>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label>Father Name</label>
-                                <input type="text" name="f_name" style="color: white" class="form-control" placeholder="Father Name" required>
-                            </div>
+                <form role="form" method="post" action="<?= site_url()?>admin/create_student_after_post">
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label>Name</label>
+                            <input type="text" name="name" style="color: white" class="form-control" placeholder="Name" required>
                         </div>
-                        <div class="row">
-                            <div class="form-group col-md-6">
-                                <label>Age</label>
-                                <input type="text" name="age" style="color: white" class="form-control" placeholder="Age" required>
-                            </div>
-                             <div class="form-group col-md-6">
-                                <label>Country</label>
-                              
-				<select  name="country"  id="country" class="form-control" style="background:#444D53; color:white;">
-				    <option value="#">Select Country</option>
-				    <?php foreach ($result as $country){ ?>
-					<option value="<?= $country->id;?>"><?= $country->country_name;?></option>
-				    <?php } ?>
-				</select>
-				
-                            </div>
+                        <div class="form-group col-md-6">
+                            <label>Father Name</label>
+                            <input type="text" name="f_name" style="color: white" class="form-control" placeholder="Father Name" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label>Age</label>
+                            <input type="text" name="age" style="color: white" class="form-control" placeholder="Age" required>
+                        </div>
+                         <div class="form-group col-md-6">
+                            <label>Country</label>
+
+                            <select  name="country"  id="country" class="form-control" style="background:#444D53; color:white;">
+                                <option value="#">Select Country</option>
+                                <?php foreach ($result as $country){ ?>
+                                    <option value="<?= $country->id;?>"><?= $country->country_name;?></option>
+                                <?php } ?>
+                            </select>
+
+                        </div>
                         </div>
                          <div class="row">
                            
@@ -85,27 +87,7 @@
                                 <input type="text" name="profession" style="color: white" class="form-control" placeholder="Profession" required>
                             </div>
                         </div>
-                         <div class="row">
-                             <div class="form-group col-md-6">
-                                <label>Previous Degree</label>
-                                <input type="text" name="pre_degree" style="color: white" class="form-control" placeholder="Previous Degree" required>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label>Marks Obtain</label>
-                                <input type="text" name="marks_obtain" style="color: white" class="form-control" placeholder="Marks Obtain" required>
-                            </div>
-                        </div>
-                         <div class="row">
-                             <div class="form-group col-md-6">
-                                <label>Total Marks</label>
-                                <input type="text" name="marks_total" style="color: white" class="form-control" placeholder="Total Marks" required>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label>Institute</label>
-                                <input type="text" name="institute" style="color: white" class="form-control" placeholder="Institiute" required>
-                            </div>
-                        </div>
-                        
+                         
                         <div class="row">
                             <div class="form-group col-md-6">
                                 <label>Contact</label>
@@ -152,8 +134,8 @@
                             <legend style="color:white; text-align:center; ">OFFICE USE ONLY</legend>
                             <div class="row">
                                 <div class="form-group col-md-6">
-                                    <label>Admission No</label>
-                                    <input type="text" name="reg_number" style="color: white" class="form-control" placeholder="Addmission No" >
+                                    <label>Course Duration</label>
+                                    <input type="text" name="course_duration" style="color: white" class="form-control" placeholder="Course Duration" required>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label>Starting Date</label>
@@ -163,50 +145,30 @@
                             </div>
                             <div class="row">
                                 <div class="form-group col-md-6">
-                                    <label>Course Duration</label>
-                                    <input type="text" name="course_duration" style="color: white" class="form-control" placeholder="Course Duration" required>
-                                </div>
-                                <div class="form-group col-md-6">
                                     <label>Completion Date</label>
                                     <input type="date" id="" name="completion_date" style="color: white" class="form-control" placeholder="Completion Date" required>
                                 </div>
-                            </div>
-                            <div class="row">
                                 <div class="form-group col-md-6">
                                     <label>Admission Fee</label>
                                     <input type="text" name="admission_fee" style="color: white" class="form-control" placeholder="Addmission Fee" required>
                                 </div>
+                            </div>
+                            <div class="row">
                                 <div class="form-group col-md-6">
                                     <label>Monthly Fee</label>
                                     <input type="text" name="monthly_fee" style="color: white" class="form-control" placeholder="Monthly Fee" required>
                                 </div>
-                            </div>
-                            <div class="row">
                                 <div class="form-group col-md-6">
                                     <label>Amount Received</label>
                                     <input type="text" name="amount_received" style="color: white" class="form-control" placeholder="Amount Recieved" required>
                                 </div>
-                                <div class="form-group col-md-6">
-                                    <label>Received Date</label>
-                                    <input type="date" id="" name="received_date" style="color: white" class="form-control" placeholder="Rec Date" required>
-                                </div>
                             </div>
-                            <div class="row">
-
-                                <div class="form-group col-md-6">
-                                    <label>Remaining Balance (if Any)</label>
-                                    <input type="balance" name="balance" style="color: white" class="form-control" placeholder="Balance (if Any)" required>
-                                </div>
-                                <div class="form-group col-md-6">
-                                <label>Next Fee Date</label>
-                                <input type="date" id="" name="next_fee_date" class="form-control">
-                                </div>
-                            </div>
+                            
                         </fieldset>
 
                         <div class="row">
                             <div class=" col-md-12">
-                                <button style="position: relative;top: 10px;" type="submit" class="btn btn-primary col-sm-1">Submit</button>
+                                <button style="position: relative;top: 10px;" type="submit" class="btn btn-primary col-sm-2">Submit</button>
                             </div>
 
                          </div>

@@ -15,9 +15,16 @@ class Reception extends CI_Controller {
     //.........................................................
     
     public function visitor_add()
-    {
+    { 
         $query  = $this->db->get('countries');
 	$result['result'] = $query->result();
+        
+        $this->db->select('*');
+        $this->db->from('course_sub_category');
+        $query = $this->db->get();
+        $result['result_1'] = $query->result();
+       
+        
         $this->load->view('include/header');
         $this->load->view('include/sidebar');
         $this->load->view('reception/reception',$result);
@@ -32,10 +39,8 @@ class Reception extends CI_Controller {
         $visitor_name = $this->input->post('name');
         $father_name = $this->input->post('f_name');
         $age = $this->input->post('age');
-        $qualification = $this->input->post('qualification');
         $profession = $this->input->post('profession');
         $email = $this->input->post('email');
-        $guardian_number = $this->input->post('g_number');
         $contact = $this->input->post('number');
         $nic = $this->input->post('nic');
         $desire_courses = $this->input->post('desire_course');
@@ -78,8 +83,6 @@ class Reception extends CI_Controller {
             [
                 'fkuser_id'       => $fkuser_id,
                 'profession'      => $profession,
-                'qualification'   => $qualification,
-                'guardian_number' => $guardian_number,
                 'nic'             => $nic,
                 'status'          => $status,
                 'courses'         => $desire_courses,

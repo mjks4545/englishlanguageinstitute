@@ -24,10 +24,7 @@
                 <div class="panel-heading">Student payment detail
                     <a href="<?= site_url()?>accountsection/payment" type="button" style="position: relative;width: 120px;" class="btn btn-primary btn-outline margin  pull-right"><b>Back</b></a>
                     <a href="" onclick="payment" type="button" style="position: relative;left:40px; width: 120px;" class="btn btn-primary btn-outline margin  pull-right"><b>Pay Dues</b></a>
-              
-                        
-                    
-                    
+                
                 </div>
                
                 <div class="panel-body">

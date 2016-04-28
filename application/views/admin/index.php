@@ -20,14 +20,14 @@
                     <div class="col-sm-3 col-lg-5 widget-left">
                         <em class="glyphicon glyphicon-user glyphicon-l"></em>
                     </div>
-                    <div class="col-sm-9 col-lg-7 widget-right">
+                    <div class="col-sm-9 col-lg-7 widget-right ">
                         <div class="large">Teacher</div>
                         
                     </div>
                 </div>
                 <a href="<?= site_url()?>admin/teacher_view">
                     <div class="panel-footer">
-                        <span class="pull-left">Click Here To View Details</span>
+                        <span class="pull-left text-info">Click Here To View Details</span>
                         <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
 
                         <div class="clearfix"></div>
@@ -49,7 +49,7 @@
                 </div>
                 <a href="<?= site_url()?>admin/student_view">
                     <div class="panel-footer">
-                        <span class="pull-left">Click Here To View Details</span>
+                        <span class="pull-left text-info">Click Here To View Details</span>
                         <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
 
                         <div class="clearfix"></div>
@@ -70,7 +70,7 @@
                 </div>
                 <a href="<?= site_url()?>admin/visitor_view">
                     <div class="panel-footer">
-                        <span class="pull-left">Click Here To View Details</span>
+                        <span class="pull-left text-info">Click Here To View Details</span>
                         <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
 
                         <div class="clearfix"></div>
@@ -93,7 +93,7 @@
                     </div>
                     <a href="<?= site_url()?>applications/applications_views">
                         <div class="panel-footer">
-                            <span class="pull-left">Click Here To View Details</span>
+                            <span class="pull-left text-info">Click Here To View Details</span>
                             <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
 
                             <div class="clearfix"></div>
@@ -115,7 +115,7 @@
                     </div>
                     <a href="<?= site_url()?>accountsection/student_registration">
                         <div class="panel-footer">
-                            <span class="pull-left">Click Here To View Details</span>
+                            <span class="pull-left text-info">Click Here To View Details</span>
                             <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
 
                             <div class="clearfix"></div>
@@ -137,7 +137,7 @@
                     </div>
                     <a href="<?= site_url()?>monthlytest/result_view">
                         <div class="panel-footer">
-                            <span class="pull-left">Click Here To View Details</span>
+                            <span class="pull-left text-info">Click Here To View Details</span>
                             <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
 
                             <div class="clearfix"></div>

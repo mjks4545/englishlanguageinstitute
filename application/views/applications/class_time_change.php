@@ -61,77 +61,43 @@
                                </div> 
 						   
                             
-						   <div class="row">
-						   
-                                <div class="form-group col-md-9">
-                                    
-                                     <!--------FOR SPACING---->
+				<div class="row">
+                                    <div class="form-group col-md-9"><!--------FOR SPACING----></div>
+                                    <div class="form-group col-md-3">
+                                        <label>Name</label>
+                                        <input type="text" name="applicant_name"   class="form-control" style="background:#444D53; color:white;" placeholder="Enter Your Name" required>
+                                    </div>
                                 </div>
-                                <div class="form-group col-md-3">
-                                    <label>Name</label>
-                                    <input type="text" name="applicant_name"   class="form-control" style="background:#444D53; color:white;" placeholder="Enter Your Name" required>
+				<div class="row">
+                                    <div class="form-group col-md-9"><!--------FOR SPACING----></div>
+                                    <div class="form-group col-md-3">
+                                        <label>Father Name</label>
+                                        <input type="text" name="father_name"   class="form-control" style="background:#444D53; color:white;" placeholder="Enter Your Father Name" required>
+                                    </div>
                                 </div>
-								
-                           </div>
-						    <div class="row">
-							
-                                <div class="form-group col-md-9">
-                                    
-                                     <!--------FOR SPACING---->
+				<div class="row">
+                                    <div class="form-group col-md-9"><!--------FOR SPACING----></div>
+                                    <div class="form-group col-md-3">
+                                        <label>Series</label>
+                                        <select  name="series"  id="" class="form-control" style="background:#444D53; color:white;">
+                                            <option value="#">Select Series</option>
+                                            <?php foreach ($result as $series){ ?>
+                                                <option value="<?= $series->course_c_s_id;?>"><?= $series->subject_title;?></option>
+                                            <?php } ?>
+                                        </select>
+                                    </div>
                                 </div>
-                                <div class="form-group col-md-3">
-                                  <label>Father Name</label>
-                                    <input type="text" name="father_name"   class="form-control" style="background:#444D53; color:white;" placeholder="Enter Your Father Name" required>
-                                </div>
-								
-                            </div>
-                            <div class="row">
-                                
-                                  <div class="form-group col-md-3">
-                                  <label>Series</label>
-                                  <input type="text" name="series"   class="form-control" style="background:#444D53; color:white;" placeholder="Series" required>
-									
-                                  </div>
-								  
-								  <div class="form-group col-md-3">
-                                  <label>Timing</label>
-                                  <input type="text" name="app_timing"   class="form-control" style="background:#444D53; color:white;" placeholder="Timing" required>
-									
-                                  </div>
-								  
-								  <div class="form-group col-md-3">
-                                  <label>Teacher</label>
-                                    <input type="text" name="teacher" class="form-control" style=" color:white;"  required>
-                                </div>
-								 
-                           </div>
-						   <div class="row">
-						 
-                                
-                                <div class="form-group col-md-3">
-                                  <label>Chief counselor</label>
-                                    <input type="text" name="chief_counselor" class="form-control" style=" color:white;"  required>
-                                </div>
-								
-								 <div class="form-group col-md-3">
-                                  <label>Accountant</label>
-                                    <input type="text" name="accountant" class="form-control" style="color:white;"  required>
-                                </div>
-								
-								 <div class="form-group col-md-3">
-                                  <label>Date</label>
-                                    <input type="date" name="app_date"   class="form-control" style="color:white;"  required>
-                                </div>
-								
-                              </div>
-						    </div>
+			
+                           
+			</div>
                            </div>
 					
                            <div class="row"> 
-                           <div class="col-md-12">
-                              <button style="position: relative;top: 10px;" type="submit"  name="submit" class="btn btn-primary col-sm-2">Submit</button>
+                                 <div class="form-group col-md-9"><!--------FOR SPACING----></div>
+                           <div class="col-md-3">
+                              <button style="position: relative;top: 10px;" type="submit"  name="submit" class="btn btn-primary col-sm-5">Submit</button>
                             </div>
-						  </div>
+			    </div>
                          </form>
                      </div>
                  </div>

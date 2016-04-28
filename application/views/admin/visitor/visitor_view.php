@@ -15,31 +15,33 @@
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div  class="panel-heading">Visitors Record
-                     <a href="<?= site_url()?>reception/visitor_add" type="button" class="btn btn-default margin  pull-right"><b>Add New Record</b></a>
+                     <a href="<?= site_url()?>reception/visitor_add" type="button" style="position: relative;width: 170px; " class="btn btn-primary btn-outline margin  pull-right"><b>Add New Record</b></a>
+                     <a href="<?= site_url()?>admin/index" type="button" style="position: relative;width: 120px;left: 35px; " class="btn btn-primary btn-outline margin  pull-right"><b>Back</b></a>
                 </div>
                 <div class="panel-body">
                     <table data-toggle="table" data-show-refresh="true" data-search="true" data-select-item-name="toolbar1" data-pagination="true" data-sort-name="name" data-sort-order="desc">
                         <thead>
                         <tr>
-                            <th  data-sortable="true"><b>S/NO</b></th>
+                            <th  data-sortable="true"><b>Reg No</b></th>
                             <th  data-sortable="true"><b>Name</b></th>
                             <th  data-sortable="true"><b>Father Name</b></th>
-                            <th  data-sortable="true"><b>Qualification</b></th>
+                            <th  data-sortable="true"><b>Nic</b></th>
                             <th  data-sortable="true"><b>Profession</b></th>
                             <th  data-sortable="true"><b>Email</b></th>
                             <th  data-sortable="true"><b>Contact</b></th>
                             <th  data-sortable="true"><b>Status</b></th>
-                            <th colspan="1" class="text-center"><b>Actions</b></th>
+                            <th  class="text-center"><b>Actions</b></th>
 
                         </tr>
                         </thead>
                         <tbody>
                         <?php foreach($result as $array){?>
                             <tr>
-                                <td>1</td>
+                                
+                                <td><?=$array->v_id?></td>
                                 <td><?=$array->name?></td>
                                 <td><?=$array->f_name?></td>
-                                <td><?=$array->qualification?></td>
+                                <td><?=$array->nic?></td>
                                 <td><?=$array->profession?></td>
                                 <td><?=$array->email?></td>
                                 <td><?=$array->contact?></td>

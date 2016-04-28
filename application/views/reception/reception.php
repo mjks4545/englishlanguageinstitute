@@ -37,44 +37,39 @@
                                     <input type="text" name="age" style="color: white" class="form-control" placeholder="Age" required>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label>Qualification</label>
-                                    <input type="text" name="qualification" style="color: white" class="form-control" placeholder="Qualification" required>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="form-group col-md-6">
                                     <label>Nic</label>
                                     <input type="text" name="nic" style="color: white" class="form-control" placeholder="Nic" required>
                                 </div>
+                            </div>
+                            <div class="row">
                                 <div class="form-group col-md-6">
                                     <label>Profession</label>
                                     <input type="text" name="profession" style="color: white" class="form-control" placeholder="Profession" required>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="form-group col-md-6">
-                                    <label>Email</label>
-                                    <input type="email" name="email" style="color: white" class="form-control" placeholder="Email" required>
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label>Guardian Number</label>
-                                    <input type="text" name="g_number" style="color: white" class="form-control" placeholder="Guardian Number" required>
-                                </div>
-                            </div>
-                           <div class="row">
                                 <div class="form-group col-md-6">
                                     <label>Contact</label>
                                     <input type="text" name="number" style="color: white" class="form-control" placeholder="Contact" required>
                                 </div>
-                                <div class="form-group col-md-6">
-                                    <label>Desire Course</label>
-                                    <input type="text" name="desire_course" style="color: white" class="form-control" placeholder="Courses" required>
-                                </div>
-                           </div>
-                           <div class="row">
+                            </div>
+                            <div class="row">
+                            <div class="form-group col-md-6">
+                                <label>Email</label>
+                                <input type="email" name="email" style="color: white" class="form-control" placeholder="Email" required>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Desire Course</label>
+                                <select  name="desire_course" class="form-control" style="background:#444D53; color:white;">
+                                    <option value="#">Select Desire Course</option>
+                                    <?php foreach ($result_1 as $subject){ ?>
+                                        <option value="<?= $subject->course_c_s_id;?>"><?= $subject->subject_title;?></option>
+                                    <?php } ?>
+                                </select>
+                            </div>
+                           
+                            </div>
+                        <div class="row">
                             <div class="form-group col-md-6">
                                 <label>Country</label>
-                              
 				<select  name="country"  id="country" class="form-control" style="background:#444D53; color:white;">
 				    <option value="#">Select Country</option>
 				    <?php foreach ($result as $country){ ?>
@@ -89,13 +84,15 @@
 				    <option value="#">Select Province</option>
 				</select>
                             </div>
+                            
                         </div>
+                        
                         <div class="row">
                             <div class="form-group col-md-6">
                                 <label>City</label>
                                 <select  name="city"  id="city" class="form-control" style="background:#444D53; color:white;">
-				    <option value="#">Select City</option>
-				</select>
+                                    <option value="#">Select City</option>
+                                </select>
                             </div>
 			    <div class="form-group col-md-6">
                                 <label>Village Address</label>
@@ -133,7 +130,7 @@
                             </div>
                            </div>
                             <div class=" col-sm-10">
-                            <button style="position: relative;top: 10px;" type="submit" class="btn btn-primary col-sm-1">Submit</button>
+                            <button style="position: relative;top: 10px;" type="submit" class="btn btn-primary col-sm-2">Submit</button>
                             </div>
                          </form>
                      </div>

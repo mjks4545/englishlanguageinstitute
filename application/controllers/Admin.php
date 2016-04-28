@@ -77,11 +77,11 @@ class Admin extends CI_Controller {
         $this->db->select('*');
         $this->db->from('student',['student.s_id' => $s_id ]);
         $this->db->join('users','users.u_id = student.fkuser_id');
-        $this->db->join('courses','courses.fkuser_id = student.fkuser_id');
-        $this->db->join('payment','payment.fkuser_id = student.fkuser_id');
         $this->db->join('countries','countries.id = users.country_id');
         $this->db->join('states','states.id = users.province_id');
         $this->db->join('cities','cities.id = users.city_id');
+        $this->db->join('courses','courses.fkuser_id = student.fkuser_id');
+        $this->db->join('payment','payment.fkuser_id = student.fkuser_id');
         $this->db->join('courses_added','courses_added.course_id = courses.course_name');
         $this->db->join('courses_category','courses_category.course_c_id = courses.course_category');
         $this->db->join('course_sub_category','course_sub_category.course_c_s_id = courses.category_subject');
@@ -116,9 +116,6 @@ class Admin extends CI_Controller {
         $this->db->join('users','users.u_id = student.fkuser_id');
         $this->db->join('courses','courses.fkuser_id = student.fkuser_id');
         $this->db->join('payment','payment.fkuser_id = student.fkuser_id');
-        $this->db->join('countries','countries.id = users.country_id');
-        $this->db->join('states','states.id = users.province_id');
-        $this->db->join('cities','cities.id = users.city_id');
         $this->db->join('courses_added','courses_added.course_id = courses.course_name');
         $this->db->join('courses_category','courses_category.course_c_id = courses.course_category');
         $this->db->join('course_sub_category','course_sub_category.course_c_s_id = courses.category_subject');
@@ -129,6 +126,10 @@ class Admin extends CI_Controller {
         $result = $query->result();
        
         $result['result'] = $result[0];
+//        echo '<pre>';
+//        print_r($result);
+//        echo '</pre>';
+//        die();
         $query  = $this->db->get('countries');
 	$result['country'] = $query->result();  
      
@@ -153,10 +154,6 @@ class Admin extends CI_Controller {
         $address = $this->input->post('address');
         $qualification = $this->input->post('qualification');
         $profession = $this->input->post('profession');
-        $previous_degree = $this->input->post('pre_degree');
-        $marks_obtain = $this->input->post('marks_obtain');
-        $total_marks = $this->input->post('marks_total');
-        $institute = $this->input->post('institute');
         $email = $this->input->post('email');
         $guardian_number = $this->input->post('g_number');
         $contact = $this->input->post('number');
@@ -172,8 +169,6 @@ class Admin extends CI_Controller {
         $admission_fee = $this->input->post('admission_fee');
         $monthly_fee = $this->input->post('monthly_fee');
         $amount_received = $this->input->post('amount_received');
-        $received_date = $this->input->post('received_date');
-        $remaining_fee = $this->input->post('balance');
         $next_fee_date = $this->input->post('next_fee_date');
       
         $created_date = mdate("%y-%m-%d");
@@ -210,10 +205,6 @@ class Admin extends CI_Controller {
                 'qualification' => $qualification,
                 'profession' => $profession,
                 'guardian_number' => $guardian_number,
-                'previous_degree' => $previous_degree,
-                'marks_obtain' => $marks_obtain,
-                'total_marks' => $total_marks,
-                'institute' => $institute,
                 'class_timing' => $class_timing,
                 'created_at' => $created_date
             ]
@@ -235,11 +226,7 @@ class Admin extends CI_Controller {
                 'fkuser_id' => $fkuser_id,
                 'admission_fee' => $admission_fee,
                 'monthly_fee' => $monthly_fee,
-                'total_fee' => $total_amount,
                 'received_fee' => $amount_received,
-                'remaining_fee' => $remaining_fee,
-                'received_date' => $received_date,
-                'next_fee_date' => $next_fee_date,
                 'created_at' => $created_date
             ]
         );
@@ -315,7 +302,6 @@ class Admin extends CI_Controller {
                 'marks_obtain' => $marks_obtain,
                 'total_marks' => $total_marks,
                 'institute' => $institute,
-                'courses' => $course_detail,
                 'class_timing' => $class_timing,
                 'updated_at' => $updated_date
             ], ['s_id' => $s_id]
@@ -338,8 +324,6 @@ class Admin extends CI_Controller {
                 'admission_fee' => $admission_fee,
                 'monthly_fee' => $monthly_fee,
                 'received_fee' => $amount_received,
-                'remaining_fee' => $remaining_fee,
-                'received_date' => $received_date,
                 'next_fee_date' => $next_fee_date,
                 'updated_at' => $updated_date
             ], ['p_id' => $p_id]
@@ -380,7 +364,11 @@ class Admin extends CI_Controller {
         $this->db->join('users','users.u_id = teacher.fkuser_id');
         $query = $this->db->get();
         $result['result'] = $query->result();
-           
+        
+//        echo '<pre>';
+//        print_r($result);
+//        die();
+        
         $this->load->view('include/header');
         $this->load->view('include/sidebar');
         $this->load->view('admin/teacher/teacher_view',$result);
@@ -405,13 +393,9 @@ class Admin extends CI_Controller {
         
 
         
-        $query = $this->db->get();
+        $query = $this->db->get() ;
         $result = $query->result();
         $result['result'] = $result[0];
-     
-//        echo '<pre>';
-//        print_r($result);
-//        die();
 
         $query  = $this->db->get('countries');
 	$result['country'] = $query->result();
@@ -457,7 +441,6 @@ class Admin extends CI_Controller {
         $father_name = $this->input->post('f_name');
         $age = $this->input->post('age');
         $qualification = $this->input->post('qualification');
-        $reg_number = $this->input->post('reg_number');
         $email = $this->input->post('email');
         $subject = $this->input->post('subject');
         $class_assign = $this->input->post('class_assign');
@@ -500,7 +483,6 @@ class Admin extends CI_Controller {
         $insert_teacher_table = $this->db->insert('teacher',
             [
                 'fkuser_id' => $fkuser_id,
-                'reg_number' => $reg_number,
                 'salary' => $salary,
                 'qualification' => $qualification,
                 'subject' => $subject,
@@ -536,8 +518,7 @@ class Admin extends CI_Controller {
             $address = $this->input->post('address');
             $description = $this->input->post('description');
             $updated_date = mdate("%y-%m-%d");
-
-
+           
             echo $update_user_table = $this->db->update('users',
                 [
                     'name' => $teacher_name,
@@ -556,7 +537,7 @@ class Admin extends CI_Controller {
 
             $update_teacher_table = $this->db->update('teacher',
                 [
-                    'reg_number' => $reg_number,
+                   
                     'salary' => $salary,
                     'qualification' => $qualification,
                     'subject' => $subject,
@@ -589,6 +570,10 @@ class Admin extends CI_Controller {
         $this->db->join('users','users.u_id = visitor.fkuser_id');
         $query = $this->db->get();
         $result['result'] = $query->result();
+        
+//        echo '<pre>';
+//        print_r($result);
+//        die();
 
         $this->load->view('include/header');
         $this->load->view('include/sidebar');
@@ -607,14 +592,21 @@ class Admin extends CI_Controller {
         $this->db->select('*');
         $this->db->from('visitor',['visitor.v_id' => $v_id ]);
         $this->db->join('users','users.u_id = visitor.fkuser_id');
+        $this->db->join('course_sub_category','course_sub_category.course_c_s_id = visitor.courses');
         $this->db->join('countries','countries.id = users.country_id');
         $this->db->join('states','states.id = users.province_id');
         $this->db->join('cities','cities.id = users.city_id');
+         $this->db->where( 'visitor.v_id', $v_id );
 
         
         $query = $this->db->get();
         $result = $query->result();
         $result['result'] = $result[0];
+        
+//        echo '<pre>';
+//        print_r($result);
+//        die();
+        
         $query  = $this->db->get('countries');
 	$result['country'] = $query->result();
         $this->load->view('include/header');
@@ -665,10 +657,8 @@ class Admin extends CI_Controller {
         $visitor_name = $this->input->post('name');
         $father_name = $this->input->post('f_name');
         $age = $this->input->post('age');
-        $qualification = $this->input->post('qualification');
         $profession = $this->input->post('profession');
         $email = $this->input->post('email');
-        $guardian_number = $this->input->post('g_number');
         $contact = $this->input->post('number');
         $nic = $this->input->post('nic');
         $status = $this->input->post('status');
@@ -700,8 +690,6 @@ class Admin extends CI_Controller {
         $update_visitor_table = $this->db->update('visitor',
             [
                 'profession'      => $profession,
-                'qualification'   => $qualification,
-                'guardian_number' => $guardian_number,
                 'nic'             => $nic,
                 'status'          => $status,
                 'courses'         => $desire_courses,

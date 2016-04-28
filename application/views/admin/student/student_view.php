@@ -17,7 +17,8 @@
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div  class="panel-heading">Students Record
-                <a href="<?= site_url()?>admin/student_add" type="button" class="btn btn-default margin  pull-right"><b>Add New Record</b></a>
+                <a href="<?= site_url()?>admin/student_add" type="button" style="position: relative;width: 170px; " class="btn btn-primary btn-outline margin  pull-right"><b>Add New Record</b></a>
+                <a href="<?= site_url()?>admin/index" type="button" style="position: relative;width: 120px;left: 35px; " class="btn btn-primary btn-outline margin  pull-right"><b>Back</b></a>
                 </div>
                 <div class="panel-body">
                     <table data-toggle="table" data-show-refresh="true" data-search="true" data-select-item-name="toolbar1" data-pagination="true" data-sort-name="name" data-sort-order="desc">

@@ -26,7 +26,7 @@
                                 <input type="text" name="find_registration" style="color: white" class="form-control" placeholder="Enter Registration Number" >
                             </div>
                              <div class=" col-md-4">
-                                 <a href=""style="position: relative;top: 25px;" type="submit" class="btn btn-primary col-sm-3">Submit</a>
+                                 <a href="<?= site_url() . 'accountsection/student_data'?>"style="position: relative;top: 25px;" type="submit" class="btn btn-primary col-sm-3">Submit</a>
                             </div>
                             
                         </div>

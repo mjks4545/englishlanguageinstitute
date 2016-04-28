@@ -55,7 +55,7 @@ class AccountSection extends CI_Controller {
         if( empty( $result ) ){
             redirect(site_url().'accountsection/payment/payment');
         }else{
-            redirect( site_url().'accountsection/payment/studentpayment_details/' . $find_registration );
+            redirect( site_url().'accountsection/studentpayment_details/' . $find_registration );
         }
         
         
@@ -84,11 +84,66 @@ class AccountSection extends CI_Controller {
     
     //--------------------------------------------------------------------------
     
-    public function expanses(){
+    public function expanses_add(){
 
         $this->load->view('include/header');
         $this->load->view('include/sidebar');
-        $this->load->view('accountsection/expanses/expanses');
+        $this->load->view('accountsection/expanses/expanses_add');
+        $this->load->view('include/footer');
+
+        }
+        
+    //--------------------------------------------------------------------------
+    
+    public function expanses_view(){
+        
+        $this->db->select('*');
+        $this->db->from('expenses');
+        
+        $query             = $this->db->get();
+        $result['result']  = $query->result();
+        
+//        $amount = $result['result']->item_amount;
+//        echo '<pre>';
+//        print_r($amount);
+//        die();
+
+        $this->load->view('include/header');
+        $this->load->view('include/sidebar');
+        $this->load->view('accountsection/expanses/expenses_view',$result);
+        $this->load->view('include/footer');
+
+        }
+        
+    //--------------------------------------------------------------------------
+    
+    public function create_expenses_after_post(){
+        
+        $item_name   = $this->input->post('item_name');
+        $v_number    = $this->input->post('v_number');
+        $item_amount = $this->input->post('item_amount');
+        $created_date   = mdate("%y-%m-%d");
+        
+        $insert_expenses_create = $this->db->insert('expenses',
+            [
+                'item_name' => $item_name,    
+                'v_number' => $v_number,    
+                'item_amount' => $item_amount,    
+                'created_at' => $created_date,    
+            ]);
+        
+            redirect(site_url() . 'accountsection/expanses_view');
+        
+        
+    }    
+   
+    //--------------------------------------------------------------------------
+    
+    public function expanses_index(){
+
+        $this->load->view('include/header');
+        $this->load->view('include/sidebar');
+        $this->load->view('accountsection/expanses/expanses_index');
         $this->load->view('include/footer');
 
         }

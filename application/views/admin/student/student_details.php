@@ -16,13 +16,10 @@
 
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header"></h1>
-        </div>
-    </div><!--/.row-->
-    <div class="row">
-        <div class="col-lg-12">
             <div class="panel panel-default">
-                <div class="panel-heading"></div>
+                <div class="panel-heading">
+                    <a href="<?= site_url()?>admin/student_view" type="button" style="position: relative;width: 120px; " class="btn btn-primary btn-outline margin  pull-right"><b>Back</b></a>
+                </div>
                 <div class="panel-body">
    
                      
@@ -60,15 +57,15 @@
                             </div>
                             <div class="row">
                                  <div class="form-group col-md-4 margin_left">
-                                   <label>Country Name:&nbsp;&nbsp;</label><?= $result->country_name?>
+                                   <label>Country Name:&nbsp;&nbsp;</label><?= $result->country_id?>
                                  </div>
                                  <div class="form-group col-md-4">
-                                  <label>Province Name:&nbsp;&nbsp; </label><?= $result->state_name?>
+                                  <label>Province Name:&nbsp;&nbsp; </label><?= $result->province_id?>
                                  </div>
                             </div>
                             <div class="row">
                                  <div class="form-group col-md-4 margin_left">
-                                   <label>City Name:&nbsp;&nbsp;</label><?= $result->city_name?>
+                                   <label>City Name:&nbsp;&nbsp;</label><?= $result->city_id?>
                                  </div>
                                  <div class="form-group col-md-4">
                                   <label>Village/Street:&nbsp;&nbsp;  </label><?= $result->address?>
@@ -145,18 +142,23 @@
                                  <div class="form-group col-md-4">
                                   <label>Monthly Fee:&nbsp;&nbsp; </label><?= $result->monthly_fee ?>
                                  </div>
+                               <?php 
+                                    $total_fee     = $result->admission_fee + $result->monthly_fee;
+                                    $remaining_fee = $total_fee - $result->received_fee 
+                                 ?>
                           </div>
                           <div class="row">
                                  <div class="form-group col-md-4 margin_left">
+                                   <label>Total Amount:&nbsp;&nbsp; </label><?= $total_fee ?>
+                                 </div>
+                                 <div class="form-group col-md-4 ">
                                    <label>Amount Paid:&nbsp;&nbsp; </label><?= $result->received_fee ?>
                                  </div>
-                                 <div class="form-group col-md-4">
-                                  <label>Remaining Fee:&nbsp;&nbsp; </label><?= $result->remaining_fee ?>
-                                 </div>
+                                 
                           </div>
                           <div class="row">
                                  <div class="form-group col-md-4 margin_left">
-                                   <label>Received Fee Date:&nbsp;&nbsp; </label><?= $result->received_date ?>
+                                  <label>Remaining Fee:&nbsp;&nbsp; </label><?= $remaining_fee ?>
                                  </div>
                                  <div class="form-group col-md-4">
                                    <label>Next Pay Date:&nbsp;&nbsp; </label><?= $result->next_fee_date ?>
