@@ -92,20 +92,25 @@
                         </div>
                        
                          <div class="row">
-                            
                             <div class="form-group col-md-6">
                                 <label>Course </label>
-                                <input type="text" name="course_detail"  class="form-control" placeholder="Courses" value="<?php echo $result->course_title ?>" style="background:#444D53; color:white;" readonly required>
+                                 <select type="text" name="course_detail" class="form-control" readonly required style="background:#444D53; color:white;">
+                                    <option value="<?php echo $result->course_id ?>" selected="selected"><?= $result->course_title?><option>
+                                 </select>
                             </div>
                               <div class="form-group col-md-6">
                                 <label>Course Category</label>
-                                <input type="text" name="course_detail"  class="form-control" placeholder="Courses" value="<?php echo $result->category_title ?>" style="background:#444D53; color:white;" readonly required>
+                                 <select type="text" name="course_category" class="form-control" readonly required style="background:#444D53; color:white;">
+                                    <option value="<?php echo $result->course_c_id ?>" selected="selected"><?= $result->category_title?><option>
+                                 </select>
                             </div>
                          </div>
                         <div class="row">
                               <div class="form-group col-md-6">
                                 <label>Subject </label>
-                                <input type="text" name="course_detail"  class="form-control" placeholder="Courses" value="<?php echo $result->subject_title ?>" style="background:#444D53; color:white;" readonly required>
+                                 <select type="text" name="category_subject" class="form-control" readonly required style="background:#444D53; color:white;">
+                                    <option value="<?php echo $result->course_c_s_id ?>" selected="selected"><?= $result->subject_title?><option>
+                                 </select>
                             </div>
                              <div class="form-group col-md-6">
                                 <label> Class Timing</label>
@@ -113,63 +118,12 @@
                             </div>
                         </div>
                         <div class="row-margin-top"></div>
-                        <fieldset>
-                            <legend style="color:white; text-align:center; ">OFFICE USE ONLY</legend>
-                            <div class="row">
-                                <div class="form-group col-md-6">
-                                    <label>Registration No</label>
-                                    <input type="text" name="admission_number" style="color: white" class="form-control" placeholder="Addmission No" value="<?php echo $result->fkuser_id ?>" required>
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label>Starting Date</label>
-                                    <input type="date" id="datepicker_1" name="starting_date" style="color: white" class="form-control" placeholder="Starting Date" value="<?php echo $result->starting_date ?>" required>
-                                </div>
-
-                            </div>
-                            <div class="row">
-                                <div class="form-group col-md-6">
-                                    <label>Course Duration</label>
-                                    <input type="text" name="course_duration" style="color: white" class="form-control" placeholder="Course Duration" value="<?php echo $result->course_duration ?>" required>
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label>Completion Date</label>
-                                    <input type="date" id="datepicker_2" name="completion_date" style="color: white" class="form-control" placeholder="Completion Date" value="<?php echo $result->ending_date ?>" required>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="form-group col-md-6">
-                                    <label>Admission Fee</label>
-                                    <input type="text" name="admission_fee" style="color: white" class="form-control" placeholder="Addmission Fee" value="<?php echo $result->admission_fee ?>" required>
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label>Monthly Fee</label>
-                                    <input type="text" name="monthly_fee" style="color: white" class="form-control" placeholder="Monthly Fee" value="<?php echo $result->monthly_fee ?>" required>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="form-group col-md-6">
-                                    <label>Amount Received</label>
-                                    <input type="text" name="amount_received" style="color: white" class="form-control" placeholder="Amount Recieved" value="<?php echo $result->received_fee ?>" required>
-                                </div>
-                                 <?php 
-                                    $total_fee     = $result->admission_fee + $result->monthly_fee;
-                                    $remaining_fee = $total_fee - $result->received_fee 
-                                 ?>
-                                <div class="form-group col-md-6">
-                                    <label>Remaining Balance </label>
-                                    <input type="balance" name="balance" style="color: white" class="form-control" placeholder="Balance (if Any)" value="<?php echo $remaining_fee ?>" >
-                                </div>
-                                
-                            </div>
-                          
-                        </fieldset>
-
                        
                         
                         <div class="row">
                           
                             <div class=" col-sm-10">
-                                <button style="position: relative;top: 10px;" type="submit" class="btn btn-primary col-sm-1">Submit</button>
+                                <button type="submit" class="btn btn-primary col-sm-2">Submit</button>
                             </div>
                     </form>
 

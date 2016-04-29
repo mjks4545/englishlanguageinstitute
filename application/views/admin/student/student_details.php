@@ -57,15 +57,15 @@
                             </div>
                             <div class="row">
                                  <div class="form-group col-md-4 margin_left">
-                                   <label>Country Name:&nbsp;&nbsp;</label><?= $result->country_id?>
+                                   <label>Country Name:&nbsp;&nbsp;</label><?= $result->country_name?>
                                  </div>
                                  <div class="form-group col-md-4">
-                                  <label>Province Name:&nbsp;&nbsp; </label><?= $result->province_id?>
+                                  <label>Province Name:&nbsp;&nbsp; </label><?= $result->state_name?>
                                  </div>
                             </div>
                             <div class="row">
                                  <div class="form-group col-md-4 margin_left">
-                                   <label>City Name:&nbsp;&nbsp;</label><?= $result->city_id?>
+                                   <label>City Name:&nbsp;&nbsp;</label><?= $result->city_name?>
                                  </div>
                                  <div class="form-group col-md-4">
                                   <label>Village/Street:&nbsp;&nbsp;  </label><?= $result->address?>
@@ -90,22 +90,6 @@
                                  </div>
                                  <div class="form-group col-md-4">
                                   <label>Qualification:&nbsp;&nbsp; </label><?= $result->qualification?>
-                                 </div>
-                           </div> 
-                            <div class="row">
-                                 <div class="form-group col-md-4 margin_left">
-                                   <label>Previous Degree:&nbsp;&nbsp; </label><?= $result->previous_degree?>
-                                 </div>
-                                 <div class="form-group col-md-4">
-                                  <label>Marks Obtain:&nbsp;&nbsp; </label><?= $result->marks_obtain?>
-                                 </div>
-                           </div> 
-                            <div class="row">
-                                 <div class="form-group col-md-4 margin_left">
-                                   <label>Total Marks:&nbsp;&nbsp; </label><?= $result->total_marks?>
-                                 </div>
-                                 <div class="form-group col-md-4">
-                                  <label>Institute:&nbsp;&nbsp; </label><?= $result->institute?>
                                  </div>
                            </div> 
                            <div class="row">
@@ -137,32 +121,39 @@
                               <h3 class="header_margin">Finance Information</h3>
                            <div class="row">
                                  <div class="form-group col-md-4 margin_left">
-                                   <label>Admission Fee:&nbsp;&nbsp;</label><?= $result->admission_fee ?>
+                                   <?php if($result->reason == 'Admission Fee'){
+                                       $admission_fee = $result->amount;
+                                   }?>
+                                   <label>Admission Fee:&nbsp;&nbsp;</label><?= $admission_fee?>
                                  </div>
+                                  <?php if($result->reason == 'Monthly Fee'){
+                                       $monthly_fee = $result->amount;
+                                   }?>
                                  <div class="form-group col-md-4">
-                                  <label>Monthly Fee:&nbsp;&nbsp; </label><?= $result->monthly_fee ?>
+                                  <label>Monthly Fee:&nbsp;&nbsp; </label><?= $monthly_fee?>
                                  </div>
-                               <?php 
-                                    $total_fee     = $result->admission_fee + $result->monthly_fee;
-                                    $remaining_fee = $total_fee - $result->received_fee 
-                                 ?>
+                               
                           </div>
                           <div class="row">
                                  <div class="form-group col-md-4 margin_left">
                                    <label>Total Amount:&nbsp;&nbsp; </label><?= $total_fee ?>
                                  </div>
+                                   <?php if($result->reason == 'Received Fee'){
+                                       $received_fee = $result->amount;
+                                   }?>
                                  <div class="form-group col-md-4 ">
-                                   <label>Amount Paid:&nbsp;&nbsp; </label><?= $result->received_fee ?>
+                                   <label>Amount Paid:&nbsp;&nbsp; </label><?= $received_fee ?>
                                  </div>
                                  
                           </div>
-                          <div class="row">
-                                 <div class="form-group col-md-4 margin_left">
+                          <div class="row"> 
+                                <div class="form-group col-md-4 margin_left">
+                                   <label>Payment Date:&nbsp;&nbsp; </label><?= $result->created_at ?>
+                                 </div>
+                                 <div class="form-group col-md-4 ">
                                   <label>Remaining Fee:&nbsp;&nbsp; </label><?= $remaining_fee ?>
                                  </div>
-                                 <div class="form-group col-md-4">
-                                   <label>Next Pay Date:&nbsp;&nbsp; </label><?= $result->next_fee_date ?>
-                                 </div>
+                                
                           </div>
 		       
                  </div>

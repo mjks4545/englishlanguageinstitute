@@ -63,18 +63,26 @@
                                     <thead>
                                     <tr>
                                         <th class="text-center" data-sortable="true"><b>Month</b></th>
-                                        <th class="text-center" data-sortable="true"><b>Total Amount</b></th>
+                                        <th class="text-center" data-sortable="true"><b>Admission Fee</b></th>
+                                        <th class="text-center" data-sortable="true"><b>Monthly Fee</b></th>
+                                        <th class="text-center" data-sortable="true"><b>Total Fee</b></th>
                                         <th class="text-center" data-sortable="true"><b>Paid Amount</b></th>
                                         <th class="text-center" data-sortable="true"><b>Remaining Balance</b></th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     <?php foreach ($test as $array)?>
+                                    <?php 
+                                        $total_fee     = $result->admission_fee + $result->monthly_fee;
+                                        $remaining_fee = $total_fee - $result->received_fee 
+                                     ?>
                                     <tr>
                                         <td class="text-center"><?=$array->test_month?></td>
+                                        <td class="text-center"><?=$array->admission_fee?></td>
                                         <td class="text-center"><?=$array->monthly_fee?></td>
+                                        <td class="text-center"><?=$total_fee?></td>
                                         <td class="text-center"><?=$array->received_fee?></td>
-                                        <td class="text-center"><?=$array->remaining_fee?></td>
+                                        <td class="text-center"><?=$remaining_fee?></td>
                                     </tr>
 
                                     </tbody>

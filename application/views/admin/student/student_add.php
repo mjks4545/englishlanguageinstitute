@@ -163,6 +163,10 @@
                                     <input type="text" name="amount_received" style="color: white" class="form-control" placeholder="Amount Recieved" required>
                                 </div>
                             </div>
+                            <input type="hidden" name="tobepaid_or_paidfee" style="color: white" class="form-control">
+                            <input type="hidden" name="entry_against" style="color: white" class="form-control">
+                            <input type="hidden" name="description" style="color: white" class="form-control">
+                            
                             
                         </fieldset>
 

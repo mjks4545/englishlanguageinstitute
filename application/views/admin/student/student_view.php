@@ -24,7 +24,7 @@
                     <table data-toggle="table" data-show-refresh="true" data-search="true" data-select-item-name="toolbar1" data-pagination="true" data-sort-name="name" data-sort-order="desc">
                         <thead>
                         <tr>
-                            <th  data-sortable="true"><b>S/NO</b></th>
+                            <th  data-sortable="true"><b>Reg No</b></th>
                             <th  data-sortable="true"><b>Name</b></th>
                             <th  data-sortable="true"><b>Father Name</b></th>
                             <th  data-sortable="true"><b>Contact</b></th>
@@ -39,7 +39,7 @@
                         <tbody>
                         <?php foreach($result as $array){?>
                         <tr>
-                            <td>1</td>
+                            <td><?=$array->s_id?></td>
                             <td><?=$array->name?></td>
                             <td><?=$array->f_name?></td>
                             <td><?=$array->contact?></td>
