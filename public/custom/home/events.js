@@ -8,25 +8,12 @@ var Events = function(){
         console.log('events created');
 	country_select();
 	province_select();
-       // new_insert_course();
 	fetch_course_category();
         fetch_category_subject();
+	insert_form_submit();
+	delete_some_data();
     
     };
-    
-    // -------------------------------------------------------------------------
-
-//    var new_insert_course = function(){
-//	$('#show').on('click',
-//            function(){
-//                console.log('hi');
-//                var hidden = $('.hidden_1');
-//                var unhide = $('.unhide');
-//                hidden.removeClass('hide');
-//                unhide.addClass('hide');
-//            }
-//        );
-////    };
     
     // -------------------------------------------------------------------------
 
@@ -632,6 +619,47 @@ var Events = function(){
         });
     };
 
+    // -------------------------------------------------------------------------
+    
+    var insert_form_submit = function(){
+	
+	$('#insert-form-submit').submit(function(e){
+            
+	    e.preventDefault();
+	    
+	    var url  = $(this).attr('action');
+	    var $data = $(this).serialize();
+	    $.post(url,$data,function(o){
+		var $output  = '<span class="glyphicon glyphicon-check"></span>';
+		    $output += o.success;
+		    $('#message').addClass("alert bg-primary");
+		    $('#message').html($output);
+		    $("html, body").animate({ scrollTop: 0 }, "slow");
+		    setTimeout(
+			function (){
+			    $('#message').removeClass('alert bg-primary');
+			    $('#message').html('');
+			    window.location.href = $('#url').val();
+			}
+		    , 6000);
+	    }, "json");
+	    
+	});
+	
+    };
+    
+    // -------------------------------------------------------------------------
+    
+    var delete_some_data = function(){
+	
+	$('.delete-some-data-data').on('click',function(e){
+	    e.preventDefault();
+	    var url  = $(this).attr('href');
+	    console.log(url);
+	});
+	
+    };
+    
     // -------------------------------------------------------------------------
 
     this.__construct();

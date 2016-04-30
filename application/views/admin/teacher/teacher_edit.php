@@ -10,6 +10,11 @@
             <h1 class="page-header">Update Teacher</h1>
         </div>
     </div><!--/.row-->
+    <br />
+    <div class="row">
+	<div id="message" role="alert">
+	</div>
+    </div>
     <div class="row">
         <div class="col-lg-12">
             <div class="panel panel-default">
@@ -18,11 +23,12 @@
                 </div>
                 <div class="panel-body">
 
-                    <form role="form" method="post" action="<?= site_url()?>admin/update_teacher_after_post/<?= $result->t_id; ?>/<?= $result->u_id; ?>">
+                    <form role="form" method="post" action="<?= site_url()?>admin/update_teacher_after_post/<?= $result->t_id; ?>/<?= $result->u_id; ?>" id="insert-form-submit" >
                         <div class="row">
                             <div class="form-group col-md-6">
                                 <label>Teacher Name</label>
                                 <input type="text" name="name" style="color: white" class="form-control" placeholder="Name" value="<?= $result->name?>" required>
+				<input type="hidden" id="url" name="url" value="<?=  site_url('admin/teacher_view')?>">
                             </div>
                             <div class="form-group col-md-6">
                                 <label>Father Name</label>
@@ -100,7 +106,7 @@
                                 </div>
                             </div>
                             <div class=" col-sm-10">
-                                <button style="position: relative;top: 10px;" type="submit" class="btn btn-primary col-sm-2">Submit</button>
+                                <button style="position: relative;top: 10px;" type="submit" class="btn btn-primary col-sm-2">Update</button>
                             </div>
                     </form>
                 </div>
