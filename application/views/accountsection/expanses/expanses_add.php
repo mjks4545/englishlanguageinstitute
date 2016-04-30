@@ -21,13 +21,11 @@
                
                 <div class="panel-body margin_left">
 
-                    <form role="form" method="post" action="<?= site_url()?>accountsection/create_expenses_after_post">
-                       
+                    <form role="form" method="post" action="<?= site_url()?>accountsection/create_expenses_after_post"> 
                         <div class="row ">
-                            
                             <div class="form-group col-sm-5">
                                 <label >Description</label>
-                                <select  name="item_name"  id="coursename_dropdown" class="form-control" style="background:#444D53; color:white;">
+                                <select  name="item_name" class="form-control" style="background:#444D53; color:white;">
                                     <option>Select desired option</option>
                                     <option value="Intermediate Series">Intermediate Series</option>
                                     <option value="Higher Series">Higher Series</option>

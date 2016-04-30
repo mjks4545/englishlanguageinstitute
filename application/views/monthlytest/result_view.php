@@ -25,7 +25,6 @@
                         <thead>
                         <tr>
                             <th  data-sortable="true"><b>Test Id</b></th>
-                            <th  data-sortable="true"><b>Student Id</b></th>
                             <th  data-sortable="true"><b>Student Name</b></th>
                             <th  data-sortable="true"><b>Test Name</b></th>
                             <th  data-sortable="true"><b>Test Month</b></th>
@@ -41,7 +40,6 @@
                         <?php foreach($result as $array){?>
                         <tr>
                             <td><?=$array->test_id?></td>
-                            <td><?=$array->fkstudent_id?></td>
                             <td><?=$array->name?></td>
                             <td><?=$array->test_name?></td>
                             <td><?=$array->test_month?></td>

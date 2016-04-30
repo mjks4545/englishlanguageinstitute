@@ -119,7 +119,7 @@ class Admin extends CI_Controller {
         $this->db->join('states','states.id = users.province_id');
         $this->db->join('cities','cities.id = users.city_id');
         $this->db->join('courses','courses.fkuser_id = student.fkuser_id');
-        $this->db->join('payment','payment.fkstudent_id = student.s_id');
+       // $this->db->join('payment','payment.fkstudent_id = student.s_id');
         $this->db->join('courses_added','courses_added.course_id = courses.course_name');
         $this->db->join('courses_category','courses_category.course_c_id = courses.course_category');
         $this->db->join('course_sub_category','course_sub_category.course_c_s_id = courses.category_subject');
@@ -127,15 +127,21 @@ class Admin extends CI_Controller {
 
         
         $query = $this->db->get();
-        $result = $query->result();
-       
+        $result= $query->result();
         $result['result'] = $result[0];
+        $this->db->where( 'fkstudent_id', $result['result']->s_id);
+        $query = $this->db->get('payment');
+        $result['payment'] = $query->result();
+        
 //        echo '<pre>';
 //        print_r($result);
 //        echo '</pre>';
 //        die();
         $query  = $this->db->get('countries');
 	$result['country'] = $query->result();  
+        
+//        $query  = $this->db->get('payment');
+//	$result['payment'] = $query->result();  
      
         $this->load->view('include/header');
         $this->load->view('include/sidebar');

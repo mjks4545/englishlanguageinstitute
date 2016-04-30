@@ -1,4 +1,5 @@
 
+
 <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
     <div class="row">
         <ol class="breadcrumb">
@@ -119,16 +120,27 @@
                               <div class="col-md-12">
                               <div class="col-md-10"><hr></div></div>
                               <h3 class="header_margin">Finance Information</h3>
+                              <?php 
+                                foreach ($payment as $array){
+                                      if($array->reason == 'Admission Fee'){
+                                       $admission_fee = $array->amount;
+                                      }
+                                      if($array->reason == 'Monthly Fee'){
+                                               $monthly_fee = $array->amount;
+                                      }
+                                      if($array->reason == 'Received Fee'){
+                                               $received_fee = $array->amount;
+                                      }
+                                }
+                                $total_amount     = $admission_fee + $monthly_fee;
+                                $remaining_amount = $total_amount - $received_fee; 
+                             
+                              ?>
+                                 
                            <div class="row">
                                  <div class="form-group col-md-4 margin_left">
-                                   <?php if($result->reason == 'Admission Fee'){
-                                       $admission_fee = $result->amount;
-                                   }?>
                                    <label>Admission Fee:&nbsp;&nbsp;</label><?= $admission_fee?>
                                  </div>
-                                  <?php if($result->reason == 'Monthly Fee'){
-                                       $monthly_fee = $result->amount;
-                                   }?>
                                  <div class="form-group col-md-4">
                                   <label>Monthly Fee:&nbsp;&nbsp; </label><?= $monthly_fee?>
                                  </div>
@@ -136,11 +148,8 @@
                           </div>
                           <div class="row">
                                  <div class="form-group col-md-4 margin_left">
-                                   <label>Total Amount:&nbsp;&nbsp; </label><?= $total_fee ?>
+                                   <label>Total Amount:&nbsp;&nbsp; </label><?= $total_amount ?>
                                  </div>
-                                   <?php if($result->reason == 'Received Fee'){
-                                       $received_fee = $result->amount;
-                                   }?>
                                  <div class="form-group col-md-4 ">
                                    <label>Amount Paid:&nbsp;&nbsp; </label><?= $received_fee ?>
                                  </div>
@@ -151,7 +160,7 @@
                                    <label>Payment Date:&nbsp;&nbsp; </label><?= $result->created_at ?>
                                  </div>
                                  <div class="form-group col-md-4 ">
-                                  <label>Remaining Fee:&nbsp;&nbsp; </label><?= $remaining_fee ?>
+                                  <label>Remaining Fee:&nbsp;&nbsp; </label><?= $remaining_amount ?>
                                  </div>
                                 
                           </div>

@@ -17,7 +17,10 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="panel panel-default">
-             
+              <div class="panel-heading">Result Details
+              <a href="<?= site_url()?>monthlytest/result_view" type="button" style="position: relative;width: 120px; " class="btn btn-primary btn-outline margin  pull-right"><b>Back</b></a>
+
+              </div>
                 <div class="panel-body">
                     <div class="panel-heading panel_style ">Student Information</div>
                             <div class="col-md-12">
@@ -71,18 +74,31 @@
                                     </tr>
                                     </thead>
                                     <tbody>
+                                        <?php 
+                                        foreach ($payment as $array){
+                                              if($array->reason == 'Admission Fee'){
+                                               $admission_fee = $array->amount;
+                                              }
+                                              if($array->reason == 'Monthly Fee'){
+                                               $monthly_fee = $array->amount;
+                                              }
+                                              if($array->reason == 'Received Fee'){
+                                               $received_fee = $array->amount;
+                                              }
+                                        }
+                                        $total_amount     = $admission_fee + $monthly_fee;
+                                        $remaining_amount = $total_amount - $received_fee; 
+
+                                      ?>
                                     <?php foreach ($test as $array)?>
-                                    <?php 
-                                        $total_fee     = $result->admission_fee + $result->monthly_fee;
-                                        $remaining_fee = $total_fee - $result->received_fee 
-                                     ?>
+                                     
                                     <tr>
                                         <td class="text-center"><?=$array->test_month?></td>
-                                        <td class="text-center"><?=$array->admission_fee?></td>
-                                        <td class="text-center"><?=$array->monthly_fee?></td>
-                                        <td class="text-center"><?=$total_fee?></td>
-                                        <td class="text-center"><?=$array->received_fee?></td>
-                                        <td class="text-center"><?=$remaining_fee?></td>
+                                        <td class="text-center"><?=$admission_fee?></td>
+                                        <td class="text-center"><?=$monthly_fee?></td>
+                                        <td class="text-center"><?=$total_amount?></td>
+                                        <td class="text-center"><?=$received_fee?></td>
+                                        <td class="text-center"><?=$remaining_amount?></td>
                                     </tr>
 
                                     </tbody>
@@ -91,9 +107,9 @@
                             </div>
                            
                            
-                            <div class="panel-heading panel_style">Monthly Attendance Report</div>
+                             <!--<div class="panel-heading panel_style">Monthly Attendance Report</div>
                            
-                             <!--<div class="panel-body">
+                            <div class="panel-body">
                                 <table>
                                     <thead>
                                     <tr>
@@ -144,7 +160,7 @@
 
                                 </table>
                             </div>-->
-                             Under Process
+                           
                        
                             <div class="panel-heading panel_style">Class Performance</div>
                      

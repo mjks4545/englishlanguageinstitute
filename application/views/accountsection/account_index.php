@@ -1,8 +1,10 @@
+
+
 <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
     <div class="row">
         <ol class="breadcrumb">
             <li><a href="#"><span class="glyphicon glyphicon-home"></span></a></li>
-            <li class="active">Expenses</li>
+            <li class="active">Account Section</li>
         </ol>
     </div><!--/.row-->
 
@@ -21,13 +23,13 @@
                         <em class="glyphicon glyphicon-user glyphicon-l"></em>
                     </div>
                     <div class="col-sm-9 col-lg-6 widget-right">
-                        <div class="large">Add Expenses</div>
+                        <div class="large">Payments</div>
                         
                     </div>
                 </div>
-                <a href="<?= site_url()?>accountsection/expanses_add">
+                <a href="<?= site_url()?>accountsection/payment">
                     <div class="panel-footer">
-                        <span class="pull-left">Click Here To View Details</span>
+                        <span class="pull-left">Click Here For Details</span>
                         <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
 
                         <div class="clearfix"></div>
@@ -43,13 +45,13 @@
                         <em class="glyphicon glyphicon-user glyphicon-l"></em>
                     </div>
                     <div class="col-sm-9 col-lg-6 widget-right">
-                        <div class="large">View Expenses</div>
+                        <div class="large">Expenses</div>
                         
                     </div>
                 </div>
-                <a href="<?= site_url()?>accountsection/expanses_view">
+                <a href="<?= site_url()?>accountsection/expanses_index">
                     <div class="panel-footer">
-                        <span class="pull-left">Click Here To View Details</span>
+                        <span class="pull-left">Click Here For Details</span>
                         <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
 
                         <div class="clearfix"></div>

@@ -15,7 +15,10 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="panel panel-default">
-                <div class="panel-heading">Test Registration</div>
+                <div class="panel-heading">Test Registration
+                <a href="<?= site_url()?>admin/student_view" type="button" style="position: relative;width: 120px; " class="btn btn-primary btn-outline margin  pull-right"><b>Back</b></a>
+
+                </div>
                 <div class="panel-body">
 
                     <form role="form" method="post" action="<?= site_url()?>monthlytest/create_monthlytest_result_after_post">

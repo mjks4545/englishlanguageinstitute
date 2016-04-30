@@ -15,7 +15,9 @@
     <div class="row">
         <div class="col-lg-10 margin_left">
             <div class="panel panel-default">
-               
+                <div class="panel-heading">Payment
+                <a href="<?= site_url()?>accountsection/account_index" type="button" style="position: relative;width: 120px; " class="btn btn-primary btn-outline margin  pull-right"><b>Back</b></a>
+                </div>
                 <div class="panel-body">
 
                     <form role="form" method="post" action="<?= site_url()?>accountsection/student_data">
