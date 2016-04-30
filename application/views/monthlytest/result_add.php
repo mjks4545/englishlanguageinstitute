@@ -62,7 +62,7 @@
                             
                         <div class="row">
                             <div class=" col-md-12">
-                                <button style="position: relative;top: 10px;" type="submit" class="btn btn-primary col-sm-1">Submit</button>
+                                <button style="position: relative;top: 10px;" type="submit" class="btn btn-primary col-sm-2">Submit</button>
                             </div>
 
                          </div>

@@ -20,12 +20,12 @@
                 </div>
                
                 <div class="panel-body margin_left">
-
+		    
                     <form role="form" method="post" action="<?= site_url()?>accountsection/create_expenses_after_post"> 
                         <div class="row ">
                             <div class="form-group col-sm-5">
                                 <label >Description</label>
-                                <select  name="item_name" class="form-control" style="background:#444D53; color:white;">
+                                <select  name="item_name_1" class="form-control" style="background:#444D53; color:white;">
                                     <option>Select desired option</option>
                                     <option value="Intermediate Series">Intermediate Series</option>
                                     <option value="Higher Series">Higher Series</option>
@@ -50,30 +50,49 @@
                                     <option value="Unit 003">Unit 003</option>
                                </select>
                             </div>
-                            <div class="form-group col-sm-4">
+                            <div class="form-group col-sm-2">
                                 <label>V.No</label>
-                                <input type="text" name="v_number" style="color: white" class="form-control" placeholder="V.No" >
+                                <input type="text" name="v_number_1" style="color: white" class="form-control" placeholder="V.No" >
+                                <input type="hidden" id="number" name="number" value="1" />
                             </div>
                             <div class="form-group col-sm-2">
                                 <label class="margin_left">Amount</label>
-                                <input type="text" name="item_amount" style="color: white" class="form-control" placeholder="Amount" >
+                                <input type="text" name="item_amount_1" style="color: white" class="form-control" placeholder="Amount" >
+                            </div>
+                            <div class="form-group col-sm-2">
+				<label></label>
+                                <a id="add-another" href="#" style="position: relative;width: 120px;" class="btn btn-primary btn-outline margin  pull-right"><b>Add Another</b></a>
                             </div>
                         </div>
-                         <div class="row ">
+			<div id="add-another-one">
+			    
+			</div>    
+			
+			<div class="row ">
                             
                             <div class="form-group col-sm-5">
                                 <label >Description</label>
-                                <input type="text" name="item_name" style="color: white" class="form-control" placeholder="Item Description" >
+                                <input type="text" name="item_name_d_1" style="color: white" class="form-control" placeholder="Item Description" >
+				<input type="hidden" id="number-d" name="number-d" value="1" />
                             </div>
-                            <div class="form-group col-sm-4">
-                                <label>V.No</label>
-                                <input type="text" name="v_number" style="color: white" class="form-control" placeholder="V.No" >
+                            <div class="form-group col-sm-2">
+<!--                                <label>V.No</label>
+                                <input type="text" name="v_number_d_1" style="color: white" class="form-control" placeholder="V.No" >-->
                             </div>
                             <div class="form-group col-sm-2">
                                 <label class="margin_left">Amount</label>
-                                <input type="text" name="item_amount" style="color: white" class="form-control" placeholder="Amount" >
+                                <input type="text" name="item_amount_d_1" style="color: white" class="form-control" placeholder="Amount" >
                             </div>
+			    <div class="form-group col-sm-2">
+				<label></label>
+                                <a id="add-another-d" href="#" style="position: relative;width: 120px;" class="btn btn-primary btn-outline margin  pull-right"><b>Add Another</b></a>
+                            </div>
+			    
                         </div>
+			
+			<div id="add-another-one-d">
+			    
+			</div>
                        
                         <div class="row">
                             <div class=" col-md-12">

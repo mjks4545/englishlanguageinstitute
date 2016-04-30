@@ -21,7 +21,7 @@
                         <em class="glyphicon glyphicon-user glyphicon-l"></em>
                     </div>
                     <div class="col-sm-9 col-lg-7 widget-right ">
-                        <div class="large">Teacher</div>
+                        <div class="large">Teachers</div>
                         
                     </div>
                 </div>
@@ -84,7 +84,7 @@
                 <div class="panel panel-teal panel-widget">
                     <div class="row no-padding">
                         <div class="col-sm-3 col-lg-5 widget-left">
-                            <em class="glyphicon glyphicon-user glyphicon-l"></em>
+                            <em class="glyphicon glyphicon-folder-open glyphicon-l"></em>
                         </div>
                         <div class="col-sm-9 col-lg-7 widget-right">
                             <div class="large">Applications</div>
@@ -106,14 +106,14 @@
                 <div class="panel panel-teal panel-widget">
                     <div class="row no-padding">
                         <div class="col-sm-3 col-lg-5 widget-left">
-                            <em class="glyphicon glyphicon-user glyphicon-l"></em>
+                            <em class="glyphicon glyphicon-transfer glyphicon-l"></em>
                         </div>
                         <div class="col-sm-9 col-lg-7 widget-right">
                             <div class="large">Finance</div>
                            
                         </div>
                     </div>
-                    <a href="<?= site_url()?>accountsection/student_registration">
+                    <a href="<?= site_url()?>accountsection/account_index">
                         <div class="panel-footer">
                             <span class="pull-left text-info">Click Here To View Details</span>
                             <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -128,7 +128,7 @@
                 <div class="panel panel-teal panel-widget">
                     <div class="row no-padding">
                         <div class="col-sm-3 col-lg-5 widget-left">
-                            <em class="glyphicon glyphicon-user glyphicon-l"></em>
+                            <em class="glyphicon glyphicon-comment glyphicon-l"></em>
                         </div>
                         <div class="col-sm-9 col-lg-7 widget-right">
                             <div class="large">Examination</div>

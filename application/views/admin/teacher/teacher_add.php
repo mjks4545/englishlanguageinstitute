@@ -10,14 +10,18 @@
             <h1 class="page-header">Add New Teacher</h1>
         </div>
     </div><!--/.row-->
-
+    <br />
+    <div class="row">
+        <div id="message" role="alert">
+        </div>
+    </div>
     <div class="row">
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">Add Form
                 <a href="<?= site_url()?>admin/index" type="button" style="position: relative;width: 120px;" class="btn btn-primary btn-outline margin  pull-right"><b>Back</b></a>
                 </div>
-		<br />
+		
 		<div class="row">
 		    <div id="message" role="alert">
 		    </div>

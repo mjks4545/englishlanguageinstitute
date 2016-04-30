@@ -20,7 +20,7 @@
             <div class="panel panel-teal panel-widget">
                 <div class="row no-padding">
                     <div class="col-sm-3 col-lg-5 widget-left">
-                        <em class="glyphicon glyphicon-user glyphicon-l"></em>
+                        <em class="glyphicon glyphicon-plus glyphicon-l"></em>
                     </div>
                     <div class="col-sm-9 col-lg-6 widget-right">
                         <div class="large">Payments</div>
@@ -29,7 +29,7 @@
                 </div>
                 <a href="<?= site_url()?>accountsection/payment">
                     <div class="panel-footer">
-                        <span class="pull-left">Click Here For Details</span>
+                        <span class="pull-left text-info">Click Here For Details</span>
                         <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
 
                         <div class="clearfix"></div>
@@ -42,7 +42,7 @@
             <div class="panel panel-teal panel-widget">
                 <div class="row no-padding">
                     <div class="col-sm-3 col-lg-5 widget-left">
-                        <em class="glyphicon glyphicon-user glyphicon-l"></em>
+                        <em class="glyphicon glyphicon-credit-card glyphicon-l"></em>
                     </div>
                     <div class="col-sm-9 col-lg-6 widget-right">
                         <div class="large">Expenses</div>
@@ -51,7 +51,7 @@
                 </div>
                 <a href="<?= site_url()?>accountsection/expanses_index">
                     <div class="panel-footer">
-                        <span class="pull-left">Click Here For Details</span>
+                        <span class="pull-left text-info">Click Here For Details</span>
                         <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
 
                         <div class="clearfix"></div>

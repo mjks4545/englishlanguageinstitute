@@ -27,7 +27,7 @@
                 </div>
                 <a href="<?= site_url()?>accountsection/expanses_add">
                     <div class="panel-footer">
-                        <span class="pull-left">Click Here To View Details</span>
+                        <span class="pull-left text-info">Click Here For Details</span>
                         <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
 
                         <div class="clearfix"></div>
@@ -49,7 +49,7 @@
                 </div>
                 <a href="<?= site_url()?>accountsection/expanses_view">
                     <div class="panel-footer">
-                        <span class="pull-left">Click Here To View Details</span>
+                        <span class="pull-left text-info">Click Here For Details</span>
                         <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
 
                         <div class="clearfix"></div>

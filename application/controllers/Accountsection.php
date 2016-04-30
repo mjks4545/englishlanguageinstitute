@@ -153,22 +153,50 @@ class AccountSection extends CI_Controller {
     //--------------------------------------------------------------------------
     
     public function create_expenses_after_post(){
-       
-        $item_name      = $this->input->post('item_name');
-        $v_number       = $this->input->post('v_number');
-        $item_amount    = $this->input->post('item_amount');
-        $created_date   = mdate("%y-%m-%d");
-     
-        $insert_expenses_create = $this->db->insert('expenses',
-            [
-                'item_name' => $item_name,    
-                'v_number' => $v_number,    
-                'item_amount' => $item_amount,    
-                'created_at' => $created_date,    
-            ]);
+	
+	$created_date   = mdate("%y-%m-%d");
+	$counter        = $this->input->post('number');
+	$counter_d	= $this->input->post('number-d');
+	
+	for( $i=1; $i <= $counter ; $i++ ){
+		
+	    $patty_size      = 'item_name_' . $i;
+	    $number_of_items = 'v_number_' . $i;
+	    $price           = 'item_amount_' . $i;
+	
+	    $item_name      = $this->input->post($patty_size);
+	    $v_number       = $this->input->post($number_of_items);
+	    $item_amount    = $this->input->post($price);
+	
+	    $insert_expenses_create = $this->db->insert('expenses',
+		[
+		    'item_name'   => $item_name,    
+		    'v_number'    => $v_number,    
+		    'item_amount' => $item_amount,    
+		    'created_at'  => $created_date,    
+		]);
         
-            redirect(site_url() . 'accountsection/expanses_view');
-        
+	}
+	
+	for( $i=1; $i <= $counter_d ; $i++ ){
+	    
+	    $patty_size      = 'item_name_d_' . $i;
+	    $price           = 'item_amount_d_' . $i;
+	
+	    $item_name      = $this->input->post($patty_size);
+	    $item_amount    = $this->input->post($price);
+	
+	    $insert_expenses_create = $this->db->insert('expenses',
+		[
+		    'item_name'   => $item_name,        
+		    'item_amount' => $item_amount,    
+		    'created_at'  => $created_date,    
+		]);
+	    
+	}
+	
+	redirect(site_url() . 'accountsection/expanses_view');
+
         
     }    
    

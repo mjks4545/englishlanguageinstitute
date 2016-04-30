@@ -74,29 +74,31 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                        <?php 
+                                    <?php 
+                                        $received_fee = 0;
+                                        $fee_to_paid  = 0;
                                         foreach ($payment as $array){
-                                              if($array->reason == 'Admission Fee'){
-                                               $admission_fee = $array->amount;
-                                              }
-                                              if($array->reason == 'Monthly Fee'){
-                                               $monthly_fee = $array->amount;
-                                              }
-                                              if($array->reason == 'Received Fee'){
-                                               $received_fee = $array->amount;
-                                              }
+                                            if( $array->tobepaid_or_paid_fee == 0 && $array->reason =='Admission Fee'){
+                                                $admission_fee = $array->amount;
+                                            }
+                                            if( $array->tobepaid_or_paid_fee == 0 && $array->reason =='Monthly Fee'){
+                                                $monthly_fee = $array->amount;
+                                            }
+                                            if( $array->tobepaid_or_paid_fee == 1 ){
+                                                $received_fee += $array->amount;
+                                            }else{
+                                                $fee_to_paid += $array->amount;
+                                            }
                                         }
-                                        $total_amount     = $admission_fee + $monthly_fee;
-                                        $remaining_amount = $total_amount - $received_fee; 
-
-                                      ?>
+                                        $remaining_amount = $fee_to_paid - $received_fee;
+                                     ?>
                                     <?php foreach ($test as $array)?>
                                      
                                     <tr>
                                         <td class="text-center"><?=$array->test_month?></td>
                                         <td class="text-center"><?=$admission_fee?></td>
                                         <td class="text-center"><?=$monthly_fee?></td>
-                                        <td class="text-center"><?=$total_amount?></td>
+                                        <td class="text-center"><?=$fee_to_paid?></td>
                                         <td class="text-center"><?=$received_fee?></td>
                                         <td class="text-center"><?=$remaining_amount?></td>
                                     </tr>

@@ -12,7 +12,7 @@
             <h1 class="page-header">Student Registration</h1>
         </div>
     </div><!--/.row-->
-
+    
 
     <div class="row">
         <div class="col-lg-12">

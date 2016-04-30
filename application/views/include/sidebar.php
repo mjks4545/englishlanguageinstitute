@@ -5,7 +5,7 @@
         </div>
     </form>
     <ul class="nav menu">
-        <li class="active"><a href="<?= site_url()?>home"><span class="glyphicon glyphicon-dashboard"></span> Dashboard</a></li>
+        <li class="active"><a href="<?= site_url()?>home"><span class="glyphicon glyphicon-home"></span> Dashboard</a></li>
         <li class="parent ">
             <a href="#">
                 <span class="glyphicon glyphicon-user"></span> Users <span data-toggle="collapse" href="#sub-item-1" class="icon pull-right"><em class="glyphicon glyphicon-s glyphicon-plus"></em></span>
@@ -13,7 +13,7 @@
             <ul class="children collapse" id="sub-item-1">
                 <li>
                     <a class="" href="<?= site_url()?>director">
-                        <span class="glyphicon glyphicon-user"></span> Director
+                        <span class="glyphicon glyphicon-user "></span> Director
                     </a>
                 </li>
                 <li>
@@ -30,7 +30,7 @@
 
             </ul>
             <a href="#">
-                <span class="glyphicon glyphicon-user"></span>Applications<span data-toggle="collapse" href="#sub-item-2" class="icon pull-right"><em class="glyphicon glyphicon-s glyphicon-plus"></em></span>
+                <span class="glyphicon glyphicon-envelope "></span>Applications<span data-toggle="collapse" href="#sub-item-2" class="icon pull-right"><em class="glyphicon glyphicon-s glyphicon-plus"></em></span>
             </a>
             <ul class="children collapse" id="sub-item-2">
                 <li>
@@ -55,7 +55,7 @@
                 </li>
             </ul>
              <a href="#">
-                <span class="glyphicon glyphicon-user"></span>Courses<span data-toggle="collapse" href="#sub-item-3" class="icon pull-right"><em class="glyphicon glyphicon-s glyphicon-plus"></em></span>
+                <span class="glyphicon glyphicon-book"></span>Courses<span data-toggle="collapse" href="#sub-item-3" class="icon pull-right"><em class="glyphicon glyphicon-s glyphicon-plus"></em></span>
               </a>
             <ul class="children collapse" id="sub-item-3">
                 <li>
@@ -76,7 +76,7 @@
                
             </ul>
             <a href="#">
-                <span class="glyphicon glyphicon-user"></span>Examination<span data-toggle="collapse" href="#sub-item-4" class="icon pull-right"><em class="glyphicon glyphicon-s glyphicon-plus"></em></span>
+                <span class="glyphicon glyphicon-file"></span>Examination<span data-toggle="collapse" href="#sub-item-4" class="icon pull-right"><em class="glyphicon glyphicon-s glyphicon-plus"></em></span>
               </a>
             <ul class="children collapse" id="sub-item-4">
                 <li>
@@ -94,7 +94,7 @@
     
         <li>
             <a href="<?= site_url()?>accountsection/account_index">
-                <span class="glyphicon glyphicon-user"></span> Account Section
+                <span class="glyphicon glyphicon-transfer"></span> Finance
             </a>
         </li>
         <li>

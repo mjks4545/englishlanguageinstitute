@@ -445,7 +445,7 @@ class Admin extends CI_Controller {
         $this->load->view('include/footer');
 
     }
-    //
+    //--------------------------------------------------------------------------
     
      public function teacher_details( $t_id = null ){
         
@@ -472,10 +472,8 @@ class Admin extends CI_Controller {
         $this->load->view('include/footer');
         
     }
-    
-    // -------------------------------------------------------------------------
-
-    public function create_teacher_after_post(){
+    //--------------------------------------------------------------------------
+      public function create_teacher_after_post(){
 
         $teacher_name = $this->input->post('name');
         $father_name = $this->input->post('f_name');
@@ -518,7 +516,22 @@ class Admin extends CI_Controller {
         }
         else
         {
-            $fkuser_id = $obj[0]->u_id;
+        $fkuser_id = $obj[0]->u_id;
+        $insert_user_table = $this->db->update('users',
+                [
+                    'name' => $teacher_name,
+                    'f_name' => $father_name,
+                    'age' => $age,
+                    'email' => $email,
+                    'contact' => $contact,
+                    'country_id' => $country,
+                    'province_id' => $province,
+                    'city_id' => $city,
+                    'address' => $address,
+                    'description' => $description,
+                    'created_at' => $created_date
+                ],['t_id' => $fkuser_id]
+            );
         }
         $insert_teacher_table = $this->db->insert('teacher',
             [
@@ -532,12 +545,17 @@ class Admin extends CI_Controller {
             ]
         );
 
-        redirect(site_url().'admin/teacher_view');
+        $this->output->set_content_type('application_json');
+        $this->output->set_output( json_encode([
+            'result' => 1,
+            'success'  => 'The Teacher have been successfully inserted'
+        ]) );
+        return FALSE;
+ 
     }
-    
-    // -------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
-    public function update_teacher_after_post($t_id = null,$u_id = null){
+         public function update_teacher_after_post($t_id = null,$u_id = null){
 
         if ($t_id == null || $u_id == null) {
             redirect(site_url() . 'admin/teacher_view');
@@ -559,7 +577,7 @@ class Admin extends CI_Controller {
             $description = $this->input->post('description');
             $updated_date = mdate("%y-%m-%d");
            
-            echo $update_user_table = $this->db->update('users',
+            $update_user_table = $this->db->update('users',
                 [
                     'name' => $teacher_name,
                     'f_name' => $father_name,
@@ -587,18 +605,13 @@ class Admin extends CI_Controller {
                 ], ['t_id' => $t_id]
             );
 
-            redirect(site_url() . 'admin/teacher_view');
-        }
-    }
-    
-    // -------------------------------------------------------------------------
-
-    public function teacher_delete($t_id = null , $u_id = null)
-    {
-        $this->db->delete('teacher',['t_id' => $t_id]);
-        $this->db->delete('users',['u_id' => $u_id]);
-
-        redirect(site_url() . 'admin/teacher_view');
+            $this->output->set_content_type('application_json');
+            $this->output->set_output( json_encode([
+                'result' => 1,
+                'success'  => 'The Teacher has been successfully updated'
+                   ]) );
+            return FALSE;
+               }
     }
 
     // -------------------------------------------------------------------------

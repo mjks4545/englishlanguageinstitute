@@ -22,22 +22,28 @@
                 <div class="panel-body">
  
                     <div class="row">
+                         <div class="form-group col-md-1"></div>
                          <div class="form-group col-md-3"><?= $result->app_to?></div>
-                         <div class="form-group col-md-9"></div>
+                         <div class="form-group col-md-8"></div>
                     </div>
 						   
                     <div class="row">
-                       <div class="form-group col-md-3"></div>
-                       <div class="form-group col-md-9"><?= $result->app_director?></div>
+                       <div class="form-group col-md-4"></div>
+                       <div class="form-group col-md-6"><?= $result->app_director?></div>
                     </div>
                     
                     <div class="row">
-                        <div class="form-group col-md-4"><?= $result->subject_line?></div>
-                        <div class="form-group col-md-7"></div>
+                         <div class="form-group col-md-1"></div>
+                         <div class="form-group col-md-3"><?= $result->subject_line?></div>
+                         <div class="form-group col-md-8"></div>
+                       
                     </div>
                     
+                    <div class="row col-lg-10">
+                    <div class="form-group col-md-1"></div>
                     <div class="row col-md-9 margin_left"><?= $result->app_text?></div>
-                          
+                    </div>
+                    
                     <div class="row" style="margin-top:60px;">
                         <div class="form-group col-md-9"></div>
                         <div class="form-group col-md-3"><b><?= $result->yours_obediently?></b></div>
@@ -51,21 +57,13 @@
                         <div class="form-group col-md-3"><b>Father Name : </b> <?= $result->f_name?></div>
                     </div>
                     <div class="row">
-                        <div class="form-group col-md-9"><!--------FOR SPACING----></div>
+                        <div class="form-group col-md-1"><!--------FOR SPACING----></div>
                         <div class="form-group col-md-3"><b>Registration No : </b> <?= $result->fkuser_id?></div>
-                    </div>
-                    <div class="row">
-                        <div class="form-group col-md-9"><!--------FOR SPACING----></div>
                         <div class="form-group col-md-3"><b>Series : </b><?= $result->subject_title?></div>
-                    </div>
-                    <div class="row">
-                        <div class="form-group col-md-9"><!--------FOR SPACING----></div>
                         <div class="form-group col-md-3"><b>Date : </b><?= $result->created_at?></div>
-                    </div>
-                    <div class="row"> 
-                         <div class="form-group col-md-9"><!--------FOR SPACING----></div>
 
                     </div>
+                    
                 </div>
                    
             </div>
