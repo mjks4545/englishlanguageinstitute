@@ -17,13 +17,19 @@
                 <div class="panel-heading">Add Form
                 <a href="<?= site_url()?>admin/index" type="button" style="position: relative;width: 120px;" class="btn btn-primary btn-outline margin  pull-right"><b>Back</b></a>
                 </div>
+		<br />
+		<div class="row">
+		    <div id="message" role="alert">
+		    </div>
+		</div>
                 <div class="panel-body">
 
-                    <form role="form" method="post" action="<?= site_url()?>admin/create_teacher_after_post">
+                    <form role="form" method="post" action="<?= site_url()?>admin/create_teacher_after_post" id="insert-form-submit">
                         <div class="row">
                             <div class="form-group col-md-6">
                                 <label>Teacher Name</label>
                                 <input type="text" name="name" style="color: white" class="form-control" placeholder="Name" required>
+                                <input type="hidden" id="url" name="url" value="<?=  site_url('admin/teacher_view')?>">
                             </div>
                             <div class="form-group col-md-6">
                                 <label>Father Name</label>

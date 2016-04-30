@@ -14,7 +14,7 @@
 
 
     <div class="row">
-        <div class="col-lg-13">
+        <div class="col-lg-12">
             <div class="panel panel-default">
                 <div  class="panel-heading">Teachers Record
                      <a href="<?= site_url()?>admin/teacher_add" type="button" style="position: relative;width: 170px; " class="btn btn-primary btn-outline margin  pull-right"><b>Add New Record</b></a>
@@ -51,7 +51,7 @@
                                 <td>
                                     <a href="<?= site_url()?>admin/teacher_details/<?= $array->t_id ?>" type="button" class="btn btn-primary glyphicon glyphicon-edit btn-outline margin">View Details</a>
                                     <a href="<?= site_url()?>admin/teacher_edit/<?= $array->t_id ?>" type="button" class="btn btn-primary glyphicon glyphicon-edit btn-outline margin"> Edit</a>
-                                    <a href="<?= site_url()?>admin/teacher_delete/<?= $array->t_id ?>/<?= $array->u_id ?>" type="button" class="btn btn-primary glyphicon glyphicon-trash btn-outline margin"> Delete</a>
+                                    <a href="<?= site_url()?>admin/teacher_delete/<?= $array->t_id ?>/<?= $array->u_id ?>" type="button" class="delete-some-data btn btn-primary glyphicon glyphicon-trash btn-outline margin"> Delete</a>
                                 </td>
                             </tr>
                         <?php } ?>
