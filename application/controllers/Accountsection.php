@@ -40,11 +40,8 @@ class AccountSection extends CI_Controller {
         $this->db->where('fkstudent_id', $result['result']->s_id);
         $query = $this->db->get('payment');
         $result['payment'] = $query->result();
-        
-//        echo '<pre>';
-//        print_r($result);
-//        die();
-//      
+      
+      
         $this->load->view('include/header');
         $this->load->view('include/sidebar');
         $this->load->view('accountsection/payment/studentpayment_details',$result);
@@ -88,6 +85,8 @@ class AccountSection extends CI_Controller {
         $this->db->where('fkstudent_id', $result['result']->s_id);
         $query = $this->db->get('payment');
         $result['payment'] = $query->result();
+        
+       
               
         $this->load->view('include/header');
         $this->load->view('include/sidebar');
@@ -135,13 +134,17 @@ class AccountSection extends CI_Controller {
         
         $this->db->select('*');
         $this->db->from('expenses');
-        
         $query             = $this->db->get();
         $result['result']  = $query->result();
         
-//        $amount = $result['result']->item_amount;
+        $this->db->where('tobepaid_or_paid_fee','1');
+        $query = $this->db->get('payment');
+        $result['payment'] = $query->result();
+        
+        
 //        echo '<pre>';
-//        print_r($result);
+//        echo $total_am;
+//        //print_r($result);
 //        die();
 
         $this->load->view('include/header');

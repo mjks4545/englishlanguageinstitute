@@ -21,6 +21,7 @@
                 </div>
                 <div class="panel-body">
                    <legend> <h2 style="text-align:center;">Expenses Report</h2></legend>
+                    <button class="btn btn-primary btn-outline margin pull-right col-sm-1"  type="button"><span class="glyphicon glyphicon-print"></span>Print</button>
                     <table data-toggle="table"  data-show-refresh="true"  data-search="true" data-select-item-name="toolbar1" data-pagination="true" data-sort-name="name" data-sort-order="desc">
                         <thead>
                           <tr>
@@ -60,28 +61,117 @@
                     </table>
                     <!---------class record end----------------->
                 </div>
-                
-                 <div class="panel-body">
+                <h4 style="position: relative;text-align:center; top: 30px;"><b>Daily Income/Expense Details</b></h4>
+                <button class="btn btn-primary btn-outline margin pull-right col-sm-1" type="button"><span class="glyphicon glyphicon-print"></span>Print</button>
+                <div class="panel-body" style="position: relative;top: 25px;">
                     <table data-toggle="table" data-show-refresh="false" data-search="false" data-pagination="false" data-sort-name="false" data-sort-order="false">
                         <thead>
                         <tr>
-                            <th class="text-center" data-sortable="true"><b>Daily Amount</b></th>
-                            <th class="text-center" data-sortable="true"><b>Monthly Amount</b></th>
-                            <th class="text-center" data-sortable="true"><b>Yearly Amount</b></th>
+                            <th class="text-center" data-sortable="true"><b>Daily Income</b></th>
+                            <th class="text-center" data-sortable="true"><b>Daily Expenses</b></th>
+                            <th class="text-center" data-sortable="true"><b>Daily Revenue</b></th>
                         </tr>
                         </thead>
+                        <?php 
+                            $total_am = 0;
+                            foreach( $payment as $payment){
+                            $total_am += $payment->amount;} 
+                            $revenue = $total_am - $amm;
+                        ?>
+        
                         <tbody>
                         
                         <tr>
+                            <td class="text-center"><?=$total_am?></td>
                             <td class="text-center"><?=$amm?></td>
-                            <td class="text-center"></td>
-                            <td class="text-center"></td>
+                            <td class="text-center"><?=$revenue?></td>
                         </tr>
                       
                         </tbody>
 
                     </table>
                 </div>
+                
+                 <!------------------------------------------------>
+                 <h4 style="position: relative;text-align:center; top: 30px;"><b>Weekly Income/Expense Details</b></h4>
+                <button class="btn btn-primary btn-outline margin pull-right col-sm-1" type="button"><span class="glyphicon glyphicon-print"></span>Print</button>
+                <div class="panel-body" style="position: relative;top: 25px;">
+                    <table data-toggle="table" data-show-refresh="false" data-search="false" data-pagination="false" data-sort-name="false" data-sort-order="false">
+                        <thead>
+                        <tr>
+                            <th class="text-center" data-sortable="true"><b>Weekly Income</b></th>
+                            <th class="text-center" data-sortable="true"><b>Weekly Expenses</b></th>
+                            <th class="text-center" data-sortable="true"><b>Weekly Revenue</b></th>
+                        </tr>
+                        </thead>
+                       
+        
+                        <tbody>
+                        
+                        <tr>
+                            <td class="text-center"><?=$total_am?></td>
+                            <td class="text-center"><?=$amm?></td>
+                            <td class="text-center"><?=$revenue?></td>
+                        </tr>
+                      
+                        </tbody>
+
+                    </table>
+                </div>
+                 <!-------------------------------------------------->
+                 <h4 style="position: relative;text-align:center; top: 30px;"><b>Monthly Income/Expense Details</b></h4>
+                 <button class="btn btn-primary btn-outline margin pull-right col-sm-1" type="button"><span class="glyphicon glyphicon-print"></span>Print</button>
+                 <div class="panel-body" style="position: relative;top: 25px;">
+                    <table data-toggle="table" data-show-refresh="false" data-search="false" data-pagination="false" data-sort-name="false" data-sort-order="false">
+                        <thead>
+                        <tr>
+                            <th class="text-center" data-sortable="true"><b>Monthly Income</b></th>
+                            <th class="text-center" data-sortable="true"><b>Monthly Expenses</b></th>
+                            <th class="text-center" data-sortable="true"><b>Monthly Revenue</b></th>
+                        </tr>
+                        </thead>
+                       
+                        <tbody>
+                        
+                        <tr>
+                            <td class="text-center"><?=$total_am?></td>
+                            <td class="text-center"><?=$amm?></td>
+                            <td class="text-center"><?=$revenue?></td>
+                        </tr>
+                      
+                        </tbody>
+
+                    </table>
+                </div>
+                 <!----------------------------------------------->
+                 
+                 <h4 style="position: relative;text-align:center; top: 30px;"><b>Yearly Income/Expense Details</b></h4>
+                 <button class="btn btn-primary btn-outline margin pull-right col-sm-1" type="button"><span class="glyphicon glyphicon-print"></span>Print</button>
+                 <div class="panel-body" style="position: relative;top: 25px;">
+                    <table data-toggle="table" data-show-refresh="false" data-search="false" data-pagination="false" data-sort-name="false" data-sort-order="false">
+                        <thead>
+                        <tr>
+                            <th class="text-center" data-sortable="true"><b>Yearly Income</b></th>
+                            <th class="text-center" data-sortable="true"><b>Yearly Expenses</b></th>
+                            <th class="text-center" data-sortable="true"><b>Yearly Revenue</b></th>
+                        </tr>
+                        </thead>
+                       
+        
+                        <tbody>
+                        
+                        <tr>
+                            <td class="text-center"><?=$total_am?></td>
+                            <td class="text-center"><?=$amm?></td>
+                            <td class="text-center"><?=$revenue?></td>
+                        </tr>
+                      
+                        </tbody>
+
+                    </table>
+                </div>
+                
+                    
             </div>
 
         </div>
