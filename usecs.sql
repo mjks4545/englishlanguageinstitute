@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 30, 2016 at 01:05 PM
+-- Generation Time: May 02, 2016 at 08:34 AM
 -- Server version: 5.6.16
 -- PHP Version: 5.5.9
 
@@ -47987,7 +47987,7 @@ CREATE TABLE IF NOT EXISTS `courses` (
   `created_by` varchar(255) NOT NULL,
   `description` varchar(255) NOT NULL,
   PRIMARY KEY (`c_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
 
 --
 -- Dumping data for table `courses`
@@ -47996,7 +47996,8 @@ CREATE TABLE IF NOT EXISTS `courses` (
 INSERT INTO `courses` (`c_id`, `fkuser_id`, `course_name`, `course_category`, `category_subject`, `course_duration`, `starting_date`, `ending_date`, `created_at`, `updated_at`, `created_by`, `description`) VALUES
 (11, 20, '1', '3', '3', '65', '05/06/2016', '65', '16-04-29', '', '', ''),
 (12, 21, '1', '1', '27', '30 days', '05/06/2016', '6/20/2016', '16-04-29', '', '', ''),
-(13, 24, '2', '5', '29', '12', '05/07/2016', '6/20/2016', '16-04-30', '', '', '');
+(13, 24, '2', '5', '29', '12', '05/07/2016', '6/20/2016', '16-04-30', '', '', ''),
+(14, 26, '1', '1', '60', '45 days', '05/08/2016', '6/20/2016', '16-05-01', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -48164,32 +48165,37 @@ CREATE TABLE IF NOT EXISTS `director` (
 --
 
 CREATE TABLE IF NOT EXISTS `expenses` (
-  `expense_id` int(11) NOT NULL,
+  `expense_id` int(11) NOT NULL AUTO_INCREMENT,
   `item_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `v_number` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `item_amount` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `updated_at` varchar(255) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  `updated_at` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`expense_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=25 ;
 
 --
 -- Dumping data for table `expenses`
 --
 
 INSERT INTO `expenses` (`expense_id`, `item_name`, `v_number`, `item_amount`, `created_at`, `updated_at`) VALUES
-(3, 'Starter Series', '544', '4555', '16-04-30', ''),
-(4, 'IELTS', '43423', '3333333', '16-04-30', ''),
-(5, 'ID Card Fee', '32113`', '1000', '16-04-30', ''),
-(6, 'khelji to cook', '', '200', '16-04-30', ''),
-(7, 'Starter Series', '4534,4536,4541', '18500', '16-04-30', ''),
-(8, 'Information Technology', '4532,4533', '5000', '16-04-30', ''),
-(9, 'Intermediate Series', '4555', '2000', '16-04-30', ''),
-(10, 'Higher Series', '4556', '200', '16-04-30', ''),
-(11, 'Starter Series', '4557', '100', '16-04-30', ''),
-(12, 'Information Technology', '4559', '100', '16-04-30', ''),
-(13, 'Certificate Fee of IT/EL', '4560', '200', '16-04-30', ''),
-(14, 'asdfsadf', '', '300', '16-04-30', ''),
-(15, 'asdfasdf', '', '400', '16-04-30', '');
+(1, 'Starter Series', '544', '4555', '16-04-30', ''),
+(2, 'IELTS', '43423', '3333333', '16-04-30', ''),
+(3, 'ID Card Fee', '32113`', '1000', '16-04-30', ''),
+(4, 'khelji to cook', '', '200', '16-04-30', ''),
+(5, 'Starter Series', '4534,4536,4541', '18500', '16-04-30', ''),
+(6, 'Information Technology', '4532,4533', '5000', '16-04-30', ''),
+(7, 'Intermediate Series', '4555', '2000', '16-04-30', ''),
+(8, 'Higher Series', '4556', '200', '16-04-30', ''),
+(9, 'Starter Series', '4557', '100', '16-04-30', ''),
+(10, 'Information Technology', '4559', '100', '16-04-30', ''),
+(11, 'Certificate Fee of IT/EL', '4560', '200', '16-04-30', ''),
+(12, 'asdfsadf', '', '300', '16-04-30', ''),
+(13, 'asdfasdf', '', '400', '16-04-30', ''),
+(14, 'Higher Series', '5464', '2000', '16-05-01', ''),
+(22, 'Starter Series', '555', '200', '16-05-01', ''),
+(23, 'something', '', '100', '16-05-01', ''),
+(24, 'shiraz to ali ', '', '200', '16-05-02', '');
 
 -- --------------------------------------------------------
 
@@ -48210,7 +48216,7 @@ CREATE TABLE IF NOT EXISTS `monthly_test` (
   `created_at` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `updated_at` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`test_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `monthly_test`
@@ -48219,8 +48225,8 @@ CREATE TABLE IF NOT EXISTS `monthly_test` (
 INSERT INTO `monthly_test` (`test_id`, `fkstudent_id`, `test_name`, `test_month`, `test_date`, `test_subject`, `obtn_marks`, `totl_marks`, `percentage`, `created_at`, `updated_at`) VALUES
 (1, 3, 'Entery Test', 'april', '23/04/2016', '2', '89', '100', '89.0', '16-04-29', ''),
 (2, 11, 'Daily Quize', 'December', '25/04/2016', '6', '55', '80', '68.8', '16-04-29', ''),
-(3, 11, 'monthly test', 'june', '25/04/2016', '2', '45', '50', '90.0', '16-04-29', ''),
-(4, 12, 'general', 'Feb', '23/04/2016', '7', '30', '50', '60.0', '16-04-30', '');
+(4, 12, 'general', 'Feb', '23/04/2016', '7', '30', '50', '60.0', '16-04-30', ''),
+(5, 14, 'weekly test', 'april', '25/04/2016', '9', '65', '100', '65.0', '16-05-01', '');
 
 -- --------------------------------------------------------
 
@@ -48258,7 +48264,7 @@ CREATE TABLE IF NOT EXISTS `payment` (
   `updated_at` varchar(255) NOT NULL,
   `created_by` varchar(255) NOT NULL,
   PRIMARY KEY (`p_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=30 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=35 ;
 
 --
 -- Dumping data for table `payment`
@@ -48277,7 +48283,12 @@ INSERT INTO `payment` (`p_id`, `fkstudent_id`, `amount`, `reason`, `tobepaid_or_
 (26, 11, '5', 'Admission Fee', '1', NULL, 'admission fee', '16-04-30', '', ''),
 (27, 13, '55', 'Admission Fee', '0', '', '', '16-04-30', '', ''),
 (28, 13, '55', 'Monthly Fee', '0', '', '', '16-04-30', '', ''),
-(29, 13, '55', 'Received Fee', '1', '', '', '16-04-30', '', '');
+(29, 13, '55', 'Received Fee', '1', '', '', '16-04-30', '', ''),
+(30, 14, '1500', 'Admission Fee', '0', '', '', '16-05-01', '', ''),
+(31, 14, '500', 'Monthly Fee', '0', '', '', '16-05-01', '', ''),
+(32, 14, '1000', 'Received Fee', '1', '', '', '16-05-01', '', ''),
+(33, 14, '500', 'Monthly Fee', '1', NULL, 'nothing', '16-05-01', '', ''),
+(34, 14, '100', 'Monthly Fee', '1', NULL, 'some', '16-05-02', '', '');
 
 -- --------------------------------------------------------
 
@@ -52468,7 +52479,7 @@ CREATE TABLE IF NOT EXISTS `student` (
   `updated_at` varchar(255) NOT NULL,
   `created_by` varchar(255) NOT NULL,
   PRIMARY KEY (`s_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
 
 --
 -- Dumping data for table `student`
@@ -52477,7 +52488,8 @@ CREATE TABLE IF NOT EXISTS `student` (
 INSERT INTO `student` (`s_id`, `fkuser_id`, `guardian_number`, `qualification`, `profession`, `class_timing`, `description`, `created_at`, `updated_at`, `created_by`) VALUES
 (11, 20, '65', '65', '65', '65', '', '16-04-29', '16-04-29', ''),
 (12, 21, '1321', 'bs', 'student', '3:00 pm', '', '16-04-29', '', ''),
-(13, 24, '45', '45', '45', '3:00 pm', '', '16-04-30', '', '');
+(13, 24, '45', '45', '45', '3:00 pm', '', '16-04-30', '', ''),
+(14, 26, '132546879', 'metric', 'student', '4 pm', '', '16-05-01', '16-05-01', '');
 
 -- --------------------------------------------------------
 
@@ -52497,7 +52509,7 @@ CREATE TABLE IF NOT EXISTS `teacher` (
   `updated_at` varchar(255) NOT NULL,
   `created_by` varchar(255) NOT NULL,
   PRIMARY KEY (`t_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
 
 --
 -- Dumping data for table `teacher`
@@ -52507,7 +52519,9 @@ INSERT INTO `teacher` (`t_id`, `fkuser_id`, `salary`, `qualification`, `subject`
 (4, 10, '25000', 'mscc', 'bba', '15', 'waawaaawa12zcxZxcZxcZcz', '16-04-28', '16-04-30', ''),
 (5, 11, '2000', 'good', 'adalsh', '12', 'asgfga;psfjkas;fhadf', '16-04-28', '', ''),
 (6, 22, '2300', 'kakakak', 'kak`', 'kakak', 'kaka', '16-04-30', '', ''),
-(7, 23, '5200', '1', 'jhkhj', '12', 'adksjgkadf', '16-04-30', '', '');
+(7, 23, '5200', '1', 'jhkhj', '12', 'adksjgkadf', '16-04-30', '', ''),
+(8, 25, '20000', 'bsc', 'physics', 'FSC', 'good looking!!!', '16-05-01', '16-05-01', ''),
+(9, 28, '20000', 'bsc', '46547', '165', 'asdahsfh', '16-05-02', '', '');
 
 -- --------------------------------------------------------
 
@@ -52533,7 +52547,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `updated_at` varchar(255) NOT NULL,
   `created_by` varchar(255) NOT NULL,
   PRIMARY KEY (`u_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=25 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=29 ;
 
 --
 -- Dumping data for table `users`
@@ -52552,7 +52566,11 @@ INSERT INTO `users` (`u_id`, `name`, `f_name`, `age`, `contact`, `country_id`, `
 (21, 'Muhammad Shiraz', 'Gull Muhammad Khan', '23', '25654646412', '1', '42', '5909', 'maradan', '123@student.com', '', '', '', '16-04-29', '', ''),
 (22, 'kakaka`', 'kakakak', '23', '232314', '2', '74', '6020', 'kaka', 'kaka@kak.com', '', '', 'kaka', '16-04-30', '', ''),
 (23, 'good', 'bad', '23', '648754', '166', '2728', '5810', 'aksdhg', 'good@bad.com', '', '', 'adksjgkadf', '16-04-30', '', ''),
-(24, '45', '45', '45', '45', '1', '43', '5915', '45', '45@45.com', '', '', '', '16-04-30', '', '');
+(24, '45', '45', '45', '45', '1', '43', '5915', '45', '45@45.com', '', '', '', '16-04-30', '', ''),
+(25, 'gull khan', 'zaman', '23', '234567845', '166', '2729', '31540', 'good', 'gullzaman@teacher.com', '', '', 'good looking!!!', '16-05-01', '16-05-01', ''),
+(26, 'ibrahim khan updated', 'noor khan', '25', '456789132', '166', '2728', '5886', 'something', 'ibrahimkhan@student.com', '', '', '', '16-05-01', '16-05-01', ''),
+(27, 'naeem shah updated', 'ayub khan', '20', '456879123', '1', '42', '5909', 'isb', 'naeemshah@visitor.com', '', '', 'gooddddd', '16-05-01', '16-05-01', ''),
+(28, 'shiraz', 'khan', '23', '46544', '166', '2728', '5745', 'maradan', '123@shiraz.com', '', '', 'asdahsfh', '16-05-02', '', '');
 
 -- --------------------------------------------------------
 
@@ -52572,14 +52590,15 @@ CREATE TABLE IF NOT EXISTS `visitor` (
   `updated_at` varchar(255) NOT NULL,
   `created_by` varchar(255) NOT NULL,
   PRIMARY KEY (`v_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `visitor`
 --
 
 INSERT INTO `visitor` (`v_id`, `fkuser_id`, `profession`, `nic`, `status`, `courses`, `description`, `created_at`, `updated_at`, `created_by`) VALUES
-(1, 12, 'qweqw00000', 'qweqw0000', 'briefed', '1', '000000000000000adadfafsdafasd23', '16-04-28', '16-04-28', '');
+(1, 12, 'qweqw00000', 'qweqw0000', 'briefed', '1', '000000000000000adadfafsdafasd23', '16-04-28', '16-04-28', ''),
+(2, 27, 'student', '123456879', 'satisfied', '1', 'gooddddd', '16-05-01', '16-05-01', '');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -79,6 +79,7 @@ class AccountSection extends CI_Controller {
         $this->db->select('*');
         $this->db->from('student'); 
         $this->db->join('users','users.u_id = student.fkuser_id'); 
+        $this->db->where('student.s_id',$id);
        
         $query = $this->db->get();
         $result = $query->result();
@@ -167,15 +168,17 @@ class AccountSection extends CI_Controller {
 	    $item_name      = $this->input->post($patty_size);
 	    $v_number       = $this->input->post($number_of_items);
 	    $item_amount    = $this->input->post($price);
-	
-	    $insert_expenses_create = $this->db->insert('expenses',
-		[
-		    'item_name'   => $item_name,    
-		    'v_number'    => $v_number,    
-		    'item_amount' => $item_amount,    
-		    'created_at'  => $created_date,    
-		]);
-        
+            if ( empty($item_name) || empty($v_number) || empty($item_amount)){
+                
+            }else{
+                $insert_expenses_create = $this->db->insert('expenses',
+                    [
+                        'item_name'   => $item_name,    
+                        'v_number'    => $v_number,    
+                        'item_amount' => $item_amount,    
+                        'created_at'  => $created_date,    
+                    ]);
+            }
 	}
 	
 	for( $i=1; $i <= $counter_d ; $i++ ){
@@ -185,14 +188,16 @@ class AccountSection extends CI_Controller {
 	
 	    $item_name      = $this->input->post($patty_size);
 	    $item_amount    = $this->input->post($price);
-	
-	    $insert_expenses_create = $this->db->insert('expenses',
-		[
-		    'item_name'   => $item_name,        
-		    'item_amount' => $item_amount,    
-		    'created_at'  => $created_date,    
-		]);
-	    
+            if (empty($item_name) || empty($item_amount)){
+                
+            }else{
+                $insert_expenses_create = $this->db->insert('expenses',
+                    [
+                        'item_name'   => $item_name,        
+                        'item_amount' => $item_amount,    
+                        'created_at'  => $created_date,    
+                    ]);
+            }
 	}
 	
 	redirect(site_url() . 'accountsection/expanses_view');

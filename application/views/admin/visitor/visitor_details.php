@@ -86,7 +86,7 @@
                                    <label>Status:&nbsp;&nbsp; </label><?= $result->status?>
                                  </div>
                                  <div class="form-group col-md-4">
-                                  <label>Desire Course:&nbsp;&nbsp; </label><?= $result->courses?>
+                                  <label>Desire Course:&nbsp;&nbsp; </label><?= $result->subject_title?>
                                  </div>
                             </div>
                             

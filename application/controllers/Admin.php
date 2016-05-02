@@ -678,6 +678,7 @@ class Admin extends CI_Controller {
         $this->db->select('*');
         $this->db->from('visitor');
         $this->db->join('users','users.u_id = visitor.fkuser_id');
+        $this->db->join('course_sub_category','course_sub_category.course_c_s_id = visitor.courses');
         $this->db->join('countries','countries.id = users.country_id');
         $this->db->join('states','states.id = users.province_id');
         $this->db->join('cities','cities.id = users.city_id');
