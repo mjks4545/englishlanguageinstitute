@@ -55,7 +55,7 @@
                                         <a class="dropdown-item btn-primary btn-outline margin" href="<?= site_url()?>admin/student_edit/<?= $array->s_id ?>">Edit</a><br><hr>
                                         <a class="dropdown-item btn-primary btn-outline margin" href="<?= site_url()?>admin/student_delete/<?= $array->s_id ?>/<?= $array->u_id ?>">Delete</a><br><hr>
                                         <a class="dropdown-item btn-primary btn-outline margin" href="<?= site_url()?>monthlytest/result_add/<?= $array->s_id ?>">Add Result</a><br><hr>
-                                        <a class="dropdown-item btn-primary btn-outline margin" href="#">Add Course</a><br><hr>
+                                        <a class="dropdown-item btn-primary btn-outline margin" href="<?= site_url()?>admin/new_courses/<?= $array->s_id ?>">Add Course</a><br><hr>
                                         <a class="dropdown-item btn-primary btn-outline margin" href="<?= site_url()?>admin/student_details/<?= $array->s_id ?>">View Detail</a><br>
                                     </div>
                                   </div>

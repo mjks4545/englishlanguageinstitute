@@ -25,6 +25,43 @@ class Admin extends CI_Controller {
 
     // -------------------------------------------------------------------------
     
+    public function new_courses( $id = null )
+    {
+        $query  = $this->db->get('courses_added');
+	$result['result'] = $query->result();
+        $result['id']     = $id;
+        
+        $this->load->view('include/header');
+        $this->load->view('include/sidebar');
+        $this->load->view('admin/student/add_courses',$result);
+        $this->load->view('include/footer');
+    }
+    
+// -------------------------------------------------------------------------
+    
+    public function create_more_courses_after_post( $id = null )
+    {
+        $course_name   = $this->input->post('courses'); 
+        $category_name = $this->input->post('course_category');
+        $subject_name  = $this->input->post('course_title');
+        
+        $query  = $this->db->get('student');
+	$result['result'] = $query->result();
+        $fkstudent_id = $result['result'][0]->s_id;
+        
+        $insert_courses_table = $this->db->insert('courses',
+        [
+            'fkstudent_id'      => $fkstudent_id,
+            'course_name'       => $course_name,
+            'course_category'   => $category_name,
+            'category_subject'  => $subject_name,
+        ]);
+        
+        redirect(site_url().'admin/student_view');
+    }
+
+    // -------------------------------------------------------------------------
+    
     public function student_add()
     {
         $query  = $this->db->get('countries');
@@ -48,8 +85,7 @@ class Admin extends CI_Controller {
         $this->db->select('*');
         $this->db->from('student');
         $this->db->join('users','users.u_id = student.fkuser_id');
-//        $this->db->join('payment','payment.fkstudent_id = student.s_id');
-        $this->db->join('courses','courses.fkuser_id = student.fkuser_id');
+        $this->db->join('courses','courses.fkstudent_id = student.s_id');
         $this->db->join('courses_added','courses_added.course_id = courses.course_name');
         $this->db->join('courses_category','courses_category.course_c_id = courses.course_category');
         $this->db->join('course_sub_category','course_sub_category.course_c_s_id = courses.category_subject');
@@ -57,7 +93,7 @@ class Admin extends CI_Controller {
         $result['result'] = $query->result();
         
 //        echo '<pre>';
-//        print_r($result);
+//        print_r( $result['result'] );
 //        echo '</pre>';
 //        die();
 
@@ -81,7 +117,7 @@ class Admin extends CI_Controller {
         $this->db->join('countries','countries.id = users.country_id');
         $this->db->join('states','states.id = users.province_id');
         $this->db->join('cities','cities.id = users.city_id');
-        $this->db->join('courses','courses.fkuser_id = student.fkuser_id');
+        $this->db->join('courses','courses.fkstudent_id = student.s_id');
         $this->db->join('payment','payment.fkstudent_id = student.s_id');
         $this->db->join('courses_added','courses_added.course_id = courses.course_name');
         $this->db->join('courses_category','courses_category.course_c_id = courses.course_category');
@@ -118,8 +154,7 @@ class Admin extends CI_Controller {
         $this->db->join('countries','countries.id = users.country_id');
         $this->db->join('states','states.id = users.province_id');
         $this->db->join('cities','cities.id = users.city_id');
-        $this->db->join('courses','courses.fkuser_id = student.fkuser_id');
-       // $this->db->join('payment','payment.fkstudent_id = student.s_id');
+        $this->db->join('courses','courses.fkstudent_id = student.s_id');
         $this->db->join('courses_added','courses_added.course_id = courses.course_name');
         $this->db->join('courses_category','courses_category.course_c_id = courses.course_category');
         $this->db->join('course_sub_category','course_sub_category.course_c_s_id = courses.category_subject');
@@ -208,6 +243,20 @@ class Admin extends CI_Controller {
             $fkuser_id = $this->db->insert_id();
         } else {
             $fkuser_id = $obj[0]->u_id;
+            $insert_user_table = $this->db->update('users',
+                [
+                    'name' => $student_name,
+                    'f_name' => $father_name,
+                    'age' => $age,
+                    'email' => $email,
+                    'country_id' => $country,
+                    'province_id' => $province,
+                    'city_id' => $city,
+                    'contact' => $contact,
+                    'address' => $address,
+                    'created_at' => $created_date
+                ],['s_id' => $fkuser_id]
+            );
         }
         $insert_student_table = $this->db->insert('student',
             [
@@ -223,7 +272,7 @@ class Admin extends CI_Controller {
         
         $insert_courses_table = $this->db->insert('courses',
             [
-                'fkuser_id'         => $fkuser_id,
+                'fkstudent_id'      => $fkstudent_id,
                 'course_name'       => $course_name,
                 'course_category'   => $course_category,
                 'category_subject'  => $category_subject,
@@ -604,7 +653,9 @@ class Admin extends CI_Controller {
                     'updated_at' => $updated_date
                 ], ['t_id' => $t_id]
             );
-
+             //--------------------------------------------------------------------------
+    
+          
             $this->output->set_content_type('application_json');
             $this->output->set_output( json_encode([
                 'result' => 1,
@@ -613,6 +664,17 @@ class Admin extends CI_Controller {
             return FALSE;
                }
     }
+    
+    //--------------------------------------------------------------------------
+    
+    public function teacher_delete($t_id = null , $u_id = null)
+          {
+              $this->db->delete('teacher',['t_id' => $t_id]);
+              $this->db->delete('users',['u_id' => $u_id]);
+
+              redirect(site_url() . 'admin/teacher_view');
+          }
+
 
     // -------------------------------------------------------------------------
 

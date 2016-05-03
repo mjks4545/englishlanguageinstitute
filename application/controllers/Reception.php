@@ -78,6 +78,21 @@ class Reception extends CI_Controller {
         else
         {
             $fkuser_id = $obj[0]->u_id;
+             $insert_user_table = $this->db->update('users',
+                [
+                    'name' => $visitor_name,
+                    'f_name' => $father_name,
+                    'age' => $age,
+                    'email' => $email,
+                    'contact' => $contact,
+                    'country_id' => $country,
+                    'province_id' => $province,
+                    'city_id' => $city,
+                    'address' => $address,
+                    'description' => $description,
+                    'created_at' => $created_date
+                ],['v_id' => $fkuser_id]
+            );
         }
         $insert_visitor_table = $this->db->insert('visitor',
             [

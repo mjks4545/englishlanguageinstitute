@@ -102,6 +102,7 @@ var Events = function(){
 		    var href = window.location.href;
 		    href = href.replace('courses/subject_add','');
                     href = href.replace('admin/student_add','');
+                    href = href.replace('admin/new_courses/' + $('#id').val() ,'');
 		    var url = href + 'courses/fetch_courses/' + $(this).val();
 		    $.get(url, '',
 		    
@@ -125,10 +126,12 @@ var Events = function(){
 		    var href = window.location.href;
 		    href = href.replace('courses/subject_add','');
                     href = href.replace('admin/student_add','');
+                    href = href.replace('admin/new_courses/' + $('#id').val() ,'');
 		    var url = href + 'courses/fetch_coursescategory/' + $(this).val();
 		    $.get(url, '',
 		    
 			function( data ){
+                            console.log(data);
 			    var $output = Template.fetch_category_subject( data['data'] );
 			    $( '#subjectname_dropdown' ).append($output);
 			}
