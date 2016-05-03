@@ -21,31 +21,42 @@
 
                    
                             <div class="panel-body">
-                                <table data-toggle="table" data-show-refresh="true" data-search="true" data-select-item-name="toolbar1" data-pagination="true" data-sort-name="name" data-sort-order="desc">
-                                    <thead>
-                                    <tr>
-                                        <th  data-sortable="true"><b>Student Id</b></th>
-                                        <th  data-sortable="true"><b>Student Name</b></th>
-                                        <th  data-sortable="true"><b>Father name</th>
-                                        <th  data-sortable="true"><b>Series</b></th>
-                                        <th  data-sortable="true"><b>Total Marks</b></th>
-                                        <th  data-sortable="true"><b>Obtain Marks</b></th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <?php foreach($result as $array){?>
-                                    <tr>
-                                        <td><?=$array->fkstudent_id?></td>
-                                        <td><?=$array->name?></td>
-                                        <td><?=$array->f_name?></td>
-                                        <td><?=$array->subject_title?></td>
-                                        <td><?=$array->total_marks?></td>
-                                        <td><form><input type="text" name="obtain_marks" style="color: white" class="form-control col-sm-1" required></form></td>
-                                    </tr>
-                                    <?php } ?>
-                                    </tbody>
+                                <form action="<?=  site_url()?>MonthlyTest/enter_student_marks" method="post" >
+				    <table data-toggle="table" data-show-refresh="true" data-search="true" data-select-item-name="toolbar1" data-pagination="true" data-sort-name="name" data-sort-order="desc">
+					<thead>
+					<tr>
+					    <th  data-sortable="true"><b>Student Id</b></th>
+					    <th  data-sortable="true"><b>Student Name</b></th>
+					    <th  data-sortable="true"><b>Father name</th>
+					    <th  data-sortable="true"><b>Series</b></th>
+					    <th  data-sortable="true"><b>Total Marks</b></th>
+					    <th  data-sortable="true"><b>Obtain Marks</b></th>
+					</tr>
+					</thead>
+					<tbody>
+					    
+					<?php
+					    $i = 1;
+					    foreach($result as $array){
+					?>
+					<tr>
+					    <td><?=$array->fkstudent_id?></td>
+					    <td><?=$array->name?></td>
+					    <td><?=$array->f_name?></td>
+					    <td><?=$array->subject_title?></td>
+					    <td><?=$array->total_marks?></td>
+					    <td><input type="hidden" name="student_id_<?=$i?>" value="<?=$array->fkstudent_id?>"><input type="text" name="obtain_marks_<?=$i?>" style="color: white" class="form-control col-sm-1" required></td>
+					</tr>
+					<?php				
+					    $i++;
+					    } 
+					    ?>
+					</tbody>
+				    </table>
+				    <input type="hidden" name="counter" value="<?=$i-1;?>">
+				    <input class="btn btn-primary btn-outline margin" type="submit" value="Save results" />
 
-                                </table>
+				</form>
                             </div>
                         </div>
                       

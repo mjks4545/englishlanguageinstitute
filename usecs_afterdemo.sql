@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 03, 2016 at 03:39 PM
+-- Generation Time: May 03, 2016 at 05:07 PM
 -- Server version: 5.6.16
 -- PHP Version: 5.5.9
 
@@ -48191,6 +48191,31 @@ INSERT INTO `expenses` (`expense_id`, `item_name`, `v_number`, `item_amount`, `c
 (23, 'something', '', '100', '16-05-01', ''),
 (24, 'shiraz to ali ', '', '200', '16-05-02', ''),
 (25, 'Starter Series', '23164', '45', '16-05-02', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `mark_obtained`
+--
+
+CREATE TABLE IF NOT EXISTS `mark_obtained` (
+  `m_id` int(11) NOT NULL,
+  `fk_student_id` int(11) NOT NULL,
+  `ob_marks` varchar(500) NOT NULL,
+  `created_at` varchar(500) NOT NULL,
+  `udpated_at` varchar(500) NOT NULL,
+  `added_by` varchar(500) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `mark_obtained`
+--
+
+INSERT INTO `mark_obtained` (`m_id`, `fk_student_id`, `ob_marks`, `created_at`, `udpated_at`, `added_by`) VALUES
+(1, 18, '20', '16-05-03', '', ''),
+(2, 19, '30', '16-05-03', '', ''),
+(3, 20, '40', '16-05-03', '', ''),
+(4, 21, '50', '16-05-03', '', '');
 
 -- --------------------------------------------------------
 

@@ -171,4 +171,29 @@ class MonthlyTest extends CI_Controller {
         redirect(site_url() . 'monthlytest/result_view');
     }
     
+    //--------------------------------------------------------------------------
+    
+    public function enter_student_marks() {
+        
+	$counter = $this->input->post('counter');
+	$created_date   = mdate("%y-%m-%d");
+	for( $i=1; $i <= $counter; $i++ ){
+	    $temp_o_m = 'obtain_marks_' . $i;
+	    $temp_s_i = 'student_id_' . $i;
+	    $obtain_marks = $this->input->post($temp_o_m);
+	    $student_id   = $this->input->post($temp_s_i);
+	    if( !empty( $obtain_marks ) ){
+		$insert_marks = $this->db->insert('mark_obtained',
+		    [
+			'fk_student_id'  => $student_id,
+			'ob_marks'       => $obtain_marks,
+			'created_at'     => $created_date
+		    ]
+		);
+	    }
+	}
+    }
+    
+    //--------------------------------------------------------------------------
+
 }
