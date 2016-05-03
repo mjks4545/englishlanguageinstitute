@@ -75,23 +75,14 @@
                 </li>
                
             </ul>
-            <a href="#">
-                <span class="glyphicon glyphicon-file"></span>Examination<span data-toggle="collapse" href="#sub-item-4" class="icon pull-right"><em class="glyphicon glyphicon-s glyphicon-plus"></em></span>
-              </a>
-            <ul class="children collapse" id="sub-item-4">
-                <li>
-                    <a  href="<?= site_url()?>admin/student_view">
-                        <span class="glyphicon glyphicon-share-alt"></span> Add Test Result
-                    </a>
-                </li>
-                <li>
-                    <a  href="<?= site_url()?>monthlytest/result_view">
-                        <span class="glyphicon glyphicon-share-alt"></span> View Result
-                    </a>
-                </li>
-            </ul>
+        </li>
            
-    
+        <li>
+            <a href="<?= site_url()?>monthlytest/test_index">
+                <span class="glyphicon glyphicon-file"></span> Examination
+            </a>
+        </li>
+        
         <li>
             <a href="<?= site_url()?>accountsection/account_index">
                 <span class="glyphicon glyphicon-transfer"></span> Finance
