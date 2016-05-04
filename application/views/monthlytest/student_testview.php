@@ -7,7 +7,7 @@
     </div><!--/.row-->
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Add Test Data</h1>
+            <h1 class="page-header">Add Obtain Marks</h1>
         </div>
     </div><!--/.row-->
 
@@ -21,7 +21,7 @@
 
                    
                             <div class="panel-body">
-                                <form action="<?=  site_url()?>MonthlyTest/enter_student_marks" method="post" >
+                                <form action="<?=  site_url()?>MonthlyTest/enter_student_marks/<?= $result[0]->test_id;?>" method="post" >
 				    <table data-toggle="table" data-show-refresh="true" data-search="true" data-select-item-name="toolbar1" data-pagination="true" data-sort-name="name" data-sort-order="desc">
 					<thead>
 					<tr>
@@ -45,7 +45,9 @@
 					    <td><?=$array->f_name?></td>
 					    <td><?=$array->subject_title?></td>
 					    <td><?=$array->total_marks?></td>
-					    <td><input type="hidden" name="student_id_<?=$i?>" value="<?=$array->fkstudent_id?>"><input type="text" name="obtain_marks_<?=$i?>" style="color: white" class="form-control col-sm-1" required></td>
+					    <td><input type="hidden" name="student_id_<?=$i?>" value="<?=$array->fkstudent_id?>">
+                                            <input type="text" name="obtain_marks_<?=$i?>" style="color: white" class="form-control col-sm-1" required></td>
+                                            <input type="hidden" name="fktest_id" value="<?=$array->test_id?>">
 					</tr>
 					<?php				
 					    $i++;

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 04, 2016 at 11:08 AM
+-- Generation Time: May 04, 2016 at 05:01 PM
 -- Server version: 5.6.16
 -- PHP Version: 5.5.9
 
@@ -49,7 +49,7 @@ CREATE TABLE IF NOT EXISTS `applications` (
   `application_name` varchar(255) NOT NULL,
   `app_director` varchar(255) NOT NULL,
   `subject_line` varchar(255) NOT NULL,
-  `app_text` varchar(255) NOT NULL,
+  `app_text` varchar(1000) NOT NULL,
   `yours_obediently` varchar(255) NOT NULL,
   `series` varchar(255) NOT NULL,
   `created_at` varchar(255) NOT NULL,
@@ -48201,26 +48201,27 @@ INSERT INTO `expenses` (`expense_id`, `item_name`, `v_number`, `item_amount`, `c
 CREATE TABLE IF NOT EXISTS `mark_obtained` (
   `m_id` int(11) NOT NULL AUTO_INCREMENT,
   `fk_student_id` int(11) NOT NULL,
+  `fktest_id` varchar(255) NOT NULL,
   `ob_marks` varchar(500) NOT NULL,
   `created_at` varchar(500) NOT NULL,
   `udpated_at` varchar(500) NOT NULL,
   `added_by` varchar(500) NOT NULL,
   PRIMARY KEY (`m_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=41 ;
 
 --
 -- Dumping data for table `mark_obtained`
 --
 
-INSERT INTO `mark_obtained` (`m_id`, `fk_student_id`, `ob_marks`, `created_at`, `udpated_at`, `added_by`) VALUES
-(5, 18, '45', '16-05-04', '', ''),
-(6, 19, '66', '16-05-04', '', ''),
-(7, 20, '75', '16-05-04', '', ''),
-(8, 21, '80', '16-05-04', '', ''),
-(9, 18, '60', '16-05-04', '', ''),
-(10, 19, '70', '16-05-04', '', ''),
-(11, 20, '80', '16-05-04', '', ''),
-(12, 21, '75', '16-05-04', '', '');
+INSERT INTO `mark_obtained` (`m_id`, `fk_student_id`, `fktest_id`, `ob_marks`, `created_at`, `udpated_at`, `added_by`) VALUES
+(33, 18, '42', '45', '16-05-04', '', ''),
+(34, 19, '42', '55', '16-05-04', '', ''),
+(35, 20, '42', '65', '16-05-04', '', ''),
+(36, 21, '42', '60', '16-05-04', '', ''),
+(37, 18, '43', '45', '16-05-04', '', ''),
+(38, 19, '43', '40', '16-05-04', '', ''),
+(39, 20, '43', '42', '16-05-04', '', ''),
+(40, 21, '43', '39', '16-05-04', '', '');
 
 -- --------------------------------------------------------
 
@@ -48239,21 +48240,15 @@ CREATE TABLE IF NOT EXISTS `monthly_test` (
   `created_at` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `updated_at` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`test_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=33 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=44 ;
 
 --
 -- Dumping data for table `monthly_test`
 --
 
 INSERT INTO `monthly_test` (`test_id`, `test_name`, `test_month`, `test_date`, `total_marks`, `subject_id`, `status`, `created_at`, `updated_at`) VALUES
-(16, 'Weekly Progress Test', 'March', '05/06/2016', '100', '2', 1, '16-05-03', ''),
-(17, 'Weekly Progress Test', 'March', '2016-05-04', '100', '5', 1, '16-05-04', ''),
-(18, 'Monthly Grand Test', 'March', '2016-05-18', '100', '9', 1, '16-05-04', ''),
-(20, 'Weekly Progress Test', 'May', '2016-05-12', '100', '5', 1, '16-05-04', ''),
-(21, 'Weekly Progress Test', 'May', '2016-05-12', '100', '5', 1, '16-05-04', ''),
-(23, 'Weekly Progress Test', 'May', '2016-05-12', '100', '3', 1, '16-05-04', ''),
-(24, 'Weekly Progress Test', 'April', '2016-05-20', '44', '7', 1, '16-05-04', ''),
-(28, 'Weekly Progress Test', 'May', '2016-05-11', '100', '1', 1, '16-05-04', '');
+(42, 'Weekly Progress Test', 'February', '2016-05-04', '75', '1', 1, '16-05-04', ''),
+(43, 'Monthly Grand Test', 'April', '2016-05-04', '50', '1', 1, '16-05-04', '');
 
 -- --------------------------------------------------------
 

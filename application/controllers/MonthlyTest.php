@@ -12,6 +12,31 @@ class MonthlyTest extends CI_Controller {
     }
     
     //--------------------------------------------------------------------------
+    public function test_studentdetails($id = null){
+        $this->db->select('*');
+        $this->db->from('monthly_test');
+        $this->db->join('courses','courses.category_subject = monthly_test.subject_id');
+        $this->db->join('student','student.s_id = courses.fkstudent_id');
+        $this->db->join('users','users.u_id = student.fkuser_id');
+        $this->db->join('mark_obtained','mark_obtained.fk_student_id = student.s_id');
+        $this->db->join('course_sub_category', 'course_sub_category.course_c_s_id = monthly_test.subject_id');
+        $this->db->where('monthly_test.test_id', $id);
+        $this->db->where('mark_obtained.fktest_id', $id);
+
+        $query = $this->db->get();
+        $result['result'] = $query->result();
+       
+//        echo '<pre>';
+//        print_r($result);
+//        die();
+        
+        $this->load->view('include/header');
+        $this->load->view('include/sidebar');
+        $this->load->view('monthlytest/test_studentdetails',$result);
+        $this->load->view('include/footer');
+    }
+    
+    //--------------------------------------------------------------------------
     
     public function student_testview($id = null){
        $this->db->select('*');
@@ -21,6 +46,7 @@ class MonthlyTest extends CI_Controller {
        $this->db->join('users','users.u_id = student.fkuser_id');
        $this->db->join('course_sub_category', 'course_sub_category.course_c_s_id = monthly_test.subject_id');
        $this->db->where('courses.category_subject',$id);
+       $this->db->where('monthly_test.status', 0);
        
        $query = $this->db->get();
        $result['result']           = $query->result();
@@ -119,13 +145,18 @@ class MonthlyTest extends CI_Controller {
     
     public function result_view( $id = null )
     {
-        $this->db->select('*');
-        $this->db->from('monthly_test');
-        $this->db->join('student', 'student.s_id = monthly_test.fkstudent_id');
-        $this->db->join('users', 'users.u_id = student.fkuser_id');
-        $this->db->join('course_sub_category', 'course_sub_category.course_c_s_id = monthly_test.subject_id');
-        $query = $this->db->get();
-        $result['result'] = $query->result();
+       $this->db->select('*');
+       $this->db->from('monthly_test');
+//       $this->db->join('courses','courses.category_subject = monthly_test.subject_id');
+//       $this->db->join('student','student.s_id = courses.fkstudent_id');
+//       $this->db->join('mark_obtained','mark_obtained.fk_student_id = student.s_id');
+//       $this->db->join('users','users.u_id = student.fkuser_id');
+//       $this->db->join('course_sub_category', 'course_sub_category.course_c_s_id = monthly_test.subject_id');
+//       $this->db->where('courses.category_subject',$id);
+//       $this->db->where('monthly_test.status', 1);
+       
+       $query = $this->db->get();
+       $result['result'] = $query->result();
         
 //        echo '<pre>';
 //        print_r($result);
@@ -145,7 +176,6 @@ class MonthlyTest extends CI_Controller {
         $this->db->from('monthly_test');
         $this->db->join('student', 'student.s_id = monthly_test.fkstudent_id');
         $this->db->join('users', 'users.u_id = student.fkuser_id');
-        //$this->db->join('payment', 'payment.fkstudent_id = student.s_id');
         $this->db->join('course_sub_category', 'course_sub_category.course_c_s_id = monthly_test.test_subject');
         $this->db->where('monthly_test.test_id',$id);
        
@@ -179,7 +209,7 @@ class MonthlyTest extends CI_Controller {
     
     //--------------------------------------------------------------------------
     
-    public function enter_student_marks() {
+    public function enter_student_marks($id = null) {
         
 	$counter = $this->input->post('counter');
        // $status   = $this->input->post('status');
@@ -189,23 +219,27 @@ class MonthlyTest extends CI_Controller {
 	    $temp_s_i = 'student_id_' . $i;
 	    $obtain_marks = $this->input->post($temp_o_m);
 	    $student_id   = $this->input->post($temp_s_i);
+	    $test_id   = $this->input->post('fktest_id');
 	
 	    if( !empty( $obtain_marks ) ){
 
                 $insert_status_monthlytest = $this->db->update('monthly_test',
 		    [
 			'status'  => 1,
-		    ]
+		    ],['test_id' => $id]
 		);
 		$insert_marks = $this->db->insert('mark_obtained',
 		    [
 			'fk_student_id'  => $student_id,
+			'fktest_id'      => $test_id,
 			'ob_marks'       => $obtain_marks,
 			'created_at'     => $created_date
 		    ]
 		);
 	    }
 	}
+        
+        redirect(site_url().'monthlytest/test_index');
     }
     
     //--------------------------------------------------------------------------
