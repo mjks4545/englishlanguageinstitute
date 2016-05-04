@@ -13,15 +13,21 @@ class MonthlyTest extends CI_Controller {
     
     //--------------------------------------------------------------------------
     
-    public function student_testview(){
+    public function student_testview($id = null){
        $this->db->select('*');
        $this->db->from('monthly_test');
        $this->db->join('courses','courses.category_subject = monthly_test.subject_id');
        $this->db->join('student','student.s_id = courses.fkstudent_id');
        $this->db->join('users','users.u_id = student.fkuser_id');
        $this->db->join('course_sub_category', 'course_sub_category.course_c_s_id = monthly_test.subject_id');
+       $this->db->where('courses.category_subject',$id);
+       
        $query = $this->db->get();
        $result['result']           = $query->result();
+       if(empty($result['result']))
+       {
+           redirect(site_url().'monthlytest/result_add');
+       }
       // $result['result'] = $result[0];
 
 //        echo '<pre>';
@@ -106,7 +112,7 @@ class MonthlyTest extends CI_Controller {
                 'created_at'   => $created_date,
             ]);
         
-            redirect(site_url() . 'monthlytest/student_testview');
+            redirect(site_url() . 'monthlytest/student_testview/'.$subject_id);
         
     }
     //--------------------------------------------------------------------------
@@ -176,13 +182,21 @@ class MonthlyTest extends CI_Controller {
     public function enter_student_marks() {
         
 	$counter = $this->input->post('counter');
+       // $status   = $this->input->post('status');
 	$created_date   = mdate("%y-%m-%d");
 	for( $i=1; $i <= $counter; $i++ ){
 	    $temp_o_m = 'obtain_marks_' . $i;
 	    $temp_s_i = 'student_id_' . $i;
 	    $obtain_marks = $this->input->post($temp_o_m);
 	    $student_id   = $this->input->post($temp_s_i);
+	
 	    if( !empty( $obtain_marks ) ){
+
+                $insert_status_monthlytest = $this->db->update('monthly_test',
+		    [
+			'status'  => 1,
+		    ]
+		);
 		$insert_marks = $this->db->insert('mark_obtained',
 		    [
 			'fk_student_id'  => $student_id,

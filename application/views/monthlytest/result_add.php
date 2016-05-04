@@ -54,7 +54,7 @@
                         <div class="row">
                              <div class="form-group col-md-6">
                                 <label>Test Date</label>
-                                <input type="date" name="test_date" id="datepicker" style="color: white" class="form-control" placeholder="Test Date" required>
+                                <input type="date" name="test_date" style="color: white" class="form-control" placeholder="Test Date" required>
                             </div>
                              <div class="form-group col-md-6">
                                 <label>Total Marks</label>
@@ -88,9 +88,4 @@
     </div>
 </div>
 </div>
- <script>
-  $(function() {
-    $( "#datepicker" ).datepicker();
-  });
-   ;
-  </script>
+ 

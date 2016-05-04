@@ -27,7 +27,7 @@
                 </div>
                 <a href="<?= site_url()?>admin/teacher_view">
                     <div class="panel-footer">
-                        <span class="pull-left text-info">Click Here To View Details</span>
+                        <span class="pull-left text-info">Click Here For Details</span>
                         <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
 
                         <div class="clearfix"></div>
@@ -49,7 +49,7 @@
                 </div>
                 <a href="<?= site_url()?>admin/student_view">
                     <div class="panel-footer">
-                        <span class="pull-left text-info">Click Here To View Details</span>
+                        <span class="pull-left text-info">Click Here For Details</span>
                         <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
 
                         <div class="clearfix"></div>
@@ -70,7 +70,7 @@
                 </div>
                 <a href="<?= site_url()?>admin/visitor_view">
                     <div class="panel-footer">
-                        <span class="pull-left text-info">Click Here To View Details</span>
+                        <span class="pull-left text-info">Click Here For Details</span>
                         <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
 
                         <div class="clearfix"></div>
@@ -93,7 +93,7 @@
                     </div>
                     <a href="<?= site_url()?>applications/applications_views">
                         <div class="panel-footer">
-                            <span class="pull-left text-info">Click Here To View Details</span>
+                            <span class="pull-left text-info">Click Here For Details</span>
                             <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
 
                             <div class="clearfix"></div>
@@ -115,7 +115,7 @@
                     </div>
                     <a href="<?= site_url()?>accountsection/account_index">
                         <div class="panel-footer">
-                            <span class="pull-left text-info">Click Here To View Details</span>
+                            <span class="pull-left text-info">Click Here For Details</span>
                             <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
 
                             <div class="clearfix"></div>
@@ -135,9 +135,9 @@
                             
                         </div>
                     </div>
-                    <a href="<?= site_url()?>monthlytest/result_view">
+                    <a href="<?= site_url()?>monthlytest/test_index">
                         <div class="panel-footer">
-                            <span class="pull-left text-info">Click Here To View Details</span>
+                            <span class="pull-left text-info">Click Here For Details</span>
                             <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
 
                             <div class="clearfix"></div>

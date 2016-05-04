@@ -126,7 +126,7 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <label> Class Timing</label>
-                                <input type="text" name="class_timing" style="color: white" class="form-control" placeholder="Class Timing" required>
+                                <input type="time" name="class_timing" style="color: white" class="form-control" placeholder="Class Timing" required>
                             </div>
                         </div>
                         
@@ -139,14 +139,14 @@
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label>Starting Date</label>
-                                    <input type="date" id="datepicker" name="starting_date" style="color: white" class="form-control" placeholder="Starting Date" required>
+                                    <input type="date"  name="starting_date" style="color: white" class="form-control" placeholder="Starting Date" required>
                                 </div>
 
                             </div>
                             <div class="row">
                                 <div class="form-group col-md-6">
                                     <label>Completion Date</label>
-                                    <input type="date" id="" name="completion_date" style="color: white" class="form-control" placeholder="Completion Date" required>
+                                    <input type="date"  name="completion_date" style="color: white" class="form-control" placeholder="Completion Date" required>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label>Admission Fee</label>
@@ -183,12 +183,8 @@
         </div><!-- /.col-->
     </div><!-- /.row -->
     </div>
+ </div>
     
-  <script>
-  $(function() {
-    $( "#datepicker" ).datepicker();
-  });
-   ;
-  </script>
+
   
                        

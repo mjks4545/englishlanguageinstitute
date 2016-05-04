@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 03, 2016 at 05:07 PM
+-- Generation Time: May 04, 2016 at 11:08 AM
 -- Server version: 5.6.16
 -- PHP Version: 5.5.9
 
@@ -48199,23 +48199,28 @@ INSERT INTO `expenses` (`expense_id`, `item_name`, `v_number`, `item_amount`, `c
 --
 
 CREATE TABLE IF NOT EXISTS `mark_obtained` (
-  `m_id` int(11) NOT NULL,
+  `m_id` int(11) NOT NULL AUTO_INCREMENT,
   `fk_student_id` int(11) NOT NULL,
   `ob_marks` varchar(500) NOT NULL,
   `created_at` varchar(500) NOT NULL,
   `udpated_at` varchar(500) NOT NULL,
-  `added_by` varchar(500) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `added_by` varchar(500) NOT NULL,
+  PRIMARY KEY (`m_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
 
 --
 -- Dumping data for table `mark_obtained`
 --
 
 INSERT INTO `mark_obtained` (`m_id`, `fk_student_id`, `ob_marks`, `created_at`, `udpated_at`, `added_by`) VALUES
-(1, 18, '20', '16-05-03', '', ''),
-(2, 19, '30', '16-05-03', '', ''),
-(3, 20, '40', '16-05-03', '', ''),
-(4, 21, '50', '16-05-03', '', '');
+(5, 18, '45', '16-05-04', '', ''),
+(6, 19, '66', '16-05-04', '', ''),
+(7, 20, '75', '16-05-04', '', ''),
+(8, 21, '80', '16-05-04', '', ''),
+(9, 18, '60', '16-05-04', '', ''),
+(10, 19, '70', '16-05-04', '', ''),
+(11, 20, '80', '16-05-04', '', ''),
+(12, 21, '75', '16-05-04', '', '');
 
 -- --------------------------------------------------------
 
@@ -48230,18 +48235,25 @@ CREATE TABLE IF NOT EXISTS `monthly_test` (
   `test_date` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `total_marks` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `subject_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `status` int(11) NOT NULL,
   `created_at` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `updated_at` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`test_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=17 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=33 ;
 
 --
 -- Dumping data for table `monthly_test`
 --
 
-INSERT INTO `monthly_test` (`test_id`, `test_name`, `test_month`, `test_date`, `total_marks`, `subject_id`, `created_at`, `updated_at`) VALUES
-(14, 'Weekly Progress Test', 'April', '05/04/2016', '100', '1', '16-05-03', ''),
-(16, 'Weekly Progress Test', 'March', '05/06/2016', '100', '2', '16-05-03', '');
+INSERT INTO `monthly_test` (`test_id`, `test_name`, `test_month`, `test_date`, `total_marks`, `subject_id`, `status`, `created_at`, `updated_at`) VALUES
+(16, 'Weekly Progress Test', 'March', '05/06/2016', '100', '2', 1, '16-05-03', ''),
+(17, 'Weekly Progress Test', 'March', '2016-05-04', '100', '5', 1, '16-05-04', ''),
+(18, 'Monthly Grand Test', 'March', '2016-05-18', '100', '9', 1, '16-05-04', ''),
+(20, 'Weekly Progress Test', 'May', '2016-05-12', '100', '5', 1, '16-05-04', ''),
+(21, 'Weekly Progress Test', 'May', '2016-05-12', '100', '5', 1, '16-05-04', ''),
+(23, 'Weekly Progress Test', 'May', '2016-05-12', '100', '3', 1, '16-05-04', ''),
+(24, 'Weekly Progress Test', 'April', '2016-05-20', '44', '7', 1, '16-05-04', ''),
+(28, 'Weekly Progress Test', 'May', '2016-05-11', '100', '1', 1, '16-05-04', '');
 
 -- --------------------------------------------------------
 

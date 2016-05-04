@@ -54,6 +54,7 @@
 					</tbody>
 				    </table>
 				    <input type="hidden" name="counter" value="<?=$i-1;?>">
+				    <input type="hidden" name="status" value=  >
 				    <input class="btn btn-primary btn-outline margin" type="submit" value="Save results" />
 
 				</form>
