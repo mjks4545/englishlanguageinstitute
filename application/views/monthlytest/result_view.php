@@ -23,6 +23,7 @@
                         <thead>
                         <tr>
                             <th  data-sortable="true"><b>Test Id</b></th>
+                            <th  data-sortable="true"><b>Subject Name</b></th>
                             <th  data-sortable="true"><b>Test Name</b></th>
                             <th  data-sortable="true"><b>Test Month</b></th>
                             <th  data-sortable="true"><b>Test Date</b></th>
@@ -34,6 +35,7 @@
                         <?php foreach($result as $array){?>
                         <tr>
                             <td><?=$array->test_id?></td>
+                            <td><?=$array->subject_title?></td>
                             <td><?=$array->test_name?></td>
                             <td><?=$array->test_month?></td>
                             <td><?=$array->test_date?></td>

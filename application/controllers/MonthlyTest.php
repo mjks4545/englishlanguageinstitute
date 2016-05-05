@@ -54,8 +54,7 @@ class MonthlyTest extends CI_Controller {
        {
            redirect(site_url().'monthlytest/result_add');
        }
-      // $result['result'] = $result[0];
-
+    
 //        echo '<pre>';
 //        print_r($result);
 //        die();
@@ -86,15 +85,7 @@ class MonthlyTest extends CI_Controller {
     //--------------------------------------------------------------------------
     
     public function all_student_testview(){
-        
-//       $this->db->select('*');
-//       $this->db->from('monthlytest');
-//       $this->db->join('courses','courses.category_subject = monthlytest.subject_id');
-//       $this->db->join('student','student.s_id = courses.fkstudent_id');
-//       $this->db->join('users','users.u_id = student.fkuser_id');
-//       $query = $this->db->get();
-//       $result['result'] = $query->result();
-//
+
 //        echo '<pre>';
 //        print_r($result);
 //        die();
@@ -116,25 +107,13 @@ class MonthlyTest extends CI_Controller {
         $subject_id     = $this->input->post('test_subject');
         $created_date   = mdate("%y-%m-%d");
         
-//        if($total_marks >= $obtain_marks){
-//            
-//            $caltulation = $obtain_marks/$total_marks;
-//            $percentage  = $caltulation * 100; 
-//        }
-//        $average = number_format((float)$percentage, 1, '.', '');
-        
-//        $query  = $this->db->get('student');
-//	$result['result'] = $query->result();
-//        $fkstudent_id = $result['result'][0]->s_id;
-        
         $insert_monthlytest_table = $this->db->insert('monthly_test',
             [
-                //'fkstudent_id' => $fkstudent_id ,
                 'test_name'    => $test_name,
                 'test_month'   => $test_month,
                 'test_date'    => $test_date,
-                'total_marks' => $total_marks,
-                'subject_id' => $subject_id,
+                'total_marks'  => $total_marks,
+                'subject_id'   => $subject_id,
                 'created_at'   => $created_date,
             ]);
         
@@ -147,14 +126,7 @@ class MonthlyTest extends CI_Controller {
     {
        $this->db->select('*');
        $this->db->from('monthly_test');
-//       $this->db->join('courses','courses.category_subject = monthly_test.subject_id');
-//       $this->db->join('student','student.s_id = courses.fkstudent_id');
-//       $this->db->join('mark_obtained','mark_obtained.fk_student_id = student.s_id');
-//       $this->db->join('users','users.u_id = student.fkuser_id');
-//       $this->db->join('course_sub_category', 'course_sub_category.course_c_s_id = monthly_test.subject_id');
-//       $this->db->where('courses.category_subject',$id);
-//       $this->db->where('monthly_test.status', 1);
-       
+       $this->db->join('course_sub_category', 'course_sub_category.course_c_s_id = monthly_test.subject_id');
        $query = $this->db->get();
        $result['result'] = $query->result();
         
@@ -170,21 +142,26 @@ class MonthlyTest extends CI_Controller {
     
     //--------------------------------------------------------------------------
     
-    public function result_details( $id = null )
+    public function result_details( $s_id = null, $test_id = null )
     {
         $this->db->select('*');
-        $this->db->from('monthly_test');
-        $this->db->join('student', 'student.s_id = monthly_test.fkstudent_id');
-        $this->db->join('users', 'users.u_id = student.fkuser_id');
-        $this->db->join('course_sub_category', 'course_sub_category.course_c_s_id = monthly_test.test_subject');
-        $this->db->where('monthly_test.test_id',$id);
-       
-        $query = $this->db->get();
-        $result = $query->result();
+        $this->db->from('mark_obtained');
+        $this->db->join('monthly_test','monthly_test.test_id = mark_obtained.fktest_id');
+        $this->db->join('student','student.s_id = mark_obtained.fk_student_id');
+        $this->db->join('users','users.u_id = student.fkuser_id');
+        $this->db->join('courses','courses.fkstudent_id = student.s_id');
+        $this->db->join('course_sub_category', 'course_sub_category.course_c_s_id = courses.category_subject');
+        $this->db->where('mark_obtained.fk_student_id', $s_id);
+        $this->db->where('mark_obtained.fktest_id', $test_id);
+
+        $query            = $this->db->get();
+        $result           = $query->result();
         $result['result'] = $result[0];
-        $result['test']   = $query->result();
-        
-        $this->db->where( 'fkstudent_id', $result['result']->s_id);
+       
+      
+//        $result['test']   = $query->result();
+//        
+        $this->db->where( 'payment.fkstudent_id', $s_id);
         $query = $this->db->get('payment');
         $result['payment'] = $query->result();
         
@@ -192,6 +169,7 @@ class MonthlyTest extends CI_Controller {
 //        echo '<pre>';
 //        print_r($result);
 //        die();
+        
         $this->load->view('include/header');
         $this->load->view('include/sidebar');
         $this->load->view('monthlytest/result_details',$result);
@@ -212,15 +190,21 @@ class MonthlyTest extends CI_Controller {
     public function enter_student_marks($id = null) {
         
 	$counter = $this->input->post('counter');
-       // $status   = $this->input->post('status');
 	$created_date   = mdate("%y-%m-%d");
+        
+        $this->db->where('monthly_test.test_id',$id);
+        $query = $this->db->get('monthly_test');
+        $result['monthly_test'] = $query->result();
+       
 	for( $i=1; $i <= $counter; $i++ ){
 	    $temp_o_m = 'obtain_marks_' . $i;
 	    $temp_s_i = 'student_id_' . $i;
 	    $obtain_marks = $this->input->post($temp_o_m);
 	    $student_id   = $this->input->post($temp_s_i);
-	    $test_id   = $this->input->post('fktest_id');
-	
+	    $test_id    = $this->input->post('fktest_id');
+            $percentage = '';
+            
+            
 	    if( !empty( $obtain_marks ) ){
 
                 $insert_status_monthlytest = $this->db->update('monthly_test',
@@ -228,17 +212,26 @@ class MonthlyTest extends CI_Controller {
 			'status'  => 1,
 		    ],['test_id' => $id]
 		);
+                if($result['monthly_test'][0]->total_marks >= $obtain_marks){
+                 $calculation = $obtain_marks/$result['monthly_test'][0]->total_marks;
+                 $percentage = $calculation * 100;
+                                      
+                }
+                $average = number_format((float)$percentage, 1, '.', '');
+               
 		$insert_marks = $this->db->insert('mark_obtained',
 		    [
 			'fk_student_id'  => $student_id,
 			'fktest_id'      => $test_id,
 			'ob_marks'       => $obtain_marks,
+			'percentage'     => $average,
 			'created_at'     => $created_date
 		    ]
 		);
 	    }
+           
 	}
-        
+       
         redirect(site_url().'monthlytest/test_index');
     }
     

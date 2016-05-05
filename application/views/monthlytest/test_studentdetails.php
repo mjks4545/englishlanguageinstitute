@@ -48,9 +48,9 @@
                             <td><?=$array->test_date?></td>
                             <td><?=$array->ob_marks?></td>
                             <td><?=$array->total_marks?></td>
-                            <td></td>
-                             <td>
-                                <a href="<?= site_url()?>monthlytest/test_studentdetails/<?= $array->test_id ?>" type="button" class="btn btn-primary glyphicon glyphicon-edit btn-outline margin">View Details</a>
+                            <td><?=$array->percentage?><?php if('percentage' >= 0){ echo ' %';} ?></td>
+                            <td>
+                                <a href="<?= site_url()?>monthlytest/result_details/<?= $array->s_id ?>/<?= $array->test_id ?>" type="button" class="btn btn-primary glyphicon glyphicon-edit btn-outline margin">View Details</a>
                                 <a href="<?= site_url()?>monthlytest/result_delete/<?= $array->test_id ?>" type="button" class="btn btn-primary glyphicon glyphicon-trash btn-outline margin"> Delete</a>
                             </td>
                            

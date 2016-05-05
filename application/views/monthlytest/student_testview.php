@@ -10,7 +10,7 @@
             <h1 class="page-header">Add Obtain Marks</h1>
         </div>
     </div><!--/.row-->
-
+   
     <div class="row">
         <div class="col-lg-12">
             <div class="panel panel-default">
@@ -47,7 +47,8 @@
 					    <td><?=$array->total_marks?></td>
 					    <td><input type="hidden" name="student_id_<?=$i?>" value="<?=$array->fkstudent_id?>">
                                             <input type="text" name="obtain_marks_<?=$i?>" style="color: white" class="form-control col-sm-1" required></td>
-                                            <input type="hidden" name="fktest_id" value="<?=$array->test_id?>">
+                                            <input type="text" class="hide" name="fktest_id" value="<?=$array->test_id?>">
+                                            
 					</tr>
 					<?php				
 					    $i++;
@@ -56,7 +57,6 @@
 					</tbody>
 				    </table>
 				    <input type="hidden" name="counter" value="<?=$i-1;?>">
-				    <input type="hidden" name="status" value=  >
 				    <input class="btn btn-primary btn-outline margin" type="submit" value="Save results" />
 
 				</form>

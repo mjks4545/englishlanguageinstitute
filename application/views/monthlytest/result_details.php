@@ -18,7 +18,7 @@
         <div class="col-lg-12">
             <div class="panel panel-default">
               <div class="panel-heading">Result Details
-              <a href="<?= site_url()?>monthlytest/result_view" type="button" style="position: relative;width: 120px; " class="btn btn-primary btn-outline margin  pull-right"><b>Back</b></a>
+                  <a href="<?= site_url()?>monthlytest/test_studentdetails/<?= $result->test_id;?>" type="button" style="position: relative;width: 120px; " class="btn btn-primary btn-outline margin  pull-right"><b>Back</b></a>
 
               </div>
                 <div class="panel-body">
@@ -92,10 +92,10 @@
                                         }
                                         $remaining_amount = $fee_to_paid - $received_fee;
                                      ?>
-                                    <?php foreach ($test as $array)?>
+                                    <?php foreach ($payment as $array)?>
                                      
                                     <tr>
-                                        <td class="text-center"><?=$array->test_month?></td>
+                                        <td class="text-center"><?=$result->test_month?></td>
                                         <td class="text-center"><?=$admission_fee?></td>
                                         <td class="text-center"><?=$monthly_fee?></td>
                                         <td class="text-center"><?=$fee_to_paid?></td>
@@ -177,12 +177,12 @@
                                         
                                         </thead>
                                         <tbody>
-                                        <?php foreach ($test as $array) {?>
+                                        
                                         <tr>
-                                            <td class="text-center"><?= $array->test_month?></td>
-                                            <td class="text-center"><?=$array->percentage?><?php if('percentage' >= 0){ echo ' %';} ?></td>
+                                            <td class="text-center"><?=$result->test_month?></td>
+                                            <td class="text-center"><?=$result->percentage?><?php if('percentage' >= 0){ echo ' %';} ?></td>
                                         </tr>
-                                        <?php }?>
+                                       
                                         </tbody>
 
                                     </table>
@@ -201,14 +201,14 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <?php foreach ($test as $array) {?>
+                                    
                                         <tr>
-                                            <td class="text-center"><?=$array->test_month?></td>
-                                            <td class="text-center"><?=$array->totl_marks?></td>
-                                            <td class="text-center"><?=$array->obtn_marks?></td>
-                                            <td class="text-center"><?=$array->percentage?><?php if('percentage' >= 0){ echo ' %';} ?></td>
+                                            <td class="text-center"><?=$result->test_month?></td>
+                                            <td class="text-center"><?=$result->total_marks?></td>
+                                            <td class="text-center"><?=$result->ob_marks?></td>
+                                            <td class="text-center"><?=$result->percentage?><?php if('percentage' >= 0){ echo ' %';} ?></td>
                                         </tr>
-                                        <?php }?>
+                                   
                                         </tbody>
 
                                     </table>
