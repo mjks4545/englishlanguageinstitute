@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 05, 2016 at 04:36 PM
+-- Generation Time: May 06, 2016 at 03:17 PM
 -- Server version: 5.6.16
 -- PHP Version: 5.5.9
 
@@ -48177,21 +48177,23 @@ CREATE TABLE IF NOT EXISTS `expenses` (
   `created_at` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `updated_at` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`expense_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=26 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=28 ;
 
 --
 -- Dumping data for table `expenses`
 --
 
 INSERT INTO `expenses` (`expense_id`, `item_name`, `v_number`, `item_amount`, `created_at`, `updated_at`) VALUES
-(8, 'Higher Series', '4556', '200', '16-04-30', ''),
-(9, 'Starter Series', '4557', '100', '16-04-30', ''),
-(10, 'Information Technology', '4559', '100', '16-04-30', ''),
-(11, 'Certificate Fee of IT/EL', '4560', '200', '16-04-30', ''),
-(22, 'Starter Series', '555', '200', '16-05-01', ''),
-(23, 'something', '', '100', '16-05-01', ''),
-(24, 'shiraz to ali ', '', '200', '16-05-02', ''),
-(25, 'Starter Series', '23164', '45', '16-05-02', '');
+(8, 'Higher Series', '4556', '200', '16-04-20', ''),
+(9, 'Starter Series', '4557', '100', '16-04-21', ''),
+(10, 'Information Technology', '4559', '100', '16-04-22', ''),
+(11, 'Certificate Fee of IT/EL', '4560', '200', '16-04-23', ''),
+(22, 'Starter Series', '555', '200', '16-04-24', ''),
+(23, 'something', '', '100', '16-04-25', ''),
+(24, 'shiraz to ali ', '', '200', '16-04-26', ''),
+(25, 'Starter Series', '23164', '45', '16-04-27', ''),
+(26, 'Starter Series', '23164', '45', '16-04-28', ''),
+(27, 'Starter Series', '23164', '45', '16-04-29', '');
 
 -- --------------------------------------------------------
 
@@ -48290,29 +48292,29 @@ CREATE TABLE IF NOT EXISTS `payment` (
   `updated_at` varchar(255) NOT NULL,
   `created_by` varchar(255) NOT NULL,
   PRIMARY KEY (`p_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=54 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=55 ;
 
 --
 -- Dumping data for table `payment`
 --
 
 INSERT INTO `payment` (`p_id`, `fkstudent_id`, `amount`, `reason`, `tobepaid_or_paid_fee`, `entry_against`, `description`, `created_at`, `updated_at`, `created_by`) VALUES
-(15, 11, '65', 'Admission Fee', '0', NULL, NULL, '16-04-29', '16-04-30', ''),
-(16, 11, '75', 'Monthly Fee', '0', NULL, NULL, '16-04-29', '16-04-30', ''),
-(17, 11, '80', 'Received Fee', '1', NULL, NULL, '16-04-29', '16-04-30', ''),
-(18, 12, '40', 'Admission Fee', '0', NULL, NULL, '16-04-29', '16-04-30', ''),
-(19, 12, '40', 'Monthly Fee', '0', NULL, NULL, '16-04-29', '16-04-30', ''),
-(20, 12, '80', 'Received Fee', '1', NULL, NULL, '16-04-29', '16-04-30', ''),
+(15, 11, '65', 'Admission Fee', '0', NULL, NULL, '16-04-29', '', ''),
+(16, 11, '75', 'Monthly Fee', '0', NULL, NULL, '16-04-29', '', ''),
+(17, 11, '80', 'Received Fee', '1', NULL, NULL, '16-04-29', '', ''),
+(18, 12, '40', 'Admission Fee', '0', NULL, NULL, '16-04-30', '', ''),
+(19, 12, '40', 'Monthly Fee', '0', NULL, NULL, '16-04-30', '', ''),
+(20, 12, '80', 'Received Fee', '1', NULL, NULL, '16-04-30', '', ''),
 (23, 11, '20', 'Monthly Fee', '1', NULL, 'so nothing', '16-04-30', '', ''),
 (24, 11, '20', 'Monthly Fee', '1', NULL, 'asdfasd', '16-04-30', '', ''),
 (25, 11, '10', 'Monthly Fee', '1', NULL, 'qweqrqw', '16-04-30', '', ''),
 (26, 11, '5', 'Admission Fee', '1', NULL, 'admission fee', '16-04-30', '', ''),
-(27, 13, '55', 'Admission Fee', '0', '', '', '16-04-30', '', ''),
-(28, 13, '55', 'Monthly Fee', '0', '', '', '16-04-30', '', ''),
-(29, 13, '55', 'Received Fee', '1', '', '', '16-04-30', '', ''),
-(30, 14, '1500', 'Admission Fee', '0', '', '', '16-05-01', '', ''),
-(31, 14, '500', 'Monthly Fee', '0', '', '', '16-05-01', '', ''),
-(32, 14, '1000', 'Received Fee', '1', '', '', '16-05-01', '', ''),
+(27, 13, '55', 'Admission Fee', '0', '', '', '16-05-01', '', ''),
+(28, 13, '55', 'Monthly Fee', '0', '', '', '16-05-01', '', ''),
+(29, 13, '55', 'Received Fee', '1', '', '', '16-05-01', '', ''),
+(30, 14, '1500', 'Admission Fee', '0', '', '', '16-05-02', '', ''),
+(31, 14, '500', 'Monthly Fee', '0', '', '', '16-05-02', '', ''),
+(32, 14, '1000', 'Received Fee', '1', '', '', '16-05-02', '', ''),
 (33, 14, '500', 'Monthly Fee', '1', NULL, 'nothing', '16-05-01', '', ''),
 (34, 14, '100', 'Monthly Fee', '1', NULL, 'some', '16-05-02', '', ''),
 (35, 14, '200', 'Monthly Fee', '1', NULL, 'any', '16-05-02', '', ''),
@@ -48333,7 +48335,8 @@ INSERT INTO `payment` (`p_id`, `fkstudent_id`, `amount`, `reason`, `tobepaid_or_
 (50, 21, '2500', 'Received Fee', '1', '', '', '16-05-03', '', ''),
 (51, 22, '4500', 'Admission Fee', '0', '', '', '16-05-05', '', ''),
 (52, 22, '5500', 'Monthly Fee', '0', '', '', '16-05-05', '', ''),
-(53, 22, '5000', 'Received Fee', '1', '', '', '16-05-05', '', '');
+(53, 22, '5000', 'Received Fee', '1', '', '', '16-05-05', '', ''),
+(54, 20, '5000', 'Admission Fee', '1', NULL, 'ghgg', '16-05-06', '', '');
 
 -- --------------------------------------------------------
 

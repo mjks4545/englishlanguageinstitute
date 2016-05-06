@@ -27,7 +27,7 @@ class AccountSection extends CI_Controller {
         $this->db->select('*');
         $this->db->from('student');
         $this->db->join('users','users.u_id = student.fkuser_id');
-        $this->db->join('courses','courses.fkuser_id = student.fkuser_id');
+        $this->db->join('courses','courses.fkstudent_id = student.s_id');
         $this->db->join('course_sub_category', 'course_sub_category.course_c_s_id = courses.category_subject');
         $this->db->where('student.s_id',$id);
        
@@ -140,12 +140,28 @@ class AccountSection extends CI_Controller {
         $this->db->where('tobepaid_or_paid_fee','1');
         $query = $this->db->get('payment');
         $result['payment'] = $query->result();
+//        
+        $this->db->where('tobepaid_or_paid_fee','1');  
+        $this->db->where('`created_at` >= DATE_SUB(CURDATE(), INTERVAL 6 DAY)');
+        $query = $this->db->get('payment');
+        $result['payment_week'] = $query->result();
+        
+        $this->db->where('`created_at` >= DATE_SUB(CURDATE(), INTERVAL 3 DAY)');
+        $query = $this->db->get('expenses');
+        $result['expenses_week'] = $query->result();
+        
+//        $this->db->where('`created_at` >= DATE_SUB(CURDATE(), INTERVAL 30 DAY)');
+//        $query = $this->db->get('payment');
+//        $result['payment_month'] = $query->result();
+//        
+//        $this->db->where('`created_at` >= DATE_SUB(CURDATE(), INTERVAL 30 DAY)');
+//        $query = $this->db->get('expenses');
+//        $result['expenses_month'] = $query->result();
         
         
-//        echo '<pre>';
-//        echo $total_am;
-//        //print_r($result);
-//        die();
+        echo '<pre>';
+        print_r($result);
+        die();
 
         $this->load->view('include/header');
         $this->load->view('include/sidebar');

@@ -104,13 +104,27 @@
                             <th class="text-center" data-sortable="true"><b>Weekly Revenue</b></th>
                         </tr>
                         </thead>
-                       
-        
+                        <?php 
+                        
+                            $total_expense_weekly = 0;
+                            $total_income_amount_weekly = 0;
+                           
+                            foreach( $expenses_week as $expense_w){
+                                $total_expense_weekly += $expense_w->item_amount;
+                                
+                            }
+                            
+                            foreach( $payment_week as $payment_w){
+                              $total_income_amount_weekly += $payment_w->amount;
+                            } 
+                            $revenue = $total_income_amount_weekly - $total_expense_weekly;
+                           
+                        ?>                        
                         <tbody>
                         
                         <tr>
-                            <td class="text-center"><?=$total_am?></td>
-                            <td class="text-center"><?=$amm?></td>
+                            <td class="text-center"><?=$total_income_amount_weekly?></td>
+                            <td class="text-center"><?=$total_expense_weekly?></td>
                             <td class="text-center"><?=$revenue?></td>
                         </tr>
                       
