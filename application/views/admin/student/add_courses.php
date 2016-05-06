@@ -20,7 +20,7 @@
                 <div class="panel-body">
 
                     <form role="form" method="post" action="<?= site_url()?>admin/create_more_courses_after_post">
-                        <div class="row" style="position: relative; left: 200px;">
+                        <div class="row">
                             
                             <div class="row">
                                  <div class="form-group col-md-6">
@@ -33,9 +33,7 @@
                                         <?php } ?>
                                    </select>
                                 </div>
-                            </div>
-                            
-                            <div class="row">
+                           
                                 <div class="form-group col-md-6">
                                     <label>Course Category</label>
                                     <select  name="course_category" id="subcategory_dropdown" class="form-control" style="background:#444D53; color:white;">
@@ -52,6 +50,20 @@
 
                                      </select>
                                  </div>
+                                 <div class="form-group col-md-6">
+                                    <label>Course Duration</label>
+                                        <input type="text" name="course_duration" style="color: white" class="form-control" placeholder="Course Duration" required>
+                                  </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                    <label>Started Date</label>
+                                        <input type="date"  name="starting_date" style="color: white" class="form-control" placeholder="Starting Date" required>
+                                 </div>
+                                 <div class="form-group col-md-6">
+                                    <label>Ending Date</label>
+                                       <input type="date"  name="completion_date" style="color: white" class="form-control" placeholder="Completion Date" required>
+                                  </div>
                             </div>
                            
                             

@@ -72,18 +72,28 @@
                             <th class="text-center" data-sortable="true"><b>Daily Revenue</b></th>
                         </tr>
                         </thead>
-                        <?php 
-                            $total_am = 0;
-                            foreach( $payment as $payment){
-                            $total_am += $payment->amount;} 
-                            $revenue = $total_am - $amm;
-                        ?>
+                       <?php 
+                        
+                            $total_expense_daily = 0;
+                            $total_income_amount_daily = 0;
+                           
+                            foreach( $expenses_day as $expense_d){
+                                $total_expense_daily += $expense_d->item_amount;
+                                
+                            }
+                            
+                            foreach( $payment_day as $payment_d){
+                              $total_income_amount_daily += $payment_d->amount;
+                            } 
+                            $revenue = $total_income_amount_daily - $total_expense_daily;
+                           
+                        ?>          
         
                         <tbody>
                         
                         <tr>
-                            <td class="text-center"><?=$total_am?></td>
-                            <td class="text-center"><?=$amm?></td>
+                            <td class="text-center"><?=$total_income_amount_daily?></td>
+                            <td class="text-center"><?=$total_expense_daily?></td>
                             <td class="text-center"><?=$revenue?></td>
                         </tr>
                       
@@ -148,7 +158,7 @@
                         <tbody>
                         
                         <tr>
-                            <td class="text-center"><?=$total_am?></td>
+                            <td class="text-center"></td>
                             <td class="text-center"><?=$amm?></td>
                             <td class="text-center"><?=$revenue?></td>
                         </tr>
@@ -175,7 +185,7 @@
                         <tbody>
                         
                         <tr>
-                            <td class="text-center"><?=$total_am?></td>
+                            <td class="text-center"></td>
                             <td class="text-center"><?=$amm?></td>
                             <td class="text-center"><?=$revenue?></td>
                         </tr>

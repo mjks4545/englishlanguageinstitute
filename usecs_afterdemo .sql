@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 06, 2016 at 03:17 PM
+-- Generation Time: May 06, 2016 at 05:21 PM
 -- Server version: 5.6.16
 -- PHP Version: 5.5.9
 
@@ -47987,7 +47987,7 @@ CREATE TABLE IF NOT EXISTS `courses` (
   `created_by` varchar(255) NOT NULL,
   `description` varchar(255) NOT NULL,
   PRIMARY KEY (`c_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=22 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=23 ;
 
 --
 -- Dumping data for table `courses`
@@ -47999,7 +47999,8 @@ INSERT INTO `courses` (`c_id`, `fkstudent_id`, `course_name`, `course_category`,
 (18, 19, '1', '1', '1', '12', '05/18/2016', '05/28/2016', '16-05-03', '', '', ''),
 (19, 20, '1', '1', '1', '30 days', '05/10/2016', '05/28/2016', '16-05-03', '', '', ''),
 (20, 21, '1', '1', '1', '30 days', '05/17/2016', '05/28/2016', '16-05-03', '', '', ''),
-(21, 22, '1', '3', '4', '30 days', '2016-12-31', '2017-01-31', '16-05-05', '', '', '');
+(21, 22, '1', '3', '4', '30 days', '2016-12-31', '2017-01-31', '16-05-05', '', '', ''),
+(22, 17, '9', '22', '71', '', '', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -48177,7 +48178,7 @@ CREATE TABLE IF NOT EXISTS `expenses` (
   `created_at` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `updated_at` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`expense_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=28 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=30 ;
 
 --
 -- Dumping data for table `expenses`
@@ -48188,12 +48189,14 @@ INSERT INTO `expenses` (`expense_id`, `item_name`, `v_number`, `item_amount`, `c
 (9, 'Starter Series', '4557', '100', '16-04-21', ''),
 (10, 'Information Technology', '4559', '100', '16-04-22', ''),
 (11, 'Certificate Fee of IT/EL', '4560', '200', '16-04-23', ''),
-(22, 'Starter Series', '555', '200', '16-04-24', ''),
-(23, 'something', '', '100', '16-04-25', ''),
-(24, 'shiraz to ali ', '', '200', '16-04-26', ''),
-(25, 'Starter Series', '23164', '45', '16-04-27', ''),
-(26, 'Starter Series', '23164', '45', '16-04-28', ''),
-(27, 'Starter Series', '23164', '45', '16-04-29', '');
+(22, 'Starter Series', '555', '200', '16-04-29', ''),
+(23, 'something', '', '100', '16-04-30', ''),
+(24, 'shiraz to ali ', '', '200', '16-05-01', ''),
+(25, 'Starter Series', '23164', '45', '16-05-02', ''),
+(26, 'Starter Series', '23164', '45', '16-05-03', ''),
+(27, 'Starter Series', '23164', '45', '16-05-05', ''),
+(28, 'Starter Series', '23164', '45', '16-05-05', ''),
+(29, 'Starter Series', '23164', '45', '16-05-06', '');
 
 -- --------------------------------------------------------
 

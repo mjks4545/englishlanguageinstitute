@@ -140,13 +140,23 @@ class AccountSection extends CI_Controller {
         $this->db->where('tobepaid_or_paid_fee','1');
         $query = $this->db->get('payment');
         $result['payment'] = $query->result();
-//        
+        
+        
+        $this->db->where('`created_at`',mdate("%y-%m-%d"));
+        $query = $this->db->get('payment');
+        $result['payment_day'] = $query->result();
+        
+        $this->db->where('`created_at`',mdate("%y-%m-%d"));
+        $query = $this->db->get('expenses');
+        $result['expenses_day'] = $query->result();
+        
+             
         $this->db->where('tobepaid_or_paid_fee','1');  
-        $this->db->where('`created_at` >= DATE_SUB(CURDATE(), INTERVAL 6 DAY)');
+        $this->db->where('created_at BETWEEN DATE_SUB(NOW(), INTERVAL 7 DAY) AND NOW()');
         $query = $this->db->get('payment');
         $result['payment_week'] = $query->result();
         
-        $this->db->where('`created_at` >= DATE_SUB(CURDATE(), INTERVAL 3 DAY)');
+        $this->db->where('created_at BETWEEN DATE_SUB(NOW(), INTERVAL 7 DAY) AND NOW()');
         $query = $this->db->get('expenses');
         $result['expenses_week'] = $query->result();
         
@@ -159,9 +169,9 @@ class AccountSection extends CI_Controller {
 //        $result['expenses_month'] = $query->result();
         
         
-        echo '<pre>';
-        print_r($result);
-        die();
+//        echo '<pre>';
+//        print_r($result);
+//        die();
 
         $this->load->view('include/header');
         $this->load->view('include/sidebar');
