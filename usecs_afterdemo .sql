@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 06, 2016 at 05:21 PM
+-- Generation Time: May 07, 2016 at 10:12 AM
 -- Server version: 5.6.16
 -- PHP Version: 5.5.9
 
@@ -47987,7 +47987,7 @@ CREATE TABLE IF NOT EXISTS `courses` (
   `created_by` varchar(255) NOT NULL,
   `description` varchar(255) NOT NULL,
   PRIMARY KEY (`c_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=23 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=24 ;
 
 --
 -- Dumping data for table `courses`
@@ -48000,7 +48000,7 @@ INSERT INTO `courses` (`c_id`, `fkstudent_id`, `course_name`, `course_category`,
 (19, 20, '1', '1', '1', '30 days', '05/10/2016', '05/28/2016', '16-05-03', '', '', ''),
 (20, 21, '1', '1', '1', '30 days', '05/17/2016', '05/28/2016', '16-05-03', '', '', ''),
 (21, 22, '1', '3', '4', '30 days', '2016-12-31', '2017-01-31', '16-05-05', '', '', ''),
-(22, 17, '9', '22', '71', '', '', '', '', '', '', '');
+(23, 18, '9', '22', '71', '30 days', '2016-05-07', '2016-06-07', '16-05-07', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -48178,7 +48178,7 @@ CREATE TABLE IF NOT EXISTS `expenses` (
   `created_at` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `updated_at` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`expense_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=30 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=31 ;
 
 --
 -- Dumping data for table `expenses`
@@ -48196,7 +48196,8 @@ INSERT INTO `expenses` (`expense_id`, `item_name`, `v_number`, `item_amount`, `c
 (26, 'Starter Series', '23164', '45', '16-05-03', ''),
 (27, 'Starter Series', '23164', '45', '16-05-05', ''),
 (28, 'Starter Series', '23164', '45', '16-05-05', ''),
-(29, 'Starter Series', '23164', '45', '16-05-06', '');
+(29, 'Starter Series', '23164', '45', '16-05-06', ''),
+(30, 'Tony to mike', '', '1500', '16-05-07', '');
 
 -- --------------------------------------------------------
 
@@ -48295,7 +48296,7 @@ CREATE TABLE IF NOT EXISTS `payment` (
   `updated_at` varchar(255) NOT NULL,
   `created_by` varchar(255) NOT NULL,
   PRIMARY KEY (`p_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=55 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=58 ;
 
 --
 -- Dumping data for table `payment`
@@ -48339,7 +48340,10 @@ INSERT INTO `payment` (`p_id`, `fkstudent_id`, `amount`, `reason`, `tobepaid_or_
 (51, 22, '4500', 'Admission Fee', '0', '', '', '16-05-05', '', ''),
 (52, 22, '5500', 'Monthly Fee', '0', '', '', '16-05-05', '', ''),
 (53, 22, '5000', 'Received Fee', '1', '', '', '16-05-05', '', ''),
-(54, 20, '5000', 'Admission Fee', '1', NULL, 'ghgg', '16-05-06', '', '');
+(54, 20, '5000', 'Admission Fee', '1', NULL, 'ghgg', '16-05-06', '', ''),
+(55, 22, '2500', 'Balance', '1', NULL, 'remainig', '16-05-07', '', ''),
+(56, 18, '6000', 'Admission Fee', '0', '', '', '16-05-07', '', ''),
+(57, 18, '4000', 'Monthly Fee', '0', '', '', '16-05-07', '', '');
 
 -- --------------------------------------------------------
 

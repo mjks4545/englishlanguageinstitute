@@ -29,7 +29,17 @@ class Admin extends CI_Controller {
     {
         $query  = $this->db->get('courses_added');
 	$result['result'] = $query->result();
+        
+        $this->db->where('s_id',$id);
+        $query  = $this->db->get('student');
+	$result['result_1'] = $query->result();
+        
         $result['id']     = $id;
+//        
+//        echo '<pre>';
+//        print_r($result);
+//        die();
+        
         
         $this->load->view('include/header');
         $this->load->view('include/sidebar');
@@ -39,15 +49,30 @@ class Admin extends CI_Controller {
     
 // -------------------------------------------------------------------------
     
-    public function create_more_courses_after_post( $id = null )
+    public function create_more_courses_after_post( )
     {
         $course_name   = $this->input->post('courses'); 
         $category_name = $this->input->post('course_category');
         $subject_name  = $this->input->post('course_title');
+        $course_duration   = $this->input->post('course_duration'); 
+        $starting_date = $this->input->post('starting_date');
+        $ending_date  = $this->input->post('completion_date');
+        $admission_fee  = $this->input->post('admission_fee');
+        $monthly_fee  = $this->input->post('monthly_fee');
+        $tobepaid_or_paidfee = $this->input->post('tobepaid_or_paidfee');
+        $entry_against = $this->input->post('entry_against');
+        $description = $this->input->post('description');
+        $ss_id = $this->input->post('ss_id');
+        $created_date = mdate("%y-%m-%d");
         
+        $this->db->where('s_id',$ss_id);
         $query  = $this->db->get('student');
 	$result['result'] = $query->result();
-        $fkstudent_id = $result['result'][0]->s_id;
+        $fkstudent_id = $ss_id;
+        
+//        echo '<pre>';
+//        print_r($result);
+//        die();
         
         $insert_courses_table = $this->db->insert('courses',
         [
@@ -55,7 +80,52 @@ class Admin extends CI_Controller {
             'course_name'       => $course_name,
             'course_category'   => $category_name,
             'category_subject'  => $subject_name,
+            'course_duration'   => $course_duration,
+            'starting_date'     => $starting_date,
+            'ending_date'       => $ending_date,
+            'created_at'        => $created_date
         ]);
+         if(!empty($admission_fee)){
+            
+            $reason_admission = 'Admission Fee';
+            
+        }if(!empty ($monthly_fee)) {
+            
+            $reason_monthly = 'Monthly Fee';
+            
+        }        
+        if(empty($tobepaid_or_paidfee)){
+            
+            $tobepaid_or_paidfee_admission = 0;
+            
+        }if (empty($tobepaid_or_paidfee)) {
+            
+            $tobepaid_or_paidfee_monthly = 0;
+            
+        }
+        $insert_payment_table = $this->db->insert('payment',
+            [
+                'fkstudent_id'           => $fkstudent_id,
+                'amount'                 => $admission_fee,
+                'reason'                 => $reason_admission,
+                'tobepaid_or_paid_fee'   => $tobepaid_or_paidfee_admission,
+                'entry_against'          => $entry_against,
+                'description'            => $description,
+                'created_at'             => $created_date
+            ]
+        );
+        $insert_payment_table = $this->db->insert('payment',
+            [
+                'fkstudent_id'           => $fkstudent_id,
+                'amount'                 => $monthly_fee,
+                'reason'                 => $reason_monthly,
+                'tobepaid_or_paid_fee'   => $tobepaid_or_paidfee_monthly,
+                'entry_against'          => $entry_against,
+                'description'            => $description,
+                'created_at'             => $created_date
+            ]
+        );
+       
         
         redirect(site_url().'admin/student_view');
     }
@@ -85,15 +155,15 @@ class Admin extends CI_Controller {
         $this->db->select('*');
         $this->db->from('student');
         $this->db->join('users','users.u_id = student.fkuser_id');
-        $this->db->join('courses','courses.fkstudent_id = student.s_id');
-        $this->db->join('courses_added','courses_added.course_id = courses.course_name');
-        $this->db->join('courses_category','courses_category.course_c_id = courses.course_category');
-        $this->db->join('course_sub_category','course_sub_category.course_c_s_id = courses.category_subject');
+//        $this->db->join('courses','courses.fkstudent_id = student.s_id');
+//        $this->db->join('courses_added','courses_added.course_id = courses.course_name');
+//        $this->db->join('courses_category','courses_category.course_c_id = courses.course_category');
+//        $this->db->join('course_sub_category','course_sub_category.course_c_s_id = courses.category_subject');
         $query = $this->db->get();
         $result['result'] = $query->result();
-        
+//        
 //        echo '<pre>';
-//        print_r( $result['result'] );
+//        print_r($result);
 //        echo '</pre>';
 //        die();
 

@@ -154,12 +154,27 @@
                             <th class="text-center" data-sortable="true"><b>Monthly Revenue</b></th>
                         </tr>
                         </thead>
-                       
+                       <?php 
+                        
+                            $total_expense_monthly = 0;
+                            $total_income_amount_monthly = 0;
+                           
+                            foreach( $expenses_month as $expense_m){
+                                $total_expense_monthly += $expense_m->item_amount;
+                                
+                            }
+                            
+                            foreach( $payment_month as $payment_m){
+                              $total_income_amount_monthly += $payment_m->amount;
+                            } 
+                            $revenue = $total_income_amount_monthly - $total_expense_monthly;
+                           
+                        ?>        
                         <tbody>
                         
                         <tr>
-                            <td class="text-center"></td>
-                            <td class="text-center"><?=$amm?></td>
+                            <td class="text-center"><?=$total_income_amount_monthly?></td>
+                            <td class="text-center"><?=$total_expense_monthly?></td>
                             <td class="text-center"><?=$revenue?></td>
                         </tr>
                       
@@ -180,13 +195,27 @@
                             <th class="text-center" data-sortable="true"><b>Yearly Revenue</b></th>
                         </tr>
                         </thead>
-                       
-        
+                         <?php 
+                        
+                            $total_expense_yearly = 0;
+                            $total_income_amount_yearly = 0;
+                           
+                            foreach( $expenses_year as $expense_y){
+                                $total_expense_yearly += $expense_y->item_amount;
+                                
+                            }
+                            
+                            foreach( $payment_year as $payment_y){
+                              $total_income_amount_yearly += $payment_y->amount;
+                            } 
+                            $revenue = $total_income_amount_yearly - $total_expense_yearly;
+                           
+                        ?>      
                         <tbody>
                         
                         <tr>
-                            <td class="text-center"></td>
-                            <td class="text-center"><?=$amm?></td>
+                            <td class="text-center"><?=$total_income_amount_yearly?></td>
+                            <td class="text-center"><?=$total_expense_yearly?></td>
                             <td class="text-center"><?=$revenue?></td>
                         </tr>
                       

@@ -11,7 +11,7 @@
             <h1 class="page-header">Add new Course</h1>
         </div>
     </div><!--/.row-->
-    
+   
     
     <div class="row">
         <div class="col-lg-12">
@@ -26,6 +26,7 @@
                                  <div class="form-group col-md-6">
                                     <label>Course Title</label>
                                     <input type="hidden" name="id" id="id" value="<?=$id?>">
+                                    <input type="hidden" name="ss_id" id="id" value="<?=$result_1[0]->s_id?>">
                                     <select  name="courses"  id="coursename_dropdown" class="form-control" style="background:#444D53; color:white;">
                                          <option>Select Courses</option>
                                         <?php foreach ($result as $course){ ?>
@@ -65,6 +66,19 @@
                                        <input type="date"  name="completion_date" style="color: white" class="form-control" placeholder="Completion Date" required>
                                   </div>
                             </div>
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                    <label>Admission Fee</label>
+                                    <input type="text" name="admission_fee" style="color: white" class="form-control" placeholder="Addmission Fee" required>
+                                 </div>
+                                 <div class="form-group col-md-6">
+                                    <label>Monthly Fee</label>
+                                    <input type="text" name="monthly_fee" style="color: white" class="form-control" placeholder="Monthly Fee" required>
+                                  </div>
+                            </div>
+                            <input type="hidden" name="tobepaid_or_paidfee" style="color: white" class="form-control">
+                            <input type="hidden" name="entry_against" style="color: white" class="form-control">
+                            <input type="hidden" name="description" style="color: white" class="form-control">
                            
                             
                             <div class="row">

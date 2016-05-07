@@ -29,8 +29,8 @@
                             <th  data-sortable="true"><b>Father Name</b></th>
                             <th  data-sortable="true"><b>Contact</b></th>
                             <th  data-sortable="true"><b>Email</b></th>
-                            <th  data-sortable="true"><b>Course</b></th>
-                            <th  data-sortable="true"><b>Study In</b></th>
+<!--                            <th  data-sortable="true"><b>Course</b></th>
+                            <th  data-sortable="true"><b>Study In</b></th>-->
                             <th  data-sortable="true"><b>Age</b></th>
                             <th  data-sortable="true"><b>Address</b></th>
                             <th  colspan="1" class="text-center"><b>Actions</b></th>
@@ -44,8 +44,8 @@
                             <td><?=$array->f_name?></td>
                             <td><?=$array->contact?></td>
                             <td><?=$array->email?></td>
-                            <td><?=$array->course_title?></td>
-                            <td><?=$array->subject_title?></td>
+<!--                            <td><?=$array->course_title?></td>
+                            <td><?=$array->subject_title?></td>-->
                             <td><?=$array->age?></td>
                             <td><?=$array->address?></td>
                              <td>

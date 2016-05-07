@@ -141,7 +141,7 @@ class AccountSection extends CI_Controller {
         $query = $this->db->get('payment');
         $result['payment'] = $query->result();
         
-        
+        /* Find Daily Income/Expense */
         $this->db->where('`created_at`',mdate("%y-%m-%d"));
         $query = $this->db->get('payment');
         $result['payment_day'] = $query->result();
@@ -150,7 +150,7 @@ class AccountSection extends CI_Controller {
         $query = $this->db->get('expenses');
         $result['expenses_day'] = $query->result();
         
-             
+        /* Find Weekly Income/Expense */     
         $this->db->where('tobepaid_or_paid_fee','1');  
         $this->db->where('created_at BETWEEN DATE_SUB(NOW(), INTERVAL 7 DAY) AND NOW()');
         $query = $this->db->get('payment');
@@ -160,15 +160,25 @@ class AccountSection extends CI_Controller {
         $query = $this->db->get('expenses');
         $result['expenses_week'] = $query->result();
         
-//        $this->db->where('`created_at` >= DATE_SUB(CURDATE(), INTERVAL 30 DAY)');
-//        $query = $this->db->get('payment');
-//        $result['payment_month'] = $query->result();
-//        
-//        $this->db->where('`created_at` >= DATE_SUB(CURDATE(), INTERVAL 30 DAY)');
-//        $query = $this->db->get('expenses');
-//        $result['expenses_month'] = $query->result();
+        /* Find Monthly Income/Expense */
+        $this->db->where('`created_at` >= DATE_SUB(CURDATE(), INTERVAL 1 MONTH)');
+        $query = $this->db->get('payment');
+        $result['payment_month'] = $query->result();
         
+        $this->db->where('`created_at` >= DATE_SUB(CURDATE(), INTERVAL 1 MONTH)');
+        $query = $this->db->get('expenses');
+        $result['expenses_month'] = $query->result();
         
+
+        /* Find Yearly Income/Expense */
+        $this->db->where('`created_at` >= DATE_SUB(CURDATE(), INTERVAL 1 YEAR)');
+        $query = $this->db->get('payment');
+        $result['payment_year'] = $query->result();
+        
+        $this->db->where('`created_at` >= DATE_SUB(CURDATE(), INTERVAL 1 YEAR)');
+        $query = $this->db->get('expenses');
+        $result['expenses_year'] = $query->result();
+
 //        echo '<pre>';
 //        print_r($result);
 //        die();
