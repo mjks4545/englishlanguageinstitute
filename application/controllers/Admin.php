@@ -56,7 +56,14 @@ class Admin extends CI_Controller {
         $subject_name  = $this->input->post('course_title');
         $course_duration   = $this->input->post('course_duration'); 
         $starting_date = $this->input->post('starting_date');
+        $starting_date = explode("-",$starting_date);
+        $starting_date[0] = substr( $starting_date[0], 2 );
+        $starting_date = $starting_date[1] . '-' . $starting_date[2] . '-' . $starting_date[0];
+       
         $ending_date  = $this->input->post('completion_date');
+        $ending_date = explode("-",$ending_date);
+        $ending_date[0] = substr( $ending_date[0], 2 );
+        $ending_date = $ending_date[1] . '-' . $ending_date[2] . '-' . $ending_date[0];
         $admission_fee  = $this->input->post('admission_fee');
         $monthly_fee  = $this->input->post('monthly_fee');
         $tobepaid_or_paidfee = $this->input->post('tobepaid_or_paidfee');
@@ -132,6 +139,38 @@ class Admin extends CI_Controller {
 
     // -------------------------------------------------------------------------
     
+    public function student_coursedetails($id = null)
+    {
+        $this->db->select('*');
+        $this->db->from('courses');
+        $this->db->join('courses_added','courses_added.course_id = courses.course_name');
+        $this->db->join('courses_category','courses_category.course_c_id = courses.course_category');
+        $this->db->join('course_sub_category','course_sub_category.course_c_s_id = courses.category_subject');
+        $this->db->where('courses.fkstudent_id',$id);
+        
+        $query = $this->db->get();
+        $result['result'] = $query->result();
+        
+        $this->db->select('*');
+        $this->db->from('student');
+        $this->db->join('users','users.u_id = student.fkuser_id');
+        $this->db->where('student.s_id',$id);
+        
+        $query = $this->db->get();
+        $result_1 = $query->result();
+        $result['result_1'] = $result_1[0];
+
+        
+//        echo '<pre>';
+//        print_r($result);
+//        die();
+        $this->load->view('include/header');
+        $this->load->view('include/sidebar');
+        $this->load->view('admin/student/student_coursedetails',$result);
+        $this->load->view('include/footer');
+    }
+    // -------------------------------------------------------------------------
+    
     public function student_add()
     {
         $query  = $this->db->get('countries');
@@ -155,10 +194,6 @@ class Admin extends CI_Controller {
         $this->db->select('*');
         $this->db->from('student');
         $this->db->join('users','users.u_id = student.fkuser_id');
-//        $this->db->join('courses','courses.fkstudent_id = student.s_id');
-//        $this->db->join('courses_added','courses_added.course_id = courses.course_name');
-//        $this->db->join('courses_category','courses_category.course_c_id = courses.course_category');
-//        $this->db->join('course_sub_category','course_sub_category.course_c_s_id = courses.category_subject');
         $query = $this->db->get();
         $result['result'] = $query->result();
 //        
@@ -278,8 +313,16 @@ class Admin extends CI_Controller {
         $category_subject = $this->input->post('category_subject');
         $class_timing = $this->input->post('class_timing');
         $course_duration = $this->input->post('course_duration');
+        
         $course_starting = $this->input->post('starting_date');
+        $course_starting = explode("-",$course_starting);
+        $course_starting[0] = substr( $course_starting[0], 2 );
+        $course_starting = $course_starting[1] . '-' . $course_starting[2] . '-' . $course_starting[0];
+       
         $course_ending = $this->input->post('completion_date');
+        $course_ending = explode("-",$course_ending);
+        $course_ending[0] = substr( $course_ending[0], 2 );
+        $course_ending = $course_ending[1] . '-' . $course_ending[2] . '-' . $course_ending[0];
         
         $admission_fee = $this->input->post('admission_fee');
         $monthly_fee = $this->input->post('monthly_fee');

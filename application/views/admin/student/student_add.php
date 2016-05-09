@@ -141,6 +141,7 @@
                                     <label>Starting Date</label>
                                     <input type="date"  name="starting_date" style="color: white" class="form-control" placeholder="Starting Date" required>
                                 </div>
+                                
 
                             </div>
                             <div class="row">

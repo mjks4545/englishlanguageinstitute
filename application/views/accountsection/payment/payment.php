@@ -23,11 +23,12 @@
                     <form role="form" method="post" action="<?= site_url()?>accountsection/student_data">
                         <input type="hidden" name="student_id" value="">
                         <div class="row margin_left">
+                            <div class="col-md-1"></div>
                             <div class="form-group col-md-6">
                                 <label>Enter Registration Number</label>
                                 <input type="text" name="find_registration" style="color: white" class="form-control" placeholder="Enter Registration Number" >
                             </div>
-                             <div class=" col-md-4">
+                             <div class=" col-sm-4">
                                  <a href="<?= site_url() . 'accountsection/student_data'?>"style="position: relative;top: 25px;" type="submit" class="btn btn-primary col-sm-3">Submit</a>
                             </div>
                             

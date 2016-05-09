@@ -26,6 +26,10 @@
             margin-left: -80px;
 
         }
+        .horizontal_dotted_line{
+            border-bottom: 1px dotted ;
+            width: 900px;
+          }
         .panel_style{
             
             position: relative;
