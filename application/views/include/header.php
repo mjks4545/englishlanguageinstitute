@@ -8,8 +8,12 @@
     <link href="<?=base_url()?>public/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?=base_url()?>public/css/datepicker3.css" rel="stylesheet">
     <link href="<?=base_url()?>public/css/styles.css" rel="stylesheet">
+    <link href="<?=base_url()?>public/css/style_invoice.css" rel="stylesheet">
+    <link href="<?=base_url()?>public/css/print.css" rel="stylesheet">
     
     <script src="<?=base_url()?>public/js/jquery-1.10.2.js"></script>
+    <script src="<?=base_url()?>public/js/jquery-1.3.2.min.js"></script>
+    <script src="<?=base_url()?>public/js/example.js"></script>
     <script src="<?=base_url()?>public/js/jquery-ui.js"></script>
     
     <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>

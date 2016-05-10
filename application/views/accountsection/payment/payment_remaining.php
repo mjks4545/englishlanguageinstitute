@@ -56,7 +56,7 @@
                                 <option>Select option</option>
                                 <option value="Admission Fee">Admission Fee</option>
                                 <option value="Monthly Fee">Monthly Fee</option>
-                                <option value="Balance">Balance Fee</option>
+                                <option value="Balance Fee">Balance Fee</option>
                             </select>
                         </div>
                         </div>

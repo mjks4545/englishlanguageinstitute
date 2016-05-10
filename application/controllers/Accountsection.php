@@ -2,7 +2,8 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class AccountSection extends CI_Controller {
-
+    
+    public $class_local;
     public function account_index(){
         $this->load->view('include/header');
         $this->load->view('include/sidebar');
@@ -21,6 +22,29 @@ class AccountSection extends CI_Controller {
     }
 
     //--------------------------------------------------------------------------
+
+    public function payment_invoice( $id = null){
+        $this->db->select('*');
+        $this->db->from('student');
+        $this->db->join('users','users.u_id = student.fkuser_id');
+        $this->db->join('courses','courses.fkstudent_id = student.s_id');
+        $this->db->join('course_sub_category', 'course_sub_category.course_c_s_id = courses.category_subject');
+        $this->db->where('student.s_id',$id);
+                
+        $query = $this->db->get();
+        $result = $query->result();
+        $result['result'] = $result[0];
+       
+        $this->db->where('fkstudent_id', $result['result']->s_id);
+        $query = $this->db->get('payment');
+        $result['payment'] = $query->result();
+        
+        $this->load->view('accountsection/payment/payment_invoice',$result);
+
+        
+    }
+
+    //--------------------------------------------------------------------------
     
     public function studentpayment_details( $id = null ){
        
@@ -30,9 +54,7 @@ class AccountSection extends CI_Controller {
         $this->db->join('courses','courses.fkstudent_id = student.s_id');
         $this->db->join('course_sub_category', 'course_sub_category.course_c_s_id = courses.category_subject');
         $this->db->where('student.s_id',$id);
-       
-        
-        
+      
         $query = $this->db->get();
         $result = $query->result();
         $result['result'] = $result[0];
@@ -40,8 +62,7 @@ class AccountSection extends CI_Controller {
         $this->db->where('fkstudent_id', $result['result']->s_id);
         $query = $this->db->get('payment');
         $result['payment'] = $query->result();
-      
-      
+             
         $this->load->view('include/header');
         $this->load->view('include/sidebar');
         $this->load->view('accountsection/payment/studentpayment_details',$result);

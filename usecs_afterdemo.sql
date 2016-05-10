@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 09, 2016 at 05:04 PM
+-- Generation Time: May 10, 2016 at 12:18 PM
 -- Server version: 5.6.16
 -- PHP Version: 5.5.9
 
@@ -48299,7 +48299,7 @@ CREATE TABLE IF NOT EXISTS `payment` (
   `updated_at` varchar(255) NOT NULL,
   `created_by` varchar(255) NOT NULL,
   PRIMARY KEY (`p_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=66 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=69 ;
 
 --
 -- Dumping data for table `payment`
@@ -48354,7 +48354,10 @@ INSERT INTO `payment` (`p_id`, `fkstudent_id`, `amount`, `reason`, `tobepaid_or_
 (62, 23, 'asdf', 'Received Fee', '1', '', '', '16-05-09', '', ''),
 (63, 24, '6000', 'Admission Fee', '0', '', '', '16-05-09', '', ''),
 (64, 24, '4000', 'Monthly Fee', '0', '', '', '16-05-09', '', ''),
-(65, 24, '5000', 'Received Fee', '1', '', '', '16-05-09', '', '');
+(65, 24, '5000', 'Received Fee', '1', '', '', '16-05-09', '', ''),
+(66, 21, '200', 'Balance Fee', '1', NULL, 'jljlk', '16-05-10', '', ''),
+(67, 21, 'aas', 'Admission Fee', '1', NULL, 'as', '16-05-10', '', ''),
+(68, 21, '100', 'Admission Fee', '1', NULL, 'asas', '16-05-10', '', '');
 
 -- --------------------------------------------------------
 
