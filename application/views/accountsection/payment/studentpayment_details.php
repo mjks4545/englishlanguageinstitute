@@ -68,7 +68,7 @@
                                    <td class="text-center"><?= $remaining_amount?></td>
                                    <?php if ($remaining_amount > 0) {?>
                                    <td class="align-center" >
-                                       <button onclick="location.href='<?= site_url()?>accountsection/payment_invoice/<?= $result->s_id ?>'" type="button"  class="btn btn-primary btn-outline glyphicon glyphicon-print margin align-center"><b>&nbsp;Print Invoice</b></button>
+                                       <a href="<?= site_url()?>accountsection/payment_invoice/<?= $result->s_id ?>"type="button"  class="btn btn-primary btn-outline glyphicon glyphicon-print margin align-center"><b>&nbsp;Print Invoice</b></a>
                                        <button onclick="location.href='<?= site_url()?>accountsection/payment_remaining/<?= $result->s_id ?>'" type="button"  class="btn btn-primary btn-outline margin align-center"><b>Pay Dues</b></button>
 
                                    </td>

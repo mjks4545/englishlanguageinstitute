@@ -8,7 +8,7 @@
     <link href="<?=base_url()?>public/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?=base_url()?>public/css/datepicker3.css" rel="stylesheet">
     <link href="<?=base_url()?>public/css/styles.css" rel="stylesheet">
-    <link href="<?=base_url()?>public/css/style_invoice.css" rel="stylesheet">
+    <!-- <link href="<?=base_url()?>public/css/style_invoice.css" rel="stylesheet"> -->
     <link href="<?=base_url()?>public/css/print.css" rel="stylesheet">
     
     <script src="<?=base_url()?>public/js/jquery-1.10.2.js"></script>
