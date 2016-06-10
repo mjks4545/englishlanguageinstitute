@@ -8,13 +8,13 @@
     <link href="<?=base_url()?>public/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?=base_url()?>public/css/datepicker3.css" rel="stylesheet">
     <link href="<?=base_url()?>public/css/styles.css" rel="stylesheet">
-    <!-- <link href="<?=base_url()?>public/css/style_invoice.css" rel="stylesheet"> -->
-    <link href="<?=base_url()?>public/css/print.css" rel="stylesheet">
+   
     
     <script src="<?=base_url()?>public/js/jquery-1.10.2.js"></script>
     <script src="<?=base_url()?>public/js/jquery-1.3.2.min.js"></script>
     <script src="<?=base_url()?>public/js/example.js"></script>
     <script src="<?=base_url()?>public/js/jquery-ui.js"></script>
+      <script src="<?=base_url()?>public/js/validator.js"></script>
     
     <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
 
@@ -56,6 +56,12 @@
                 margin-top:10px;
 
 
+        }
+        .min-width-1{
+            min-width: 190px;
+        }
+        .min-width-2{
+            min-width: 175px;
         }
         .to1{
          margin-left: -85px;
@@ -131,7 +137,13 @@
                 <li class="dropdown">
 		   
                     <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
-                       Admin <!-- <i class="glyphicon glyphicon-envelope"></i>  <span class="label label-danger">2</span>-->
+                       <?php
+			    
+			    if( isset( $_SESSION['role_title'] ) ){
+				echo $_SESSION['role_title'];
+			    }
+		       
+		       ?> <!-- <i class="glyphicon glyphicon-envelope"></i>  <span class="label label-danger">2</span>-->
                     </a><!--
                     <ul class="dropdown-menu dropdown-messages">
                         <li>

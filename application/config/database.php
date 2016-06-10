@@ -77,9 +77,9 @@ $query_builder = TRUE;
 $db['default'] = array(
 	'dsn'	=> '',
 	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => '',
-	'database' => 'usecs_afterdemo',
+	'username' => 'uktradez_soft',
+	'password' => '_XghBW=ToT8f',
+	'database' => 'uktradez_soft',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

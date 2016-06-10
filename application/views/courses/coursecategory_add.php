@@ -21,10 +21,10 @@
                 <div class="panel-heading">Registration Form</div>
                 <div class="panel-body">
 
-                    <form role="form" method="post" action="<?= site_url()?>courses/create_coursecategory_registration_after_post">
+                    <form role="form" data-toggle="validator" method="post" action="<?= site_url()?>courses/create_coursecategory_registration_after_post">
                         <div class="row" style="position: relative; left: 200px;">
                             <div class="row">
-                                <div class="form-group col-md-6">
+                                <div class="form-group has-feedback col-md-6">
                                 <label>Courses</label>
                                 <select  name="course_title"  id="coursename_dropdown" class="form-control" style="background:#444D53; color:white;">
                                     <option value="#">Select Course</option>
@@ -32,12 +32,14 @@
                                         <option value="<?= $course->course_id;?>"><?= $course->course_title;?></option>
                                     <?php } ?>
                                  </select>
+                                <span class="help-block with-errors" style="margin-left:10px; "></span>
                             </div>
                             </div>
                             <div class="row ">
-                                   <div class="form-group col-md-6">
+                                   <div class="form-group has-feedback col-md-6">
                                         <label>Course Category</label>
                                         <input type="text" name="category_title" style="color: white" class="form-control" placeholder="Course Category" >
+                                        <span class="help-block with-errors" style="margin-left:10px; "></span>
                                     </div>
                                 </div>
                             

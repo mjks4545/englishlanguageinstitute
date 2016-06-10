@@ -1,5 +1,5 @@
-
 <?php
+
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Courses extends CI_Controller {
@@ -27,7 +27,7 @@ class Courses extends CI_Controller {
         $this->db->from('courses_category');
         $this->db->where('fk_course_id',$id);
         $query = $this->db->get();
-	$this->output->set_content_type('application_json');
+	//$this->output->set_content_type('application_json');
 	$this->output->set_output( json_encode([
 	    'result'   => 1,
 	    'success'  => 'The record is being sucess full inserted',
@@ -66,15 +66,10 @@ class Courses extends CI_Controller {
          $course_title = $this->input->post('course_title');
          $category_title = $this->input->post('category_title');
          $subject_title = $this->input->post('subject_title');
-         $subject_duration = $this->input->post('subject_duration');
-         $subject_fee = $this->input->post('subject_fee');
-         
          $insert_course_sub_category_table = $this->db->insert('course_sub_category',
                  [
                     'fk_course_c_id'  => $category_title,
                     'subject_title' => $subject_title,
-                    'subject_duration' => $subject_duration,
-                    'subject_fee' => $subject_fee,
                  ]);
          
         redirect(site_url() . 'courses/subject_add');         

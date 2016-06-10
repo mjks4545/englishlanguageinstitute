@@ -113,7 +113,7 @@
     };
 
     BootstrapTable.DEFAULTS = {
-        classes: 'table table-hover',
+        classes: 'table',
         height: undefined,
         undefinedText: '-',
         sortName: undefined,

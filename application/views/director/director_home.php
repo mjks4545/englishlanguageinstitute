@@ -80,18 +80,19 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-xs-offset-12 col-md-offset-6 col-lg-offset-3 col-xs-12 col-md-6 col-lg-3 col-no-gutter">
+            
+            <div class="col-xs-12 col-md-6 col-lg-3 col-no-gutter">
                 <div class="panel panel-teal panel-widget">
                     <div class="row no-padding">
                         <div class="col-sm-3 col-lg-5 widget-left">
-                            <em class="glyphicon glyphicon-folder-open glyphicon-l"></em>
+                            <em class="glyphicon glyphicon-user glyphicon-l"></em>
                         </div>
                         <div class="col-sm-9 col-lg-7 widget-right">
-                            <div class="large">Applications</div>
+                            <div class="large">Other Staff</div>
                            
                         </div>
                     </div>
-                    <a href="<?= site_url()?>applications/applications_views">
+                    <a href="<?= site_url()?>otherstaff/staff_index">
                         <div class="panel-footer">
                             <span class="pull-left text-info">Click Here To View Details</span>
                             <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -101,7 +102,6 @@
                     </a>
                 </div>
             </div>
-
             <div class="col-xs-12 col-md-6 col-lg-3 col-no-gutter">
                 <div class="panel panel-teal panel-widget">
                     <div class="row no-padding">

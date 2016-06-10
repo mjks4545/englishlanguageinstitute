@@ -146,11 +146,11 @@ var Events = function(){
     var country_select = function(){
 	$('#country').on('change',function(){
 	    $( '#province' ).html('<option>Select Province</option>');
-	    var href = window.location.href;
+	    var href = window.location.href;    
 	        href = href.replace('admin/teacher_add','');
 	        href = href.replace('admin/student_add','');
 	        href = href.replace('reception/visitor_add','');
-	    var url = href + '/fetch_per_select/fetch_country/' + $(this).val();
+	    var url = href + 'fetch_per_select/fetch_country/' + $(this).val();
 	    $.get( url , '', 
 		function( data ){
 		    var $output = Template.fetch_states( data['data'] , data['role'] );

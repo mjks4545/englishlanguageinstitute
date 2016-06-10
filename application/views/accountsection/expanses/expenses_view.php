@@ -9,58 +9,50 @@
 
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header"></h1>
+            <h1 class="page-header">Expenses Details</h1>
         </div>
 
     <div class="row">
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">Expenses Details
-                 <a href="<?= site_url()?>accountsection/expanses_add" type="button" style="position: relative;width: 170px;" class="btn btn-primary btn-outline margin  pull-right"><b>Add New Record</b></a>
+                 <a href="<?= site_url()?>expenses/add_expense" type="button" style="position: relative;width: 170px;" class="btn btn-primary btn-outline margin  pull-right"><b>Add New Record</b></a>
                  <a href="<?= site_url()?>accountsection/expanses_index" type="button" style="position: relative;width: 120px; left: 35px;" class="btn btn-primary btn-outline margin  pull-right"><b>Back</b></a>
                 </div>
                 <div class="panel-body">
                    <legend> <h2 style="text-align:center;">Expenses Report</h2></legend>
-                    <button class="btn btn-primary btn-outline margin pull-right col-sm-1"  type="button"><span class="glyphicon glyphicon-print"></span>Print</button>
-                    <table data-toggle="table"  data-show-refresh="true"  data-search="true" data-select-item-name="toolbar1" data-pagination="true" data-sort-name="name" data-sort-order="desc">
+                    <table data-toggle="table"  data-show-refresh="false"  data-search="true" data-select-item-name="toolbar1" data-pagination="true" data-sort-name="name" data-sort-order="desc">
                         <thead>
                           <tr>
-                             <th class="text-center"><b>S.No</b></th>
-                             <th class="text-center"><b>Description</b></th>
-                             <th class="text-center"><b>V.NO</b></th>
-                             <th class="text-center"><b>Amount</b></th>
-                             <th class="text-center"><b>Date</b></th>
+                             <th class="text-center"><b>Voucher Number</b></th>
+                             <th class="text-center"><b>Payment Date</b></th>
+                             <th class="text-center"><b>Cash Paid To</b></th>
+                             <th class="text-center"><b>Rupees</b></th>
+                             <th class="text-center"><b>Account Of</b></th>
+                             <th class="text-center"><b>Payment Mode</b></th>
+                             <th class="text-center"><b>Approved By</b></th>
                           </tr>
                          
                         </thead>
                             <tbody>
-                                <?php 
-                                    $amm = '';    
-                                    foreach ($result as $array) {?>
+                              <?php foreach ($result as $array) {?>
                                 <tr>
-                                  <td><?= $array->expense_id?></td>
-                                  <td><?= $array->item_name?></td>
-                                  <td><?= $array->v_number?></td>
-                                  <?php $amm += $array->item_amount; ?>
-                                  <td><?= $array->item_amount?></td>
-                                  <td><?= $array->created_at?></td>
+                                    <td><?= $array->voucher_number?></td>
+                                    <td><?= $array->payment_date?></td>
+                                    <td><?= $array->cash_paid_to?></td>
+                                    <td><?= $array->rupees?></td>
+                                    <td><?= $array->on_account_of?></td>
+                                    <td><?= $array->payment_mode?></td>
+                                    <td><?= $array->name?></td>
                                 </tr>
-                                
-                                <?php }?>
-                                <tr>
-                                    
-                                    <td ></td>
-                                    <td colspan="3" class="text-info text-center"><b>TOTAL</b></td>
-                                    <td colspan="3" ></td>
-                                    <td ><?=$amm?></td>
-                                    <td colspan="3"></td>
-                                    
-                                </tr>
+                              <?php }?>  
                             </tbody>
                                
                     </table>
-                    <!---------class record end----------------->
+                   
                 </div>
+                 <!---------class record end----------------->
+<!--                 
                 <h4 style="position: relative;text-align:center; top: 30px;"><b>Daily Income/Expense Details</b></h4>
                 <button class="btn btn-primary btn-outline margin pull-right col-sm-1" type="button"><span class="glyphicon glyphicon-print"></span>Print</button>
                 <div class="panel-body" style="position: relative;top: 25px;">
@@ -101,9 +93,9 @@
 
                     </table>
                 </div>
-                
+                -->
                  <!------------------------------------------------>
-                 <h4 style="position: relative;text-align:center; top: 30px;"><b>Weekly Income/Expense Details</b></h4>
+<!--                 <h4 style="position: relative;text-align:center; top: 30px;"><b>Weekly Income/Expense Details</b></h4>
                 <button class="btn btn-primary btn-outline margin pull-right col-sm-1" type="button"><span class="glyphicon glyphicon-print"></span>Print</button>
                 <div class="panel-body" style="position: relative;top: 25px;">
                     <table data-toggle="table" data-show-refresh="false" data-search="false" data-pagination="false" data-sort-name="false" data-sort-order="false">
@@ -141,9 +133,9 @@
                         </tbody>
 
                     </table>
-                </div>
+                </div>-->
                  <!-------------------------------------------------->
-                 <h4 style="position: relative;text-align:center; top: 30px;"><b>Monthly Income/Expense Details</b></h4>
+<!--                 <h4 style="position: relative;text-align:center; top: 30px;"><b>Monthly Income/Expense Details</b></h4>
                  <button class="btn btn-primary btn-outline margin pull-right col-sm-1" type="button"><span class="glyphicon glyphicon-print"></span>Print</button>
                  <div class="panel-body" style="position: relative;top: 25px;">
                     <table data-toggle="table" data-show-refresh="false" data-search="false" data-pagination="false" data-sort-name="false" data-sort-order="false">
@@ -181,10 +173,10 @@
                         </tbody>
 
                     </table>
-                </div>
+                </div>-->
                  <!----------------------------------------------->
                  
-                 <h4 style="position: relative;text-align:center; top: 30px;"><b>Yearly Income/Expense Details</b></h4>
+<!--                 <h4 style="position: relative;text-align:center; top: 30px;"><b>Yearly Income/Expense Details</b></h4>
                  <button class="btn btn-primary btn-outline margin pull-right col-sm-1" type="button"><span class="glyphicon glyphicon-print"></span>Print</button>
                  <div class="panel-body" style="position: relative;top: 25px;">
                     <table data-toggle="table" data-show-refresh="false" data-search="false" data-pagination="false" data-sort-name="false" data-sort-order="false">
@@ -222,7 +214,7 @@
                         </tbody>
 
                     </table>
-                </div>
+                </div>-->
                 
                     
             </div>
@@ -230,5 +222,6 @@
         </div>
 
     </div><!--/.row-->
+ </div><!--/.row-->
  
 </div>

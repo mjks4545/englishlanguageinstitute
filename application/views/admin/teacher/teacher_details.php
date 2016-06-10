@@ -18,7 +18,38 @@
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                     <a href="<?= site_url()?>admin/teacher_view" type="button" style="position: relative;width: 120px;" class="btn btn-primary btn-outline margin  pull-right"><b>Back</b></a> 
+                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Upload Image</button>
+                    <a href="<?= site_url()?>admin/teacher_view" type="button" style="position: relative;width: 120px;" class="btn btn-primary btn-outline margin  pull-right"><b>Back</b></a>
+                    <!-- for student img-->
+                    <!-- Modal -->
+                    <div id="myModal" class="modal fade" role="dialog">
+                        <div class="modal-dialog">
+
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title text-primary">Image Upload</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <div class="col-sm-10 col-xs-offset-1">
+                                            <form action="<?= site_url() ?>admin/img_upload/<?= $result->u_id ?>/<?=$result->t_id?>/tech" enctype="multipart/form-data" method="post">
+                                                <label class="text-primary">Image</label>
+                                                <input type="file" name="img" class="form-control" style="border:1px solid; " required>
+                                                <hr/>
+                                                <input type="submit" class="btn btn-primary pull-right" name="submit" value="Upload">
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- for student img-->
                 </div>
                 <div class="panel-body">
    
@@ -26,8 +57,11 @@
                            <div class="row">
                                 <div class="form-group col-md-3"></div>
                                 <div class="form-group col-md-2">
-                                    <img src="../../public/img/pic.jpg" class="img-circle" alt="my pic" width="180" height="180">
-                                </div>
+                                    <?php if($result->pic==''){ ?>
+                                        <img src="<?php echo site_url() ?>/public/user_img/user.jpg" class="img-circle"  alt="my pic" width="180" height="180">
+                                    <?php } else{ ?>
+                                        <img src="<?php echo site_url() ?>/public/user_img/<?=$result->pic?>" class="img-circle" alt="my pic" width="180" height="180">
+                                    <?php } ?>                                </div>
                                 <div class="form-group" style="margin-top: 80px; ">
                                    <label>Name :&nbsp;&nbsp; </label><?= $result->name?><br><br> 
                                    <label>Qualification:&nbsp;&nbsp; </label><?= $result->qualification?><br><br> 

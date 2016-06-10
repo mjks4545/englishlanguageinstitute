@@ -12,20 +12,19 @@
             <h1 class="page-header">Add new Course</h1>
         </div>
     </div><!--/.row-->
-    
-    
     <div class="row">
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">Registration Form</div>
                 <div class="panel-body">
 
-                    <form role="form" method="post" action="<?= site_url()?>courses/create_course_registration_after_post">
+                    <form role="form" data-toggle="validator" method="post"  action="<?= site_url()?>courses/create_course_registration_after_post">
                         <div class="row" style="position: relative; left: 200px;">  
                                 <div class="row ">
-                                   <div class="form-group col-md-6">
+                                   <div class="form-group has-feedback col-md-6">
                                         <label>Course Name</label>
-                                        <input type="text" name="course_title" style="color: white" class="form-control" placeholder="Course" >
+                                        <input type="text" name="course_title" minlength="3" maxlength="80" style="color: white" class="form-control" placeholder="Course" >
+                                        <span class="help-block with-errors" style="margin-left:10px; "></span>
                                     </div>
                                 </div>
                                 <div class="row">

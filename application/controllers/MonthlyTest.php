@@ -103,10 +103,19 @@ class MonthlyTest extends CI_Controller {
         $test_name      = $this->input->post('test_name');
         $test_month     = $this->input->post('test_month');
         $test_date      = $this->input->post('test_date');
-        $total_marks      = $this->input->post('total_marks');
+        $total_marks    = $this->input->post('total_marks');
         $subject_id     = $this->input->post('test_subject');
         $created_date   = mdate("%y-%m-%d");
         
+        $this->db->where('courses.category_subject', $subject_id);
+        $query  = $this->db->get('courses');
+	$result['result'] = $query->result();
+        
+//        echo '<pre>';
+//        print_r($result);
+//        die();
+
+        if(!empty($result )){
         $insert_monthlytest_table = $this->db->insert('monthly_test',
             [
                 'test_name'    => $test_name,
@@ -114,11 +123,13 @@ class MonthlyTest extends CI_Controller {
                 'test_date'    => $test_date,
                 'total_marks'  => $total_marks,
                 'subject_id'   => $subject_id,
-                'created_at'   => $created_date,
+                'test_created_at'   => $created_date,
             ]);
         
             redirect(site_url() . 'monthlytest/student_testview/'.$subject_id);
-        
+        }else{
+            redirect(site_url() . 'monthlytest/result_add');
+        }
     }
     //--------------------------------------------------------------------------
     
@@ -126,6 +137,7 @@ class MonthlyTest extends CI_Controller {
     {
        $this->db->select('*');
        $this->db->from('monthly_test');
+       $this->db->order_by("test_id", "desc");
        $this->db->join('course_sub_category', 'course_sub_category.course_c_s_id = monthly_test.subject_id');
        $query = $this->db->get();
        $result['result'] = $query->result();
@@ -225,7 +237,7 @@ class MonthlyTest extends CI_Controller {
 			'fktest_id'      => $test_id,
 			'ob_marks'       => $obtain_marks,
 			'percentage'     => $average,
-			'created_at'     => $created_date
+			'marks_created_at'     => $created_date
 		    ]
 		);
 	    }

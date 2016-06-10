@@ -49,10 +49,16 @@
                                 <td><?=$array->salary?></td>
                                 <td><?=$array->subject?></td>
                                 <td>
-                                    <a href="<?= site_url()?>admin/teacher_details/<?= $array->t_id ?>" type="button" class="btn btn-primary glyphicon glyphicon-edit btn-outline margin">View Details</a>
-                                    <a href="<?= site_url()?>admin/teacher_edit/<?= $array->t_id ?>" type="button" class="btn btn-primary glyphicon glyphicon-edit btn-outline margin"> Edit</a>
-                                    <a href="<?= site_url()?>admin/teacher_delete/<?= $array->t_id ?>/<?= $array->u_id ?>" type="button" class="delete-some-data btn btn-primary glyphicon glyphicon-trash btn-outline margin"> Delete</a>
-                                </td>
+                                    <div class="btn-group">
+                                    <button  data-toggle="dropdown" class="btn btn-primary dropdown-toggle btn-outline col-md-12 margin">Action <span class="caret"></span></button>
+                                    <div class="dropdown-menu min-width-2 " style="background:#444D53; color:white; text-decoration: none;">
+                                      <a class="dropdown-item btn-primary btn-outline margin" href="<?= site_url()?>admin/teachersalary_details/<?= $array->t_id ?>">Payment Details</a><br><hr>
+                                      <a class="dropdown-item btn-primary btn-outline margin" href="<?= site_url()?>admin/teacher_details/<?= $array->t_id ?>">View</a><br><hr>
+                                      <a class="dropdown-item btn-primary btn-outline margin" href="<?= site_url()?>admin/teacher_edit/<?= $array->t_id ?>">Edit</a><br><hr>
+                                      <a class="dropdown-item btn-primary btn-outline margin" href="<?= site_url()?>admin/teacher_delete/<?= $array->t_id ?>/<?= $array->u_id ?>">Delete</a><br>
+                                     
+                                    </div>
+                                </tr>   
                             </tr>
                         <?php } ?>
                         </tbody>

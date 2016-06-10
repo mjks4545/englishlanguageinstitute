@@ -20,10 +20,10 @@
                 <div class="panel-heading">Registration Form</div>
                 <div class="panel-body">
 
-                    <form role="form" method="post" action="<?= site_url()?>courses/create_subject_registration_after_post">
+                    <form role="form" method="post" data-toggle="validator" action="<?= site_url()?>courses/create_subject_registration_after_post">
                         <div class="row" style="position: relative; left: 200px;">  
                         <div class="row">
-                           <div class="form-group col-md-6">
+                           <div class="form-group has-feedback col-md-6">
                                 <label>Courses</label>
                                 <select  name="course_title"  id="coursename_dropdown" class="form-control" style="background:#444D53; color:white;">
                                     <option value="#">Select Course</option>
@@ -31,45 +31,38 @@
                                         <option value="<?= $course->course_id;?>"><?= $course->course_title;?></option>
                                     <?php } ?>
                                  </select>
+                              <span class="help-block with-errors" style="margin-left:10px; "></span>
                             </div>
-                            <div class="form-group col-md-6">
+                            <div class="form-group has-feedback col-md-6">
                                 <a href="<?= site_url()?>courses/course_add" <span class="glyphicon glyphicon-plus plus_position  " style="text-decoration: none;"></span></a>
+                                <span class="help-block with-errors" style="margin-left:10px; "></span>
                             </div>
                         </div>
 
                          <div class="row">
-                           <div class="form-group col-md-6">
+                           <div class="form-group has-feedback col-md-6">
                                 <label>Course Categories</label>
                                 <select  name="category_title"  id="subcategory_dropdown" class="form-control" style="background:#444D53; color:white;">
                                     <option value="#">Select Category</option>
                                  </select>
+                                <span class="help-block with-errors" style="margin-left:10px; "></span>
                             </div>
-                             <div class="form-group col-md-6">
+                             <div class="form-group has-feedback col-md-6">
                                 <a href="<?= site_url()?>courses/coursecategory_add" <span class="glyphicon glyphicon-plus plus_position " style="text-decoration: none;"></span></a>
+                                <span class="help-block with-errors" style="margin-left:10px; "></span>
                             </div>
 
                         </div>
 
-                         <div class="row">
-                           <div class="form-group col-md-6">
+                         <!--<div class="row">-->
+                           <div class="form-group has-feedback col-md-6">
                                 <label>Subject</label>
                                 <input type="text" name="subject_title" id="subjectname_dropdown" style="color: white" class="form-control" placeholder="Subject" >
+                               <span class="help-block with-errors" style="margin-left:10px; "></span>
                             </div>
-                        </div>
+                       <!-- </div>-->
 
-                        <div class="row">
-                           <div class="form-group col-md-6">
-                                <label>Subject Duration</label>
-                                <input type="text" name="subject_duration" id="subjectname_dropdown" style="color: white" class="form-control" placeholder="Subject Duration" >
-                            </div>
-                        </div>
-
-                        <div class="row">
-                           <div class="form-group col-md-6">
-                                <label>Subject Fee</label>
-                                <input type="text" name="subject_fee" id="subjectname_dropdown" style="color: white" class="form-control" placeholder="Subject Fee" >
-                            </div>
-                        </div>
+                       
 
                         <div class="row">
                             <div class=" col-md-12">

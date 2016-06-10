@@ -5,55 +5,29 @@
         </div>
     </form>
     <ul class="nav menu">
-        <li class="active"><a href="<?= site_url()?>home"><span class="glyphicon glyphicon-home"></span> Dashboard</a></li>
+	<?php 
+	    $role_check = $_SESSION['role'];
+	    switch ( $role_check ){
+		
+		case '1':
+		    $role = 'director/';
+		    break;
+		case '2':
+		    $role = 'chiefcounselor/';
+		    break;
+		case '3':
+		    $role = 'reception/';
+		    break;
+		case '4':
+		    $role = 'admin/';
+		    break;
+		default:
+		    $role = '';
+	    }
+	?>
+        <li class="active"><a href="<?=site_url() . $role ?>"><span class="glyphicon glyphicon-home"></span> Dashboard</a></li>
         <li class="parent ">
-            <a href="#">
-                <span class="glyphicon glyphicon-user"></span> Users <span data-toggle="collapse" href="#sub-item-1" class="icon pull-right"><em class="glyphicon glyphicon-s glyphicon-plus"></em></span>
-            </a>
-            <ul class="children collapse" id="sub-item-1">
-                <li>
-                    <a class="" href="<?= site_url()?>director">
-                        <span class="glyphicon glyphicon-user "></span> Director
-                    </a>
-                </li>
-                <li>
-                    <a  href="<?= site_url()?>reception">
-                        <span class="glyphicon glyphicon-user"></span> Receptionist
-                    </a>
-                </li>
-                <li>
-                    <a  href="<?= site_url()?>admin">
-                        <span class="glyphicon glyphicon-user"></span> Admin
-                    </a>
-                </li>
-                
-
-            </ul>
-            <a href="#">
-                <span class="glyphicon glyphicon-envelope "></span>Applications<span data-toggle="collapse" href="#sub-item-2" class="icon pull-right"><em class="glyphicon glyphicon-s glyphicon-plus"></em></span>
-            </a>
-            <ul class="children collapse" id="sub-item-2">
-                <li>
-                    <a  href="<?= site_url()?>applications/class_time_change">
-                        <span class="glyphicon glyphicon-share-alt"></span> Class Time Change
-                    </a>
-                </li>
-                <li>
-                    <a  href="<?= site_url()?>applications/freeze_up">
-                        <span class="glyphicon glyphicon-share-alt"></span> Freeze Up
-                    </a>
-                </li>
-                <li>
-                    <a  href="<?= site_url()?>applications/class_promotion">
-                        <span class="glyphicon glyphicon-share-alt"></span> Class Promotion
-                    </a>
-                </li>
-                 <li>
-                    <a  href="<?= site_url()?>applications/applications_views">
-                        <span class="glyphicon glyphicon-share-alt"></span> View Applications
-                    </a>
-                </li>
-            </ul>
+	    <?php if( $role_check == 1 || $role_check == 4 ){ ?>
              <a href="#">
                 <span class="glyphicon glyphicon-book"></span>Courses<span data-toggle="collapse" href="#sub-item-3" class="icon pull-right"><em class="glyphicon glyphicon-s glyphicon-plus"></em></span>
               </a>
@@ -76,20 +50,24 @@
                
             </ul>
         </li>
-           
         <li>
             <a href="<?= site_url()?>monthlytest/test_index">
                 <span class="glyphicon glyphicon-file"></span> Examination
             </a>
         </li>
-        
         <li>
             <a href="<?= site_url()?>accountsection/account_index">
                 <span class="glyphicon glyphicon-transfer"></span> Finance
             </a>
         </li>
         <li>
-            <a href="<?= site_url()?>home">
+            <a href="<?= site_url()?>reports/index">
+                <span class="glyphicon glyphicon-tasks"></span> Reports
+            </a>
+        </li>
+	<?php } ?>
+        <li>
+            <a href="<?= site_url()?>home/logout">
                 <span class="glyphicon glyphicon-user"></span> Logout
             </a>
         </li>

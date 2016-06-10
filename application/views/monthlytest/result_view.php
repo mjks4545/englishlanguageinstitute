@@ -15,7 +15,7 @@
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div  class="panel-heading">Result Record
-                     <a href="<?= site_url()?>admin/student_view" type="button" style="position: relative;width: 170px; " class="btn btn-primary btn-outline margin  pull-right"><b>Add New Record</b></a>
+                     <a href="<?= site_url()?>monthlytest/result_add" type="button" style="position: relative;width: 170px; " class="btn btn-primary btn-outline margin  pull-right"><b>Add New Record</b></a>
                      <a href="<?= site_url()?>monthlytest/test_index" type="button" style="position: relative;width: 120px;left: 35px; " class="btn btn-primary btn-outline margin  pull-right"><b>Back</b></a>
                 </div>
                 <div class="panel-body">

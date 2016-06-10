@@ -23,8 +23,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Student payment detail
                     <a href="<?= site_url()?>accountsection/payment" type="button" style="position: relative;width: 120px;" class="btn btn-primary btn-outline margin  pull-right"><b>Back</b></a>
-                   
-                
+                 
                 </div>
                
                 <div class="panel-body">
@@ -50,29 +49,28 @@
                                    <th class="text-center" data-sortable="true"><b>Total Amount</b></th>
                                    <th class="text-center" data-sortable="true"><b>Paid Amount</b></th>
                                    <th class="text-center" data-sortable="true"><b>Remaining Amount</b></th>
-                                   <?php if ($remaining_amount > 0) {?>
                                    <th class="text-center" data-sortable="true"><b>Action</b></th>
-                                   <?php }?>
                                </tr>
                                </thead>
                               
                                <tbody>
                                
                                <tr>
-                                   <td class="text-center"><?=$result->created_at?></td>
+                                   <td class="text-center"><?=$result->student_created_at?></td>
                                    <td class="text-center"><?=$result->name?></td>
                                    <td class="text-center"><?=$result->f_name?></td>
                                    <td class="text-center"><?=$result->subject_title?></td>
                                    <td class="text-center"><?=$fee_to_paid?></td>
                                    <td class="text-center"><?=$received_fee?></td>
                                    <td class="text-center"><?= $remaining_amount?></td>
-                                   <?php if ($remaining_amount > 0) {?>
+                                   
                                    <td class="align-center" >
-                                       <a href="<?= site_url()?>accountsection/payment_invoice/<?= $result->s_id ?>"type="button"  class="btn btn-primary btn-outline glyphicon glyphicon-print margin align-center"><b>&nbsp;Print Invoice</b></a>
-                                       <button onclick="location.href='<?= site_url()?>accountsection/payment_remaining/<?= $result->s_id ?>'" type="button"  class="btn btn-primary btn-outline margin align-center"><b>Pay Dues</b></button>
-
+                                       <button onclick="location.href='<?= site_url()?>accountsection/payment_invoice/<?= $result->s_id ?>'" type="button"  class="btn btn-primary btn-outline glyphicon glyphicon-print margin align-center"><b>&nbsp;Print Invoice</b></button>
+                                       <?php if ($remaining_amount > 0) {?>
+                                          <button onclick="location.href='<?= site_url()?>accountsection/payment_remaining/<?= $result->s_id ?>/<?=$result->name; ?>'" type="button"  class="btn btn-primary btn-outline margin align-center"><b>Pay Dues</b></button>
+                                       <?php }?>     
                                    </td>
-                                   <?php }?>
+                                   
                                </tr>
                                
                                </tbody>

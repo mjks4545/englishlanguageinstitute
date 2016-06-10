@@ -1,3 +1,8 @@
+<style>
+    .table-no-hover > tr :hover{
+        background-color:green !important;
+    }
+</style>
 <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
     <div class="row">
         <ol class="breadcrumb">
@@ -21,8 +26,8 @@
 
                    
                             <div class="panel-body">
-                                <form action="<?=  site_url()?>MonthlyTest/enter_student_marks/<?= $result[0]->test_id;?>" method="post" >
-				    <table data-toggle="table" data-show-refresh="true" data-search="true" data-select-item-name="toolbar1" data-pagination="true" data-sort-name="name" data-sort-order="desc">
+                                <form action="<?=  site_url()?>monthlytest/enter_student_marks/<?= $result[0]->test_id;?>" data-toggle="validator" method="post" >
+                                    <table id="table-hover" class="table-no-hover" data-toggle="table" data-show-refresh="true" data-search="true" data-select-item-name="toolbar1" data-pagination="true" data-sort-name="name" data-sort-order="desc">
 					<thead>
 					<tr>
 					    <th  data-sortable="true"><b>Student Id</b></th>
@@ -47,6 +52,7 @@
 					    <td><?=$array->total_marks?></td>
 					    <td><input type="hidden" name="student_id_<?=$i?>" value="<?=$array->fkstudent_id?>">
                                             <input type="text" name="obtain_marks_<?=$i?>" style="color: white" class="form-control col-sm-1" required></td>
+                                            <span class="help-block with-errors" style="margin-left:10px; "></span>
                                             <input type="text" class="hide" name="fktest_id" value="<?=$array->test_id?>">
                                             
 					</tr>

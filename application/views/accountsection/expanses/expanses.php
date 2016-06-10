@@ -18,12 +18,13 @@
                
                 <div class="panel-body">
 
-                    <form role="form" method="post" action="<?= site_url()?>accountsection/student_data">
+                    <form role="form" data-toggle="validator" method="post" action="<?= site_url()?>accountsection/student_data">
                         <input type="hidden" name="student_id" value="">
                         <div class="row margin_left">
-                            <div class="form-group col-md-6">
+                            <div class="form-group has-feedback col-md-6">
                                 <label>Enter Registration Number</label>
-                                <input type="text" name="find_registration" style="color: white" class="form-control" placeholder="Enter Registration Number" >
+                                <input type="text" name="find_registration" minlength="1" maxlength="15" pattern="/^\d+$/" style="color: white" class="form-control" placeholder="Enter Registration Number" >
+                                  <span class="help-block with-errors" style="margin-left:10px; "></span>
                             </div>
                              <div class=" col-md-4">
                                  <a href=""style="position: relative;top: 25px;" type="submit" class="btn btn-primary col-sm-3">Submit</a>

@@ -21,9 +21,9 @@
 	<div id="page-wrap">
          <div id="header" style="height: 30px;">STUDENT INVOICE</div>
 	  <div id="identity" style="position: relative; top: 10px;">
-            <p id="address">The University of Spoken English & Computer Courses</br> Phone: 091-2583467</p>
+            <p id="address">School Name</br> Phone: 0937-45687913</p>
              <div id="logo">
-                 <img src="../../public/img/logo.png" alt="mypic" width="190px" height="120px"/>
+                 <img src="../../public/img/invoice_logo.png" alt="mypic" width="190px" height="120px"/>
              </div>
 	  </div>
           <?php 
@@ -62,17 +62,17 @@
             </div>
             <table id="items" width="100%">
 	        <tr>
-                    <th width="20%;">Date</th>
-                    <th width="20%;">Class</th>
-                    <th colspan="2" width="40%;">Description</th>
-                    <th width="30%;">Amount</th>
+                    <th width="20%;" class="text-center">Date</th>
+                    <th width="20%;" class="text-center">Class</th>
+                    <th colspan="2" width="40%;" class="text-center">Description</th>
+                    <th width="30%;" class="text-center">Amount</th>
                 </tr>
 	
                     <tr class="item-row">
                         <td class="item-name " style="text-align: center"><?= mdate("%y-%m-%d");?></td>
                         <td class="description"style="text-align: center"><?= $result->subject_title?></td>
                         <td colspan="2"  class="cost" style="width:100%;text-align: center"></td>
-                        <td class="qty " style="position: relative;text-align: center"><?= $remaining_amount?></td>
+                        <td class="qty " style="position: relative;text-align: center"><?= $received_fee?></td>
                     </tr>
 	    
                     <tr>
@@ -96,6 +96,7 @@
 	    </table>
 		<div id="terms">
 		  <h5>NOTE</h5>Fee once paid is not refundable for detail study the terms and condition in the admission form.
+                  <div style="position: relative;left: 310px;bottom: 20px;"><button onclick="func()">print</button></div>
 		</div>
         
 		<div style="position: relative;top: 50px; left: 470px;">
@@ -108,9 +109,9 @@
     <div id="page-wrap">
          <div id="header"style="position: relative; height: 30px;top:20px; ">STUDENT INVOICE</div>
       <div id="identity"style="position: relative; top: 10px;">
-            <p id="address">The University of Spoken English & Computer Courses</br> Phone: 091-2583467</p>
+            <p id="address">School Name</br> Phone: 0937-245583467</p>
              <div id="logo">
-                 <img src="../../public/img/logo.png" alt="mypic" width="190px" height="120px"/>
+                 <img src="../../public/img/invoice_logo.png" alt="mypic" width="190px" height="120px"/>
              </div>
       </div>
           <?php 
@@ -149,17 +150,17 @@
             </div>
             <table id="items" width="100%">
             <tr>
-                    <th width="20%;">Date</th>
-                    <th width="20%;">Class</th>
-                    <th colspan="2" width="40%;">Description</th>
-                    <th width="30%;">Amount</th>
+                    <th width="20%;" class="text-center">Date</th>
+                    <th width="20%;" class="text-center">Class</th>
+                    <th colspan="2" width="40%;" class="text-center">Description</th>
+                    <th width="30%;" class="text-center">Amount</th>
                 </tr>
     
                     <tr class="item-row">
                         <td class="item-name " style="text-align: center"><?= mdate("%y-%m-%d");?></td>
                         <td class="description"style="text-align: center"><?= $result->subject_title?></td>
                         <td colspan="2"  class="cost" style="width:100%;text-align: center"></td>
-                        <td class="qty " style="position: relative;text-align: center"><?= $remaining_amount?></td>
+                        <td class="qty " style="position: relative;text-align: center"><?= $received_fee?></td>
                     </tr>
         
                     <tr>
@@ -182,11 +183,10 @@
             </tr>
         </table>
         <div id="terms">
-          <h5>NOTE</h5>Fee once paid is not refundable for detail study the terms and condition in the admission form.
+          <h5>NOTE</h5>Fee once paid is not refundable for detail study the terms and condition in the admission form. 
+          
         </div>
-         <div>
-             <button onclick="func()">print</button>
-         </div> 
+          
         <div style="position: relative;top: 50px; left: 470px;">
           <h5>Signature : </h5> <div style="position: relative;width: 30%;bottom: 20px;left: 65px; "><hr></div>
     </div>

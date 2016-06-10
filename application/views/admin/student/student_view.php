@@ -18,6 +18,7 @@
             <div class="panel panel-default">
                 <div  class="panel-heading">Students Record
                 <a href="<?= site_url()?>admin/student_add" type="button" style="position: relative;width: 170px; " class="btn btn-primary btn-outline margin  pull-right"><b>Add New Record</b></a>
+                <a href="<?= site_url()?>admin/view_balance" type="button" style="position: relative;width: 170px; " class="btn btn-primary btn-outline margin  pull-right"><b>View Balance</b></a>
                 <a href="<?= site_url()?>admin/index" type="button" style="position: relative;width: 120px;left: 35px; " class="btn btn-primary btn-outline margin  pull-right"><b>Back</b></a>
                 </div>
                 <div class="panel-body">
@@ -30,6 +31,7 @@
                             <th  data-sortable="true"><b>Contact</b></th>
                             <th  data-sortable="true"><b>Email</b></th>
                             <th  data-sortable="true"><b>Age</b></th>
+                            <th  data-sortable="true"><b>Profession</b></th>
                             <th  data-sortable="true"><b>Address</b></th>
                             <th class="text-center"><b>Actions</b></th>
                         </tr>
@@ -43,18 +45,20 @@
                             <td><?=$array->contact?></td>
                             <td><?=$array->email?></td>
                             <td><?=$array->age?></td>
+                            <td><?=$array->profession?></td>
                             <td><?=$array->address?></td>
                             <td>
-                                <a href="<?= site_url()?>admin/student_coursedetails/<?= $array->s_id?>" type="button" class="btn btn-primary glyphicon glyphicon-edit btn-outline margin">Course Details</a>
-                                  <div class="btn-group">
-                                     <button  data-toggle="dropdown" class="btn btn-primary dropdown-toggle btn-outline margin">Action <span class="caret"></span></button>
-                                    <div class="dropdown-menu " style="background:#444D53; color:white; text-decoration: none;">
-                                        <a class="dropdown-item btn-primary btn-outline margin" href="<?= site_url()?>admin/student_edit/<?= $array->s_id ?>">Edit</a><br><hr>
-                                        <a class="dropdown-item btn-primary btn-outline margin" href="<?= site_url()?>admin/student_delete/<?= $array->s_id ?>/<?= $array->u_id ?>">Delete</a><br><hr>
-                                        <a class="dropdown-item btn-primary btn-outline margin" href="<?= site_url()?>admin/new_courses/<?= $array->s_id ?>">Add Course</a><br><hr>
-                                        <a class="dropdown-item btn-primary btn-outline margin" href="<?= site_url()?>admin/student_details/<?= $array->s_id ?>">View Detail</a><br>
-                                    </div>
+                                <div class="btn-group">
+                                   <button  data-toggle="dropdown" class="btn btn-primary dropdown-toggle btn-outline col-md-12 margin">Action <span class="caret"></span></button>
+                                  <div class="dropdown-menu min-width-1 " style="background:#444D53; color:white; text-decoration: none;">
+                                      <a class="dropdown-item btn-primary btn-outline margin" href="<?= site_url()?>admin/student_edit/<?= $array->s_id ?>">Edit</a><br><hr>
+                                      <a class="dropdown-item btn-primary btn-outline margin" href="<?= site_url()?>admin/student_delete/<?= $array->s_id ?>/<?= $array->u_id ?>">Delete</a><br><hr>
+                                      <a class="dropdown-item btn-primary btn-outline margin" href="<?= site_url()?>admin/new_courses/<?= $array->s_id ?>">Add Course</a><br><hr>
+                                      <a class="dropdown-item btn-primary btn-outline margin" href="<?= site_url()?>admin/student_details/<?= $array->s_id ?>">View Detail</a><br><hr>               
+                                      <a class="dropdown-item btn-primary btn-outline margin" href="<?= site_url()?>admin/student_coursedetails/<?= $array->s_id ?>">Course Details</a><br>  
+
                                   </div>
+                                </div>
                             </td>
                            
                         </tr>

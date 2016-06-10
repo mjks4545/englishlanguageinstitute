@@ -20,12 +20,14 @@
                 <div class="panel-heading" >Application For Freezing Class</div>
                 <div class="panel-body">
 
-                        <form role="form" method="post" action="<?= site_url()?>applications/freeze_semester_after_post">
+                        <form role="form" data-toggle="validator" method="post" action="<?= site_url()?>applications/freeze_semester_after_post">
                             <input type="hidden" name="application_name" value="freeze up">
+                            
                            <div class="row">
-                                <div class="form-group col-md-3">
+                                <div class="form-group has-feedback col-md-3">
                                    
                                     <input type="text" name="app_to" style="color: white; background:#444D53;" class="form-control"                                        value="To" readonly placeholder="TO" required>
+                                    <span class="help-block with-errors" style="margin-left:10px; "></span>
                                 </div>
                                 <!-- for spacing using-->
                                 <div class="form-group col-md-9">
@@ -35,16 +37,18 @@
                             <div class="row">
                                <div class="form-group col-md-3">
                                 </div>
-                                <div class="form-group col-md-9">
+                                <div class="form-group has-feedback col-md-9">
                                     
                                     <input type="text" name="app_director"  class=" input form-control" value="The Director, The University of Spoken English & Computer Science Faqirabad, Peshawa" readonly placeholder="" style="background-color:#444D53;
 	color:#FFF;" required>
+                                    <span class="help-block with-errors" style="margin-left:10px; "></span>
                                 </div>
                             </div>
 							 <div class="row">
                               
-                                <div class="form-group col-md-3">
-                                   <input type="text" name="subject_line"   class="form-control input" value="Dear Sir," readonly placeholder="" style="background-color:#444D53; color:#FFF;" required>  
+                                <div class="form-group has-feedback col-md-3">
+                                   <input type="text" name="subject_line"   class="form-control input" value="Dear Sir," readonly placeholder="" style="background-color:#444D53; color:#FFF;" required> 
+                                   <span class="help-block with-errors" style="margin-left:10px; "></span>
                                 </div>
 								 <div class="form-group col-md-9">
                                     
@@ -52,8 +56,9 @@
                                 </div>
                             </div>
                            <div class="row">
-                             <div class="col-md-12">
+                             <div class=" form-group has-feedback col-md-12">
                                  <textarea class="form-control" name="freeze_semester_text" cols="20" style="color: white" placeholder="write application here" rows="15"></textarea>
+                                 <span class="help-block with-errors" style="margin-left:10px; "></span>
                              </div>
                           </div>
                                    <div class="row" style="margin-top:20px;">
@@ -61,28 +66,30 @@
                                     <!-- for spacing-->
                                     
                                </div>
-                                 <div class="form-group col-md-3">
+                                 <div class="form-group has-feedback col-md-3">
                                   
                                     <input type="text" name="yours_obediently" value="Yours Obediently"  class="form-control"                                       style="background:#444D53; color:white;" readonly required>
+                                    <span class="help-block with-errors" style="margin-left:10px; "></span>
                                 </div>
                            </div>
                             <div class="row">
                                     <div class="form-group col-md-9"><!--------FOR SPACING----></div>
-                                    <div class="form-group col-md-3">
+                                    <div class="form-group has-feedback col-md-3">
                                         <label>Name</label>
-                                        <input type="text" name="applicant_name"   class="form-control" style="background:#444D53; color:white;" placeholder="Enter Your Name" required>
+                                        <input type="text" name="applicant_name" maxlength="50" minlength="3"  class="form-control" style="background:#444D53; color:white;" placeholder="Enter Your Name" required>
+                                        <span class="help-block with-errors" style="margin-left:10px; "></span>
                                     </div>
                                 </div>
 				<div class="row">
                                     <div class="form-group col-md-9"><!--------FOR SPACING----></div>
-                                    <div class="form-group col-md-3">
+                                    <div class="form-group has-feedback col-md-3">
                                         <label>Father Name</label>
-                                        <input type="text" name="father_name"   class="form-control" style="background:#444D53; color:white;" placeholder="Enter Your Father Name" required>
+                                        <input type="text" name="father_name" maxlength="50" minlength="3"   class="form-control" style="background:#444D53; color:white;" placeholder="Enter Your Father Name" required>
                                     </div>
                                 </div>
 				<div class="row">
                                     <div class="form-group col-md-9"><!--------FOR SPACING----></div>
-                                    <div class="form-group col-md-3">
+                                    <div class="form-group has-feedback col-md-3">
                                         <label>Series</label>
                                         <select  name="series"  id="" class="form-control" style="background:#444D53; color:white;">
                                             <option value="#">Select Series</option>
@@ -90,6 +97,7 @@
                                                 <option value="<?= $series->course_c_s_id;?>"><?= $series->subject_title;?></option>
                                             <?php } ?>
                                         </select>
+                                        <span class="help-block with-errors" style="margin-left:10px; "></span>
                                     </div>
                                 </div>
                               

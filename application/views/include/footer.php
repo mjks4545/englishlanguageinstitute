@@ -49,7 +49,7 @@
             scaleLineColor: "rgba(255,255,255,.05)",
             angleLineColor : "rgba(255,255,255,.2)"
         });
-
+        $('#table-hover').removeClass('table-hover');
     };
 </script>
 </body>

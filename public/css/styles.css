@@ -1152,9 +1152,6 @@ tr.blue {background-color: #5bc0de;}
 tr.orange {background-color: #ffb53e;}
 tr.red {background-color: #f9243f;}
 
-tr:hover {
-	color: #444;
-}
 
 .margin-login-top{
     margin-top: 10%;

@@ -25,7 +25,7 @@
                         
                     </div>
                 </div>
-                <a href="<?= site_url()?>accountsection/expanses_add">
+                <a href="<?= site_url()?>expenses/add_expense">
                     <div class="panel-footer">
                         <span class="pull-left text-info">Click Here For Details</span>
                         <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -47,7 +47,7 @@
                         
                     </div>
                 </div>
-                <a href="<?= site_url()?>accountsection/expanses_view">
+                <a href="<?= site_url()?>expenses/view_expenses">
                     <div class="panel-footer">
                         <span class="pull-left text-info">Click Here For Details</span>
                         <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>

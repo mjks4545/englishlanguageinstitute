@@ -11,7 +11,6 @@
             <h1 class="page-header">Add Test Result</h1>
         </div>
     </div><!--/.row-->
-    
     <div class="row">
         <div class="col-lg-12">
             <div class="panel panel-default">
@@ -21,18 +20,19 @@
                 </div>
                 <div class="panel-body">
 
-                    <form role="form" method="post" action="<?= site_url()?>monthlytest/create_monthlytest_result_after_post">
+                    <form role="form" method="post" data-toggle="validator" action="<?= site_url()?>monthlytest/create_monthlytest_result_after_post/<?= $result[0]->course_c_s_id; ?>">
                         <div class="row">
                           
-                            <div class="form-group col-md-6">
+                            <div class="form-group has-feedback col-md-6">
                                 <label>Test Name</label>
                                 <select name="test_name" class="form-control" style="background:#444D53; color:white;" >
                                     <option value="#">Select Test</option>
                                     <option value="Weekly Progress Test">Weekly Progress Test</option>
                                     <option value="Monthly Grand Test">Monthly Grand Test</option>
                                 </select>
+                                <span class="help-block with-errors" style="margin-left:10px; "></span>
                             </div>
-                            <div class="form-group col-md-6">
+                            <div class="form-group has-feedback col-md-6">
                                 <label>Test Month</label>
                                 <select name="test_month" class="form-control" style="background:#444D53; color:white;" >
                                     <option value="#">Select Month</option>
@@ -49,21 +49,24 @@
                                     <option value="November">November</option>
                                     <option value="December">December</option>
                                 </select>
+                                <span class="help-block with-errors" style="margin-left:10px; "></span>
                             </div>
                         </div>
                         <div class="row">
-                             <div class="form-group col-md-6">
+                             <div class="form-group has-feedback col-md-6">
                                 <label>Test Date</label>
                                 <input type="date" name="test_date" style="color: white" class="form-control" placeholder="Test Date" required>
+                                <span class="help-block with-errors" style="margin-left:10px; "></span>
                             </div>
-                             <div class="form-group col-md-6">
+                             <div class="form-group has-feedback col-md-6">
                                 <label>Total Marks</label>
                                 <input type="text" name="total_marks" id="datepicker" style="color: white" class="form-control" placeholder="Test Date" required>
+                                <span class="help-block with-errors" style="margin-left:10px; "></span>
                             </div>
-                            
+
                         </div>
                         <div class="row">
-                            <div class="form-group col-md-12">
+                            <div class="form-group has-feedback col-md-12">
                                 <label>Subject</label>
                                 <select  name="test_subject" class="form-control" style="background:#444D53; color:white;">
 				    <option value="#">Select Subject</option>
@@ -71,16 +74,17 @@
 					<option value="<?= $subject->course_c_s_id;?>"><?= $subject->subject_title;?></option>
 				    <?php } ?>
 				</select>
+                                <span class="help-block with-errors" style="margin-left:10px; "></span>
                             </div>
                         </div>
-                        
+
                         <div class="row">
                             <div class=" col-md-12">
                                 <button style="position: relative;top: 10px;" type="submit" class="btn btn-primary col-sm-2">Submit</button>
                             </div>
 
                          </div>
-                  
+
                     </form>
 
         </div><!-- /.col-->

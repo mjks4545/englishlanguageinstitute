@@ -22,12 +22,10 @@
                     <table data-toggle="table" data-show-refresh="true" data-search="true" data-select-item-name="toolbar1" data-pagination="true" data-sort-name="name" data-sort-order="desc">
                         <thead>
                         <tr>
-                            <th  data-sortable="true"><b>Reg No</b></th>
+                            <th  data-sortable="true"><b>Visitor No</b></th>
                             <th  data-sortable="true"><b>Name</b></th>
                             <th  data-sortable="true"><b>Father Name</b></th>
-                            <th  data-sortable="true"><b>Nic</b></th>
                             <th  data-sortable="true"><b>Profession</b></th>
-                            <th  data-sortable="true"><b>Email</b></th>
                             <th  data-sortable="true"><b>Contact</b></th>
                             <th  data-sortable="true"><b>Status</b></th>
                             <th  class="text-center"><b>Actions</b></th>
@@ -41,16 +39,19 @@
                                 <td><?=$array->v_id?></td>
                                 <td><?=$array->name?></td>
                                 <td><?=$array->f_name?></td>
-                                <td><?=$array->nic?></td>
                                 <td><?=$array->profession?></td>
-                                <td><?=$array->email?></td>
                                 <td><?=$array->contact?></td>
                                 <td><?=$array->status?></td>
                                 <td>
-                                    <a href="<?= site_url()?>admin/visitor_details/<?= $array->v_id ?>" type="button" class="btn btn-primary glyphicon glyphicon-edit btn-outline margin">View Details</a>
-                                    <a href="<?= site_url()?>admin/visitor_edit/<?= $array->v_id ?>" type="button" class="btn btn-primary glyphicon glyphicon-edit btn-outline margin"> Edit</a>
-                                    <a href="<?= site_url()?>admin/visitor_delete/<?= $array->v_id ?>/<?= $array->u_id ?>" type="button" class="btn btn-primary glyphicon glyphicon-trash btn-outline margin"> Delete</a>
-
+                                    <div class="btn-group">
+                                    <button  data-toggle="dropdown" class="btn btn-primary dropdown-toggle btn-outline col-md-12 margin">Action <span class="caret"></span></button>
+                                    <div class="dropdown-menu min-width-2 " style="background:#444D53; color:white; text-decoration: none;">
+                                      <a class="dropdown-item btn-primary btn-outline margin" href="<?= site_url()?>admin/visitor_details/<?= $array->v_id ?>">View</a><br><hr>
+                                      <a class="dropdown-item btn-primary btn-outline margin" href="<?= site_url()?>admin/visitor_edit/<?= $array->v_id ?>">Edit</a><br><hr>
+                                      <a class="dropdown-item btn-primary btn-outline margin" href="<?= site_url()?>admin/visitor_delete/<?= $array->v_id ?>/<?= $array->u_id ?>">Delete</a><br>
+                                     
+                                    </div>
+                                    </div>
                                 </td>
                                
                             </tr>

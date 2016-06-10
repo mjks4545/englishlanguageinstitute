@@ -17,51 +17,59 @@
             <div class="panel-heading">Add Form</div>
             <div class="panel-body">
 
-                <form role="form" method="post" action="<?= site_url()?>admin/create_student_after_post">
+                <form role="form" data-toggle="validator" method="post" action="<?= site_url()?>admin/create_student_after_post">
                     <div class="row">
-                        <div class="form-group col-md-6">
+                        <div class="form-group has-feedback col-md-6">
                             <label>Student Name</label>
-                            <input type="text" name="name" style="color: white" class="form-control" placeholder="Name" required>
+                            <input type="text" maxlength="50" minlength="3" name="name" style="color: white" class="form-control" placeholder="Name" required>
+                             <span class="help-block with-errors" style="margin-left:10px; "></span>
                         </div>
-                        <div class="form-group col-md-6">
+                        <div class="form-group has-feedback col-md-6">
                             <label>Father Name</label>
-                            <input type="text" name="f_name" style="color: white" class="form-control" placeholder="Father Name" required>
+                            <input type="text" name="f_name" maxlength="50" minlength="3" style="color: white" class="form-control" placeholder="Father Name" required>
+                             <span class="help-block with-errors" style="margin-left:10px; "></span>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="form-group col-md-6">
+                        <div class="form-group has-feedback col-md-6">
                             <label>Reg Number</label>
                             <input type="text" name="reg_number" style="color: white" class="form-control" placeholder="Registration Number" required>
+                             <span class="help-block with-errors" style="margin-left:10px; "></span>
                         </div>
-                        <div class="form-group col-md-6">
+                        <div class="form-group has-feedback col-md-6">
                             <label>Previous Degree</label>
                             <input type="text" name="pre_degree" style="color: white" class="form-control" placeholder="Previous Degree" required>
+                             <span class="help-block with-errors" style="margin-left:10px; "></span>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="form-group col-md-6">
+                        <div class="form-group has-feedback col-md-6">
                             <label>Nationality</label>
                             <input type="text" name="nationality" style="color: white" class="form-control" placeholder="Nationality" required>
+                             <span class="help-block with-errors" style="margin-left:10px; "></span>
                         </div>
-                        <div class="form-group col-md-6">
+                        <div class="form-group has-feedback col-md-6">
                             <label>Age</label>
                             <input type="text" name="age" style="color: white" class="form-control" placeholder="Age" required>
+                             <span class="help-block with-errors" style="margin-left:10px; "></span>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="form-group col-md-6">
+                        <div class="form-group has-feedback col-md-6">
                             <label>Email</label>
                             <input type="email" name="email" style="color: white" class="form-control" placeholder="Email" required>
+                             <span class="help-block with-errors" style="margin-left:10px; "></span>
                         </div>
-                        <div class="form-group col-md-6">
+                        <div class="form-group has-feedback col-md-6">
                             <label>Guardian Number</label>
-                            <input type="text" name="g_number" style="color: white" class="form-control" placeholder="Guardian Number" required>
+                            <input type="text" maxlength="15" minlength="10" pattern="/^\d+$/" name="g_number" style="color: white" class="form-control" placeholder="Guardian Number" required>
+                             <span class="help-block with-errors" style="margin-left:10px; "></span>
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group col-md-6">
                             <label>Contact</label>
-                            <input type="text" name="number" style="color: white" class="form-control" placeholder="Contact" required>
+                            <input type="text" name="number" maxlength="15" minlength="10" pattern="/^\d+$/" style="color: white" class="form-control" placeholder="Contact" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label>Course Details</label>

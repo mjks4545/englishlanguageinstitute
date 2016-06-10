@@ -23,31 +23,36 @@ die();*/
                 <div class="panel-heading">Edit Form</div>
                 <div class="panel-body">
 
-                    <form role="form" method="post" action="<?= site_url()?>admin/update_visitor_after_post/<?= $result->v_id; ?>/<?= $result->u_id; ?>">
+                    <form role="form" data-toggle="validator" method="post" action="<?= site_url()?>admin/update_visitor_after_post/<?= $result->v_id; ?>/<?= $result->u_id; ?>">
                         <div class="row">
-                            <div class="form-group col-md-6">
+                            <div class="form-group has-feedback col-md-6">
                                 <label>Name</label>
-                                <input type="text" name="name" style="color: white" class="form-control" placeholder="Name" value="<?= $result->name?>" required>
+                                <input type="text" name="name" style="color: white" class="form-control" max-length="50" min-length="3" placeholder="Name" value="<?= $result->name?>" required>
+                                 <span class="help-block with-errors" style="margin-left:10px; "></span>
                             </div>
-                            <div class="form-group col-md-6">
+                            <div class="form-group has-feedback col-md-6">
                                 <label>Father Name</label>
                                 <input type="text" name="f_name" style="color: white" class="form-control" placeholder="Father Name" value="<?= $result->f_name?>" required>
+                                 <span class="help-block with-errors" style="margin-left:10px; "></span>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="form-group col-md-6">
+                            <div class="form-group has-feedback col-md-6">
                                 <label>Age</label>
                                 <input type="text" name="age" style="color: white" class="form-control" placeholder="Age" value="<?= $result->age?>" required>
+                                 <span class="help-block with-errors" style="margin-left:10px; "></span>
                             </div>
-                            <div class="form-group col-md-6">
+                            <div class="form-group has-feedback col-md-6">
                                 <label>Qualification</label>
                                 <input type="text" name="qualification" style="color: white" class="form-control" placeholder="Qualification" value="<?= $result->qualification?>" required>
+                                 <span class="help-block with-errors" style="margin-left:10px; "></span>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="form-group col-md-6">
+                            <div class="form-group has-feedback col-md-6">
                                 <label>Nationality</label>
                                 <input type="text" name="nationality" style="color: white" class="form-control" placeholder="Nationality" value="<?= $result->nationality?>" required>
+                                 <span class="help-block with-errors" style="margin-left:10px; "></span>
                             </div>
                             <div class="form-group col-md-6">
                                 <label>Profession</label>
@@ -55,19 +60,21 @@ die();*/
                             </div>
                         </div>
                         <div class="row">
-                            <div class="form-group col-md-6">
+                            <div class="form-group has-feedback col-md-6">
                                 <label>Email</label>
                                 <input type="email" name="email" style="color: white" class="form-control" placeholder="Email" value="<?= $result->email?>" required>
+                                 <span class="help-block with-errors" style="margin-left:10px; "></span>
                             </div>
-                            <div class="form-group col-md-6">
+                            <div class="form-group has-feedback col-md-6">
                                 <label>Guardian Number</label>
-                                <input type="text" name="g_number" style="color: white" class="form-control" placeholder="Guardian Number" value="<?= $result->guardian_number?>" required>
+                                <input type="text"  name="g_number" style="color: white" class="form-control" placeholder="Guardian Number" value="<?= $result->guardian_number?>" required>
+                                 <span class="help-block with-errors" style="margin-left:10px; "></span>
                             </div>
                         </div>
                         <div class="row">
                             <div class="form-group col-md-6">
                                 <label>Contact</label>
-                                <input type="text" name="number" style="color: white" class="form-control" placeholder="Contact" value="<?= $result->contact?>" required>
+                                <input type="text" name="number" pattern="/^\d+$/" style="color: white" class="form-control" placeholder="Contact" value="<?= $result->contact?>" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label>Desire Course</label>

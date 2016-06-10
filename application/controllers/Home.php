@@ -5,12 +5,21 @@ class Home extends CI_Controller {
 
     // -------------------------------------------------------------------------
     
+    function __construct()
+    {
+	parent::__construct();
+	$this->load->model('insert_model');
+    }
+    
+    // -------------------------------------------------------------------------
+    
     public function index()
     {
-        $this->load->view('include/header');
-        //$this->load->view('include/sidebar');
-        $this->load->view('home/home_view');
-        $this->load->view('include/footer');
+	$query = $this->db->get('login');
+        $result['data'] = $query->result();
+        $this->load->view( 'include/header' );
+        $this->load->view( 'home/home_view', $result );
+        $this->load->view( 'include/footer' );
     }
     
     // -------------------------------------------------------------------------
@@ -39,12 +48,18 @@ class Home extends CI_Controller {
 		   'name'      => $name,
 		   'email'     => $email,
 		   'logged_in' => TRUE,
+            'login'=>'1',
 		   'role'      => $role
 	       );
 
-	$this->session->set_userdata($userdata);
-	redirect( site_url() . 'admin' );
+	$this->session->set_userdata('user_data',$userdata);
+            redirect( site_url() . 'admin' );
 	    
+    }
+    function check(){
+        if($_SESSION['role']==''){
+            redirect('home/');
+        }
     }
     
     // -------------------------------------------------------------------------
@@ -57,6 +72,16 @@ class Home extends CI_Controller {
     
     // -------------------------------------------------------------------------
     
+    function formData()
+    {
+	$email        = $this->input->post("email");
+	$password     = $this->input->post("password");
+	$role	      = $this->input->post("role");
+	$chk_account  = $this->insert_model->chk_account($email,$password,$role);
+    }
+    
+    // -------------------------------------------------------------------------
+	
     public function is_login()
     {
 	if( isset($_SESSION['email']) ){

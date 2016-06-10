@@ -23,7 +23,7 @@
                         <em class="glyphicon glyphicon-plus glyphicon-l"></em>
                     </div>
                     <div class="col-sm-9 col-lg-6 widget-right">
-                        <div class="large">Payments</div>
+                        <div class="large">Recipt</div>
                         
                     </div>
                 </div>
@@ -45,7 +45,7 @@
                         <em class="glyphicon glyphicon-credit-card glyphicon-l"></em>
                     </div>
                     <div class="col-sm-9 col-lg-6 widget-right">
-                        <div class="large">Expenses</div>
+                        <div class="large">Payments</div>
                         
                     </div>
                 </div>

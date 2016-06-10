@@ -38,6 +38,10 @@ class AccountSection extends CI_Controller {
         $this->db->where('fkstudent_id', $result['result']->s_id);
         $query = $this->db->get('payment');
         $result['payment'] = $query->result();
+//        
+//        echo '<pre>';
+//        print_r($result);
+//        die();
         
         $this->load->view('accountsection/payment/payment_invoice',$result);
 
@@ -62,6 +66,10 @@ class AccountSection extends CI_Controller {
         $this->db->where('fkstudent_id', $result['result']->s_id);
         $query = $this->db->get('payment');
         $result['payment'] = $query->result();
+        
+//        echo '<pre>';
+//        print_r($result);
+//        die();
              
         $this->load->view('include/header');
         $this->load->view('include/sidebar');
@@ -119,7 +127,8 @@ class AccountSection extends CI_Controller {
     //--------------------------------------------------------------------------
     
     public function remaining_balance($id = null){
-         
+       $name = $this->uri->segment(4);
+       $already_remain  = $this->input->post('already_remain');
        $pay_remaining  = $this->input->post('pay_remaining');
        $fee_type       = $this->input->post('fee_type');
        $reason         = $this->input->post('reason');
@@ -132,14 +141,25 @@ class AccountSection extends CI_Controller {
                 'reason'                 => $fee_type,
                 'tobepaid_or_paid_fee'   => $fee_to_be_paid,
                 'description'            => $reason,
-                'created_at'             => $updated_date,
+                'payment_created_at'             => $updated_date,
             ]
         );
-        redirect(site_url() . 'accountsection/studentpayment_details/' . $id );
+        $this->sendsms->
+        redirect(site_url() . 'accountsection/view_transection/' . $id.'/'.$name.'/'.$already_remain.'/'.$pay_remaining.'/'.$reason );
     }
     
     //--------------------------------------------------------------------------
-    
+  function view_transection(){
+      $data['id'] = $this->uri->segment(3);
+      $data['name'] = $this->uri->segment(4);
+      $data['total_remain'] = $this->uri->segment(5);
+      $data['paid'] = $this->uri->segment(6);
+      $data['reason'] = $this->uri->segment(7);
+      $this->load->view('accountsection/view_transection',$data);
+
+  }
+    //--------------------------------------------------------------------------
+
     public function expanses_add(){
 
         $this->load->view('include/header');
@@ -155,6 +175,7 @@ class AccountSection extends CI_Controller {
         
         $this->db->select('*');
         $this->db->from('expenses');
+        $this->db->order_by("expense_id", "desc");
         $query             = $this->db->get();
         $result['result']  = $query->result();
         
@@ -163,40 +184,40 @@ class AccountSection extends CI_Controller {
         $result['payment'] = $query->result();
         
         /* Find Daily Income/Expense */
-        $this->db->where('`created_at`',mdate("%y-%m-%d"));
+        $this->db->where('`payment_created_at`',mdate("%y-%m-%d"));
         $query = $this->db->get('payment');
         $result['payment_day'] = $query->result();
         
-        $this->db->where('`created_at`',mdate("%y-%m-%d"));
+        $this->db->where('`expense_created_at`',mdate("%y-%m-%d"));
         $query = $this->db->get('expenses');
         $result['expenses_day'] = $query->result();
         
         /* Find Weekly Income/Expense */     
         $this->db->where('tobepaid_or_paid_fee','1');  
-        $this->db->where('created_at BETWEEN DATE_SUB(NOW(), INTERVAL 7 DAY) AND NOW()');
+        $this->db->where('payment_created_at BETWEEN DATE_SUB(NOW(), INTERVAL 7 DAY) AND NOW()');
         $query = $this->db->get('payment');
         $result['payment_week'] = $query->result();
         
-        $this->db->where('created_at BETWEEN DATE_SUB(NOW(), INTERVAL 7 DAY) AND NOW()');
+        $this->db->where('expense_created_at BETWEEN DATE_SUB(NOW(), INTERVAL 7 DAY) AND NOW()');
         $query = $this->db->get('expenses');
         $result['expenses_week'] = $query->result();
         
         /* Find Monthly Income/Expense */
-        $this->db->where('`created_at` >= DATE_SUB(CURDATE(), INTERVAL 1 MONTH)');
+        $this->db->where('`payment_created_at` >= DATE_SUB(CURDATE(), INTERVAL 1 MONTH)');
         $query = $this->db->get('payment');
         $result['payment_month'] = $query->result();
         
-        $this->db->where('`created_at` >= DATE_SUB(CURDATE(), INTERVAL 1 MONTH)');
+        $this->db->where('`expense_created_at` >= DATE_SUB(CURDATE(), INTERVAL 1 MONTH)');
         $query = $this->db->get('expenses');
         $result['expenses_month'] = $query->result();
         
 
         /* Find Yearly Income/Expense */
-        $this->db->where('`created_at` >= DATE_SUB(CURDATE(), INTERVAL 1 YEAR)');
+        $this->db->where('`payment_created_at` >= DATE_SUB(CURDATE(), INTERVAL 1 YEAR)');
         $query = $this->db->get('payment');
         $result['payment_year'] = $query->result();
         
-        $this->db->where('`created_at` >= DATE_SUB(CURDATE(), INTERVAL 1 YEAR)');
+        $this->db->where('`expense_created_at` >= DATE_SUB(CURDATE(), INTERVAL 1 YEAR)');
         $query = $this->db->get('expenses');
         $result['expenses_year'] = $query->result();
 
@@ -236,7 +257,7 @@ class AccountSection extends CI_Controller {
                         'item_name'   => $item_name,    
                         'v_number'    => $v_number,    
                         'item_amount' => $item_amount,    
-                        'created_at'  => $created_date,    
+                        'expense_created_at'  => $created_date,    
                     ]);
             }
 	}
@@ -255,7 +276,7 @@ class AccountSection extends CI_Controller {
                     [
                         'item_name'   => $item_name,        
                         'item_amount' => $item_amount,    
-                        'created_at'  => $created_date,    
+                        'expense_created_at'  => $created_date,    
                     ]);
             }
 	}
