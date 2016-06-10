@@ -76,10 +76,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'uktradez_soft',
-	'password' => '_XghBW=ToT8f',
-	'database' => 'uktradez_soft',
+	'hostname' => 'mysql://$OPENSHIFT_MYSQL_DB_HOST:$OPENSHIFT_MYSQL_DB_PORT/',
+	'username' => 'adminjgZpPWA',
+	'password' => 'ZtFwJSdMqLew',
+	'database' => 'usecs',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
